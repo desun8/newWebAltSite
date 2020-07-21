@@ -26,20 +26,28 @@ export default class Collapsible {
   }
 
   handleClick() {
+    this.elm.style.willChange = 'max-height, margin-bottom';
+
     if (this.isShow) {
       this.isShow = false;
       this.btn.dataset.hidden = 'true';
     } else {
       this.isShow = true;
       this.btn.dataset.hidden = 'false';
+
     }
 
-    console.log(this.elmHeight);
-
-    gsap.to(this.elm, {
-      maxHeight: this.isShow ? this.elmHeight : 0,
-      duration: 0.3,
-    });
+    setTimeout(
+      () =>
+        gsap.to(this.elm, {
+          maxHeight: this.isShow ? this.elmHeight : 0,
+          duration: 0.3,
+          onComplete: () => {
+            this.elm.style.willChange = null;
+          }
+        }),
+      100
+    );
   }
 
   handleResize() {

@@ -54,7 +54,6 @@
 
 <div class="page-menu">
   <div class="page-menu__wrap">
-    <!--    <div class="scr">-->
     <div class="page-menu__header">
       <svg class="page-menu__logo" width="38" height="21">
         <use xlink:href="#logo"></use>
@@ -64,7 +63,7 @@
 
     <nav class="page-nav">
       <ul class="page-nav__list">
-        <li class="page-nav__elm  page-nav__elm--selected"><a href="#">Главная
+        <li class="page-nav__elm  page-nav__elm--selected"><a class="page-nav__link" href="#">Главная
           <i class="icon-arrow">
             <svg width="12"
                  height="12">
@@ -173,15 +172,25 @@
       </div>
     </div>
 
-    <!--    </div>-->
   </div>
 </div>
 
 <main class="page-home">
   <section class="hero">
-    <div class="hero__canvas"></div>
+    <div class="hero__wrap-center">
+      <div class="hero__canvas"></div>
+      <div class="hero__taglines">
+        <div class="hero-taglines">
+          <div class="hero-taglines__item"><span>>_ заряд</span></div>
+          <div class="hero-taglines__item"><span>>_ солнца</span></div>
+          <div class="hero-taglines__item"><span>>_ моего</span></div>
+        </div>
+      </div>
+    </div>
+
     <h1 class="hero__title" aria-label="WEB ALTERNATIVE - Студия веб разработки">WEB ALTERNATIVE<br><span>Студия веб__разработки</span>
     </h1>
+
     <div class="hero__news">
       <div class="hero-news">
         <div class="hero-news__item">
@@ -199,13 +208,6 @@
         </div>
       </div>
 
-    </div>
-    <div class="hero__taglines">
-      <div class="hero-taglines">
-        <div class="hero-taglines__item"><span>>_ заряд</span></div>
-        <div class="hero-taglines__item"><span>>_ солнца</span></div>
-        <div class="hero-taglines__item"><span>>_ моего</span></div>
-      </div>
     </div>
 
     <div class="hero__scroll">

@@ -25,7 +25,6 @@ export default class Menu {
       const btn = list.previousElementSibling;
       const collapsible = new Collapsible(list, btn);
 
-      // TODO: доделать, если раскрытый список должен всегда иметь opacity: 1
       const parent = list.parentElement;
       btn.addEventListener('click', () => {
         if (collapsible.isShow) {
@@ -50,7 +49,15 @@ export default class Menu {
       {
         x: shouldShow ? this.elmWidth : 0,
         duration,
+        // TODO: возможно улучшит производитлеьность?
+        // onStart: () => {
+        //   this.pageHeader.style.willChange = 'transform';
+        //   this.pageMain.style.willChange = 'transform';
+        // },
         onComplete: () => {
+          // this.pageHeader.style.willChange = null;
+          // this.pageMain.style.willChange = null;
+
           if (!shouldShow) {
             this.pageHeader.style.transform = null;
             this.elm.style.transform = null;
@@ -59,8 +66,43 @@ export default class Menu {
       },
       0);
     tl.to(this.btnOpen, {
-      alpha: shouldShow ? 0 : 1, duration
+      alpha: shouldShow ? 0 : 1, duration,
     }, shouldShow ? 0 : 0.5);
+
+    // TODO: возможно улучшит производитлеьность?
+    // this.pageHeader.style.willChange = 'transform';
+    // this.pageMain.style.willChange = 'transform';
+    //
+    // setTimeout(
+    //   () => {
+    //     tl.to(this.elm, {
+    //       x: shouldShow ? 0 : -this.elmWidth,
+    //       duration,
+    //     }, 0);
+    //     tl.to(
+    //       [this.pageHeader, this.pageMain],
+    //       {
+    //         x: shouldShow ? this.elmWidth : 0,
+    //         duration,
+    //         onComplete: () => {
+    //           if (!shouldShow) {
+    //             this.pageHeader.style.transform = null;
+    //             this.elm.style.transform = null;
+    //           }
+    //         }
+    //       },
+    //       0);
+    //     tl.to(this.btnOpen, {
+    //       alpha: shouldShow ? 0 : 1, duration,
+    //       onComplete: () => {
+    //         this.pageHeader.style.willChange = null;
+    //         this.pageMain.style.willChange = null;
+    //       }
+    //     }, shouldShow ? 0 : 0.5);
+    //   },
+    //   300
+    // );
+
   }
 
   handleResize() {
