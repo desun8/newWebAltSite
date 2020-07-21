@@ -1,0 +1,14 @@
+/* mobile first */
+//@custom-media --mobile-sm (width >= 23.4375em);
+//@custom-media --tablet (width >= 48em);
+//@custom-media --desktop (width >= 68.75em);
+//@custom-media --desktop-md (width >= 90em);
+//@custom-media --desktop-lg (width >= 100em);
+//
+//@custom-media --desktop-height-sm (height < 43.75em) and (--desktop);
+//@custom-media --desktop-height-md (height <= 53em) and (--desktop);
+//
+//@custom-media --only-mobile (width < 68.75em);
+
+/* desktop first */
+@custom-media --tablet (width <= 64em);

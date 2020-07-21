@@ -1,0 +1,14 @@
+@use "../_config";
+
+:root {
+  --c-black: #131313;
+  --c-black-second: #262626;
+  --c-grey: rgba(#dfddff, 0.2);
+  --c-red: #ff5000;
+  
+  --trans-dur-fast: 0.3s;
+  --trans-dur-faster: 0.2s;
+  
+  //@media (--tablet) {
+  //}
+}

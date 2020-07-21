@@ -1,0 +1,33 @@
+@use "../functions" as fn;
+
+$adaptive-mod: 1.5;
+
+// px to vw/em
+@mixin font-size($font-size, $line-height: $font-size) {
+  font-size: fn.vw($font-size);
+  line-height: fn.em($line-height, $font-size);
+  
+  @supports (width: clamp(10px, 5vw, 100vw)) {
+    /* An enhancement for supporting browsers */
+    font-size: clamp(#{fn.rem($font-size - 4)}, calc(#{fn.vw($font-size)} + 0rem), #{fn.vw($font-size)});
+  }
+}
+
+@mixin font-size-rem($font-size, $line-height: $font-size) {
+  font-size: fn.rem($font-size);
+  line-height: fn.em($line-height, $font-size);
+}
+
+@mixin outline-text($color: inherit, $width: 1px) {
+  -webkit-text-stroke-width: $width;
+  -webkit-text-stroke-color: $color;
+  -webkit-text-fill-color: rgba(#fff, 0);
+}
+
+@mixin hide-text() {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}

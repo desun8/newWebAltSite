@@ -1,0 +1,66 @@
+@use "../_config";
+
+:root {
+  --headerSize: calc(#{config.vw(46)} + #{config.rem(config.$fz-text-sm)});
+}
+
+.page-header {
+  @include config.grid-base(12);
+  @include config.font-size-rem(config.$fz-text-sm);
+  
+  padding-top: config.vw(46);
+  
+  //transform: translate3d(0px, 0px, 0);
+  
+  &__wrap {
+    @include config.grid(12);
+    grid-column: 1/13;
+    
+    align-items: center;
+    justify-items: baseline;
+  }
+}
+
+.page-header__feedback-btn {
+  grid-column: 11/13;
+  justify-self: end;
+  
+  text-transform: lowercase;
+  letter-spacing: 0.015em;
+}
+
+.menu-btn {
+  --color: inherit;
+  --color-hover: var(--c-red);
+  
+  display: flex;
+  align-items: center;
+  color: var(--color);
+  transition: var(--trans-dur-fast) ease-out;
+  transition-property: transform, color;
+  z-index: 10;
+  
+  &:hover {
+    color: var(--color-hover);
+  }
+  
+  body.theme-dark & {
+    --color: #fff;
+  }
+  
+  body.theme-orange & {
+    --color-hover: #fff;
+  }
+  
+  &--fixed {
+    position: fixed;
+    transform: translate3d(#{config.vw(-84)}, 20px, 0);
+  }
+  
+  &__icon {
+    width: config.em(16, 14);
+    height: config.em(13, 14);
+    margin-right: config.em(10, 14);
+    fill: currentColor;
+  }
+}

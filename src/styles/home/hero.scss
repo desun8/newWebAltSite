@@ -1,0 +1,117 @@
+@use "../_config";
+
+.hero {
+  @include config.grid-base(12);
+  grid-template-rows: 100vh;
+  grid-auto-rows: min-content;
+  
+  position: relative;
+  max-height: calc(100vh - var(--headerSize, 0));
+  min-height: calc(100vh - var(--headerSize, 0)) !important;
+}
+
+.hero__title {
+  @include config.font-size(64, 46);
+  position: relative;
+  z-index: 2;
+  padding-bottom: config.vw(178);
+  grid-column: 3/6;
+  align-self: end;
+  
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  
+  span {
+    @include config.font-size(18);
+    display: inline-block;
+    transform: translateY(-1.2em);
+  }
+  
+}
+
+.hero__canvas {
+  @include config.bg-img("../heroLogo.png");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: config.vw(730);
+  height: config.vw(730);
+}
+
+.hero__news {
+  @include config.font-size(20, 24);
+  
+  grid-column: 10/13;
+  align-self: center;
+  padding-top: config.vw(40);
+  padding-left: config.vw(28);
+  font-weight: 300;
+}
+
+.hero__taglines {
+  grid-column: 8/10;
+  grid-row: 1/2;
+  align-self: end;
+}
+
+.hero-news {
+  position: relative;
+  width: 100%;
+  //height: 50%;
+  //border: 1px solid blue;
+}
+
+.hero-news__item {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  //opacity: 0;
+  
+  &--active {
+    opacity: 1;
+  }
+}
+
+.hero-taglines {
+  @include config.font-size(18);
+  
+  position: relative;
+  width: 100%;
+  padding-bottom: config.vw(128);
+  
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.hero-taglines__item {
+  position: absolute;
+  //top: 50%;
+  top: -10%;
+  left: 0;
+  opacity: 0;
+}
+
+
+.hero__scroll {
+  @include config.font-size(14);
+  
+  position: absolute;
+  left: config.vw(100);
+  bottom: config.vw(56);
+  
+  max-width: config.em(58, 14);
+  overflow: hidden;
+  
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: underline;
+  
+  .ticker__item {
+    margin-right: config.em(10, 14);
+  }
+}
+
+

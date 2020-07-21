@@ -1,0 +1,72 @@
+@use "../_config" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Suisse Int'l", sans-serif;
+  overflow-x: hidden;
+  //background-color: #333;
+  //transition: background-color var(--trans-dur-fast) ease-out;
+  //
+  //&.theme-dark {
+  //  background-color: var(--c-black-second);
+  //}
+  //
+  //&.theme-orange {
+  //  background-color: var(--c-red);
+  //}
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+.list-unstyled {
+  margin: 0;
+  list-style: none;
+}
+
+.number-count {
+  position: relative;
+  
+  &__static {
+    opacity: 0;
+  }
+  
+  &__dynamic {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  
+  &__wrap {
+    display: flex;
+  }
+  
+  //&__item {}
+}
+
+

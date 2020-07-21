@@ -1,0 +1,21 @@
+@use "../_config" as *;
+
+.page-home {
+  --textColor: var(--c-black-second);
+  color: var(--textColor);
+  
+  &--dark {
+    --bodyBg: var(--c-black-second);
+    --textColor: #fff;
+  }
+  
+  &--orange {
+    --bodyBg: var(--c-red);
+    --linkHover: #fff;
+  }
+  
+  section {
+    min-height: 100vh;
+    margin-bottom: vh(150);
+  }
+}
