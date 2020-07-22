@@ -28,17 +28,6 @@ export default class TypewriteAnimation {
   }
 
   replaceNode(nodes) {
-    // nodes.forEach(node => {
-    //   if (node.nodeName !== '#text') {
-    //     // для ссылок в тексте
-    //     node?.childNodes[0].nodeName === '#text'
-    //     &&
-    //     node.childNodes[0].replaceWith(...this.insertChars(node.innerText));
-    //   } else {
-    //     node.replaceWith(...this.insertChars(node.nodeValue));
-    //   }
-    // });
-
     for (const node of nodes) {
       if (node.nodeName !== '#text') {
         // для ссылок в тексте

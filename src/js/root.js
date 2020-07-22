@@ -3,6 +3,8 @@ import Collapsible from './collapsible';
 import Menu from './menu';
 import TextRunner from './textRunner';
 
+import '../styles/root.scss';
+
 // smoothScroll();
 
 // меню

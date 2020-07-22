@@ -5,6 +5,8 @@ import ChangeTheme from './changeTheme';
 import Counter from './counter';
 import TextRunner from './textRunner';
 
+import '../styles/home.scss';
+
 let app = new AwardsList();
 
 
