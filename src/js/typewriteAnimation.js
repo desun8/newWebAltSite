@@ -8,6 +8,8 @@ export default class TypewriteAnimation {
 
     this.isComplete = false;
 
+    this.tween = null;
+
     this.init();
   }
 
@@ -53,7 +55,7 @@ export default class TypewriteAnimation {
   }
 
   animation(chars) {
-    gsap.from(chars, {
+    return gsap.from(chars, {
       alpha: 0,
       duration: 0.01,
       delay: (i) => i * 0.05,
@@ -67,15 +69,19 @@ export default class TypewriteAnimation {
   }
 
   play() {
-    this.animation(this.chars);
+    this.tween.restart();
+  }
+
+  pause() {
+    this.tween.pause();
   }
 
   init() {
-    this.elm.dataset.typewrite = true;
+    this.elm.dataset.typewrite = 'true';
     this.elm.style.opacity = '0';
 
     this.replaceNode(this.elm.childNodes);
     this.getCharElms();
-    // this.animation(this.chars);
+    this.tween = this.animation(this.chars).pause();
   }
 }
