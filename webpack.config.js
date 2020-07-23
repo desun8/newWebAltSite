@@ -75,7 +75,7 @@ module.exports = {
 
       // css
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         // include: path.resolve(__dirname, 'src/'),
         use: [
           {

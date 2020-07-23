@@ -2,10 +2,16 @@ import smoothScroll from './components/smooth-scroll';
 import Collapsible from './components/collapsible';
 import Menu from './components/menu';
 import TextRunner from './components/textRunner';
-
+import Scrollbar from './components/scrollbar';
 import '../styles/root.scss';
 
 // smoothScroll();
+
+// скроллбар
+const scrollbarOptions = {
+  className: 'os-theme-default'
+};
+const scrollbar = new Scrollbar(document.body, scrollbarOptions);
 
 // меню
 const menu = document.querySelector('.page-menu');

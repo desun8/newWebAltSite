@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { throttle } from 'lodash';
 import Collapsible from './collapsible';
+import Scrollbar from './scrollbar';
 
 export default class Menu {
   constructor(elm, btnOpen, btnClose, nav) {
@@ -34,6 +35,21 @@ export default class Menu {
         }
       });
     });
+  }
+
+  setScrollbar() {
+    const wrap = this.elm.querySelector('.page-menu__wrap');
+
+    if (wrap === undefined) {
+      console.warn('Невозможно установить кастомный скроллбар для меню. Элемент .page-menu__wrap не найден.');
+      return false;
+    }
+
+    const scrollbarOptions = {
+      className: 'os-theme-menu'
+    };
+
+    this.scrollbarInstance = new Scrollbar(wrap, scrollbarOptions);
   }
 
   toggleView(shouldShow) {
@@ -125,6 +141,7 @@ export default class Menu {
 
   init() {
     this.collapseSubMenu();
+    this.setScrollbar();
     this.addEvents();
   }
 }
