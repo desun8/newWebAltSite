@@ -23,7 +23,6 @@ function generateHtmlPlugins(templateDir) {
     const extension = parts[1];
     const isIndex = name === 'index';
     return new HtmlWebpackPlugin({
-      title: 'keke',
       filename: `${name}.html`,
       template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
       chunks: ['core', isIndex ? 'home' : name],

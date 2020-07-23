@@ -7,12 +7,13 @@ import TextRunner from './textRunner';
 
 import '../styles/home.scss';
 
-let app = new AwardsList();
 
 
 const getCssVar = (name = '', elm = document.documentElement) => {
   return getComputedStyle(elm).getPropertyValue(name);
 };
+
+const app = new AwardsList();
 
 // анимация (при скролле) вертикальных символов на главной
 const blockDev = document.querySelector('.block--dev');
