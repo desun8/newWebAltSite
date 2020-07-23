@@ -1,5 +1,5 @@
-import TimerSlider from './timerSlider';
-import TypewriteAnimation from './typewriteAnimation';
+import TimerSlider from '../components/timerSlider';
+import TypewriteAnimation from '../components/typewriteAnimation';
 
 export default class SliderWithTypewrite extends TimerSlider {
   constructor(...props) {

@@ -1,7 +1,7 @@
-import smoothScroll from './smooth-scroll';
-import Collapsible from './collapsible';
-import Menu from './menu';
-import TextRunner from './textRunner';
+import smoothScroll from './components/smooth-scroll';
+import Collapsible from './components/collapsible';
+import Menu from './components/menu';
+import TextRunner from './components/textRunner';
 
 import '../styles/root.scss';
 

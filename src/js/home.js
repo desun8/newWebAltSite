@@ -1,9 +1,9 @@
-import AwardsList from './awards-list.js';
-import SymbolsAnimation from './symbolsAnimation';
-import SliderWithTypewrite from './SliderWithTypewrite';
-import ChangeTheme from './changeTheme';
-import Counter from './counter';
-import TextRunner from './textRunner';
+import AwardsList from './home/awards-list.js';
+import SymbolsAnimation from './home/symbolsAnimation';
+import SliderWithTypewrite from './home/SliderWithTypewrite';
+import ChangeTheme from './home/changeTheme';
+import Counter from './components/counter';
+import TextRunner from './components/textRunner';
 
 import '../styles/home.scss';
 
