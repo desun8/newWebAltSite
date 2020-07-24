@@ -120,7 +120,7 @@
 
 .menu-soc {
   //@include c.font-size(c.$fz-text-sm, 14);
-  @include c.font-size-rem(c.$fz-text-sm, 14);
+  @include c.font-size-rem(c.$fz-text-sm, 18);
   
   display: flex;
   justify-content: space-between;

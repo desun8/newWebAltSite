@@ -27,6 +27,10 @@
   
   text-transform: lowercase;
   letter-spacing: 0.015em;
+  
+  &.link::after {
+    height: 1px;
+  }
 }
 
 .menu-btn {

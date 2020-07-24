@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { throttle } from 'lodash';
 import Collapsible from './collapsible';
-import Scrollbar from './scrollbar';
+import { Scrollbar } from './scrollbar';
 
 export default class Menu {
   constructor(elm, btnOpen, btnClose, nav) {
@@ -14,6 +14,7 @@ export default class Menu {
 
     this.pageMain = document.querySelector('main');
     this.pageHeader = document.querySelector('header');
+    this.progressBar = document.querySelector('.progress-bar');
 
     this.elmWidth = this.elm.offsetWidth;
 
@@ -67,7 +68,7 @@ export default class Menu {
       duration,
     }, 0);
     tl.to(
-      [this.pageHeader, this.pageMain],
+      [this.pageHeader, this.pageMain, this.progressBar],
       {
         x: shouldShow ? this.elmWidth : 0,
         duration,

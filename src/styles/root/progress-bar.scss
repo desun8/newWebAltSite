@@ -1,0 +1,17 @@
+.progress-bar {
+  --color: var(--c-red);
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 2px;
+  height: 100%;
+  background-color: var(--color);
+  transform-origin: 0 0;
+  transform: scaleY(0);
+  
+  body.theme-orange & {
+    --color: #fff;
+  }
+}
