@@ -246,7 +246,7 @@
     opacity: 0.7;
   }
   
-  .page-nav__elm--selected &,
+  .page-nav__elm--selected:not(.page-nav__elm--disable) &,
   .page-nav__elm--active & {
     &::before {
       opacity: 1;
@@ -283,6 +283,7 @@
 }
 
 .page-nav__sub-link {
+  .page-nav__sub-elm--selected &,
   &:hover {
     color: var(--c-red);
   }

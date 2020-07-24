@@ -22,16 +22,22 @@ export default class Menu {
 
   collapseSubMenu() {
     const navSub = this.nav.querySelectorAll('.page-nav__sub-list');
+    const selectedNavElm = this.nav.querySelector('.page-nav__elm--selected');
+
     navSub.forEach(list => {
       const btn = list.previousElementSibling;
       const collapsible = new Collapsible(list, btn);
 
       const parent = list.parentElement;
       btn.addEventListener('click', () => {
+        if (parent === selectedNavElm) return null;
+
         if (collapsible.isShow) {
-          parent.classList.add('page-nav__elm--active');
+            parent.classList.add('page-nav__elm--active');
+            selectedNavElm.classList.add('page-nav__elm--disable');
         } else {
           parent.classList.remove('page-nav__elm--active');
+          selectedNavElm.classList.remove('page-nav__elm--disable');
         }
       });
     });
