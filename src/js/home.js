@@ -4,9 +4,9 @@ import SliderWithTypewrite from './home/SliderWithTypewrite';
 import ChangeTheme from './home/changeTheme';
 import Counter from './components/counter';
 import TextRunner from './components/textRunner';
+import RedirectFooter from './home/redirectFooter';
 
 import '../styles/home.scss';
-
 
 
 const getCssVar = (name = '', elm = document.documentElement) => {
@@ -69,3 +69,7 @@ const counter = new Counter(numbersCounter);
 // бегущая строка
 const text = document.querySelector('.hero__scroll');
 new TextRunner(text);
+
+// редирект в футере
+const redirectFooter = document.querySelector('.footer-redirect');
+new RedirectFooter(redirectFooter);

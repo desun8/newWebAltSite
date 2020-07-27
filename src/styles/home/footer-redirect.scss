@@ -1,0 +1,19 @@
+@use "../_config" as c;
+
+.footer-redirect {
+  @include c.font-size(150);
+  
+  padding: c.em(155, 150) 0;
+  background-color: #1d1d1d;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+}
+
+.footer-redirect__title {
+  //background: linear-gradient(90deg, var(--c-red) 47%, rgba(255, 255, 255, 0.02) 47%);
+  background: rgba(255, 255, 255, 0.02);
+  //background-clip: text;
+  //-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
