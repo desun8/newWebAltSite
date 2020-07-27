@@ -22,7 +22,7 @@ export default class Footer {
   slider() {
     const slider = this.elm.querySelector('.footer-feedback__slider');
     if (slider) {
-      new TimerSliderFadeLeft(slider, 'footer-feedback__link');
+      new TimerSliderFadeLeft(slider, 'footer-feedback__link', 2000);
     }
   }
 
