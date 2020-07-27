@@ -100,7 +100,7 @@ export class TimerSliderFadeLeft extends TimerSlider {
         if (isIntersecting) {
           clearInterval(this.intervalId);
           this.autoplay();
-          // console.log('play slider');
+          // console.log('start slider');
         } else {
           clearInterval(this.intervalId);
           // console.log('pause slider');

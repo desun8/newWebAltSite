@@ -13,6 +13,11 @@ $adaptive-mod: 1.5;
   }
 }
 
+@mixin font-size-vw($font-size, $line-height: $font-size) {
+  font-size: fn.vw($font-size);
+  line-height: fn.em($line-height, $font-size);
+}
+
 @mixin font-size-rem($font-size, $line-height: $font-size) {
   font-size: fn.rem($font-size);
   line-height: fn.em($line-height, $font-size);

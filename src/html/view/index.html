@@ -437,7 +437,18 @@
 <%= require('html-loader!../includes/footer.html') %>
 
 <div class="footer-redirect">
-  <span class="footer-redirect__title">ПОРТФОЛИО</span>
+  <a href="" class="footer-redirect__link"></a>
+  <div class="footer-redirect__title">
+    <span class="footer-redirect__name">ПОРТФОЛИО</span>
+    <span class="footer-redirect__link-name  link">перейти<i class="link__icon">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+          <use xlink:href="#icon-arrow"></use>
+        </svg>
+      </i></span>
+  </div>
+  <div class="footer-redirect__counter">
+    <div class="footer-redirect__counter-wrap"></div>
+  </div>
 </div>
 
 <!-- Сетка -->
