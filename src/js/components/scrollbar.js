@@ -39,7 +39,7 @@ export class ScrollbarPage extends Scrollbar {
   }
 
   getScrollRatioY(scroll) {
-    console.log(scroll);
+    // console.log(scroll);
     return scroll.ratio.y;
   }
 }

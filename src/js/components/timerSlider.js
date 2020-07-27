@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export default class TimerSlider {
+class TimerSlider {
   constructor(root, itemsClass, speed = 3000) {
     this.speed = speed;
     this.root = root;
@@ -59,6 +59,63 @@ export default class TimerSlider {
 
 
   init() {
-    this.items.forEach(elm => elm.style.opacity = '0');
+    this.items.forEach((elm, i) => {
+      if (i !== this.curr) elm.style.opacity = '0';
+    });
   }
 }
+
+export class TimerSliderFadeLeft extends TimerSlider {
+  constructor(...props) {
+    super(...props);
+  }
+
+  changeSlide() {
+    const currElm = this.items[this.curr];
+    const { duration } = this;
+
+    if (this.prev === null) {
+      gsap.to(currElm, { alpha: 1, zIndex: 1, duration });
+
+      return null;
+    }
+
+    const prevElm = this.items[this.prev];
+    const tl = gsap.timeline({ duration });
+
+    tl.to(prevElm, { alpha: 0, x: -20, zIndex: 0 });
+    tl.fromTo(
+      currElm,
+      { alpha: 0, x: -20, zIndex: 0 },
+      { alpha: 1, x: 0, zIndex: 1 }
+    );
+  }
+
+  // проигрываем/останавливаем если блок видимый
+  intersectionObserver() {
+    const isVisible = (entries) => {
+      entries.forEach(entry => {
+        const { isIntersecting } = entry;
+
+        if (isIntersecting) {
+          clearInterval(this.intervalId);
+          this.autoplay();
+          // console.log('play slider');
+        } else {
+          clearInterval(this.intervalId);
+          // console.log('pause slider');
+        }
+      });
+    };
+
+    return new IntersectionObserver(isVisible, { threshold: 0.5 });
+  }
+
+  init() {
+    super.init();
+    this.observer = this.intersectionObserver();
+    this.observer.observe(this.root);
+  }
+}
+
+export default TimerSlider;
