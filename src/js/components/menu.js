@@ -34,8 +34,8 @@ export default class Menu {
         if (parent === selectedNavElm) return null;
 
         if (collapsible.isShow) {
-            parent.classList.add('page-nav__elm--active');
-            selectedNavElm.classList.add('page-nav__elm--disable');
+          parent.classList.add('page-nav__elm--active');
+          selectedNavElm.classList.add('page-nav__elm--disable');
         } else {
           parent.classList.remove('page-nav__elm--active');
           selectedNavElm.classList.remove('page-nav__elm--disable');
@@ -45,6 +45,8 @@ export default class Menu {
   }
 
   setScrollbar() {
+    if (this.scrollbarInstance) return false;
+
     const wrap = this.elm.querySelector('.page-menu__wrap');
 
     if (wrap === undefined) {
@@ -57,6 +59,13 @@ export default class Menu {
     };
 
     this.scrollbarInstance = new Scrollbar(wrap, scrollbarOptions);
+  }
+
+  destroyScrollbar() {
+    if (this.scrollbarInstance) {
+      console.log(this.scrollbarInstance);
+      this.scrollbarInstance.instance.destroy();
+    }
   }
 
   toggleView(shouldShow) {
@@ -130,6 +139,12 @@ export default class Menu {
 
   handleResize() {
     this.elmWidth = this.elm.offsetWidth;
+
+    if (window.APP.config.mqlMobile.matches) {
+      this.destroyScrollbar();
+    } else {
+      this.setScrollbar();
+    }
   }
 
   handleClick() {
@@ -148,7 +163,7 @@ export default class Menu {
 
   init() {
     this.collapseSubMenu();
-    this.setScrollbar();
+    !window.APP.config.mqlMobile.matches && this.setScrollbar();
     this.addEvents();
   }
 }

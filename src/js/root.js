@@ -7,6 +7,14 @@ import '../styles/root.scss';
 import TimerSlider, { TimerSliderFadeLeft } from './components/timerSlider';
 import Footer from './components/footer';
 
+const APP = {
+  config: {
+    mqlMobile: window.matchMedia('(max-width: 60em)')
+  }
+}
+
+window.APP = APP;
+
 // smoothScroll();
 
 // скроллбар

@@ -12,3 +12,4 @@
 
 /* desktop first */
 @custom-media --tablet (width <= 64em);
+@custom-media --tablet-sm (width <= 60em); // 960px

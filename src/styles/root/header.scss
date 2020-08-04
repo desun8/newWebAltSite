@@ -1,23 +1,54 @@
-@use "../_config";
+//@use "../_config" as c;
+@use "../_config/index" as c;
 
 :root {
-  --headerSize: calc(#{config.vw(46)} + #{config.rem(config.$fz-text-sm)});
+  --headerSize: calc(#{c.vw(46)} + #{c.rem(c.$fz-text-sm)});
 }
 
 .page-header {
-  @include config.grid-base(12);
-  @include config.font-size-rem(config.$fz-text-sm);
+  --grid-col: 12;
   
-  padding-top: config.vw(46);
+  @include c.grid-base(var(--grid-col));
+  @include c.font-size-rem(c.$fz-text-sm);
+  
+  padding-top: c.vw(46);
   
   //transform: translate3d(0px, 0px, 0);
   
+  @media screen and (--tablet-sm) {
+    --grid-col: 5;
+    padding-top: c.rem(20);
+    padding-bottom: c.rem(20);
+  }
+  
   &__wrap {
-    @include config.grid(12);
-    grid-column: 1/13;
+    @include c.grid(var(--grid-col));
+    grid-column: 1/ calc(var(--grid-col) + 1);
     
     align-items: center;
     justify-items: baseline;
+  }
+}
+
+.page-header__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: c.rem(40);
+  height: c.rem(30);
+  color: var(--c-black-second);
+  
+  .page-header--short & {
+    display: none;
+    
+    @media screen and (--tablet-sm) {
+      display: flex;
+    }
+  }
+  
+  svg {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -30,6 +61,10 @@
   
   &.link::after {
     height: 1px;
+  }
+  
+  @media screen and (--tablet-sm) {
+    display: none !important;
   }
 }
 
@@ -48,6 +83,13 @@
     color: var(--color-hover);
   }
   
+  @media screen and (--tablet-sm) {
+    @include c.font-size-rem(18);
+    
+    grid-column: 4/6;
+    justify-self: end;
+  }
+  
   body.theme-dark & {
     --color: #fff;
   }
@@ -58,13 +100,19 @@
   
   &--fixed {
     position: fixed;
-    transform: translate3d(#{config.vw(-84)}, 20px, 0);
+    transform: translate3d(#{c.vw(-84)}, 20px, 0);
   }
   
   &__icon {
-    width: config.em(16, 14);
-    height: config.em(13, 14);
-    margin-right: config.em(10, 14);
+    width: c.em(16, 14);
+    height: c.em(13, 14);
+    margin-right: c.em(10, 14);
     fill: currentColor;
+  
+    @media screen and (--tablet-sm) {
+      width: c.em(24, 18);
+      height: auto;
+      margin-right: c.em(6, 18);
+    }
   }
 }

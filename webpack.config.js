@@ -82,8 +82,18 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
+          // 'postcss-loader',
+          // 'sass-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                require('postcss-preset-env')({ stage: 1 }),
+              ]
+            }
+          },
           'sass-loader',
-          'postcss-loader',
         ],
       },
 
