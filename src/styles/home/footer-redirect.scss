@@ -1,14 +1,21 @@
-@use "../_config" as c;
+@use "../_config" as *;
 
 .footer-redirect {
-  @include c.font-size-vw(150);
+  @include font-size-vw(150);
   
   position: relative;
-  padding: c.em(155, 150) 0;
+  padding: em(155, 150) 0;
   background-color: #1d1d1d;
   color: #fff;
   text-align: center;
   font-weight: 700;
+  
+  @media screen and (--tablet-sm) {
+    padding: rem(64) rem(20);
+    font-size: vw(84, $mobile-viewport);
+    line-height: em(60, 84);
+    text-align: left;
+  }
 }
 
 .footer-redirect__link {
@@ -27,11 +34,29 @@
   background: var(--c-black-second);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
+  @media screen and (--tablet-sm) {
+    -webkit-text-fill-color: #c4c4c4;
+  }
+}
+
+.footer-redirect__name {
+  br {
+    display: none;
+    
+    @media screen and (--tablet-sm) {
+      display: block;
+    }
+  }
 }
 
 .footer-redirect__link-name {
-  @include c.font-size-vw(24, 24);
+  @include font-size-vw(24, 24);
   position: static;
+  
+  @media screen and (--tablet-sm) {
+    display: none;
+  }
 
   &::after {
     content: none;
@@ -43,15 +68,19 @@
 }
 
 .footer-redirect__counter {
-  @include c.font-size-vw(194);
+  @include font-size-vw(194);
   
   position: absolute;
   top: 50%;
-  right: c.vw(180);
+  right: vw(180);
   transform: translateY(-50%);
-  width: c.vw(130);
-  height: c.vw(180);
+  width: vw(130);
+  height: vw(180);
   overflow: hidden;
+  
+  @media screen and (--tablet-sm) {
+    display: none;
+  }
 }
 
 .footer-redirect__counter-wrap {

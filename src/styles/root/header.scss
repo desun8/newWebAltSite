@@ -3,6 +3,10 @@
 
 :root {
   --headerSize: calc(#{c.vw(46)} + #{c.rem(c.$fz-text-sm)});
+  
+  @media screen and (--tablet-sm) {
+    --headerSize: 70px;
+  }
 }
 
 .page-header {

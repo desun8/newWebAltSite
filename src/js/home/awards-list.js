@@ -89,7 +89,8 @@ export default class AwardsList {
       const btn = elm.querySelector('.awards-list__btn');
       const list = elm.querySelector('ul');
       const childCount = list.childElementCount;
-      const childHeight = list.querySelector('li').offsetHeight;
+      const child = list.querySelector('li');
+      const childHeight = child.offsetHeight + parseInt(window.getComputedStyle(child).getPropertyValue('margin-bottom'));
 
       btn.addEventListener(
         'click',

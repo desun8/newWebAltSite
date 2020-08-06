@@ -17,5 +17,9 @@
   section {
     min-height: 100vh;
     margin-bottom: vh(150);
+  
+    @media screen and (--tablet-sm) {
+      margin-bottom: 50px;
+    }
   }
 }

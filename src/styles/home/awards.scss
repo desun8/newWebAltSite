@@ -1,10 +1,45 @@
-@use "../_config" as c;
+@use "../_config" as *;
 
 .awards-stats {
   grid-column: 1/3;
   
+  @media screen and (--tablet-sm) {
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin-bottom: 215px;
+  }
+  
+  &::after {
+    content: none;
+    position: absolute;
+    top: rem(-26);
+    left: 50%;
+    transform: translateX(-50%);
+    width: rem(154);
+    height: rem(268);
+    
+    @media screen and (--tablet-sm) {
+      @include bg-img("../images/awards-cup.svg");
+      content: "";
+    }
+  }
+  
   &__item {
-    margin-bottom: c.vw(40);
+    margin-bottom: vw(40);
+  
+    @media screen and (--tablet-sm) {
+      position: relative;
+      z-index: 2;
+      margin-bottom: rem(36);
+    }
+    
+    &:last-child {
+      @media screen and (--tablet-sm) {
+        text-align: right;
+        margin-bottom: 0;
+      }
+    }
   }
   
   &__wrap {
@@ -21,20 +56,28 @@
   }
   
   &__number {
-    @include c.font-size(100, 90);
+    @include font-size(100, 90);
     color: var(--c-red);
     font-weight: 600;
+  
+    @media screen and (--tablet-sm) {
+      font-size: rem(88);
+    }
   }
   
   &__text {
-    @include c.font-size(c.$fz-text-sm, 18);
+    @include font-size($fz-text-sm, 18);
     font-weight: 300;
     text-transform: lowercase;
+  
+    @media screen and (--tablet-sm) {
+      font-size: rem($fz-text-16);
+    }
   }
 }
 
 //.awards-lists {
-//  //@include c.grid(6);
+//  //@include grid(6);
 //  //grid-template-rows: auto;
 //
 //  //&__content {
@@ -43,42 +86,50 @@
 //}
 
 .awards-agima {
-  //@include c.bg-img('../images/agima-logo.png');
+  //@include bg-img('../images/agima-logo.png');
   //
   //position: sticky;
   //top: 100px;
-  //width: c.vw(108);
-  //height: c.vw(168);
-  //margin-left: c.vw(-100);
+  //width: vw(108);
+  //height: vw(168);
+  //margin-left: vw(-100);
   
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
+  
+  @media screen and (--tablet-sm) {
+    display: none;
+  }
 }
 
 .awards-agima__img {
-  @include c.bg-img("../images/agima-logo.png");
+  @include bg-img("../images/agima-logo.png");
   
   position: sticky;
   top: 100px;
-  width: c.vw(108);
-  height: c.vw(168);
+  width: vw(108);
+  height: vw(168);
   
   // FIXME: заменить изображение и удалить свойство
   transform: scaleX(-1);
 }
 
 .awards-list-bg {
-  --size: #{c.vw(190)};
+  --size: #{vw(190)};
   --image: url("../images/awards-image-1.png");
   
-  @include c.bg-img("../images/awards-bg-grid.svg");
+  @include bg-img("../images/awards-bg-grid.svg");
   
   position: absolute;
-  left: calc(#{c.vw(-164)} - var(--size));
+  left: calc(#{vw(-164)} - var(--size));
   width: var(--size);
   height: var(--size);
+  
+  @media screen and (--tablet-sm) {
+    display: none;
+  }
   
   &__img {
     position: absolute;
@@ -103,7 +154,11 @@
   --color: var(--c-black-second);
   --icon-scale: scaleY(1);
   
-  margin-bottom: c.vw(30);
+  margin-bottom: vw(30);
+  
+  @media screen and (--tablet-sm) {
+    margin-bottom: 10px;
+  }
   
   &[data-hidden=false] {
     --color: var(--c-red);
@@ -114,8 +169,12 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: c.vw(30);
+    margin-bottom: vw(30);
     cursor: pointer;
+    
+    @media screen and (--tablet-sm) {
+      margin-bottom: rem(20);
+    }
     
     &:hover {
       --color: var(--c-red);
@@ -131,13 +190,18 @@
   
   &__count,
   &__title {
-    font-size: c.vw(14);
+    font-size: vw(14);
   }
   
   &__count {
-    margin-right: c.vw(5);
+    margin-right: vw(5);
     font-weight: 300;
     opacity: 0.5;
+    
+    @media screen and (--tablet-sm) {
+      margin-right: em(5, 12);
+      font-size: rem(12);
+    }
   }
   
   &__title,
@@ -151,15 +215,23 @@
     flex-grow: 2;
     color: var(--color);
     text-transform: uppercase;
+    
+    @media screen and (--tablet-sm) {
+      font-size: rem($fz-text-md);
+    }
   }
   
   &__icon {
-    --size: #{c.vw(19)};
+    --size: #{vw(19)};
     
     position: relative;
     width: var(--size);
     height: var(--size);
     margin-left: 10px;
+    
+    @media screen and (--tablet-sm) {
+      --size: #{rem(14)};
+    }
     
     &::before,
     &::after {
@@ -172,16 +244,24 @@
       top: calc(var(--size) / 2);
       left: 0;
       width: 100%;
-      height: c.vw(1);
+      height: vw(1);
       //transform: translateY(-50%);
+      
+      @media screen and (--tablet-sm) {
+        height: 1px;
+      }
     }
     
     &::after {
       top: 0;
       left: calc(var(--size) / 2);
-      width: c.vw(1);
+      width: vw(1);
       height: 100%;
       transform: var(--icon-scale);
+      
+      @media screen and (--tablet-sm) {
+        width: 1px;
+      }
     }
   }
   
@@ -209,25 +289,46 @@
   }
   
   ul {
-    @include c.list-unstyled();
-    @include c.font-size(c.$fz-text-sm, 18);
+    @include list-unstyled();
+    @include font-size($fz-text-sm, 18);
     
     max-height: 0;
     overflow: hidden;
     //transition: max-height var(--trans-dur-fast) ease-in-out;
     
-    padding-left: c.vw(24);
+    padding-left: vw(24);
     font-weight: 300;
     
+    @media screen and (--tablet-sm) {
+      padding-left: rem(20);
+      font-size: rem(10);
+    }
+    
     li {
-      --space-bottom: #{c.vw(15)};
-      
+      --space-bottom: #{vw(15)};
+  
+      position: relative;
       margin-bottom: var(--space-bottom);
       padding-bottom: var(--space-bottom);
-      border-bottom: 1px solid rgba(#000, 0.2);
+      
+      @media screen and (--tablet-sm) {
+        --space-bottom: #{rem(10)};
+      }
+      
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(#000, 0.2);
+      }
       
       &:last-of-type {
-        border-bottom: 0;
+        &::after {
+          content: none;
+        }
       }
     }
   }

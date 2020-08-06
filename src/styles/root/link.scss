@@ -65,6 +65,11 @@
     transition-property: transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-in;
+  
+    @media screen and (--tablet-sm) {
+      background-color: currentColor;
+      transform: scaleX(1);
+    }
   }
   
   &--uppercase {
