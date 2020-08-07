@@ -5,7 +5,16 @@ import ProgressBar from './progressBar';
 export class Scrollbar {
   constructor(elm, options = {}) {
     this.elm = elm;
-    this.instance = OverlayScrollbars(this.elm, options);
+    this.options = options;
+    this.instance = null;
+  }
+
+  destroy() {
+    this.instance.destroy();
+  }
+
+  init() {
+    this.instance = OverlayScrollbars(this.elm, this.options);
   }
 }
 
@@ -13,11 +22,11 @@ export class ScrollbarPage extends Scrollbar {
   constructor(...props) {
     super(...props);
 
-    this.instance.options({
-      callbacks: {
-        onScroll: this.onScroll.bind(this)
-      }
-    });
+    // this.instance.options({
+    //   callbacks: {
+    //     onScroll: this.onScroll.bind(this)
+    //   }
+    // });
 
     this.ticking = false;
     this.scrollData = null;
@@ -39,7 +48,16 @@ export class ScrollbarPage extends Scrollbar {
   }
 
   getScrollRatioY(scroll) {
-    // console.log(scroll);
     return scroll.ratio.y;
+  }
+
+  init() {
+    super.init();
+
+    this.instance.options({
+      callbacks: {
+        onScroll: this.onScroll.bind(this)
+      }
+    });
   }
 }

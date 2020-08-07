@@ -1,4 +1,3 @@
-import { gsap } from 'gsap';
 import TextRunner from './textRunner';
 import { TimerSliderFadeLeft } from './timerSlider';
 
@@ -8,8 +7,6 @@ export default class Footer {
 
     this.imageBg = this.elm.querySelector('.page-footer__bg');
     this.showImage = true;
-
-    this.init()
   }
 
   ticker() {

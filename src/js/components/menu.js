@@ -1,5 +1,4 @@
 import { gsap } from 'gsap';
-import { throttle } from 'lodash';
 import Collapsible from './collapsible';
 import { Scrollbar } from './scrollbar';
 
@@ -18,7 +17,14 @@ export default class Menu {
 
     this.elmWidth = this.elm.offsetWidth;
 
-    this.init();
+    this.scrollbarConfig = {
+      options: {
+        className: 'os-theme-menu'
+      },
+      elm: this.elm.querySelector('.page-menu__wrap')
+    };
+
+    this.scrollbarInstance = new Scrollbar(this.scrollbarConfig.elm, this.scrollbarConfig.options);
   }
 
   collapseSubMenu() {
@@ -44,26 +50,12 @@ export default class Menu {
     });
   }
 
-  setScrollbar() {
-    if (this.scrollbarInstance) return false;
-
-    const wrap = this.elm.querySelector('.page-menu__wrap');
-
-    if (wrap === undefined) {
-      console.warn('Невозможно установить кастомный скроллбар для меню. Элемент .page-menu__wrap не найден.');
-      return false;
-    }
-
-    const scrollbarOptions = {
-      className: 'os-theme-menu'
-    };
-
-    this.scrollbarInstance = new Scrollbar(wrap, scrollbarOptions);
+  initScrollbar() {
+    this.scrollbarInstance.init();
   }
 
   destroyScrollbar() {
     if (this.scrollbarInstance) {
-      console.log(this.scrollbarInstance);
       this.scrollbarInstance.instance.destroy();
     }
   }
@@ -137,16 +129,6 @@ export default class Menu {
 
   }
 
-  handleResize() {
-    this.elmWidth = this.elm.offsetWidth;
-
-    if (window.APP.config.mqlMobile.matches) {
-      this.destroyScrollbar();
-    } else {
-      this.setScrollbar();
-    }
-  }
-
   handleClick() {
     this.isVisible = !this.isVisible;
 
@@ -156,14 +138,22 @@ export default class Menu {
   addEvents() {
     this.btnOpen.addEventListener('click', this.handleClick.bind(this));
     this.btnClose.addEventListener('click', this.handleClick.bind(this));
+  }
 
-    const throttleOnResize = throttle(this.handleResize, 200);
-    window.addEventListener('resize', throttleOnResize.bind(this));
+  update() {
+    this.elmWidth = this.elm.offsetWidth;
+  }
+
+  desktop() {
+    this.initScrollbar();
+  }
+
+  mobile() {
+    this.destroyScrollbar();
   }
 
   init() {
     this.collapseSubMenu();
-    !window.APP.config.mqlMobile.matches && this.setScrollbar();
     this.addEvents();
   }
 }
