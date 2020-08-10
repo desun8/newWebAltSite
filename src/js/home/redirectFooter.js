@@ -19,7 +19,10 @@ export default class RedirectFooter {
     this.isStart = false;
     this.tickingHover = false;
 
-    this.init();
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+
+    // this.init();
   }
 
   animationGradient() {
@@ -35,7 +38,7 @@ export default class RedirectFooter {
         ease: 'none',
         onUpdate: () => {
           requestAnimationFrame(() => {
-            this.$elms.title.style.background = `linear-gradient(90deg, var(--c-red) ${value.init}%, var(--c-black-second) ${value.init}%)`;
+            this.$elms.title.style.background = `linear-gradient(90deg, var(--c-red) ${value.init}%, var(--redirect-color) ${value.init}%)`;
             this.$elms.title.style.webkitBackgroundClip = 'text';
 
             if (value.init > 99) {
@@ -79,9 +82,9 @@ export default class RedirectFooter {
       });
   }
 
-  start() {
+  start(isMobile = false) {
     this.animationGradient();
-    this.animationCounter();
+    !isMobile && this.animationCounter();
     // if (this.shouldPlay) {
     //   this.animationGradient();
     //   this.animationCounter();
@@ -109,43 +112,69 @@ export default class RedirectFooter {
     }
   }
 
-  // intersectionObserver() {
-  //   const isVisible = (entries) => {
-  //     entries.forEach(entry => {
-  //       const { isIntersecting } = entry;
-  //
-  //       this.shouldPlay = !!isIntersecting;
-  //       this.start();
-  //     });
-  //   };
-  //
-  //   return new IntersectionObserver(isVisible, { threshold: 0.5 });
-  // }
+  intersectionObserver() {
+    const isVisible = (entries) => {
+      entries.forEach(entry => {
+        const { isIntersecting } = entry;
 
-  createEvents() {
-    this.$elms.root.addEventListener('mouseover', () => {
-      if (!this.tickingHover && !this.isStart) {
-        requestAnimationFrame(() => {
-          this.isStart = true;
-          this.start();
-          this.tickingHover = false;
-        });
+        this.shouldPlay = !!isIntersecting;
 
-        this.tickingHover = true;
-      }
-    });
-
-    this.$elms.root.addEventListener('mouseleave', () => {
-      if (!this.tickingHover && this.isStart) {
-        requestAnimationFrame(() => {
-          this.isStart = false;
+        if (this.shouldPlay) {
+          this.start(true);
+        } else {
           this.stop();
-          this.tickingHover = false;
-        });
+        }
+      });
+    };
 
-        this.tickingHover = true;
-      }
-    });
+    return new IntersectionObserver(isVisible, { threshold: 0.5 });
+  }
+
+  handleMouseOver() {
+    if (!this.tickingHover && !this.isStart) {
+      requestAnimationFrame(() => {
+        this.isStart = true;
+        this.start();
+        this.tickingHover = false;
+      });
+
+      this.tickingHover = true;
+    }
+  }
+
+  handleMouseLeave() {
+    if (!this.tickingHover && this.isStart) {
+      requestAnimationFrame(() => {
+        this.isStart = false;
+        this.stop();
+        this.tickingHover = false;
+      });
+
+      this.tickingHover = true;
+    }
+  }
+
+  addEvents() {
+    this.$elms.root.addEventListener('mouseover', this.handleMouseOver);
+    this.$elms.root.addEventListener('mouseleave', this.handleMouseLeave);
+  }
+
+  removeEvents() {
+    this.$elms.root.removeEventListener('mouseover', this.handleMouseOver);
+    this.$elms.root.removeEventListener('mouseleave', this.handleMouseLeave);
+  }
+
+  initDesktop() {
+    this.stop();
+    this.makeCounterElms();
+    this.addEvents();
+  }
+
+  initMobile() {
+    this.stop();
+    this.removeEvents();
+    this.observer = this.intersectionObserver();
+    this.observer.observe(this.$elms.root);
   }
 
   init() {
@@ -153,6 +182,6 @@ export default class RedirectFooter {
     // this.observer.observe(this.$elms.root);
 
     this.makeCounterElms();
-    this.createEvents();
+    this.addEvents();
   }
 }

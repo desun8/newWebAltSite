@@ -5,6 +5,7 @@ import SliderWithTypewrite from '../home/SliderWithTypewrite';
 import TextRunner from '../components/textRunner';
 import Counter from '../components/counter';
 import AwardsList from '../home/awards-list';
+import RedirectFooter from '../home/redirectFooter';
 
 const getCssVar = (name = '', elm = document.documentElement) => {
   return getComputedStyle(elm).getPropertyValue(name);
@@ -76,6 +77,9 @@ class HomeApp extends Index {
 
     //**** AWARDS LIST ****//
     this.awardsList = new AwardsList();
+
+    //**** REDIRECT FOOTER ****//
+    this.redirectFooter = new RedirectFooter(document.querySelector('.footer-redirect'));
   }
 
 
@@ -85,10 +89,12 @@ class HomeApp extends Index {
     // this.taglinesSlider.autoplay();
     this.symbolsAnimation.forEach(item => item.init());
     this.awardsList.desktop();
+    this.redirectFooter.initDesktop();
   }
 
   initMobile() {
     super.initMobile();
+    this.redirectFooter.initMobile();
   }
 
   resizeDesktop() {
