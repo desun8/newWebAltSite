@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export default class ProgressBar {
+class ProgressBar {
   constructor() {
     this.elm = document.querySelector('.progress-bar');
   }
@@ -9,3 +9,55 @@ export default class ProgressBar {
     gsap.to(this.elm, { scaleY: size, ease: 'circ.out' });
   }
 }
+
+export class ProgressBarMobile extends ProgressBar {
+  constructor(...props) {
+    super(...props);
+
+    this.handleScroll = this.handleScroll.bind(this);
+    this.ticking = false;
+  }
+
+  handleScroll() {
+    if (!this.ticking) {
+      requestAnimationFrame(() => {
+        this.update(this.getScrollRatioY());
+
+        this.ticking = false;
+      });
+
+      this.ticking = true;
+    }
+  }
+
+  getScrollRatioY() {
+    const pos = window.scrollY;
+
+    return pos / this.height;
+  }
+
+  resize() {
+    this.height = document.body.clientHeight - window.innerHeight;
+  }
+
+  destroy() {
+    window.removeEventListener(
+      'wheel',
+      this.handleScroll,
+      { passive: true }
+    );
+  }
+
+  init() {
+    this.height = document.body.clientHeight - window.innerHeight;
+    this.handleScroll();
+
+    window.addEventListener(
+      'wheel',
+      this.handleScroll,
+      { passive: true }
+    );
+  }
+}
+
+export default ProgressBar;

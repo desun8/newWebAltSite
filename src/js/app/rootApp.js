@@ -3,6 +3,7 @@ import TextRunner from '../components/textRunner';
 import Index from './index';
 import { ScrollbarPage } from '../components/scrollbar';
 import Footer from '../components/footer';
+import { ProgressBarMobile } from '../components/progressBar';
 
 class RootApp extends Index {
   constructor(...props) {
@@ -16,7 +17,10 @@ class RootApp extends Index {
 
     this.scrollbar = new ScrollbarPage(document.body, this.scrollbarOptions);
 
-    //**** MENU ****//
+
+    this.progressBar = null;
+
+      //**** MENU ****//
 
     this.menuElms = {
       menu: document.querySelector('.page-menu'),
@@ -42,12 +46,19 @@ class RootApp extends Index {
 
   initMobile() {
     super.initMobile();
+
+    this.progressBar = new ProgressBarMobile();
+    this.progressBar.init();
   }
 
   resizeDesktop() {
     super.resizeDesktop();
 
     this.menu.desktop();
+
+    if (this.progressBar) {
+      this.progressBar.destroy();
+    }
   }
 
   resizeMobile() {
@@ -55,12 +66,23 @@ class RootApp extends Index {
 
     this.scrollbar.destroy();
     this.menu.mobile();
+
+    if (!this.progressBar) {
+      this.progressBar = new ProgressBarMobile();
+      this.progressBar.init();
+    } else {
+      this.progressBar.resize();
+    }
   }
 
   update() {
     super.update();
 
     this.menu.update();
+
+    if (this.progressBar) {
+      this.progressBar.resize();
+    }
   }
 
   init() {

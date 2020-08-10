@@ -28,7 +28,8 @@ export default class AwardsList {
       height: this.img.offsetHeight,
     };
 
-    this.init();
+    this.throttleScroll = throttle(this.handleScroll, 200);
+    this.throttleScroll = this.throttleScroll.bind(this);
   }
 
   moveImg(deltaY = 0) {
@@ -84,6 +85,30 @@ export default class AwardsList {
     this.moveImg(e.deltaY);
   }
 
+  addEvent() {
+    this.root.addEventListener(
+      'wheel',
+      this.throttleScroll,
+      { passive: true }
+    );
+  }
+
+  removeEvent() {
+    this.root.removeEventListener(
+      'wheel',
+      this.throttleScroll,
+      { passive: true }
+    );
+  }
+
+  desktop() {
+    this.addEvent();
+  }
+
+  mobile() {
+    this.removeEvent();
+  }
+
   init() {
     this.elms.forEach(elm => {
       const btn = elm.querySelector('.awards-list__btn');
@@ -97,14 +122,6 @@ export default class AwardsList {
         this.handleClick.bind(this, ...[elm, list, childHeight * childCount])
       );
     });
-
-    const throttleScroll = throttle(this.handleScroll, 200);
-
-    this.root.addEventListener(
-      'wheel',
-      throttleScroll.bind(this),
-      { passive: true }
-    );
   }
 }
 

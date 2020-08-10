@@ -9,7 +9,8 @@ export default class SymbolsAnimation {
 
     this.isFirst = true;
 
-    this.init();
+    this.throttleScroll = throttle(this.handleScroll, 200);
+    this.throttleScroll = this.throttleScroll.bind(this);
   }
 
   animation() {
@@ -33,19 +34,35 @@ export default class SymbolsAnimation {
   }
 
   handleScroll(e) {
-    // requestAnimationFrame(this.animation.bind(this));
     this.animation();
+  }
+
+  addEvent() {
+    window.addEventListener(
+      'wheel',
+      this.throttleScroll,
+      { passive: true }
+    );
+  }
+
+  removeEvent() {
+    window.removeEventListener(
+      'wheel',
+      this.throttleScroll,
+      { passive: true }
+    );
+  }
+
+  desktop() {
+    this.init();
+  }
+
+  mobile() {
+    this.removeEvent();
   }
 
   init() {
     this.animation();
-
-    const throttleScroll = throttle(this.handleScroll, 200);
-
-    window.addEventListener(
-      'wheel',
-      throttleScroll.bind(this),
-      { passive: true }
-    );
+    this.addEvent();
   }
 }

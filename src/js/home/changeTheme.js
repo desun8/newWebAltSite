@@ -1,9 +1,5 @@
 import { gsap } from 'gsap';
 
-// const setCssVar = (elm, name, value) => {
-//   elm.style.setProperty(name, value);
-// };
-
 export default class ChangeTheme {
   constructor(elms, styles, classNames) {
     this.elms = elms;
@@ -23,9 +19,6 @@ export default class ChangeTheme {
     this.options = {
       threshold: 0.4
     };
-
-
-    this.init();
   }
 
   animation(target, style, className, isAdd = false) {

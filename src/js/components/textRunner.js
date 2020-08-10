@@ -54,10 +54,10 @@ export default class TextRunner {
 
         if (isIntersecting) {
           this.tween.play();
-          console.log('play');
+          // console.log('play');
         } else {
           this.tween.pause();
-          console.log('pause');
+          // console.log('pause');
         }
       });
     }
