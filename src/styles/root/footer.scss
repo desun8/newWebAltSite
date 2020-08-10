@@ -33,6 +33,14 @@
     grid-column: 1/11;
   }
   
+  &__contacts,
+  &__menu {
+    @media screen and (--tablet-sm) {
+      position: relative;
+      z-index: 2;
+    }
+  }
+  
   &__contacts {
     @include grid(6, 2, 1fr, auto);
     @include font-size($fz-text-sm, 18);
@@ -58,7 +66,7 @@
     transition: opacity var(--trans-dur-fast) ease;
   
     @media screen and (--tablet-sm) {
-      @include bg-img("../images/footer-bg-mobile.png");
+      @include bg-img("../images/footer-bg-mobile.jpg", auto);
       
       position: absolute;
       bottom: 90px;

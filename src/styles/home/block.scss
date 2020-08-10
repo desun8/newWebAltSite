@@ -634,7 +634,19 @@
   }
   
   &__link {
-    padding: 75px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //padding-top: 60px;
+    //padding-bottom: 60px;
+    //padding-left: 30px;
+    //padding-right: 25px;
+    padding: 60px 30px;
     background-color: var(--c-red);
+    font-size: 22px;
+    
+    svg {
+      opacity: 0.1;
+    }
   }
 }
