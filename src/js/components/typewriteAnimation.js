@@ -108,7 +108,7 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
       }
     };
 
-    this.rectElm = this.elm.getBoundingClientRect();
+    // this.rectElm = this.elm.getBoundingClientRect();
   }
 
   getLinesCount() {
@@ -143,8 +143,8 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
     return arr;
   }
 
-  updateCursorPosY(y) {
-    const posY = Math.abs(y - this.rectElm.y);
+  updateCursorPosY(y, wrapY) {
+    const posY = Math.abs(y - wrapY);
 
     const linesPos = this.getLinesPos();
     let pos = 0;
@@ -159,20 +159,20 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
     return pos;
   }
 
-  updateCursorPosX(x) {
-    return x - this.rectElm.x;
+  updateCursorPosX(x, wrapX) {
+    return x - wrapX;
   }
 
   updateCursorPos(char) {
+    const rectElm = this.elm.getBoundingClientRect();
     const rect = char.getBoundingClientRect();
-    const x = this.updateCursorPosX(rect.x);
-    const y = this.updateCursorPosY(rect.y);
+    const x = this.updateCursorPosX(rect.x, rectElm.x);
+    const y = this.updateCursorPosY(rect.y, rectElm.y);
 
     return { x, y };
   }
 
   animationCursor(pos = { x: 0, y: 0 }) {
-    console.log(pos);
     const { x, y } = pos;
     gsap.to(this.cursor, { x, y, duration: 0.05, ease: 'none' });
   }
