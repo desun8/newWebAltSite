@@ -1,11 +1,15 @@
 import TimerSlider from '../components/timerSlider';
-import TypewriteAnimation from '../components/typewriteAnimation';
+import { TypewriteAnimationWithCursor } from '../components/typewriteAnimation';
 
 export default class SliderWithTypewrite extends TimerSlider {
   constructor(...props) {
     super(...props);
     this.itemsText = Array.from(this.items).map(elm => elm.querySelector('*'));
-    this.instances = this.itemsText.map(text => new TypewriteAnimation(text));
+    this.instances = this.itemsText.map(text => {
+      const instance = new TypewriteAnimationWithCursor(text);
+      instance.init();
+      return instance;
+    });
   }
 
   autoplay() {
