@@ -85,6 +85,14 @@
   
   &--bold {
     font-weight: 600;
+    
+    &::after {
+      min-height: 2px;
+    }
+  }
+  
+  &--orange {
+    color: var(--hover-color);
   }
   
   &__icon {

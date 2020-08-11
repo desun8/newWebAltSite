@@ -113,6 +113,7 @@
   }
 }
 
+//TODO: переименовать в hero__announcement
 .hero__news {
   @include font-size(20, 24);
   
@@ -139,14 +140,18 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  //opacity: 0;
+  opacity: 0;
+  
+  &--active {
+    opacity: 1;
+  }
   
   p {
     line-height: inherit;
   }
   
-  &--active {
-    opacity: 1;
+  .link__icon {
+    width: 0.62em;
   }
 }
 
