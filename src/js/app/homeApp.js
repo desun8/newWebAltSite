@@ -6,6 +6,7 @@ import TextRunner from '../components/textRunner';
 import Counter from '../components/counter';
 import AwardsList from '../home/awards-list';
 import RedirectFooter from '../home/redirectFooter';
+import BlockText from '../home/blockText';
 
 const getCssVar = (name = '', elm = document.documentElement) => {
   return getComputedStyle(elm).getPropertyValue(name);
@@ -17,6 +18,7 @@ class HomeApp extends Index {
 
     //**** COMMON ****//
     this.$elms = {
+      blockDev: document.querySelector('.block--dev'),
       blockSeo: document.querySelector('.block--seo'),
       blockDesign: document.querySelector('.block--design'),
     };
@@ -56,8 +58,8 @@ class HomeApp extends Index {
     //**** VERTICAL SYMBOLS ****//
     this.symbolElms = [
       {
-        parent: document.querySelector('.block--dev'),
-        elm: document.querySelectorAll('.block--dev .block-symbols__item')
+        parent: this.$elms.blockDev,
+        elm: this.$elms.blockDev.querySelectorAll('.block--dev .block-symbols__item')
       },
       {
         parent: this.$elms.blockSeo,
@@ -95,6 +97,13 @@ class HomeApp extends Index {
   initMobile() {
     super.initMobile();
     this.redirectFooter.initMobile();
+    // for (const block in this.$elms) {
+    //   console.log(this.$elms[block]);
+    //   // new BlockText(block);
+    // }
+    for (const [key,value] of Object.entries(this.$elms)) {
+      new BlockText(value);
+    }
   }
 
   resizeDesktop() {

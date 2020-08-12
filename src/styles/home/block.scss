@@ -461,14 +461,56 @@
   text-transform: uppercase;
   
   @media screen and (--tablet-sm) {
+    --text-color: #fff;
+    --bg-color: #000;
+    
     max-width: vw(275, $mobile-viewport);
+    display: -webkit-box;
     margin-bottom: 0;
+    color: var(--text-color);
+    font-size: 0;
+    line-height: 0;
+    
+    .block--seo & {
+      --bg-color: var(--c-red);
+    }
   }
   
-  span {
+  &::after {
     @media screen and (--tablet-sm) {
+      content: "";
+      //display: inline-block;
+      width: 100%;
+    }
+  }
+  
+  .js-typewrite-word {
+    @media screen and (--tablet-sm) {
+      @include font-size-px($fz-text-16, 26);
+    }
+  }
+  
+  .js-typewrite-char {
+    @media screen and (--tablet-sm) {
+      position: relative;
+    }
+    
+    &::after {
+      content: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+  
       display: inline-block;
-      background-color: var(--text-bg);
+      width: 110%;
+      height: 150%;
+      background-color: var(--bg-color);
+      z-index: -1;
+
+      @media screen and (--tablet-sm) {
+        content: "";
+      }
     }
   }
 }

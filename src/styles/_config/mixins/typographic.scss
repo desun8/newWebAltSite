@@ -1,4 +1,4 @@
-@use "../functions" as fn;
+@use "../functions/index" as fn;
 
 $adaptive-mod: 1.5;
 
@@ -11,6 +11,11 @@ $adaptive-mod: 1.5;
     /* An enhancement for supporting browsers */
     font-size: clamp(#{fn.rem($font-size - 4)}, calc(#{fn.vw($font-size)} + 0rem), #{fn.vw($font-size)});
   }
+}
+
+@mixin font-size-px($font-size, $line-height: $font-size) {
+  font-size: $font-size * 1px;
+  line-height: fn.em($line-height, $font-size);
 }
 
 @mixin font-size-vw($font-size, $line-height: $font-size) {

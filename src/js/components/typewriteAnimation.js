@@ -213,4 +213,72 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
   }
 }
 
+export class TypewriteAnimationWithBg extends TypewriteAnimation {
+  constructor(...props) {
+    super(...props);
+
+    this.animationEase = 'power2.out';
+    this.classNameWord = 'js-typewrite-word';
+  }
+
+  wrapWord(word) {
+    const elm = document.createElement('span');
+    if (word) {
+      elm.innerHTML = word;
+    }
+    elm.classList.add(this.classNameWord);
+
+    return elm;
+  }
+
+  insertChars(text) {
+    const words = text.split(' ');
+    let wordsWithSpaces = [];
+
+    for (let i = 0; i < words.length; i++) {
+      wordsWithSpaces.push(words[i]);
+      wordsWithSpaces.push(' ');
+    }
+
+    wordsWithSpaces = wordsWithSpaces.map(word => {
+      const wordElm = this.wrapWord(word);
+      const split = wordElm.innerText.split('');
+      // split.push(' ');
+      const elms = split.map(el => this.wrapChar(el));
+
+      wordElm.innerHTML = '';
+      elms.forEach(el => wordElm.appendChild(el));
+
+      return wordElm;
+    });
+
+    return wordsWithSpaces;
+  }
+
+  animation(chars) {
+    chars = Array.from(chars);
+    const length = chars.length;
+    const start = Math.floor((length / 2) + (length / 4));
+    const formMid = chars.slice(start, length);
+    return gsap.from(formMid, {
+      alpha: 0,
+      duration: 0.01,
+      stagger: {
+        each: 0.06,
+      },
+      ease: 'none',
+      onStart: () => {
+        this.elm.style.opacity = '1';
+        this.isComplete = false;
+      },
+      onComplete: () => this.isComplete = true
+    });
+  }
+
+  init() {
+    super.init();
+    this.elm.style.opacity = '1';
+  }
+}
+
 export default TypewriteAnimation;
