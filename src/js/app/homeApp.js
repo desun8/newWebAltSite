@@ -7,6 +7,7 @@ import Counter from '../components/counter';
 import AwardsList from '../home/awards-list';
 import RedirectFooter from '../home/redirectFooter';
 import BlockText from '../home/blockText';
+import CanvasSphere from '../home/canvasShpere';
 
 const getCssVar = (name = '', elm = document.documentElement) => {
   return getComputedStyle(elm).getPropertyValue(name);
@@ -127,6 +128,7 @@ class HomeApp extends Index {
 
     this.changeTheme.init();
     this.awardsList.init()
+    new CanvasSphere();
   }
 }
 
