@@ -53,6 +53,11 @@
   }
 }
 
+.page-menu__close,
+.page-nav {
+  letter-spacing: 0.015em;
+}
+
 .page-menu__header {
   display: flex;
   align-items: center;
@@ -205,7 +210,6 @@
 }
 
 .page-nav {
-  letter-spacing: 0.015em;
   margin-bottom: 80px;
   padding-left: 84px;
   

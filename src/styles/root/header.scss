@@ -56,12 +56,16 @@
   }
 }
 
+.page-header__feedback-btn,
+.menu-btn {
+  letter-spacing: 0.015em;
+}
+
 .page-header__feedback-btn {
   grid-column: 11/13;
   justify-self: end;
   
   text-transform: lowercase;
-  letter-spacing: 0.015em;
   
   &.link::after {
     height: 1px;

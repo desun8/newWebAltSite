@@ -37,6 +37,13 @@
   }
 }
 
+.hero__taglines,
+.hero__title,
+.hero__news,
+.hero__scroll .mobile {
+  letter-spacing: 0.015em;
+}
+
 .hero__taglines {
   position: absolute;
   bottom: vw(18);
@@ -62,7 +69,6 @@
   height: 100%;
   
   font-weight: 600;
-  letter-spacing: 0.015em;
   text-transform: uppercase;
 }
 
@@ -83,14 +89,13 @@
 
 .hero__title {
   @include font-size(64, 46);
-  z-index: 2;
-  
-  text-transform: uppercase;
-  letter-spacing: 0.015em;
   
   position: absolute;
   left: calc((195 / 730) * -100%);
   top: calc((545 / 730) * 100%);
+  z-index: 2;
+  
+  text-transform: uppercase;
   
   @media screen and (--tablet-sm) {
     left: 0;
@@ -102,6 +107,7 @@
   span {
     @include font-size(18);
     display: inline-block;
+    letter-spacing: 0;
     transform: translateY(-1.2em);
     
     @media screen and (--tablet-sm) {

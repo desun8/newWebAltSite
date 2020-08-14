@@ -340,6 +340,7 @@
       
       display: block;
       text-transform: uppercase;
+      letter-spacing: 0.015em;
     }
     
     .block--dev & {
@@ -682,6 +683,7 @@
     padding: 60px 30px;
     background-color: var(--c-red);
     font-size: 22px;
+    letter-spacing: 0.015em;
     
     svg {
       opacity: 0.1;

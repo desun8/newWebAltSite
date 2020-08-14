@@ -178,6 +178,7 @@
   &__count {
     margin-right: vw(5);
     font-weight: 300;
+    letter-spacing: 0.1em;
     opacity: 0.5;
     
     @media screen and (--tablet-sm) {
