@@ -11,7 +11,7 @@
   transform-origin: 0 0;
   transform: scaleY(0);
   
-  body.theme-orange & {
+  body.theme-orange & { //stylelint-disable-line
     --color: #fff;
   }
 }

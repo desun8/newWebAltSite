@@ -2,7 +2,7 @@
 
 .page-menu {
   //--width: #{vw(535)};
-  --width: #{rem(535)};
+  --width: 535px;
   
   position: fixed;
   top: 0;
@@ -48,8 +48,8 @@
 .page-nav,
 .page-menu__contacts {
   @media screen and (--tablet-sm) {
-    padding-left: rem(20) !important;
-    padding-right: rem(20) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }
 
@@ -60,9 +60,9 @@
   
   @media screen and (--tablet-sm) {
     justify-content: space-between;
-    margin-bottom: rem(30);
-    padding-top: rem(20);
-    padding-bottom: rem(20);
+    margin-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -71,25 +71,25 @@
 }
 
 .page-menu__logo {
-  width: rem(38);
-  height: rem(21);
+  width: 38px;
+  height: 21px;
   margin-right: vw(84);
   
   @media screen and (--tablet-sm) {
-    width: rem(40);
+    width: 40px;
     height: auto;
   }
 }
 
 .page-menu__close {
-  @include font-size-rem($fz-text-sm);
+  @include font-size-px($fz-text-sm);
   
   color: inherit;
   transition: color var(--trans-dur-fast) ease-in;
   transform: translateY(15%);
   
   @media screen and (--tablet-sm) {
-    --size: #{rem(30)};
+    --size: #{30px};
     
     width: var(--size);
     height: var(--size);
@@ -111,7 +111,7 @@
     margin-right: em(20, $fz-text-sm);
   
     @media screen and (--tablet-sm) {
-      --size: #{rem(20)};
+      --size: #{20px};
     }
     
     &::before,
@@ -140,13 +140,13 @@
 }
 
 .page-menu__contacts {
-  padding-left: rem(114);
-  padding-right: rem(124);
+  padding-left: 114px;
+  padding-right: 124px;
   padding-bottom: vw(56);
   align-self: end;
   
   @media screen and (--tablet-sm) {
-    padding-bottom: rem(46);
+    padding-bottom: 46px;
   }
 }
 
@@ -154,12 +154,12 @@
   margin-bottom: vw(40);
   
   @media screen and (--tablet-sm) {
-    margin-bottom: rem(20);
+    margin-bottom: 20px;
   }
   
   &__name {
     //@include font-size($fz-text-sm);
-    @include font-size-rem($fz-text-sm);
+    @include font-size-px($fz-text-sm);
     
     max-width: em(84, $fz-text-sm);
     margin-bottom: em(5, $fz-text-sm);
@@ -167,7 +167,7 @@
   
     @media screen and (--tablet-sm) {
       max-width: em(60, 10);
-      font-size: rem(10);
+      font-size: 10px;
     }
     
     
@@ -178,19 +178,19 @@
   
   &__link {
     //@include font-size(30, 40);
-    @include font-size-rem(30, 40);
+    @include font-size-px(30, 40);
     
     font-weight: 600;
   
     @media screen and (--tablet-sm) {
-      font-size: rem($fz-text-lg);
+      font-size: $fz-text-lg * 1px;
     }
   }
 }
 
 .menu-soc {
   //@include font-size($fz-text-sm, 14);
-  @include font-size-rem($fz-text-sm, 18);
+  @include font-size-px($fz-text-sm, 18);
   
   display: flex;
   justify-content: space-between;
@@ -199,15 +199,15 @@
   font-weight: 600;
   
   @media screen and (--tablet-sm) {
-    padding-top: rem(16);
-    font-size: rem(8);
+    padding-top: 16px;
+    font-size: 8px;
   }
 }
 
 .page-nav {
   letter-spacing: 0.015em;
   margin-bottom: 80px;
-  padding-left: rem(84);
+  padding-left: 84px;
   
   @media screen and (--tablet-sm) {
     margin-bottom: vh(65, 812);
@@ -222,12 +222,12 @@
 }
 
 .page-nav__list {
-  @include font-size-rem($fz-text-md);
+  @include font-size-px($fz-text-md);
   
   counter-reset: my-counter;
   
   @media screen and (--tablet-sm) {
-    @include font-size-rem($fz-text-lg);
+    @include font-size-px($fz-text-lg);
     display: block;
   }
 }
@@ -244,7 +244,7 @@
   --mt: #{em(30 / 2, $fz-text-md)};
   --mb: #{em(90, $fz-text-md)};
   
-  @include font-size-rem($fz-text-sm);
+  @include font-size-px($fz-text-sm);
   
   position: relative;
   max-height: 0;
@@ -257,7 +257,7 @@
     --mt: #{em(10, 15)};
     --mb: #{em(40, 15)};
     
-    @include font-size-rem(15);
+    @include font-size-px(15);
   }
   
   &::before {

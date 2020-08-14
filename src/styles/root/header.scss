@@ -1,8 +1,8 @@
 //@use "../_config" as c;
-@use "../_config/index" as c;
+@use "../_config/index" as *;
 
 :root {
-  --headerSize: calc(#{c.vw(46)} + #{c.rem(c.$fz-text-sm)});
+  --headerSize: calc(#{vw(46)} + #{$fz-text-sm * 1px});
   
   @media screen and (--tablet-sm) {
     --headerSize: 70px;
@@ -12,21 +12,21 @@
 .page-header {
   --grid-col: 12;
   
-  @include c.grid-base(var(--grid-col));
-  @include c.font-size-rem(c.$fz-text-sm);
+  @include grid-base(var(--grid-col));
+  @include font-size-px($fz-text-sm);
   
-  padding-top: c.vw(46);
+  padding-top: vw(46);
   
   //transform: translate3d(0px, 0px, 0);
   
   @media screen and (--tablet-sm) {
     --grid-col: 5;
-    padding-top: c.rem(20);
-    padding-bottom: c.rem(20);
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   
   &__wrap {
-    @include c.grid(var(--grid-col));
+    @include grid(var(--grid-col));
     grid-column: 1/ calc(var(--grid-col) + 1);
     
     align-items: center;
@@ -38,8 +38,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: c.rem(40);
-  height: c.rem(30);
+  width: 40px;
+  height: 30px;
   color: var(--c-black-second);
   
   .page-header--short & {
@@ -88,35 +88,35 @@
   }
   
   @media screen and (--tablet-sm) {
-    @include c.font-size-rem(18);
+    @include font-size-px(18);
     
     grid-column: 4/6;
     justify-self: end;
   }
   
-  body.theme-dark & {
+  body.theme-dark & { //stylelint-disable-line
     --color: #fff;
   }
   
-  body.theme-orange & {
+  body.theme-orange & { //stylelint-disable-line
     --color-hover: #fff;
   }
   
   &--fixed {
     position: fixed;
-    transform: translate3d(#{c.vw(-84)}, 20px, 0);
+    transform: translate3d(#{vw(-84)}, 20px, 0);
   }
   
   &__icon {
-    width: c.em(16, 14);
-    height: c.em(13, 14);
-    margin-right: c.em(10, 14);
+    width: em(16, 14);
+    height: em(13, 14);
+    margin-right: em(10, 14);
     fill: currentColor;
   
     @media screen and (--tablet-sm) {
-      width: c.em(24, 18);
+      width: em(24, 18);
       height: auto;
-      margin-right: c.em(6, 18);
+      margin-right: em(6, 18);
     }
   }
 }

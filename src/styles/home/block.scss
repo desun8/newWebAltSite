@@ -191,7 +191,7 @@
     
     @media screen and (--tablet-sm) {
       //top: calc(var(--title-pd-t) - #{vw(52)});
-      top: rem(-38);
+      top: -38px;
       left: vw(-50, $mobile-viewport);
       width: vw(198, $mobile-viewport);
       height: vw(180, $mobile-viewport);
@@ -202,6 +202,7 @@
       stroke: #000;
       opacity: 0.2;
       border: 1px solid transparent;
+      //noinspection CssUnknownTarget
       border-image: url("../images/awards-bg-border.svg") 0 / auto / 2px stretch;
       transition: var(--trans-dur-fast) ease;
       transition-property: fill, stroke, opacity, border-image-slice;
@@ -261,7 +262,7 @@
   @media screen and (--tablet-sm) {
     grid-template-columns: auto;
     grid-template-rows: repeat(4, auto);
-    grid-row-gap: rem(30);
+    grid-row-gap: 30px;
   }
   
   .block--reverse & {
@@ -330,7 +331,7 @@
     display: none;
     
     @media screen and (--tablet-sm) {
-      @include font-size-rem(72, 52);
+      @include font-size-px(72, 52);
       
       //position: relative !important;
       //width: auto;
@@ -378,9 +379,9 @@
   font-weight: 300;
   
   @media screen and (--tablet-sm) {
-    --size: #{rem(28)};
-    --top: #{rem(10)};
-    --left: #{rem(-10)};
+    --size: #{28px};
+    --top: #{10px};
+    --left: -10px;
     --bg: #dfdddf;
     
     position: absolute;
@@ -388,19 +389,19 @@
     right: 35px;
     
     margin-bottom: 0;
-    font-size: rem($fz-text-md);
+    font-size: $fz-text-md * 1px;
     
     .block--seo & {
-      --top: #{rem(-2)};
-      --left: #{rem(-10)};
+      --top: -2px;
+      --left: -10px;
       --bg: var(--c-red);
       
       left: 54px;
     }
     
     .block--design & {
-      --top: #{rem(2)};
-      --left: #{rem(-4)};
+      --top: #{2px};
+      --left: #-4px;
       --bg: #fff;
       
       right: 80px;
@@ -465,7 +466,7 @@
     --bg-color: #000;
     
     max-width: vw(275, $mobile-viewport);
-    display: -webkit-box;
+    display: -webkit-box; //stylelint-disable-line
     margin-bottom: 0;
     color: var(--text-color);
     font-size: 0;
@@ -479,7 +480,6 @@
   &::after {
     @media screen and (--tablet-sm) {
       content: "";
-      //display: inline-block;
       width: 100%;
     }
   }
@@ -523,7 +523,7 @@
   grid-column: var(--col-list);
   
   @media screen and (--tablet-sm) {
-    margin-bottom: rem(30);
+    margin-bottom: 30px;
   }
   
   .block--reverse & {
@@ -542,7 +542,7 @@
     @media screen and (--tablet-sm) {
       display: block;
       margin-bottom: 0;
-      font-size: rem($fz-text-md);
+      font-size: $fz-text-md * 1px;
       text-align: right;
       
       .block--reverse & {
@@ -602,8 +602,6 @@
   --vp: 1920;
   --vw: calc(var(--vp) * 0.01);
   
-  //display: flex;
-  //align-items: flex-end;
   position: relative;
   width: vw(38);
   height: calc(var(--height) / var(--vw) * 1vw);
@@ -613,9 +611,6 @@
   }
   
   &__item {
-    //--height: 560;
-    //--vp: 1920;
-    //--vw: calc(var(--vp) * 0.01);
     --top: 0;
     
     @include bg-img("../images/bg-home-symbols-one-lg.svg", contain, 50%, 100%);
@@ -633,7 +628,6 @@
       top: var(--top);
       bottom: auto;
       height: vw(440) !important;
-      //background-image: url("../images/bg-home-symbols-two.svg") !important;
       background: none;
     }
     
@@ -642,7 +636,8 @@
       --top: #{vw(40)};
       
       left: calc(50% - (#{vw(10)} / 2));
-      
+  
+      //noinspection CssUnknownTarget
       background-image: url("../images/bg-home-symbols-one-md.svg");
       order: 2;
     }
@@ -652,7 +647,8 @@
       --top: #{vw(40 * 2)};
       
       left: 0;
-      
+  
+      //noinspection CssUnknownTarget
       background-image: url("../images/bg-home-symbols-one-sm.svg");
       order: 1;
     }
@@ -683,10 +679,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    //padding-top: 60px;
-    //padding-bottom: 60px;
-    //padding-left: 30px;
-    //padding-right: 25px;
     padding: 60px 30px;
     background-color: var(--c-red);
     font-size: 22px;

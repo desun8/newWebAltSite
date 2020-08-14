@@ -12,7 +12,7 @@
   @media screen and (--tablet-sm) {
     //@include grid-base(5);
     display: block;
-    padding-top: rem(40);
+    padding-top: 40px;
   }
 }
 
@@ -33,7 +33,7 @@
     left: 0;
     transform: none;
     width: 100%;
-    margin-bottom: rem(50);
+    margin-bottom: 50px;
   }
 }
 
@@ -83,11 +83,7 @@
 
 .hero__title {
   @include font-size(64, 46);
-  //position: relative;
   z-index: 2;
-  //padding-bottom: vh(178);
-  //grid-column: 3/6;
-  //align-self: end;
   
   text-transform: uppercase;
   letter-spacing: 0.015em;
@@ -100,7 +96,7 @@
     left: 0;
     top: auto;
     bottom: calc((32 / 344) * 100%);
-    font-size: rem(36);
+    font-size: 36px;
   }
   
   span {
@@ -109,7 +105,7 @@
     transform: translateY(-1.2em);
     
     @media screen and (--tablet-sm) {
-      font-size: rem(12);
+      font-size: 12px;
     }
   }
 }
@@ -132,8 +128,6 @@
 .hero-news {
   position: relative;
   width: 100%;
-  //height: 50%;
-  //border: 1px solid blue;
 }
 
 .hero-news__item {
@@ -158,7 +152,7 @@
 
 .hero__nav {
   @include list-unstyled();
-  @include font-size-rem($fz-text-lg);
+  @include font-size-px($fz-text-lg);
   display: none;
   
   text-align: right;
@@ -193,7 +187,7 @@
   @media screen and (--tablet-sm) {
     bottom: 10%;
     max-width: 100%;
-    font-size: rem(10);
+    font-size: 10px;
     font-weight: 600;
     text-decoration: none;
     overflow: visible;
@@ -286,7 +280,7 @@
   
   position: absolute;
   top: 25%;
-  left: 0%;
+  left: 0;
   width: 200px;
   height: vw(528);
 }
