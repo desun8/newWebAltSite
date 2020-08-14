@@ -221,6 +221,18 @@ export class TypewriteAnimationWithBg extends TypewriteAnimation {
     this.classNameWord = 'js-typewrite-word';
   }
 
+  wrapChar(char) {
+    const elm = document.createElement('span');
+    const elmText = document.createElement('span');
+    if (char) {
+      elmText.innerHTML = char;
+    }
+    elm.classList.add(this.className);
+    elm.appendChild(elmText);
+
+    return elm;
+  }
+
   wrapWord(word) {
     const elm = document.createElement('span');
     if (word) {

@@ -7,6 +7,7 @@ export default class ChangeTheme {
     this.classNames = classNames;
 
     this.body = document.body;
+    this.main = document.querySelector('.page-home');
 
     this.state = {
       in: '',

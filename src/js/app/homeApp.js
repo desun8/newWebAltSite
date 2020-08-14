@@ -102,7 +102,7 @@ class HomeApp extends Index {
     //   console.log(this.$elms[block]);
     //   // new BlockText(block);
     // }
-    for (const [key,value] of Object.entries(this.$elms)) {
+    for (const [key, value] of Object.entries(this.$elms)) {
       new BlockText(value);
     }
   }
@@ -127,7 +127,7 @@ class HomeApp extends Index {
     super.init();
 
     this.changeTheme.init();
-    this.awardsList.init()
+    this.awardsList.init();
     new CanvasSphere();
   }
 }
