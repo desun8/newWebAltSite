@@ -213,7 +213,7 @@
     margin-left: 10px;
     
     @media screen and (--tablet-sm) {
-      --size: #{14px};
+      --size: 14px;
     }
     
     &::before,
@@ -291,7 +291,7 @@
       padding-bottom: var(--space-bottom);
       
       @media screen and (--tablet-sm) {
-        --space-bottom: #{10px};
+        --space-bottom: 10px;
       }
       
       &::after {

@@ -94,7 +94,7 @@
   transform: translateY(15%);
   
   @media screen and (--tablet-sm) {
-    --size: #{30px};
+    --size: 30px;
     
     width: var(--size);
     height: var(--size);
@@ -116,7 +116,7 @@
     margin-right: em(20, $fz-text-sm);
   
     @media screen and (--tablet-sm) {
-      --size: #{20px};
+      --size: 20px;
     }
     
     &::before,
@@ -185,8 +185,6 @@
     //@include font-size(30, 40);
     @include font-size-px(30, 40);
     
-    font-weight: 600;
-  
     @media screen and (--tablet-sm) {
       font-size: $fz-text-lg * 1px;
     }
@@ -253,6 +251,7 @@
   position: relative;
   max-height: 0;
   padding-left: em(20, $fz-text-sm);
+  font-weight: 300;
   overflow: hidden;
   transform: translateY(var(--mt));
   transition: margin-bottom var(--trans-dur-fast);

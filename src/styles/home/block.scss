@@ -380,8 +380,8 @@
   font-weight: 300;
   
   @media screen and (--tablet-sm) {
-    --size: #{28px};
-    --top: #{10px};
+    --size: 28px;
+    --top: 10px;
     --left: -10px;
     --bg: #dfdddf;
     
@@ -401,8 +401,8 @@
     }
     
     .block--design & {
-      --top: #{2px};
-      --left: #-4px;
+      --top: 2px;
+      --left: -4px;
       --bg: #fff;
       
       right: 80px;
@@ -444,6 +444,7 @@
     display: none;
     color: var(--c-red);
     text-align: right;
+    font-weight: 500;
     
     @media screen and (--tablet-sm) {
       display: block;
@@ -684,6 +685,7 @@
     background-color: var(--c-red);
     font-size: 22px;
     letter-spacing: 0.015em;
+    font-weight: 700;
     
     svg {
       opacity: 0.1;
