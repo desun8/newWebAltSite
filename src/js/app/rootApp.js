@@ -30,7 +30,7 @@ class RootApp extends Index {
       tickerElms: document.querySelectorAll('.page-menu .ticker')
     };
 
-    this.menu = new Menu(this.menuElms.menu, this.menuElms.btnOpen, this.menuElms.btnClose, this.menuElms.nav);
+    this.menu = new Menu(this.menuElms.menu, this.menuElms.btnOpen, this.menuElms.btnClose, this.menuElms.nav, this.config);
 
     //**** FOOTER ****//
 

@@ -1,15 +1,18 @@
 import { gsap } from 'gsap';
+import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import Collapsible from './collapsible';
 import { Scrollbar } from './scrollbar';
 
+
 export default class Menu {
-  constructor(elm, btnOpen, btnClose, nav) {
+  constructor(elm, btnOpen, btnClose, nav, appConfig = null) {
     this.elm = elm;
     this.btnOpen = btnOpen;
     this.btnClose = btnClose;
     this.nav = nav;
 
     this.isVisible = false;
+    this.appConfig = appConfig;
 
     this.pageMain = document.querySelector('main');
     this.pageHeader = document.querySelector('header');
@@ -131,6 +134,14 @@ export default class Menu {
 
   handleClick() {
     this.isVisible = !this.isVisible;
+
+    if (this.appConfig?.isDesktop === false) {
+      if (this.isVisible) {
+        disablePageScroll(this.elm);
+      } else {
+        enablePageScroll(this.elm);
+      }
+    }
 
     this.toggleView(this.isVisible);
   }
