@@ -6,7 +6,8 @@ export default class RedirectFooter {
     this.$elms = {
       root: elm,
       title: elm.querySelector('.footer-redirect__title'),
-      titleIcon: elm.querySelector('.footer-redirect__title .link__arrow'),
+      linkName: elm.querySelector('.footer-redirect__link-name'),
+      linkIcon: elm.querySelector('.footer-redirect__link-name .link__arrow'),
       counter: elm.querySelector('.footer-redirect__counter-wrap'),
     };
 
@@ -31,6 +32,8 @@ export default class RedirectFooter {
       to: 100
     };
 
+    // const linkNameTween = (val) => gsap.to()
+
     this.textTween = gsap.to(value,
       {
         init: value.to,
@@ -41,8 +44,22 @@ export default class RedirectFooter {
             this.$elms.title.style.background = `linear-gradient(90deg, var(--c-red) ${value.init}%, var(--redirect-color) ${value.init}%)`;
             this.$elms.title.style.webkitBackgroundClip = 'text';
 
-            if (value.init > 99) {
-              this.$elms.titleIcon.style.fill = 'var(--c-red)';
+            if (value.init >= 88) {
+              const max = 12;
+              const curr = max - (value.to - value.init);
+              const pos = curr / (max / 100);
+
+              this.$elms.linkName.style.background = `linear-gradient(90deg, var(--c-red) ${pos}%, var(--redirect-color) ${pos}%)`;
+              this.$elms.linkName.style.webkitBackgroundClip = 'text';
+
+              if (pos > 99) {
+                this.$elms.linkIcon.style.fill = 'var(--c-red)';
+              }
+            } else {
+              const pos = 0;
+
+              this.$elms.linkName.style.background = `linear-gradient(90deg, var(--c-red) ${pos}%, var(--redirect-color) ${pos}%)`;
+              this.$elms.linkName.style.webkitBackgroundClip = 'text';
             }
           });
         },
@@ -102,7 +119,7 @@ export default class RedirectFooter {
       this.textTween.reverse();
 
 
-      this.$elms.titleIcon.style.fill = null;
+      this.$elms.linkIcon.style.fill = null;
     }
 
     if (this.counterTween) {

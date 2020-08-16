@@ -175,6 +175,8 @@
   text-transform: uppercase;
   
   @media screen and (--tablet-sm) {
+    @include font-size-px(22, 26);
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 30px;
@@ -226,7 +228,55 @@
   }
   
   &__map {
+    position: relative;
     color: #fff;
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in;
+  
+    @media screen and (--tablet-sm) {
+      font-size: 14px;
+    }
+    
+    &:hover {
+      color: var(--c-red);
+    }
+    
+    &::after,
+    .icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+    }
+    
+    .icon {
+      position: absolute;
+      top: 0;
+      right: -20%;
+      width: 8px;
+      height: 14px;
+  
+      @media screen and (--tablet-sm) {
+        top: 1px;
+        width: 14px;
+        height: 100%;
+        color: var(--c-red);
+      }
+      
+      &::after {
+        bottom: 0;
+      }
+      
+      svg {
+        width: 100%;
+        //height: 100%;
+        fill: currentColor;
+      }
+    }
   }
 }
 

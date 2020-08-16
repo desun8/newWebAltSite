@@ -45,11 +45,11 @@ class HomeApp extends Index {
 
     //**** HERO SLIDER ****//
     this.heroSliderElms = {
-      announcement: document.querySelector('.hero-news'),
+      announcement: document.querySelector('.hero-announcement'),
       taglines: document.querySelector('.hero-taglines')
     };
 
-    this.announcementSlider = new SliderWithTypewrite(this.heroSliderElms.announcement, 'hero-news__item');
+    this.announcementSlider = new SliderWithTypewrite(this.heroSliderElms.announcement, 'hero-announcement__item');
     this.taglinesSlider = new SliderWithTypewrite(this.heroSliderElms.taglines, 'hero-taglines__item');
 
     //**** HERO TICKER ****//

@@ -51,13 +51,13 @@
   &::after {
     content: "";
     position: absolute;
-    //bottom: 0.1em;
-    bottom: 0.05em;
+    //bottom: 0.05em;
+    bottom: -1px;
     left: 0;
     width: calc(100% - var(--icon-size) - var(--icon-ml));
     height: 1px;
-    //background-color: var(--c-red);
-    background-color: var(--hover-color);
+    //background-color: var(--hover-color);
+    background-color: currentColor;
     transform-origin: 0 50%;
     transform: scaleX(0);
     transition-property: transform;
@@ -91,6 +91,12 @@
   
   &--orange {
     color: var(--hover-color);
+  }
+  
+  &--underline {
+    &::after {
+      transform: scaleX(1);
+    }
   }
   
   &__icon {
