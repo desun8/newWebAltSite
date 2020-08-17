@@ -8,6 +8,7 @@ import AwardsList from '../home/awards-list';
 import RedirectFooter from '../home/redirectFooter';
 import BlockText from '../home/blockText';
 import CanvasSphere from '../home/canvasShpere';
+import HeroLogoAnimation from '../home/heroLogoAnimation';
 
 const getCssVar = (name = '', elm = document.documentElement) => {
   return getComputedStyle(elm).getPropertyValue(name);
@@ -56,6 +57,9 @@ class HomeApp extends Index {
     this.tickerElm = document.querySelector('.hero__scroll');
     this.ticker = new TextRunner(this.tickerElm);
 
+    //**** HERO ANIMATION LOGO ****//
+    this.heroLogoAnimation = new HeroLogoAnimation();
+
     //**** VERTICAL SYMBOLS ****//
     this.symbolElms = [
       {
@@ -93,6 +97,7 @@ class HomeApp extends Index {
     this.symbolsAnimation.forEach(item => item.init());
     this.awardsList.desktop();
     this.redirectFooter.initDesktop();
+    this.heroLogoAnimation.initDesktop();
   }
 
   initMobile() {
@@ -113,6 +118,7 @@ class HomeApp extends Index {
 
     this.symbolsAnimation.forEach(item => item.mobile());
     this.awardsList.mobile();
+    this.heroLogoAnimation.initMobile();
   }
 
   update() {
