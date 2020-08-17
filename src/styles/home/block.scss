@@ -466,13 +466,18 @@
   @media screen and (--tablet-sm) {
     --text-color: #fff;
     --bg-color: #000;
+  
+    @include font-size-px($fz-text-16, 26);
     
     max-width: vw(275, $mobile-viewport);
     display: -webkit-box; //stylelint-disable-line
     margin-bottom: 0;
     color: var(--text-color);
-    font-size: 0;
-    line-height: 0;
+    //font-size: 0;
+    //line-height: 0;
+  
+    padding: 0.5em;
+    background-color: var(--bg-color);
     
     .block--seo & {
       --bg-color: var(--c-red);
