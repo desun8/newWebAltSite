@@ -107,9 +107,12 @@
   }
   
   &.theme-orange {
-    .block__title path {
-      fill: #181818;
-    }
+    //.block__title {
+    //  svg,
+    //  path {
+    //    fill: #181818;
+    //  }
+    //}
     
     .bg-grid svg:hover {
       fill: #fff !important;
