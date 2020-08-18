@@ -92,7 +92,7 @@ class TypewriteAnimation {
 
     this.replaceNode(this.elm.childNodes);
     this.getCharElms();
-    this.tween = this.animation(this.chars).pause();
+    this.tween = this.animation(this.chars);
   }
 }
 

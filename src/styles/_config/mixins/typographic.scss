@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../functions/index" as fn;
 
 $adaptive-mod: 1.5;
@@ -5,6 +6,8 @@ $adaptive-mod: 1.5;
 // px to vw/em
 @mixin font-size($font-size, $line-height: $font-size) {
   font-size: fn.vw($font-size);
+  //font-size: calc(1rem + 0.5vw);
+  //font-size: $font-size * 1px;
   line-height: fn.em($line-height, $font-size);
   
   @supports (width: clamp(10px, 5vw, 100vw)) {
