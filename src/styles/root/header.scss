@@ -67,8 +67,12 @@
   
   text-transform: lowercase;
   
-  &.link::after {
-    height: 1px;
+  //&.link::after {
+  //  height: 1px;
+  //}
+  
+  .link__arrow {
+    transform-origin: 0 70%;
   }
   
   @media screen and (--tablet-sm) {

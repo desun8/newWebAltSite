@@ -1,18 +1,26 @@
-@use "sass:math";
+//@use "sass:math";
 @use "../functions/index" as fn;
 
 $adaptive-mod: 1.5;
 
 // px to vw/em
 @mixin font-size($font-size, $line-height: $font-size) {
-  font-size: fn.vw($font-size);
+  --fz: #{fn.vw($font-size)};
+  //font-size: fn.vw($font-size);
+  //font-size: calc(1rem + #{fn.vw($font-size - 16)});
+  //font-size: calc(1rem + #{fn.vw($font-size)});
+  //font-size: calc(#{fn.rem($font-size)} + 0.1vw);
   //font-size: calc(1rem + 0.5vw);
-  //font-size: $font-size * 1px;
+  //font-size: calc(1rem + (var(--fz)) - 1rem);
   line-height: fn.em($line-height, $font-size);
   
   @supports (width: clamp(10px, 5vw, 100vw)) {
     /* An enhancement for supporting browsers */
-    font-size: clamp(#{fn.rem($font-size - 4)}, calc(#{fn.vw($font-size)} + 0rem), #{fn.vw($font-size)});
+    font-size: clamp(#{fn.rem($font-size - 4)}, calc(#{fn.vw($font-size)}), #{fn.rem($font-size)});
+  
+    @media screen and (--desktop-sm) {
+      font-size: clamp(#{fn.rem($font-size - 6)}, calc(#{fn.vw($font-size - 2, 1260)}), #{fn.rem($font-size)});
+    }
   }
 }
 
