@@ -62,6 +62,6 @@ export class ScrollbarPage extends Scrollbar {
       }
     });
 
-    this.smoothScroll = new SmoothScroll(document, 120, this.instance);
+    // this.smoothScroll = new SmoothScroll(document, 120, this.instance);
   }
 }

@@ -1,3 +1,4 @@
+//TODO: добавить обновление scrolldata(?) для window.resize
 class SmoothScroll {
   constructor(target, speed, scrollbarInstance) {
     if (target === document)
