@@ -23,24 +23,25 @@ export class ScrollbarPage extends Scrollbar {
   constructor(...props) {
     super(...props);
 
-    // this.instance.options({
-    //   callbacks: {
-    //     onScroll: this.onScroll.bind(this)
-    //   }
-    // });
-
     this.ticking = false;
     this.scrollData = null;
 
+    this.menuBtn = document.querySelector('.menu-btn');
     this.progressBar = new ProgressBar();
   }
 
   onScroll(e) {
-    this.scrollData = this.instance.scroll();
-
     if (!this.ticking) {
       requestAnimationFrame(() => {
+        this.scrollData = this.instance.scroll();
         this.progressBar.update(this.getScrollRatioY(this.scrollData));
+
+        if (this.scrollData.position.y > 10) {
+          this.menuBtn.classList.add('menu-btn--fixed');
+        } else {
+          this.menuBtn.classList.remove('menu-btn--fixed');
+        }
+
         this.ticking = false;
       });
 
@@ -61,6 +62,6 @@ export class ScrollbarPage extends Scrollbar {
       }
     });
 
-    this.smoothScroll = new SmoothScroll(document, 120, 12, this.instance);
+    this.smoothScroll = new SmoothScroll(document, 120, this.instance);
   }
 }
