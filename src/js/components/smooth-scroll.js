@@ -1,4 +1,3 @@
-//TODO: добавить обновление scrolldata(?) для window.resize
 class SmoothScroll {
   constructor(target, speed, scrollbarInstance) {
     if (target === document)
@@ -19,7 +18,7 @@ class SmoothScroll {
     this.scrolled = this.scrolled.bind(this);
 
 
-    this.addEvents();
+    this.addEvent();
   }
 
   scrolled(e) {
@@ -66,9 +65,16 @@ class SmoothScroll {
     }
   }
 
-  addEvents() {
+  addEvent() {
     this.target.addEventListener('wheel', this.scrolled, { passive: false });
-    // this.target.addEventListener('DOMMouseScroll', this.scrolled, { passive: false });
+  }
+
+  removeEvent() {
+    this.target.removeEventListener('wheel', this.scrolled, { passive: false });
+  }
+
+  resize() {
+    this.scrollData = this.scrollbarInstance.scroll();
   }
 }
 

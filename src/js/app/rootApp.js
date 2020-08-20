@@ -83,6 +83,10 @@ class RootApp extends Index {
     if (this.progressBar) {
       this.progressBar.resize();
     }
+
+    if (this.scrollbar) {
+      this.scrollbar.smoothScroll.resize();
+    }
   }
 
   init() {

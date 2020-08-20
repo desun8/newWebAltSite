@@ -30,7 +30,7 @@ export class ScrollbarPage extends Scrollbar {
     this.progressBar = new ProgressBar();
   }
 
-  onScroll(e) {
+  onScroll() {
     if (!this.ticking) {
       requestAnimationFrame(() => {
         this.scrollData = this.instance.scroll();
@@ -53,6 +53,11 @@ export class ScrollbarPage extends Scrollbar {
     return scroll.ratio.y;
   }
 
+  destroy() {
+    super.destroy();
+    this.smoothScroll.removeEvent();
+  }
+
   init() {
     super.init();
 
@@ -62,6 +67,6 @@ export class ScrollbarPage extends Scrollbar {
       }
     });
 
-    // this.smoothScroll = new SmoothScroll(document, 120, this.instance);
+    this.smoothScroll = new SmoothScroll(document, 120, this.instance);
   }
 }
