@@ -1,6 +1,7 @@
 import OverlayScrollbars from 'overlayscrollbars';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import ProgressBar from './progressBar';
+import SmoothScroll from './smooth-scroll';
 
 export class Scrollbar {
   constructor(elm, options = {}) {
@@ -34,7 +35,7 @@ export class ScrollbarPage extends Scrollbar {
     this.progressBar = new ProgressBar();
   }
 
-  onScroll() {
+  onScroll(e) {
     this.scrollData = this.instance.scroll();
 
     if (!this.ticking) {
@@ -59,5 +60,7 @@ export class ScrollbarPage extends Scrollbar {
         onScroll: this.onScroll.bind(this)
       }
     });
+
+    this.smoothScroll = new SmoothScroll(document, 120, 12, this.instance);
   }
 }
