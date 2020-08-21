@@ -16,6 +16,7 @@ export default class Menu {
 
     this.pageMain = document.querySelector('main');
     this.pageHeader = document.querySelector('header');
+    this.pageFooter = document.querySelector('footer');
     this.progressBar = document.querySelector('.progress-bar');
 
     this.elmWidth = this.elm.offsetWidth;
@@ -72,7 +73,7 @@ export default class Menu {
       duration,
     }, 0);
     tl.to(
-      [this.pageHeader, this.pageMain, this.progressBar],
+      [this.pageHeader, this.pageMain, this.progressBar, this.pageFooter],
       {
         x: shouldShow ? this.elmWidth : 0,
         duration,

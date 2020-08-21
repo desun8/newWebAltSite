@@ -20,6 +20,8 @@ export default class ChangeTheme {
     this.options = {
       threshold: 0.4
     };
+
+    this.prevTop = 0;
   }
 
   animation(target, style, className, isAdd = false) {
@@ -53,11 +55,13 @@ export default class ChangeTheme {
     const { state, styles, classNames } = this;
 
     entries.forEach(entry => {
-      const { isIntersecting, target } = entry;
+      const { isIntersecting, target, boundingClientRect } = entry;
+      const currTop = Math.abs(boundingClientRect.y);
       const { id } = target;
 
       if (isIntersecting) {
         state.in = id;
+        this.prevTop = currTop;
 
         this.animation(target, styles[state.in], classNames[state.in], true);
       } else {
@@ -66,6 +70,9 @@ export default class ChangeTheme {
         document.body.classList.remove(classNames[state.out]);
 
         if (state.in === state.out) {
+          if (id === 'seo' && currTop > this.prevTop) return;
+          if (id === 'design' && currTop < this.prevTop) return;
+
           this.animation(target, styles[state.out], classNames[state.out]);
         }
       }
