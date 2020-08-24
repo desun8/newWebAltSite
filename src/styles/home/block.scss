@@ -98,7 +98,7 @@
     }
     
     .block__bg svg {
-      stroke: var(--main-color);
+      //stroke: var(--main-color);
     }
     
     .bg-grid {
@@ -156,6 +156,7 @@
   
   @media screen and (--tablet-sm) {
     left: var(--bg-pos, 0);
+    z-index: -1;
   }
   
   .block--reverse & {
@@ -198,61 +199,60 @@
       left: vw(-50, $mobile-viewport);
       width: vw(198, $mobile-viewport);
       height: vw(180, $mobile-viewport);
+      z-index: 0;
     }
     
-    svg {
-      fill: #fff;
-      stroke: #000;
-      opacity: 0.2;
+    .img-bg {
       border: 1px solid transparent;
-      //noinspection CssUnknownTarget
-      border-image: url("../images/awards-bg-border.svg") 0 / auto / 2px stretch;
-      transition: var(--trans-dur-fast) ease;
-      transition-property: fill, stroke, opacity, border-image-slice;
-      
+  
       @media screen and (--tablet-sm) {
-        fill: #dfdddf;
-        stroke: #131313;
-        opacity: 1;
+        border: 0;
       }
       
-      &:hover {
-        stroke: var(--c-blue);
-        opacity: 1;
-        border-image-slice: 10;
+      &--default {
+        opacity: 0.2;
+  
+        @media screen and (--tablet-sm) {
+          opacity: 1;
+        }
+      }
+      
+      &--hover {
+        //noinspection CssUnknownTarget
+        border-image: url("../images/awards-bg-border.svg") 10 / auto / 2px stretch;
+  
+        @media screen and (--tablet-sm) {
+          border-image: none;
+        }
       }
     }
   }
   
   &:hover {
-    //background-image: var(--bg-img-active);
-    svg {
-      opacity: 0;
-    }
-    
-    img {
-      visibility: visible;
-      opacity: 1;
+    .img-bg {
+      &--default {
+        opacity: 0;
+      }
+      
+      &--hover {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
   
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  img {
+  .img-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    visibility: hidden;
-    opacity: 0;
+    
+    &--hover {
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 }
 
@@ -323,7 +323,7 @@
   
   .block--awards & {
     position: relative;
-  
+    
     @media screen and (--tablet-sm) {
       margin-bottom: 100px;
     }
@@ -352,6 +352,13 @@
     
     .block--seo & {
       text-align: right;
+    }
+    
+    .block--awards & {
+      @media screen and (--tablet-sm) {
+        position: relative;
+        z-index: 1;
+      }
     }
   }
   
@@ -469,7 +476,7 @@
   @media screen and (--tablet-sm) {
     --text-color: #fff;
     --bg-color: #000;
-  
+    
     @include font-size-px($fz-text-16, 26);
     
     max-width: vw(275, $mobile-viewport);
@@ -478,7 +485,7 @@
     color: var(--text-color);
     //font-size: 0;
     //line-height: 0;
-  
+    
     padding: 0.5em;
     background-color: var(--bg-color);
     
@@ -511,12 +518,12 @@
       top: 50%;
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
-  
+      
       display: inline-block;
       width: 110%;
       height: 150%;
       background-color: var(--bg-color);
-
+      
       @media screen and (--tablet-sm) {
         content: "";
       }
@@ -578,19 +585,32 @@
       display: none;
     }
     
-    svg {
+    .img-bg {
       position: absolute;
       top: 0;
       left: 50%;
+      width: 115%;
+      min-height: 36px;
       transform: translateX(-50%);
-      max-width: 115%;
-      opacity: 0.2;
       transition: var(--trans-dur-fast) ease;
-      transition-property: fill, opacity;
-      
+      transition-property: opacity;
+  
       &:hover {
-        fill: var(--c-red);
-        opacity: 1;
+        &--default {
+          opacity: 0;
+        }
+    
+        &--hover {
+          opacity: 1;
+        }
+      }
+      
+      &--default {
+        opacity: 0.2;
+      }
+      
+      &--hover {
+        opacity: 0;
       }
     }
   }
@@ -646,7 +666,7 @@
       --top: #{vw(40)};
       
       left: calc(50% - (#{vw(10)} / 2));
-  
+      
       //noinspection CssUnknownTarget
       background-image: url("../images/bg-home-symbols-one-md.svg");
       order: 2;
@@ -657,7 +677,7 @@
       --top: #{vw(40 * 2)};
       
       left: 0;
-  
+      
       //noinspection CssUnknownTarget
       background-image: url("../images/bg-home-symbols-one-sm.svg");
       order: 1;

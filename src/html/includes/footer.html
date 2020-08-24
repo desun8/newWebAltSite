@@ -39,7 +39,11 @@
       <div class="page-footer__block  page-footer__block--address">
         <div class="footer-address">
           <span class="footer-address__street">г. Хабаровск<br>ул. Волочаевская 8 Е, 2 этаж</span>
-          <button class="footer-address__map">Мы на карте <i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" fill="none" viewBox="0 0 11 12"><path d="M.258.742h9.926L5.62 11.466h-.812L.258.742zm5.684 1.526v5.068l2.016-5.068H5.942zm-3.458 0l2.03 5.082V2.268h-2.03z"/></svg></i></button>
+          <button class="footer-address__map">Мы на карте <i class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" fill="none" viewBox="0 0 11 12">
+              <path d="M.258.742h9.926L5.62 11.466h-.812L.258.742zm5.684 1.526v5.068l2.016-5.068H5.942zm-3.458 0l2.03 5.082V2.268h-2.03z"/>
+            </svg>
+          </i></button>
         </div>
       </div>
 
@@ -72,9 +76,10 @@
     </div>
 
     <div class="page-footer__bg">
-      <svg width="1054" height="128">
-        <use xlink:href="#grid"></use>
-      </svg>
+      <picture>
+        <source media="(min-width: 64em)" srcset="../../images/footer-grid.svg" />
+        <img src="../../images/empty.svg" alt="" loading="lazy">
+      </picture>
     </div>
   </div>
 </footer>

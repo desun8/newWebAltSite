@@ -142,24 +142,6 @@ module.exports = {
         ],
       },
 
-      // svg sprites
-      // {
-      //   test: /\.svg$/,
-      //   // include: [
-      //   //   path.resolve(__dirname, 'src/images/sprites-svg')
-      //   // ],
-      //   use: [
-      //     {
-      //       loader: 'svg-sprite-loader',
-      //       options: {
-      //         extract: true,
-      //         publicPath: '/static/',
-      //       },
-      //     },
-      //     'svgo-loader',
-      //   ],
-      // },
-
       // Sprites
       // {
       //   test: /\.png$/,

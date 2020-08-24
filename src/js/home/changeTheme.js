@@ -1,4 +1,8 @@
 import { gsap } from 'gsap';
+// gsap.ticker.fps(60);
+// gsap.ticker.lagSmoothing(500, 64);
+// gsap.ticker.lagSmoothing(0);
+
 
 export default class ChangeTheme {
   constructor(elms, styles, classNames) {
@@ -7,7 +11,7 @@ export default class ChangeTheme {
     this.classNames = classNames;
 
     this.body = document.body;
-    this.main = document.querySelector('.page-home');
+    // this.main = document.querySelector('.page-home');
 
     this.state = {
       in: '',
@@ -25,43 +29,52 @@ export default class ChangeTheme {
   }
 
   animation(target, style, className, isAdd = false) {
-    const duration = 0.4;
+    const duration = this.duration;
     const ease = 'circ.out';
+    // const ease = 'power4.out';
 
     const onStart = () => {
       // this.body.style.willChange = 'background-color';
 
-      if (isAdd) {
-        target.classList.add(className);
-        this.body.classList.add(className);
-      } else {
-        target.classList.remove(className);
-        this.body.classList.remove(className);
-      }
+      requestAnimationFrame(
+        () => {
+          if (isAdd) {
+            target.classList.add(className);
+            this.body.classList.add(className);
+          } else {
+            target.classList.remove(className);
+            this.body.classList.remove(className);
+          }
+        }
+      )
 
       // setTimeout(() => this.body.style.willChange = null, 500);
     };
 
     gsap.to(this.body, {
-      backgroundColor: isAdd ? style.bgColor : '#fff',
+      background: isAdd ? style.bgColor : '#fff',
+      lazy: true,
+      // delay: 0.1,
       ease,
       duration,
       onStart
     });
-
   }
 
   isVisible(entries) {
     const { state, styles, classNames } = this;
 
     entries.forEach(entry => {
-      const { isIntersecting, target, boundingClientRect } = entry;
-      const currTop = Math.abs(boundingClientRect.y);
+      // const { isIntersecting, target, boundingClientRect } = entry;
+      const { isIntersecting, target } = entry;
+      // const currTop = Math.abs(boundingClientRect.y);
       const { id } = target;
+
+      // console.log(`currTop: ${currTop}, prevTop: ${this.prevTop}`);
 
       if (isIntersecting) {
         state.in = id;
-        this.prevTop = currTop;
+        // this.prevTop = currTop;
 
         this.animation(target, styles[state.in], classNames[state.in], true);
       } else {
@@ -70,8 +83,8 @@ export default class ChangeTheme {
         document.body.classList.remove(classNames[state.out]);
 
         if (state.in === state.out) {
-          if (id === 'seo' && currTop > this.prevTop) return;
-          if (id === 'design' && currTop < this.prevTop) return;
+          // if (id === 'seo' && currTop > this.prevTop) return;
+          // if (id === 'design' && currTop < this.prevTop) return;
 
           this.animation(target, styles[state.out], classNames[state.out]);
         }
