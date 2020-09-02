@@ -564,43 +564,43 @@
 
 <!-- Сетка -->
 <!-- TODO: удалить перед сборкой -->
-<!--<div class="h-grid" style="display: none">-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--  <div class="h-grid__col"></div>-->
-<!--</div>-->
-<!--<button id="grid-toggle" style="position: fixed; currTop: 0; right: 0; z-index: 9999;">off</button>-->
+<div class="h-grid" style="display: none">
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+  <div class="h-grid__col"></div>
+</div>
+<button id="grid-toggle" style="position: fixed; top: 0; right: 0; z-index: 9999;">off</button>
 
-<!--<script>-->
-<!--  const grid = document.querySelector('.h-grid');-->
-<!--  const btn = document.querySelector('#grid-toggle');-->
+<script>
+  const grid = document.querySelector('.h-grid');
+  const btn = document.querySelector('#grid-toggle');
 
-<!--  let isActive = false;-->
+  let isActive = false;
 
-<!--  const show = () => grid.style.display = null;-->
-<!--  const hide = () => grid.style.display = 'none';-->
+  const show = () => grid.style.display = null;
+  const hide = () => grid.style.display = 'none';
 
-<!--  btn.onclick = () => {-->
-<!--    if (isActive) {-->
-<!--      hide();-->
-<!--      btn.innerText = 'on';-->
-<!--    } else {-->
-<!--      show();-->
-<!--      btn.innerText = 'off';-->
-<!--    }-->
+  btn.onclick = () => {
+    if (isActive) {
+      hide();
+      btn.innerText = 'on';
+    } else {
+      show();
+      btn.innerText = 'off';
+    }
 
-<!--    isActive = !isActive;-->
-<!--  };-->
-<!--</script>-->
+    isActive = !isActive;
+  };
+</script>
 
 </body>
 </html>
