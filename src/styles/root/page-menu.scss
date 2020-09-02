@@ -164,10 +164,10 @@
   
   &__name {
     //@include font-size($fz-text-sm);
-    @include font-size-px($fz-text-sm);
+    @include font-size-px(12);
     
-    max-width: em(84, $fz-text-sm);
-    margin-bottom: em(5, $fz-text-sm);
+    max-width: em(84, 12);
+    margin-bottom: em(5, 12);
     font-weight: 300;
   
     @media screen and (--tablet-sm) {
@@ -183,7 +183,7 @@
   
   &__link {
     //@include font-size(30, 40);
-    @include font-size-px(30, 40);
+    @include font-size-px(32, 42);
     
     @media screen and (--tablet-sm) {
       font-size: $fz-text-lg * 1px;
@@ -193,7 +193,7 @@
 
 .menu-soc {
   //@include font-size($fz-text-sm, 14);
-  @include font-size-px($fz-text-sm, 18);
+  @include font-size-px(12, 14);
   
   display: flex;
   justify-content: space-between;
