@@ -68,6 +68,11 @@
       --bg-h: #{vw(422, $mobile-viewport)};
       --bg-pos: #{vw(-85, $mobile-viewport)};
     }
+  
+    .block__number,
+    .block__text {
+      color: #fff;
+    }
   }
   
   &--awards {
@@ -107,12 +112,18 @@
   }
   
   &.theme-orange {
-    //.block__title {
-    //  svg,
-    //  path {
-    //    fill: #181818;
-    //  }
-    //}
+    .block__number,
+    .block__text {
+      color: inherit;
+    }
+    
+    .block__title {
+      svg,
+      path {
+        fill: rgba(#181818, 1);
+        stroke: #181818;
+      }
+    }
     
     .bg-grid svg:hover {
       fill: #fff !important;
@@ -318,6 +329,11 @@
       @media screen and (--tablet-sm) {
         content: none;
       }
+    }
+    
+    > svg {
+      fill: rgba(#181818, 0);
+      stroke: #fff;
     }
   }
   
