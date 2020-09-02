@@ -75,14 +75,11 @@
 }
 
 .awards-agima {
+  display: none;
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
-  
-  @media screen and (--tablet-sm) {
-    display: none;
-  }
 }
 
 .awards-agima__img {
@@ -172,7 +169,8 @@
   
   &__count,
   &__title {
-    font-size: vw(14);
+    @include font-size(12);
+    //font-size: vw(14);
   }
   
   &__count {
@@ -198,6 +196,8 @@
     flex-grow: 2;
     color: var(--color);
     text-transform: uppercase;
+  
+    font-weight: 500;
     
     @media screen and (--tablet-sm) {
       font-size: $fz-text-md * 1px;
