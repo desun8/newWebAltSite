@@ -35,11 +35,17 @@ class SmoothScroll {
 
   normalizeWheelDelta(e) {
     if (e.wheelDelta === undefined) {
-      const mod = e.deltaMode ? 4 : 60;
-      console.log(mod);
+      // FIREFOX
+      // macos (allow detect mouseWheelScroll or touchpadScroll)
+      // but win10 always return 1
+      // const mod = e.deltaMode ? 4 : 60;
+      // win10
+      const mod =  1;
+      console.log('mod: ', mod);
       return e.deltaY / mod * -1;
     }
 
+    // OTHER
     // mac
     // return e.wheelDelta * 0.002;
     // win
