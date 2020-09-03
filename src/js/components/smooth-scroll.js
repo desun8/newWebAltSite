@@ -40,7 +40,10 @@ class SmoothScroll {
       return e.deltaY / mod * -1;
     }
 
-    return e.wheelDelta * 0.002;
+    // mac
+    // return e.wheelDelta * 0.002;
+    // win
+    return e.wheelDelta * 0.008;
   }
 
   update(e) {
