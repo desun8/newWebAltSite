@@ -42,6 +42,8 @@ export class ScrollbarPage extends Scrollbar {
           this.menuBtn.classList.remove('menu-btn--fixed');
         }
 
+        // this.smoothScroll.scrollTop = this.scrollData.position.y;
+
         this.ticking = false;
       });
 
@@ -58,6 +60,27 @@ export class ScrollbarPage extends Scrollbar {
     this.smoothScroll.removeEvent();
   }
 
+  dragScroll() {
+    // обновляем данные "плавного скролла"
+    // если скролл был перетаскиванием бара
+    let isHold = false;
+    const bar = document.querySelector('.os-scrollbar.os-scrollbar-vertical .os-scrollbar-handle');
+
+    bar.addEventListener('pointerdown', () => {
+      isHold = true;
+    });
+    document.addEventListener('pointerup', () => {
+      if (isHold) {
+        isHold = false;
+
+        const pos = this.instance.scroll().position.y;
+
+        this.smoothScroll.pos = pos;
+        this.smoothScroll.scrollTop = pos;
+      }
+    });
+  }
+
   init() {
     super.init();
 
@@ -68,5 +91,7 @@ export class ScrollbarPage extends Scrollbar {
     });
 
     this.smoothScroll = new SmoothScroll(document, 120, this.instance);
+
+    this.dragScroll();
   }
 }

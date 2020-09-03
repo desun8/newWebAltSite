@@ -11,7 +11,7 @@ class SmoothScroll {
     this.scrollData = this.scrollbarInstance.scroll();
 
     this.moving = false;
-    this.pos = this.target.scrollTop; // TODO: заменять на scrollData
+    this.pos = this.scrollData.position.y;
     this.scrollTop = 0;
 
 
@@ -24,12 +24,11 @@ class SmoothScroll {
   scrolled(e) {
     e.preventDefault(); // disable default scrolling
 
-    this.scrollEvent = e;
-
     const delta = this.normalizeWheelDelta(e);
 
     this.pos += -delta * this.speed;
     this.pos = Math.max(0, Math.min(this.pos, this.scrollData.max.y)); // limit scrolling
+
 
     if (!this.moving) this.update(e);
   }
@@ -52,10 +51,11 @@ class SmoothScroll {
         if (deltaY > 0 && pos < 0) pos = Math.abs(pos);
         if (deltaY < 0 && pos > 0) pos *= -1;
 
+
         this.scrollTop += pos;
 
+
         this.scrollbarInstance.scrollStop();
-        // this.scrollbarInstance.scroll({ y: this.scrollTop }, 1000, 'easeOutCirc');
         this.scrollbarInstance.scroll({ y: this.scrollTop }, 500, 'easeOutSine');
 
         this.moving = false;
