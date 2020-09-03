@@ -40,8 +40,10 @@ class SmoothScroll {
       // but win10 always return 1
       // const mod = e.deltaMode ? 4 : 60;
       // win10
-      const mod =  1;
-      console.log('mod: ', mod);
+      // const mod =  1;
+      console.log(e.deltaMode);
+      const mod = e.deltaMode ? 1 : 100;
+      console.log('firefox deltaY: ', e.deltaY);
       return e.deltaY / mod * -1;
     }
 
@@ -49,6 +51,7 @@ class SmoothScroll {
     // mac
     // return e.wheelDelta * 0.002;
     // win
+    console.log('wheelDelta: ', e.wheelDelta);
     return e.wheelDelta * 0.008;
   }
 
@@ -65,7 +68,7 @@ class SmoothScroll {
 
 
         this.scrollbarInstance.scrollStop();
-        this.scrollbarInstance.scroll({ y: this.scrollTop }, 1000, 'easeOutQuad');
+        this.scrollbarInstance.scroll({ y: this.scrollTop }, 500, 'easeOutQuad');
 
         this.moving = false;
       });
