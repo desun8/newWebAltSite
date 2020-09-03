@@ -36,23 +36,25 @@ class SmoothScroll {
   normalizeWheelDelta(e) {
     if (e.wheelDelta === undefined) {
       // FIREFOX
-      // macos (allow detect mouseWheelScroll or touchpadScroll)
-      // but win10 always return 1
-      // const mod = e.deltaMode ? 4 : 60;
-      // win10
-      // const mod =  1;
+      const MAX_DELTA_Y = 7;
+      let { deltaY } = e;
+      const isPositive = deltaY >= 0;
+
+      deltaY = isPositive ? Math.min(deltaY, MAX_DELTA_Y) : Math.max(deltaY, -MAX_DELTA_Y);
+
       console.log(e.deltaMode);
-      const mod = e.deltaMode ? 1 : 100;
-      console.log('firefox deltaY: ', e.deltaY);
-      return e.deltaY / mod * -1;
+      const mod = e.deltaMode ? 1 : 25;
+      console.log('firefox deltaY: ', deltaY);
+      return deltaY / mod * -1;
     }
 
-    // OTHER
-    // mac
-    // return e.wheelDelta * 0.002;
-    // win
-    console.log('wheelDelta: ', e.wheelDelta);
-    return e.wheelDelta * 0.008;
+    let wheelDelta = Math.abs(e.wheelDelta);
+
+    if (wheelDelta > 360) {
+      this.reduceScrollSpeed = true;
+    }
+
+    return this.reduceScrollSpeed ? e.wheelDelta * 0.002 : e.wheelDelta * 0.008;
   }
 
   update(e) {
