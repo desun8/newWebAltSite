@@ -65,7 +65,7 @@ class SmoothScroll {
 
 
         this.scrollbarInstance.scrollStop();
-        this.scrollbarInstance.scroll({ y: this.scrollTop }, 500, 'easeOutSine');
+        this.scrollbarInstance.scroll({ y: this.scrollTop }, 1000, 'easeOutQuad');
 
         this.moving = false;
       });
