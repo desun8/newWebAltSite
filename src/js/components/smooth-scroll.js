@@ -37,21 +37,13 @@ class SmoothScroll {
 
     // FIREFOX
     if (wheelDelta === undefined) {
-      const MAX_DELTA_Y = 7;
       let { deltaY } = e;
+      let mod = 5;
 
       if (this.OS === 'MacOS') {
-        const mod = e.deltaMode ? 20 : 500; // mouseWheel | touchpad
-        return deltaY / mod * -1;
+        mod = e.deltaMode ? 20 : 500; // mouseWheel | touchpad
       }
 
-      const isPositive = deltaY >= 0;
-
-      deltaY = isPositive ? Math.min(deltaY, MAX_DELTA_Y) : Math.max(deltaY, -MAX_DELTA_Y);
-
-      console.log(e.deltaMode);
-      const mod = e.deltaMode ? 1 : 25;
-      console.log('firefox deltaY: ', deltaY);
       return deltaY / mod * -1;
     }
 
