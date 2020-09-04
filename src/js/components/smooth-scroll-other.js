@@ -1,5 +1,5 @@
 function init() {
-  new SmoothScroll(document, 120, 12);
+  new SmoothScroll(document, 500, 12);
 }
 
 const menuBtn = document.querySelector('.menu-btn');
