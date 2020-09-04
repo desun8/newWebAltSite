@@ -4,6 +4,7 @@ import Index from './index';
 import { ScrollbarPage } from '../components/scrollbar';
 import Footer from '../components/footer';
 import { ProgressBarMobile } from '../components/progressBar';
+import SmoothScrollInit from '../components/smooth-scroll-other';
 
 class RootApp extends Index {
   constructor(...props) {
@@ -40,7 +41,8 @@ class RootApp extends Index {
   initDesktop() {
     super.initDesktop();
 
-    this.scrollbar.init();
+    // this.scrollbar.init();
+    SmoothScrollInit();
     this.menu.desktop();
   }
 
