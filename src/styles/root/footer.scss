@@ -327,12 +327,7 @@
   }
   
   &__link {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-color: #fff;
-    -webkit-text-stroke-width: em(1, 34);
-  
-    transition: var(--trans-dur-fast) ease-in;
-    transition-property: -webkit-text-fill-color, -webkit-text-stroke-color;
+    --stroke-color: #fff;
   
     @media screen and (--tablet-sm) {
       margin-bottom: 46px;
@@ -340,8 +335,9 @@
     }
     
     &:hover {
-      -webkit-text-fill-color: var(--c-red);
-      -webkit-text-stroke-color: var(--c-red);
+      --stroke-color: var(--c-black-second);
+      
+      color: var(--c-red);
       
       .link__arrow {
         fill: var(--c-red);
@@ -349,10 +345,22 @@
       }
     }
     
-    &.link::after {
-      @media screen and (--tablet-sm) {
-        content: none;
+    &.link {
+      color: var(--c-black-second);
+      
+      &::after {
+        @media screen and (--tablet-sm) {
+          content: none;
+        }
       }
+    }
+    
+    .link__text {
+      @include text-stroke(1px, var(--stroke-color), 16);
+      
+      color: currentColor;
+  
+      transition: text-shadow var(--trans-dur-fast) linear;
     }
     
     .link__arrow {

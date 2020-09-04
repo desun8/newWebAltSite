@@ -1,0 +1,26 @@
+@use "sass:math";
+@use "sass:string";
+
+@function calculate-stroke-text($width, $color, $steps) {
+  $css: "";
+  
+  @for $i from 0 through $steps {
+    $angle: ($i * 2 * math.$pi) / $steps;
+    $cos: math.round(10000 * math.cos($angle)) / 10000;
+    $sin: math.round(10000 * math.sin($angle)) / 10000;
+    
+    $result: ($width * $cos) ($width * $sin) 0 $color;
+    
+    @if $i == 0 {
+      $css: $css + $result;
+    } @else {
+      $css: $css + "," + $result;
+    }
+  }
+  
+  @return string.unquote($css);
+}
+
+@mixin text-stroke($width, $color, $steps) {
+  text-shadow: calculate-stroke-text($width, $color, $steps);
+}
