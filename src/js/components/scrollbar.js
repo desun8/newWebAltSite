@@ -73,10 +73,10 @@ export class ScrollbarPage extends Scrollbar {
       if (isHold) {
         isHold = false;
 
-        const pos = this.instance.scroll().position.y;
 
-        this.smoothScroll.pos = pos;
-        this.smoothScroll.scrollTop = pos;
+        if (this.scrollTarget) {
+          this.smoothScroll.pos = this.scrollTarget.scrollTop;
+        }
       }
     });
   }
@@ -90,7 +90,10 @@ export class ScrollbarPage extends Scrollbar {
       }
     });
 
-    this.smoothScroll = new SmoothScroll(document, 120, this.instance);
+    this.scrollTarget = document.querySelector("body > div.os-padding > div.os-viewport.os-viewport-native-scrollbars-invisible");
+    if (this.scrollTarget) {
+      this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
+    }
 
     this.dragScroll();
   }

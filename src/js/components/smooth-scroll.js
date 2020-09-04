@@ -1,22 +1,21 @@
+import getOS from '../utils/getOS';
+
 class SmoothScroll {
-  constructor(target, speed, scrollbarInstance) {
-    if (target === document)
-      this.target = (document.scrollingElement
-        || document.documentElement
-        || document.body.parentNode
-        || document.body); // cross browser support for document scrolling
+  constructor(target, speed, smooth) {
+    this.OS = getOS();
 
+    console.log('OS Name: ', this.OS);
+
+    this.target = target;
     this.speed = speed;
-    this.scrollbarInstance = scrollbarInstance;
-    this.scrollData = this.scrollbarInstance.scroll();
+    this.smooth = smooth;
 
+    this.pos = this.target.scrollTop;
     this.moving = false;
-    this.pos = this.scrollData.position.y;
-    this.scrollTop = 0;
-
+    this.rAF = null;
 
     this.scrolled = this.scrolled.bind(this);
-
+    this.update = this.update.bind(this);
 
     this.addEvent();
   }
@@ -25,19 +24,27 @@ class SmoothScroll {
     e.preventDefault(); // disable default scrolling
 
     const delta = this.normalizeWheelDelta(e);
+    const MAX_POS = this.target.scrollHeight - this.target.offsetHeight;
 
     this.pos += -delta * this.speed;
-    this.pos = Math.max(0, Math.min(this.pos, this.scrollData.max.y)); // limit scrolling
-
+    this.pos = Math.max(0, Math.min(this.pos, MAX_POS)); // limit scrolling
 
     if (!this.moving) this.update(e);
   }
 
   normalizeWheelDelta(e) {
-    if (e.wheelDelta === undefined) {
-      // FIREFOX
+    const { wheelDelta } = e;
+
+    // FIREFOX
+    if (wheelDelta === undefined) {
       const MAX_DELTA_Y = 7;
       let { deltaY } = e;
+
+      if (this.OS === 'MacOS') {
+        const mod = e.deltaMode ? 20 : 500; // mouseWheel | touchpad
+        return deltaY / mod * -1;
+      }
+
       const isPositive = deltaY >= 0;
 
       deltaY = isPositive ? Math.min(deltaY, MAX_DELTA_Y) : Math.max(deltaY, -MAX_DELTA_Y);
@@ -48,35 +55,25 @@ class SmoothScroll {
       return deltaY / mod * -1;
     }
 
-    let wheelDelta = Math.abs(e.wheelDelta);
+    const mod = this.OS === 'MacOS' ? 0.0006 : 0.0015;
 
-    if (wheelDelta > 360) {
-      this.reduceScrollSpeed = true;
-    }
-
-    return this.reduceScrollSpeed ? e.wheelDelta * 0.002 : e.wheelDelta * 0.008;
+    return wheelDelta * mod;
   }
 
-  update(e) {
-    if (!this.moving) {
-      requestAnimationFrame(() => {
-        const { deltaY } = e;
-        let pos = Math.floor((this.pos - this.scrollTop) / 2);
-        if (deltaY > 0 && pos < 0) pos = Math.abs(pos);
-        if (deltaY < 0 && pos > 0) pos *= -1;
+  update() {
+    this.moving = true;
 
+    let pos = Math.floor((this.pos - this.target.scrollTop) / this.smooth);
+    this.target.scrollTop += pos;
 
-        this.scrollTop += pos;
+    if (Math.abs(pos) > 0.5) {
+      if (this.rAF !== null) {
+        cancelAnimationFrame(this.rAF);
+      }
 
-
-        this.scrollbarInstance.scrollStop();
-        // this.scrollbarInstance.scroll({ y: this.scrollTop }, 250, 'easeOutQuad');
-        this.scrollbarInstance.scroll({ y: this.scrollTop });
-
-        this.moving = false;
-      });
-
-      this.moving = true;
+      this.rAF = requestAnimationFrame(this.update);
+    } else {
+      this.moving = false;
     }
   }
 
@@ -86,10 +83,6 @@ class SmoothScroll {
 
   removeEvent() {
     this.target.removeEventListener('wheel', this.scrolled, { passive: false });
-  }
-
-  resize() {
-    this.scrollData = this.scrollbarInstance.scroll();
   }
 }
 
