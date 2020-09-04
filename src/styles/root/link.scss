@@ -51,31 +51,8 @@
   transition-duration: 0.3s;
   transition-timing-function: ease-in;
 
-  display: inline-flex;
-  align-items: baseline;
-  
-  &::after {
-    content: "";
-    position: absolute;
-    //bottom: 0.05em;
-    bottom: -1px;
-    left: 0;
-    width: calc(100% - var(--icon-size) - var(--icon-ml));
-    //width: calc(100% - var(--pr));
-    height: 1px;
-    //background-color: var(--hover-color);
-    background-color: currentColor;
-    transform-origin: 0 50%;
-    transform: scaleX(0);
-    transition-property: transform;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
-  
-    @media screen and (--tablet-sm) {
-      background-color: currentColor;
-      transform: scaleX(1);
-    }
-  }
+  //display: inline-flex;
+  //align-items: baseline;
   
   &--uppercase {
     //--icon-size: 1em;
@@ -86,15 +63,15 @@
   &--no-icon {
     padding-right: 0;
     
-    &::after {
-      width: 100%;
-    }
+    //&::after {
+    //  width: 100%;
+    //}
   }
   
   &--bold {
     font-weight: 600;
     
-    &::after {
+    .link__text::after {
       height: 2px;
     }
   }
@@ -104,13 +81,39 @@
   }
   
   &--underline {
-    &::after {
+    .link__text::after {
       transform: scaleX(1);
     }
   }
   
   &__text {
-    line-height: 1;
+    position: relative;
+    display: inline-block;
+    //line-height: 1;
+  
+    &::after {
+      content: "";
+      position: absolute;
+      //bottom: 0.05em;
+      bottom: -1px;
+      left: 0;
+      //width: calc(100% - var(--icon-size) - var(--icon-ml));
+      //width: calc(100% - var(--pr));
+      width: 100%;
+      height: 1px;
+      //background-color: var(--hover-color);
+      background-color: currentColor;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      transition-property: transform;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in;
+    
+      @media screen and (--tablet-sm) {
+        background-color: currentColor;
+        transform: scaleX(1);
+      }
+    }
   }
   
   &__icon {
@@ -164,8 +167,8 @@
   
   &:hover {
     color: var(--hover-color);
-    
-    &::after {
+  
+    .link__text::after {
       transform: scaleX(1);
     }
     
