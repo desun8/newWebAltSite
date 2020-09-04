@@ -46,7 +46,7 @@ function SmoothScroll(target, speed, smooth) {
       return e.deltaY / mod * -1;
     }
 
-    return e.wheelDelta * 0.002;
+    return e.wheelDelta * 0.0015;
   }
 
   function update() {
@@ -62,6 +62,7 @@ function SmoothScroll(target, speed, smooth) {
       menuBtn.classList.remove('menu-btn--fixed');
     }
 
+    console.log(Math.abs(delta))
     if (Math.abs(delta) > 0.5) {
       // requestFrame(update);
       if (rAF !== null) {
