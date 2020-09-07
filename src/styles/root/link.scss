@@ -1,33 +1,32 @@
 @keyframes arrow {
-  0% {
+  0%,
+  40%,
+  100% {
     transform: translate3d(0, 0, 0);
+    animation-timing-function: ease-in;
   }
   
-  39%,
-  40% {
+  9%,
+  10% {
     transform: translate3d(100%, -100%, 0);
     animation-timing-function: ease-out;
   }
   
-  49%,
-  50% {
+  12%,
+  15% {
     opacity: 0;
+    //animation-timing-function: unset;
   }
   
-  69%,
-  70% {
+  24%,
+  25% {
     opacity: 0;
     transform: translate3d(-100%, 100%, 0);
   }
   
-  79%,
-  80% {
+  29%,
+  30% {
     opacity: 1;
-  }
-  
-  100% {
-    transform: translate3d(0, 0, 0);
-    animation-timing-function: ease-in;
   }
 }
 
@@ -76,6 +75,10 @@
     .link__text::after {
       height: 2px;
     }
+    
+    .link__icon {
+      top: 2px;
+    }
   }
   
   &--orange {
@@ -91,7 +94,7 @@
   &__text {
     position: relative;
     display: inline-block;
-    //line-height: 1;
+    line-height: 1;
   
     &::after {
       content: "";
@@ -149,20 +152,20 @@
     //}
     
     //TODO: для разработки. Удалить, как проверят.
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 20vw;
-      height: 1px;
-      background-color: #f00;
-    }
-    
-    &::before {
-      top: 0;
-    }
+    //&::before,
+    //&::after {
+    //  content: "";
+    //  position: absolute;
+    //  right: 0;
+    //  bottom: 0;
+    //  width: 20vw;
+    //  height: 1px;
+    //  background-color: #f00;
+    //}
+    //
+    //&::before {
+    //  top: 0;
+    //}
   }
   
   &__arrow {
@@ -194,8 +197,9 @@
     
     .link__arrow use {
       animation-name: arrow;
-      animation-duration: 1s;
+      animation-duration: 2s;
       animation-delay: 0.3s;
+      animation-iteration-count: infinite;
     }
   }
 }

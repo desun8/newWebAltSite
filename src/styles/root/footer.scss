@@ -315,7 +315,7 @@
 }
 
 .footer-menu {
-  @include font-size(34, 44);
+  @include font-size(34);
   display: flex;
   justify-content: space-around;
   
@@ -339,7 +339,10 @@
     &:hover {
       --stroke-color: var(--c-black-second);
       
-      color: var(--c-red);
+      .link__text {
+        -webkit-text-fill-color: var(--c-red);
+        -webkit-text-stroke-color: var(--c-red);
+      }
       
       .link__arrow {
         fill: var(--c-red);
@@ -358,11 +361,15 @@
     }
     
     .link__text {
-      @include text-stroke(1px, var(--stroke-color), 16);
-      
-      color: currentColor;
+      //@include text-stroke(1px, var(--stroke-color), 16);
+      //color: currentColor;
+      //transition: text-shadow var(--trans-dur-fast) linear;
   
-      transition: text-shadow var(--trans-dur-fast) linear;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-color: #fff;
+      -webkit-text-stroke-width: 0.5px;
+  
+      transition: -webkit-text-fill-color var(--trans-dur-fast) ease-in;
     }
     
     .link__arrow {
@@ -370,7 +377,8 @@
       
       fill: transparent;
       stroke: #fff;
-      stroke-width: em(0.5, 34);
+      //stroke-width: em(0.5, 34);
+      stroke-width: 0.5px;
   
       transition: var(--trans-dur-fast) ease-in;
       transition-property: fill, stroke;
