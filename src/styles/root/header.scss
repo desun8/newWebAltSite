@@ -102,12 +102,17 @@
     justify-self: end;
   }
   
-  body.theme-dark & { //stylelint-disable-line
+  body.theme-dark & {
     --color: #fff;
   }
   
-  body.theme-orange & { //stylelint-disable-line
+  body.theme-orange & {
     --color-hover: #fff;
+  }
+  
+  
+  body.menu-btn-white & {
+    color: #fff;
   }
   
   &--fixed {

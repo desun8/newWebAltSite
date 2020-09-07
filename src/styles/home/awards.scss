@@ -61,6 +61,10 @@
     @media screen and (--tablet-sm) {
       font-size: 88px;
     }
+    
+    body.theme-orange & {
+      color: #fff;
+    }
   }
   
   &__text {

@@ -5,6 +5,7 @@
     "*.sass"
   ],
   "rules": {
+    "selector-no-qualifying-type": null,
     "max-nesting-depth": [
       3,
       {

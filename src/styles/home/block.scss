@@ -262,12 +262,14 @@
   .block--dev &,
   .block--seo &,
   .block--design & {
+    --delay: 1.25s;
+    
     .img-bg--default {
-      transition: opacity var(--trans-dur-faster) 2.5s ease-in;
+      transition: opacity var(--trans-dur-faster) var(--delay) ease-in;
     }
     
     .img-bg--hover {
-      transition: var(--trans-dur-fast) 2.5s ease-in;
+      transition: var(--trans-dur-fast) var(--delay) ease-in;
       transition-property: opacity, visibility;
     }
     

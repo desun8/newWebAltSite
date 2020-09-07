@@ -81,6 +81,7 @@ export default class ChangeTheme {
         state.out = id;
 
         document.body.classList.remove(classNames[state.out]);
+        target.classList.remove(classNames[state.out]);
 
         if (state.in === state.out) {
           // if (id === 'seo' && currTop > this.prevTop) return;

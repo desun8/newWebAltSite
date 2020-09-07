@@ -383,6 +383,10 @@
       transition: var(--trans-dur-fast) ease-in;
       transition-property: fill, stroke;
   
+      body.os-mac & {
+        stroke-width: 0.3px;
+      }
+  
       @media screen and (--tablet-sm) {
         transform-origin: initial;
       }

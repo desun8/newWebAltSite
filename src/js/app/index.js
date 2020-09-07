@@ -1,9 +1,11 @@
+import { MAC_OS } from '../utils/getOS';
+
 class Index {
   constructor() {
     this.config = {
       mqlMobile: window.matchMedia('(max-width: 60em)'),
       isDesktop: null,
-      ticking: false
+      ticking: false,
     };
 
     // this.init();
@@ -49,6 +51,7 @@ class Index {
 
   initDesktop() {
     console.log('init desktop');
+    window.APP.os === MAC_OS && document.body.classList.add('os-mac');
   }
 
   initMobile() {

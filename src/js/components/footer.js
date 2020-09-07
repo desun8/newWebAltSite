@@ -38,11 +38,36 @@ export default class Footer {
 
         this.showImage = !!isIntersecting;
         this.toggleImageVisible();
-        console.log('this.showImage ->', this.showImage);
+        // console.log('this.showImage ->', this.showImage);
       });
     };
 
     return new IntersectionObserver(isVisible, { threshold: 0.5 });
+  }
+
+  // Скорее всего только для главной страницы
+  // тк после футера есть блок с редиректом
+  observeMenuBtnTheme() {
+    const cb = entries => {
+      entries.forEach(entry => {
+        const { isIntersecting } = entry;
+
+        if (isIntersecting) {
+          document.body.classList.add('menu-btn-white');
+        } else {
+          document.body.classList.remove('menu-btn-white');
+        }
+      });
+    };
+
+    const options = {
+      root: null,
+      rootMargin: `0px 0px -60.5% 0px`,
+      threshold: 0.5
+    }
+
+    const themeObserver = new IntersectionObserver(cb, options);
+    themeObserver.observe(this.elm);
   }
 
   init() {
@@ -50,5 +75,6 @@ export default class Footer {
     this.slider();
     this.observer = this.intersectionObserver();
     this.observer.observe(this.elm);
+    this.observeMenuBtnTheme();
   }
 }

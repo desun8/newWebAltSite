@@ -1,8 +1,8 @@
-import getOS from '../utils/getOS';
+import { MAC_OS } from '../utils/getOS';
 
 class SmoothScroll {
   constructor(target, speed, smooth) {
-    this.OS = getOS();
+    this.OS = window.APP.os;
 
     console.log('OS Name: ', this.OS);
 
@@ -40,14 +40,14 @@ class SmoothScroll {
       let { deltaY } = e;
       let mod = 5;
 
-      if (this.OS === 'MacOS') {
+      if (this.OS === MAC_OS) {
         mod = e.deltaMode ? 20 : 500; // mouseWheel | touchpad
       }
 
       return deltaY / mod * -1;
     }
 
-    const mod = this.OS === 'MacOS' ? 0.0006 : 0.0015;
+    const mod = this.OS === MAC_OS ? 0.0006 : 0.0015;
 
     return wheelDelta * mod;
   }
