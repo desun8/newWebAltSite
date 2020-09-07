@@ -62,7 +62,7 @@ export class ScrollbarPage extends Scrollbar {
 
   dragScroll() {
     // обновляем данные "плавного скролла"
-    // если скролл был перетаскиванием бара
+    // если скролл был через перетаскивание бара
     let isHold = false;
     const bar = document.querySelector('.os-scrollbar.os-scrollbar-vertical .os-scrollbar-handle');
 
@@ -90,6 +90,7 @@ export class ScrollbarPage extends Scrollbar {
       }
     });
 
+    // Инициализируем плавный скролл
     this.scrollTarget = document.querySelector("body > div.os-padding > div.os-viewport.os-viewport-native-scrollbars-invisible");
     if (this.scrollTarget) {
       this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);

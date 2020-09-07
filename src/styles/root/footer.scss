@@ -175,6 +175,7 @@
 }
 
 .footer-social {
+  line-height: 1;
   font-weight: 600;
   text-transform: uppercase;
   
@@ -222,72 +223,73 @@
     text-align: left;
     align-items: flex-start;
   }
+}
+
+.footer-address__street {
+  font-weight: 300;
   
-  &__street {
-    font-weight: 300;
+  @media screen and (--tablet-sm) {
+    margin-bottom: 10px;
+  }
+}
+
+.footer-address__map {
+  position: relative;
+  color: #fff;
+  line-height: 1;
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
   
+  @media screen and (--tablet-sm) {
+    font-size: 14px;
+  }
+  
+  &:hover {
+    color: var(--c-red);
+  }
+  
+  &::after,
+  .icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+    
     @media screen and (--tablet-sm) {
-      margin-bottom: 10px;
+      background-color: #fff;
     }
   }
   
-  &__map {
-    position: relative;
-    color: #fff;
-    transition-property: color;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in;
-  
-    @media screen and (--tablet-sm) {
-      font-size: 14px;
-    }
+  .icon {
+    position: absolute;
+    top: 0;
+    right: -20%;
     
-    &:hover {
+    width: auto;
+    height: 100%;
+    
+    @media screen and (--tablet-sm) {
+      width: 14px;
+      height: auto;
       color: var(--c-red);
     }
     
-    &::after,
-    .icon::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      width: 100%;
-      height: 1px;
-      background-color: currentColor;
-  
-      @media screen and (--tablet-sm) {
-        background-color: #fff;
-      }
-    }
+    //&::after {
+    //  bottom: 0;
+    //}
     
-    .icon {
-      position: absolute;
-      top: 1px;
-      right: -20%;
-  
+    svg {
       width: auto;
-      height: 100%;
-  
+      height: 0.9em;
+      fill: currentColor;
+      
       @media screen and (--tablet-sm) {
-        width: 14px;
-        height: auto;
-        color: var(--c-red);
-      }
-      
-      &::after {
-        bottom: 0;
-      }
-      
-      svg {
-        width: auto;
-        height: 0.9em;
-        fill: currentColor;
-  
-        @media screen and (--tablet-sm) {
-          height: 100%;
-          fill: #fff;
-        }
+        height: 100%;
+        fill: #fff;
       }
     }
   }
@@ -364,6 +366,8 @@
     }
     
     .link__arrow {
+      //@include text-stroke(1px, var(--stroke-color), 16);
+      
       fill: transparent;
       stroke: #fff;
       stroke-width: em(0.5, 34);
