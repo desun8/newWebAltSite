@@ -73,6 +73,7 @@ body {
 .footer-redirect__link-name {
   @include font-size-vw(24, 24);
   
+  font-weight: 500;
   transform: translateY(-10px);
   
   @media screen and (--tablet-sm) {
@@ -90,7 +91,6 @@ body {
   
   .link__arrow {
     fill: var(--c-black-second);
-    transform: translate3d(0, 0.22em, 0);
   }
 }
 
@@ -100,7 +100,7 @@ body {
   position: absolute;
   top: 50%;
   right: vw(180);
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   width: vw(130);
   height: vw(180);
   overflow: hidden;
@@ -114,6 +114,18 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px var(--c-black-second);
+  color: var(--c-black-second);
+  //-webkit-text-fill-color: transparent;
+  //-webkit-text-stroke: 1px var(--c-black-second);
+  
+  div {
+    display: flex;
+    height: vw(180);
+  }
+  
+  svg {
+    width: 100%;
+    //width: auto;
+    //max-height: vw(180);
+  }
 }

@@ -68,7 +68,7 @@
       --bg-h: #{vw(422, $mobile-viewport)};
       --bg-pos: #{vw(-85, $mobile-viewport)};
     }
-  
+    
     .block__number,
     .block__text {
       color: #fff;
@@ -213,16 +213,36 @@
       z-index: 0;
     }
     
+    &::after {
+      content: "516x473";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+  
+      display: block;
+      padding: vw(2) vw(4);
+      
+      background-color: #3893ff;
+      color: #fff;
+      font-size: vw(8);
+      line-height: 1;
+      border-radius: 2px;
+  
+      visibility: hidden;
+      opacity: 0;
+    }
+    
     .img-bg {
       border: 1px solid transparent;
-  
+      
       @media screen and (--tablet-sm) {
         border: 0;
       }
       
       &--default {
         opacity: 0.2;
-  
+        
         @media screen and (--tablet-sm) {
           opacity: 1;
         }
@@ -231,11 +251,38 @@
       &--hover {
         //noinspection CssUnknownTarget
         border-image: url("../images/awards-bg-border.svg") 10 / auto / 2px stretch;
-  
+        
         @media screen and (--tablet-sm) {
           border-image: none;
         }
       }
+    }
+  }
+  
+  .block--dev &,
+  .block--seo &,
+  .block--design & {
+    .img-bg--default {
+      transition: opacity var(--trans-dur-faster) 2.5s ease-in;
+    }
+    
+    .img-bg--hover {
+      transition: var(--trans-dur-fast) 2.5s ease-in;
+      transition-property: opacity, visibility;
+    }
+    
+    &:hover {
+      .img-bg--default,
+      .img-bg--hover {
+        transition-delay: 0s;
+      }
+    }
+  }
+  
+  .block--awards &:hover {
+    &::after {
+      visibility: visible;
+      opacity: 1;
     }
   }
   
@@ -610,12 +657,12 @@
       transform: translateX(-50%);
       transition: var(--trans-dur-fast) ease;
       transition-property: opacity;
-  
+      
       &:hover {
         &--default {
           opacity: 0;
         }
-    
+        
         &--hover {
           opacity: 1;
         }
