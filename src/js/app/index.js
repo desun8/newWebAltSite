@@ -1,4 +1,5 @@
 import { MAC_OS } from '../utils/getOS';
+import APP from './APP';
 
 class Index {
   constructor() {
@@ -30,12 +31,14 @@ class Index {
           //  mobile
           if (this.config.isDesktop) {
             this.config.isDesktop = false;
+            APP.isDesktop = false;
             this.resizeMobile();
           }
         } else {
           // desktop
           if (!this.config.isDesktop) {
             this.config.isDesktop = true;
+            APP.isDesktop = true;
             this.resizeDesktop();
           }
         }
@@ -51,7 +54,7 @@ class Index {
 
   initDesktop() {
     console.log('init desktop');
-    window.APP.os === MAC_OS && document.body.classList.add('os-mac');
+    APP.os === MAC_OS && document.body.classList.add('os-mac');
   }
 
   initMobile() {
@@ -74,6 +77,7 @@ class Index {
 
   init() {
     this.config.isDesktop = !this.config.mqlMobile.matches;
+    APP.isDesktop = !this.config.mqlMobile.matches;
     this.addEvents();
   }
 }

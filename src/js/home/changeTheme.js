@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import APP from '../app/APP';
 // gsap.ticker.fps(60);
 // gsap.ticker.lagSmoothing(500, 64);
 // gsap.ticker.lagSmoothing(0);
@@ -22,7 +23,7 @@ export default class ChangeTheme {
 
     this.observer = null;
     this.options = {
-      threshold: 0.4
+      threshold: APP.isDesktop ? 0.4 : 0.25
     };
 
     this.prevTop = 0;
