@@ -27,7 +27,7 @@
   
   &__item {
     margin-bottom: vw(40);
-  
+    
     @media screen and (--tablet-sm) {
       position: relative;
       z-index: 2;
@@ -57,7 +57,7 @@
     @include font-size(100, 90);
     color: var(--c-red);
     font-weight: 600;
-  
+    
     @media screen and (--tablet-sm) {
       font-size: 88px;
     }
@@ -71,7 +71,7 @@
     @include font-size($fz-text-sm, 18);
     font-weight: 300;
     text-transform: lowercase;
-  
+    
     @media screen and (--tablet-sm) {
       font-size: $fz-text-16 * 1px;
     }
@@ -133,6 +133,18 @@
   }
 }
 
+.awards-lists__content {
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    padding-left: vw(55, $mobile-viewport);
+  }
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--mobile-sm) {
+    padding: 0;
+  }
+}
+
 .awards-list {
   --color: var(--c-black-second);
   --icon-scale: scaleY(1);
@@ -156,6 +168,7 @@
     cursor: pointer;
     
     @media screen and (--tablet-sm) {
+      align-items: flex-start;
       margin-bottom: 20px;
     }
     
@@ -200,10 +213,12 @@
     flex-grow: 2;
     color: var(--color);
     text-transform: uppercase;
-  
+    
     font-weight: 500;
     
     @media screen and (--tablet-sm) {
+      //max-width: 84%;
+      width: min-content;
       font-size: $fz-text-md * 1px;
     }
   }
@@ -289,7 +304,7 @@
     
     li {
       --space-bottom: #{vw(15)};
-  
+      
       position: relative;
       margin-bottom: var(--space-bottom);
       padding-bottom: var(--space-bottom);

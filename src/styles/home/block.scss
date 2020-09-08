@@ -547,7 +547,7 @@
     max-width: vw(275, $mobile-viewport);
     display: -webkit-box; //stylelint-disable-line
     margin-bottom: 0;
-    color: var(--text-color);
+    color: var(--text-color) !important;
     //font-size: 0;
     //line-height: 0;
     
@@ -768,6 +768,12 @@
   &__title {
     padding: 50px 20px;
     background-color: var(--c-black-second);
+    
+    img {
+      width: 100%;
+      height: auto;
+      opacity: 0.2;
+    }
   }
   
   &__link {
