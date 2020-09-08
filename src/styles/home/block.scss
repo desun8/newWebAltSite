@@ -219,7 +219,7 @@
       bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-  
+      
       display: block;
       padding: vw(2) vw(4);
       
@@ -228,7 +228,7 @@
       font-size: vw(8);
       line-height: 1;
       border-radius: 2px;
-  
+      
       visibility: hidden;
       opacity: 0;
     }
@@ -660,16 +660,6 @@
       transition: var(--trans-dur-fast) ease;
       transition-property: opacity;
       
-      &:hover {
-        &--default {
-          opacity: 0;
-        }
-        
-        &--hover {
-          opacity: 1;
-        }
-      }
-      
       &--default {
         opacity: 0.2;
       }
@@ -678,6 +668,17 @@
         opacity: 0;
       }
     }
+  }
+}
+
+.block__title:hover + .block__features,
+.block__features:hover {
+  .img-bg--default {
+    opacity: 0;
+  }
+  
+  .img-bg--hover {
+    opacity: 1;
   }
 }
 

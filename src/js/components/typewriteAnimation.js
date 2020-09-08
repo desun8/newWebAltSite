@@ -40,11 +40,14 @@ class TypewriteAnimation {
         if (node.nodeName !== '#text') {
           // для ссылок в тексте
           if (node.classList.contains('link')) {
+            const text = node.querySelector('.link__text');
             const iconWrap = node.querySelector('.link__icon');
             const icon = iconWrap.querySelector('svg');
 
             node?.childNodes[0]?.nodeName === '#text'
             && node.childNodes[0].replaceWith(...this.insertChars(node.innerText));
+
+            text?.childNodes[0]?.nodeName === '#text' && text.childNodes[0].replaceWith(...this.insertChars(text.innerText));
 
             const wrap = this.wrapChar();
             wrap.classList.add(this.className);
@@ -149,7 +152,7 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
     const linesPos = this.getLinesPos();
     let pos = 0;
 
-    linesPos.some((val, i) => {
+    linesPos.some(val => {
       if (posY <= val + 5) {
         pos = val;
         return true;
