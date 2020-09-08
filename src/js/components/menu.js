@@ -7,6 +7,7 @@ import { Scrollbar } from './scrollbar';
 export default class Menu {
   constructor(elm, btnOpen, btnClose, nav, appConfig = null) {
     this.elm = elm;
+    this.elmSelector = this.elm.tagName.toLowerCase() + '.' + Array.from(this.elm.classList).join('.');
     this.btnOpen = btnOpen;
     this.btnClose = btnClose;
     this.nav = nav;
@@ -29,6 +30,9 @@ export default class Menu {
     };
 
     this.scrollbarInstance = new Scrollbar(this.scrollbarConfig.elm, this.scrollbarConfig.options);
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   collapseSubMenu() {
@@ -147,9 +151,23 @@ export default class Menu {
     this.toggleView(this.isVisible);
   }
 
+  // Закрытие меню
+  handleClickOutside(e) {
+    if (!this.isVisible || e.target === this.btnOpen) {
+      return;
+    }
+
+    const isOutside = !e.target.closest(this.elmSelector);
+
+    if (isOutside) {
+      this.handleClick();
+    }
+  }
+
   addEvents() {
-    this.btnOpen.addEventListener('click', this.handleClick.bind(this));
-    this.btnClose.addEventListener('click', this.handleClick.bind(this));
+    this.btnOpen.addEventListener('click', this.handleClick);
+    this.btnClose.addEventListener('click', this.handleClick);
+    document.body.addEventListener('click', this.handleClickOutside);
   }
 
   update() {
