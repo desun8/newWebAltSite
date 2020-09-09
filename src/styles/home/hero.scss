@@ -16,7 +16,7 @@
   
   @for $i from 1 through $steps {
     #{percentage($i*(0.2/$steps))} {
-      clip-path: inset(0 0 (random(320) + 220) + px 10px);
+      clip-path: inset(0 0 (random(100) + 20 + #{"%"}) 5%);
       transform: skew((random(200) / 100) + deg);
     }
   }
@@ -34,7 +34,7 @@
   
   @for $i from 1 through $steps {
     #{percentage($i*(0.2/$steps))} {
-      clip-path: inset(random(450) + px 0 random(620) + px 0);
+      clip-path: inset((random(100) + #{"%"}) 0 (random(100) + #{"%"}) 0);
       transform: skew((random(200) / 100) + deg);
     }
   }
@@ -340,7 +340,7 @@
     left: 4px;
     filter: drop-shadow(-2px 0 #ff00c1);
     
-    clip-path: inset(0 9999px 320px 10px);
+    //clip-path: inset(0 9999px 320px 10px);
     
     animation: glitch-anim 4s infinite linear alternate-reverse;
   }
@@ -348,6 +348,8 @@
   &::after {
     left: -4px;
     filter: drop-shadow(-2px 0 #00fff9) drop-shadow(2px 2px #ff00c1);
+  
+    //clip-path: inset(90% 0 5% 0);
     
     animation: glitch-anim2 4s infinite linear alternate-reverse;
   }
