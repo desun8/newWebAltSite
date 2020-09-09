@@ -20,7 +20,7 @@ class RootApp extends Index {
 
     this.progressBar = null;
 
-      //**** MENU ****//
+    //**** MENU ****//
 
     //TODO: рефакторинг. Перенести все что свзано с меню в menu.js
     // А тут вызвать только new Menu()
@@ -93,6 +93,28 @@ class RootApp extends Index {
     this.menu.init();
     this.menuElms.tickerElms.forEach(ticker => new TextRunner(ticker, 4));
     this.footer.init();
+
+    // шум для бг
+    if (window.grained) {
+      const options = {
+        'animate': true,
+        'patternWidth': 145,
+        'patternHeight': 118,
+        'grainOpacity': 0.04,
+        'grainDensity': 1,
+        'grainWidth': 1,
+        'grainHeight': 1
+      };
+
+      let intervalId = undefined;
+      intervalId = setInterval(() => {
+        const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
+        if (isAllow) {
+          grained('#body', options);
+          clearInterval(intervalId);
+        }
+      }, 200);
+    }
   }
 }
 
