@@ -5,6 +5,8 @@ import { ScrollbarPage } from '../components/scrollbar';
 import Footer from '../components/footer';
 import { ProgressBarMobile } from '../components/progressBar';
 
+import '../_lib/Grained';
+
 class RootApp extends Index {
   constructor(...props) {
     super(...props);
