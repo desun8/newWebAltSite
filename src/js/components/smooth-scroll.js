@@ -1,11 +1,8 @@
 import { MAC_OS } from '../utils/getOS';
+import APP from '../app/APP';
 
 class SmoothScroll {
   constructor(target, speed, smooth) {
-    this.OS = window.APP.os;
-
-    console.log('OS Name: ', this.OS);
-
     this.target = target;
     this.speed = speed;
     this.smooth = smooth;
@@ -21,6 +18,11 @@ class SmoothScroll {
   }
 
   scrolled(e) {
+    // если скролл происходит в меню, то скролл страницы отключается
+    if (!this.target.closest('.page-menu') && e.target.closest('.page-menu')) {
+      return undefined;
+    }
+
     e.preventDefault(); // disable default scrolling
 
     const delta = this.normalizeWheelDelta(e);
@@ -40,14 +42,14 @@ class SmoothScroll {
       let { deltaY } = e;
       let mod = 5;
 
-      if (this.OS === MAC_OS) {
+      if (APP.os === MAC_OS) {
         mod = e.deltaMode ? 20 : 500; // mouseWheel | touchpad
       }
 
       return deltaY / mod * -1;
     }
 
-    const mod = this.OS === MAC_OS ? 0.0006 : 0.0015;
+    const mod = APP.os === MAC_OS ? 0.0006 : 0.0015;
 
     return wheelDelta * mod;
   }

@@ -19,6 +19,22 @@ export class Scrollbar {
   }
 }
 
+export class SmoothScrollbarMenu extends Scrollbar{
+  destroy() {
+    super.destroy();
+    this.smoothScroll.removeEvent();
+  }
+
+  init() {
+    super.init();
+    this.scrollTarget = document.querySelector(".page-menu .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible");
+    if (this.scrollTarget) {
+      console.log("menu smooth scroll");
+      this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
+    }
+  }
+}
+
 export class ScrollbarPage extends Scrollbar {
   constructor(...props) {
     super(...props);
@@ -91,7 +107,7 @@ export class ScrollbarPage extends Scrollbar {
     });
 
     // Инициализируем плавный скролл
-    this.scrollTarget = document.querySelector("body > div.os-padding > div.os-viewport.os-viewport-native-scrollbars-invisible");
+    this.scrollTarget = document.querySelector("body > .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible");
     if (this.scrollTarget) {
       this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
     }

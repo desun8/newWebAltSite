@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 import Collapsible from './collapsible';
-import { Scrollbar } from './scrollbar';
+import { SmoothScrollbarMenu } from './scrollbar';
 
 
 export default class Menu {
@@ -30,7 +30,7 @@ export default class Menu {
       elm: this.elm.querySelector('.page-menu__wrap')
     };
 
-    this.scrollbarInstance = new Scrollbar(this.scrollbarConfig.elm, this.scrollbarConfig.options);
+    this.scrollbarInstance = new SmoothScrollbarMenu(this.scrollbarConfig.elm, this.scrollbarConfig.options);
 
     this.handleClick = this.handleClick.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
