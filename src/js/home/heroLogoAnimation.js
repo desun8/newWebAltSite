@@ -8,13 +8,13 @@ class HeroLogoAnimation {
     this.wrapPos = this.getWrapPos();
 
     this.logoDot = this.block.querySelector('.hero__logo-dot');
-    this.logoSvg = this.block.querySelector('.hero__logo-letter svg');
-    this.logoSvgElms = {
-      top: this.logoSvg.querySelectorAll('.top'),
-      bottom: this.logoSvg.querySelectorAll('.bottom'),
-      left: this.logoSvg.querySelectorAll('.left'),
-      right: this.logoSvg.querySelectorAll('.right')
-    };
+    // this.logoSvg = this.block.querySelector('.hero__logo-letter svg');
+    // this.logoSvgElms = {
+    //   top: this.logoSvg.querySelectorAll('.top'),
+    //   bottom: this.logoSvg.querySelectorAll('.bottom'),
+    //   left: this.logoSvg.querySelectorAll('.left'),
+    //   right: this.logoSvg.querySelectorAll('.right')
+    // };
 
     this.isInside = null;
 
@@ -71,7 +71,7 @@ class HeroLogoAnimation {
     if (!this.ticking) {
       requestAnimationFrame(() => {
         this.dotAnimation(e);
-        this.svgAnimation(e);
+        // this.svgAnimation(e);
         this.ticking = false;
       });
 
