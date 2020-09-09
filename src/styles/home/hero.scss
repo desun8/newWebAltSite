@@ -16,7 +16,8 @@
   
   @for $i from 1 through $steps {
     #{percentage($i*(0.2/$steps))} {
-      clip-path: inset(0 0 (random(100) + 20 + #{"%"}) 5%);
+      //clip-path: inset(0 0 (random(100) + 20 + #{"%"}) 5%);
+      clip-path: inset((random(100) + #{"%"}) 0 (random(100) + #{"%"}) 0);
       transform: skew((random(200) / 100) + deg);
     }
   }
@@ -337,7 +338,7 @@
   }
   
   &::before {
-    left: 4px;
+    left: 2px;
     filter: drop-shadow(-2px 0 #ff00c1);
     
     //clip-path: inset(0 9999px 320px 10px);
