@@ -19,6 +19,7 @@ export default class Menu {
     this.pageHeader = document.querySelector('header');
     this.pageFooter = document.querySelector('footer');
     this.progressBar = document.querySelector('.progress-bar');
+    this.footerRedirect = document.querySelector('.footer-redirect'); // только на главной
 
     this.elmWidth = this.elm.offsetWidth;
 
@@ -69,6 +70,7 @@ export default class Menu {
   }
 
   toggleView(shouldShow) {
+    const targets = [this.pageHeader, this.pageMain, this.progressBar, this.pageFooter, this.footerRedirect];
     const duration = 0.3;
     const tl = gsap.timeline();
 
@@ -77,7 +79,7 @@ export default class Menu {
       duration,
     }, 0);
     tl.to(
-      [this.pageHeader, this.pageMain, this.progressBar, this.pageFooter],
+      targets,
       {
         x: shouldShow ? this.elmWidth : 0,
         duration,

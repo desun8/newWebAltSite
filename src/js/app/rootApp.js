@@ -22,6 +22,8 @@ class RootApp extends Index {
 
       //**** MENU ****//
 
+    //TODO: рефакторинг. Перенести все что свзано с меню в menu.js
+    // А тут вызвать только new Menu()
     this.menuElms = {
       menu: document.querySelector('.page-menu'),
       nav: document.querySelector('.page-nav'),
