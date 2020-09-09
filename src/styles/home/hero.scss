@@ -16,7 +16,6 @@
   
   @for $i from 1 through $steps {
     #{percentage($i*(0.2/$steps))} {
-      //clip-path: inset(0 0 (random(100) + 20 + #{"%"}) 5%);
       clip-path: inset((random(100) + #{"%"}) 0 (random(100) + #{"%"}) 0);
       transform: skew((random(200) / 100) + deg);
     }
@@ -147,6 +146,8 @@
 }
 
 .hero__title {
+  --shadow-size: 2px;
+  
   @include font-size(64, 46);
   
   position: absolute;
@@ -163,8 +164,45 @@
     font-size: 36px;
   }
   
+  &::before,
+  &::after,
+  span::before,
+  span::after {
+    clip-path: inset(0 9999px 0 0);
+    transform: skew(0deg);
+    
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &::before,
+  span::before {
+    left: var(--shadow-size);
+    //noinspection CssInvalidFunction
+    filter: drop-shadow(calc(var(--shadow-size) * -1) 0 #ff00c1);
+  
+    animation: glitch-anim 4s 2s infinite linear alternate-reverse;
+  }
+  
+  &::after,
+  span::after {
+    left: calc(var(--shadow-size) * -1);
+    //noinspection CssInvalidFunction
+    filter: drop-shadow(calc(var(--shadow-size) * -1) 0 #00fff9) drop-shadow(var(--shadow-size) 2px #ff00c1);
+    
+    animation: glitch-anim2 4s 2s infinite linear alternate-reverse;
+  }
+  
   span {
+    --shadow-size: 1px;
+    
     @include font-size(18);
+  
+    position: relative;
     display: inline-block;
     letter-spacing: 0;
     transform: translateY(-1.2em);
@@ -328,6 +366,9 @@
   &::before,
   &::after {
     @include bg-logo-letter();
+  
+    clip-path: inset(0 9999px 0 0);
+    transform: skew(0deg);
     
     content: "";
     position: absolute;
@@ -341,8 +382,6 @@
     left: 2px;
     filter: drop-shadow(-2px 0 #ff00c1);
     
-    //clip-path: inset(0 9999px 320px 10px);
-    
     animation: glitch-anim 4s infinite linear alternate-reverse;
   }
   
@@ -350,8 +389,6 @@
     left: -4px;
     filter: drop-shadow(-2px 0 #00fff9) drop-shadow(2px 2px #ff00c1);
   
-    //clip-path: inset(90% 0 5% 0);
-    
     animation: glitch-anim2 4s infinite linear alternate-reverse;
   }
 }
