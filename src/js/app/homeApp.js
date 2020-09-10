@@ -9,6 +9,7 @@ import RedirectFooter from '../home/redirectFooter';
 import BlockText from '../home/blockText';
 import CanvasSphere from '../home/canvasShpere';
 import HeroLogoAnimation from '../home/heroLogoAnimation';
+import Grained, { grainedOptions } from '../_lib/Grained';
 
 const getCssVar = (name = '', elm = document.documentElement) => {
   return getComputedStyle(elm).getPropertyValue(name);
@@ -86,7 +87,8 @@ class HomeApp extends Index {
     this.awardsList = new AwardsList();
 
     //**** REDIRECT FOOTER ****//
-    this.redirectFooter = new RedirectFooter(document.querySelector('.footer-redirect'));
+    this.redirectFooterElm = document.querySelector('.footer-redirect');
+    this.redirectFooter = new RedirectFooter(this.redirectFooterElm);
   }
 
 
@@ -131,6 +133,15 @@ class HomeApp extends Index {
     this.changeTheme.init();
     this.awardsList.init();
     new CanvasSphere();
+
+    let intervalId = undefined;
+    intervalId = setInterval(() => {
+      const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
+      if (isAllow) {
+        new Grained(this.redirectFooterElm, grainedOptions)
+        clearInterval(intervalId);
+      }
+    }, 100);
   }
 }
 

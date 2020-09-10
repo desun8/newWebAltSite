@@ -4,8 +4,7 @@ import Index from './index';
 import { ScrollbarPage } from '../components/scrollbar';
 import Footer from '../components/footer';
 import { ProgressBarMobile } from '../components/progressBar';
-
-import '../_lib/Grained';
+import Grained, { grainedOptions } from '../_lib/Grained';
 
 class RootApp extends Index {
   constructor(...props) {
@@ -38,7 +37,8 @@ class RootApp extends Index {
 
     //**** FOOTER ****//
 
-    this.footer = new Footer(document.querySelector('.page-footer'));
+    this.footerElm = document.querySelector('.page-footer');
+    this.footer = new Footer(this.footerElm);
   }
 
   initDesktop() {
@@ -97,26 +97,16 @@ class RootApp extends Index {
     this.footer.init();
 
     // шум для бг
-    if (window.grained) {
-      const options = {
-        'animate': true,
-        'patternWidth': 145,
-        'patternHeight': 118,
-        'grainOpacity': 0.04,
-        'grainDensity': 1,
-        'grainWidth': 1,
-        'grainHeight': 1
-      };
-
-      let intervalId = undefined;
-      intervalId = setInterval(() => {
-        const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
-        if (isAllow) {
-          grained('#body', options);
-          clearInterval(intervalId);
-        }
-      }, 200);
-    }
+    let intervalId = undefined;
+    intervalId = setInterval(() => {
+      const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
+      if (isAllow) {
+        new Grained(document.body, grainedOptions);
+        new Grained(this.menuElms.menu, grainedOptions);
+        new Grained(this.footerElm, grainedOptions);
+        clearInterval(intervalId);
+      }
+    }, 100);
   }
 }
 
