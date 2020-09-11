@@ -552,11 +552,11 @@
     
     padding: 0 var(--padding);
     background-color: var(--bg-color);
-  
+    
     overflow: hidden;
     
     .block--seo & {
-      //--bg-color: var(--c-red);
+      --bg-color: var(--c-red);
     }
   }
   
@@ -586,7 +586,7 @@
     //  position: relative;
     //}
     position: relative;
-  
+    
     &::after {
       content: "";
       position: absolute;
@@ -594,19 +594,25 @@
       top: 50%;
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
-    
+      
       display: inline-block;
       width: 300%;
       height: 26px;
       background-color: var(--bg-color);
-  
+      
       visibility: visible;
-    
+      
       //@media screen and (--tablet-sm) {
       //  content: "";
       //}
     }
   }
+  
+  //.js-static .whitespace::after,
+  //.js-splitting .whitespace::after {
+  //  height: 28px;
+  //}
+  
   
   .js-splitting {
     .whitespace,
