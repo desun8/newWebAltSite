@@ -541,19 +541,14 @@
   @media screen and (--tablet-sm) {
     --text-color: #fff;
     --bg-color: #000;
-    --padding: 5px;
     
-    @include font-size-px($fz-text-16, 26);
+    @include font-size-px($fz-text-16, 21); // lh: 26
     
-    max-width: vw(275 + 10, $mobile-viewport); // maxWidth + padding-left + padding-right
+    max-width: vw(275, $mobile-viewport);
     display: -webkit-box; //stylelint-disable-line
     margin-bottom: 0;
+    padding: 0.5em;
     color: var(--text-color) !important;
-    
-    padding: 0 var(--padding);
-    background-color: var(--bg-color);
-    
-    overflow: hidden;
     
     .block--seo & {
       --bg-color: var(--c-red);
@@ -569,64 +564,20 @@
   
   &.splitting {
     background-color: transparent;
-    font-size: 0;
-    line-height: 0;
     
-    .word,
-    .whitespace {
-      @include font-size-px($fz-text-16, 26);
-    }
-  }
-  
-  .js-static .word,
-  .js-static .whitespace,
-  .js-splitting .char,
-  .js-splitting .whitespace {
-    //@media screen and (--tablet-sm) {
-    //  position: relative;
-    //}
-    position: relative;
-    
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      
-      display: inline-block;
-      width: 300%;
-      height: 26px;
-      background-color: var(--bg-color);
-      
-      visibility: visible;
-      
-      //@media screen and (--tablet-sm) {
-      //  content: "";
-      //}
-    }
-  }
-  
-  //.js-static .whitespace::after,
-  //.js-splitting .whitespace::after {
-  //  height: 28px;
-  //}
-  
-  
-  .js-splitting {
     .whitespace,
     .char {
-      opacity: 0;
+      background-color: var(--bg-color);
     }
   }
   
+  //TODO: посмотреть нужно ли это
   .js-typewrite-word {
     @media screen and (--tablet-sm) {
       @include font-size-px($fz-text-16, 26);
     }
   }
-  
+  //TODO: посмотреть нужно ли это
   .js-typewrite-char {
     @media screen and (--tablet-sm) {
       position: relative;
