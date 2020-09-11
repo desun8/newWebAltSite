@@ -105,9 +105,9 @@ class HomeApp extends Index {
   initMobile() {
     super.initMobile();
     this.redirectFooter.initMobile();
-    // for (const [key, value] of Object.entries(this.$elms)) {
-    //   new BlockText(value);
-    // }
+    for (const [key, value] of Object.entries(this.$elms)) {
+      new BlockText(value);
+    }
   }
 
   resizeDesktop() {

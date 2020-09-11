@@ -552,7 +552,7 @@
     //line-height: 0;
     
     padding: 0.5em;
-    background-color: var(--bg-color);
+    //background-color: var(--bg-color);
     
     .block--seo & {
       --bg-color: var(--c-red);
@@ -563,6 +563,56 @@
     @media screen and (--tablet-sm) {
       content: "";
       width: 100%;
+    }
+  }
+  
+  .js-static .word::before {
+    content: attr(data-word);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: inherit;
+    user-select: none;
+  }
+  
+  .js-static .word,
+  .js-static .whitespace,
+  .js-splitting .char,
+  .js-splitting .whitespace {
+    //@media screen and (--tablet-sm) {
+    //  position: relative;
+    //}
+    position: relative;
+  
+    &::before,
+    &::after {
+      visibility: visible;
+      z-index: 2;
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    
+      display: inline-block;
+      width: 105%;
+      //height: 150%;
+      height: 26px;
+      background-color: var(--bg-color);
+    
+      //@media screen and (--tablet-sm) {
+      //  content: "";
+      //}
+    }
+  }
+  
+  .js-splitting {
+    .char {
+      opacity: 0;
     }
   }
   
