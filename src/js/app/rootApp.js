@@ -5,6 +5,7 @@ import { ScrollbarPage } from '../components/scrollbar';
 import Footer from '../components/footer';
 import { ProgressBarMobile } from '../components/progressBar';
 import Grained, { grainedOptions } from '../_lib/Grained';
+import APP from './APP';
 
 class RootApp extends Index {
   constructor(...props) {
@@ -100,7 +101,7 @@ class RootApp extends Index {
     let intervalId = undefined;
     intervalId = setInterval(() => {
       const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
-      if (isAllow) {
+      if (isAllow || !APP.isDesktop) {
         new Grained(document.body, grainedOptions);
         new Grained(this.menuElms.menu, grainedOptions);
         new Grained(this.footerElm, grainedOptions);
