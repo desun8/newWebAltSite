@@ -2,7 +2,7 @@ import { TypewriteAnimationWithBg } from '../components/typewriteAnimation';
 import Splitting from 'splitting';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
 
 // class BlockText {
@@ -67,16 +67,13 @@ class BlockTextNew {
     const newText = text.slice(0, startPos);
     const splittingText = text.slice(startPos, length);
 
-    console.log(newText);
-    console.log(splittingText);
-
     elm.innerHTML = '';
     elm.appendChild(this.createElm(newText));
 
     Splitting({
       target: this.elm,
       by: 'words'
-    })
+    });
 
     elm.appendChild(this.createElm(splittingText, true));
 
@@ -85,8 +82,37 @@ class BlockTextNew {
       by: 'chars'
     });
 
-    this.chars = this.elm.querySelectorAll('.js-splitting .char')
-    console.log(this.chars);
+    const getChars = () => {
+      const { childNodes } = this.splittingElm;
+      console.log(childNodes);
+
+      const chars = [];
+
+      // const chars = Array.from(childNodes).map(node => {
+      //   if (node.className === 'whitespace') {
+      //     return node;
+      //   }
+      //
+      //   const { childNodes } = node;
+      //   return Array.from(childNodes);
+      // })
+
+      Array.from(childNodes).forEach(node => {
+        if (node.className === 'whitespace') {
+          chars.push(node);
+        } else {
+          const { childNodes } = node;
+          chars.push(...Array.from(childNodes));
+        }
+      })
+
+
+      // console.log(chars);
+
+      return chars;
+    };
+
+    this.chars = getChars();
   }
 
   intersectionObserver() {

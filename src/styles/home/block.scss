@@ -541,21 +541,22 @@
   @media screen and (--tablet-sm) {
     --text-color: #fff;
     --bg-color: #000;
+    --padding: 5px;
     
     @include font-size-px($fz-text-16, 26);
     
-    max-width: vw(275, $mobile-viewport);
+    max-width: vw(275 + 10, $mobile-viewport); // maxWidth + padding-left + padding-right
     display: -webkit-box; //stylelint-disable-line
     margin-bottom: 0;
     color: var(--text-color) !important;
-    //font-size: 0;
-    //line-height: 0;
     
-    padding: 0.5em;
-    //background-color: var(--bg-color);
+    padding: 0 var(--padding);
+    background-color: var(--bg-color);
+  
+    overflow: hidden;
     
     .block--seo & {
-      --bg-color: var(--c-red);
+      //--bg-color: var(--c-red);
     }
   }
   
@@ -566,13 +567,15 @@
     }
   }
   
-  .js-static .word::before {
-    content: attr(data-word);
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: inherit;
-    user-select: none;
+  &.splitting {
+    background-color: transparent;
+    font-size: 0;
+    line-height: 0;
+    
+    .word,
+    .whitespace {
+      @include font-size-px($fz-text-16, 26);
+    }
   }
   
   .js-static .word,
@@ -584,25 +587,20 @@
     //}
     position: relative;
   
-    &::before,
-    &::after {
-      visibility: visible;
-      z-index: 2;
-    }
-  
     &::after {
       content: "";
       position: absolute;
-      z-index: 0;
+      z-index: -1;
       top: 50%;
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
     
       display: inline-block;
-      width: 105%;
-      //height: 150%;
+      width: 300%;
       height: 26px;
       background-color: var(--bg-color);
+  
+      visibility: visible;
     
       //@media screen and (--tablet-sm) {
       //  content: "";
@@ -611,6 +609,7 @@
   }
   
   .js-splitting {
+    .whitespace,
     .char {
       opacity: 0;
     }
