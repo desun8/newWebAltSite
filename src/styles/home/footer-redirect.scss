@@ -41,6 +41,11 @@ body {
   align-items: flex-end;
   width: fit-content;
   margin: 0 auto;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    display: block;
+  }
 }
 
 .footer-redirect__title,
