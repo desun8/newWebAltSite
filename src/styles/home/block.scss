@@ -573,9 +573,17 @@
   &.splitting {
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    //justify-content: space-between;
+    justify-content: flex-start;
     
     background-color: transparent;
+    text-align: left;
+    
+    .word,
+    .char,
+    .whitespace {
+      //display: unset;
+    }
     
     .whitespace,
     .char {
@@ -583,9 +591,9 @@
     }
     
     .whitespace {
-      flex-grow: 2;
+      //flex-grow: 2;
       min-width: 0.3em;
-      //display: inline-block;
+      display: inline-block;
     }
   }
   
