@@ -102,13 +102,9 @@
       fill: var(--main-color);
     }
     
-    .block__bg svg {
-      //stroke: var(--main-color);
-    }
-    
-    .bg-grid {
-      fill: var(--main-color);
-    }
+    //.block__bg svg {
+    //  //stroke: var(--main-color);
+    //}
   }
   
   &.theme-orange {
@@ -131,6 +127,26 @@
     
     .link {
       --hover-color: #fff;
+    }
+  }
+  
+  &.theme-dark,
+  &.theme-orange {
+    svg {
+      @include transition-switch-theme(all, 0.5s);
+    }
+    
+    .block__number,
+    .block__number::after,
+    .block__text {
+      @include transition-switch-theme(color);
+    }
+  
+    .block__bg .img-bg--default {
+      //noinspection CssInvalidMediaFeature
+      @media screen and (--tablet-sm) {
+        @include transition-switch-theme(color);
+      }
     }
   }
   
@@ -480,6 +496,11 @@
       --bg: #fff;
       
       right: 80px;
+    }
+    //
+    .theme-dark .block--design & {
+      //--bg: var(--c-red);
+      color: var(--c-black-second);
     }
   }
   

@@ -1,5 +1,17 @@
 @use "../_config" as *;
 
+body {
+  @include transition-switch-theme(background-color);
+  
+  &.theme-dark {
+    background-color: var(--c-black-second);
+  }
+  
+  &.theme-orange {
+    background-color: var(--c-red);
+  }
+}
+
 .page-home {
   --textColor: var(--c-black-second);
   color: var(--textColor);

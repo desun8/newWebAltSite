@@ -11,10 +11,6 @@ import CanvasSphere from '../home/canvasShpere';
 import HeroLogoAnimation from '../home/heroLogoAnimation';
 import Grained, { grainedOptions } from '../_lib/Grained';
 
-const getCssVar = (name = '', elm = document.documentElement) => {
-  return getComputedStyle(elm).getPropertyValue(name);
-};
-
 class HomeApp extends Index {
   constructor(...props) {
     super(...props);
@@ -27,23 +23,7 @@ class HomeApp extends Index {
     };
 
     //**** CHANGE THEME ****//
-    this.themeConfig = {
-      elms: [this.$elms.blockSeo, this.$elms.blockDesign],
-      styles: {
-        [this.$elms.blockSeo.id]: {
-          bgColor: getCssVar('c-black-second') || '#262626'
-        },
-        [this.$elms.blockDesign.id]: {
-          bgColor: getCssVar('c-red') || '#ff5000'
-        }
-      },
-      classNames: {
-        [this.$elms.blockSeo.id]: 'theme-dark',
-        [this.$elms.blockDesign.id]: 'theme-orange'
-      }
-    };
-
-    this.changeTheme = new ChangeTheme(this.themeConfig.elms, this.themeConfig.styles, this.themeConfig.classNames);
+    this.changeTheme = new ChangeTheme();
 
     //**** HERO SLIDER ****//
     this.heroSliderElms = {

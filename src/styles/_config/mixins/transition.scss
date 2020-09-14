@@ -1,0 +1,12 @@
+$circ-out: cubic-bezier(0, 0.55, 0.45, 1);
+
+@mixin transition($property, $duration, $ease: ease, $delay: 0s) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-delay: $delay;
+  transition-timing-function: $ease;
+}
+
+@mixin transition-switch-theme($property, $duration: 0.4s) {
+  @include transition($property, $duration , $circ-out);
+}

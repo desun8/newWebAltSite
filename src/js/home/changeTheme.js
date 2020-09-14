@@ -1,102 +1,60 @@
-import { gsap } from 'gsap';
 import APP from '../app/APP';
-// gsap.ticker.fps(60);
-// gsap.ticker.lagSmoothing(500, 64);
-// gsap.ticker.lagSmoothing(0);
-
 
 export default class ChangeTheme {
-  constructor(elms, styles, classNames) {
-    this.elms = elms;
-    this.styles = styles;
-    this.classNames = classNames;
-
+  constructor() {
     this.body = document.body;
-    // this.main = document.querySelector('.page-home');
-
+    this.elms = [
+      {
+        target: document.querySelector('.block--seo'),
+        className: 'theme-dark',
+      },
+      {
+        target: document.querySelector('.block--design'),
+        className: 'theme-orange',
+      }];
     this.state = {
       in: '',
       out: ''
     };
 
-    this.duration = 0.4;
-
     this.observer = null;
     this.options = {
-      threshold: APP.isDesktop ? 0.4 : 0.25
+      threshold: APP.isDesktop ? 0.42 : 0.25
     };
-
-    this.prevTop = 0;
   }
 
-  animation(target, style, className, isAdd = false) {
-    const duration = this.duration;
-    const ease = 'circ.out';
-    // const ease = 'power4.out';
-
-    const onStart = () => {
-      // this.body.style.willChange = 'background-color';
-
-      requestAnimationFrame(
-        () => {
-          if (isAdd) {
-            target.classList.add(className);
-            this.body.classList.add(className);
-          } else {
-            target.classList.remove(className);
-            this.body.classList.remove(className);
-          }
+  animation(target, className, isAdd = false) {
+    requestAnimationFrame(
+      () => {
+        if (isAdd) {
+          target.classList.add(className);
+          this.body.classList.add(className);
+        } else {
+          target.classList.remove(className);
+          this.body.classList.remove(className);
         }
-      )
-
-      // setTimeout(() => this.body.style.willChange = null, 500);
-    };
-
-    // gsap.to(this.body, {
-    //   background: isAdd ? style.bgColor : '#fff',
-    //   lazy: true,
-    //   // delay: 0.1,
-    //   ease,
-    //   duration,
-    //   onStart
-    // });
-
-    onStart();
+      }
+    );
   }
 
   isVisible(entries) {
-    const { state, styles, classNames } = this;
+    let { state } = this;
 
     entries.forEach(entry => {
-      // const { isIntersecting, target, boundingClientRect } = entry;
-      const { isIntersecting, target } = entry;
-      // const currTop = Math.abs(boundingClientRect.y);
-      const { id } = target;
+      const currTarget = this.elms.filter(el => el.target === entry.target)[0];
+      const { target, className } = currTarget;
 
-      console.log(entry);
-
-      // console.log(`currTop: ${currTop}, prevTop: ${this.prevTop}`);
-
-      if (isIntersecting) {
-        state.in = id;
-        // this.prevTop = currTop;
-
-        console.log(`in ${id}`);
-
-        this.animation(target, styles[state.in], classNames[state.in], true);
+      if (entry.isIntersecting) {
+        state.in = target;
+        this.animation(target, className, true);
       } else {
-        state.out = id;
+        state.out = target;
 
-        console.log(`out ${id}`);
-
-        document.body.classList.remove(classNames[state.out]);
-        target.classList.remove(classNames[state.out]);
+        document.body.classList.remove(className);
+        target.classList.remove(className);
 
         if (state.in === state.out) {
-          // if (id === 'seo' && currTop > this.prevTop) return;
-          // if (id === 'design' && currTop < this.prevTop) return;
-
-          this.animation(target, styles[state.out], classNames[state.out]);
+          this.animation(target, className);
         }
       }
     });
@@ -106,9 +64,7 @@ export default class ChangeTheme {
     this.observer = new IntersectionObserver(this.isVisible.bind(this), this.options);
 
     this.elms.forEach(elm =>
-      this.observer.observe(elm)
+      this.observer.observe(elm.target)
     );
-    // document.body.style.transition = 'background-color 0.5s ease';
-    // console.log('init', this.observer);
   }
 }
