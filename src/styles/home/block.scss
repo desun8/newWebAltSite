@@ -543,7 +543,8 @@
     --text-color: #fff;
     --bg-color: #000;
     
-    @include font-size-px($fz-text-16, 21); // lh: 26
+    //@include font-size-px($fz-text-16, 21); // lh: 26
+    @include font-size-px($fz-text-16, 26); // lh: 26
   
     position: relative;
     max-width: vw(275, $mobile-viewport);
@@ -557,6 +558,11 @@
     }
   }
   
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--mobile-sm) {
+    max-width: 275px;
+  }
+  
   &::after {
     @media screen and (--tablet-sm) {
       content: "";
@@ -565,11 +571,21 @@
   }
   
   &.splitting {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
     background-color: transparent;
     
     .whitespace,
     .char {
       background-color: var(--bg-color);
+    }
+    
+    .whitespace {
+      flex-grow: 2;
+      min-width: 0.3em;
+      //display: inline-block;
     }
   }
   
