@@ -363,6 +363,10 @@
     padding: 0;
   }
   
+  .block--seo & {
+    text-align: right;
+  }
+  
   .block--design & {
     position: relative;
     
@@ -380,11 +384,6 @@
         content: none;
       }
     }
-    
-    > svg {
-      fill: rgba(#181818, 0);
-      stroke: #fff;
-    }
   }
   
   .block--awards & {
@@ -396,44 +395,43 @@
   }
   
   h2 {
-    //@include hide-text();
-    display: none;
-    
-    @media screen and (--tablet-sm) {
-      @include font-size-px(72, 52);
-      
-      //position: relative !important;
-      //width: auto;
-      //height: auto;
-      //overflow: visible;
-      
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 0.015em;
-    }
-    
-    .block--dev & {
-      color: var(--c-red);
-    }
-    
-    .block--seo & {
-      text-align: right;
-    }
-    
-    .block--awards & {
-      @media screen and (--tablet-sm) {
-        position: relative;
-        z-index: 1;
-      }
-    }
+    @include hide-text();
   }
   
   > svg {
     max-width: 100%;
     height: auto;
     
+    //noinspection CssInvalidMediaFeature
     @media screen and (--tablet-sm) {
-      display: none;
+      --color: currentColor;
+      max-width: vw(238, $mobile-viewport);
+    }
+    
+    .block--dev & {
+      //noinspection CssInvalidMediaFeature
+      @media screen and (--tablet-sm) {
+        --color: var(--c-red);
+      }
+    }
+    
+    .block--design & {
+      fill: rgba(#181818, 0);
+      stroke: #fff;
+      
+      //noinspection CssInvalidMediaFeature
+      @media screen and (--tablet-sm) {
+        max-width: vw(176, $mobile-viewport);
+      }
+    }
+    
+    path {
+      @media screen and (--tablet-sm) {
+        --color: currentColor;
+        //display: none;
+        fill: var(--color);
+        stroke: var(--color);
+      }
     }
   }
 }
@@ -545,7 +543,7 @@
     
     //@include font-size-px($fz-text-16, 21); // lh: 26
     @include font-size-px($fz-text-16, 26); // lh: 26
-  
+    
     position: relative;
     max-width: vw(275, $mobile-viewport);
     display: -webkit-box; //stylelint-disable-line
@@ -603,6 +601,7 @@
       @include font-size-px($fz-text-16, 26);
     }
   }
+  
   //TODO: посмотреть нужно ли это
   .js-typewrite-char {
     @media screen and (--tablet-sm) {
