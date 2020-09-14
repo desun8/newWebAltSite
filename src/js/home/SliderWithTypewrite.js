@@ -51,7 +51,10 @@ export default class SliderWithTypewrite extends TimerSlider {
 
         if (isIntersecting) {
           clearInterval(this.intervalId);
-          this.autoplay();
+          this.itemsText[0].parentNode.style.opacity = '1';
+          this.itemsText[0].style.opacity = '1';
+          this.instances[0].play();
+          // this.autoplay();
           // console.log('start slider');
         } else {
           clearInterval(this.intervalId);
