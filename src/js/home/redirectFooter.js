@@ -15,16 +15,14 @@ export default class RedirectFooter {
     this.duration = Math.floor(duration);
 
     this.shouldPlay = false;
-    this.textTween = null;
-    this.counterTween = null;
+    this.textTween = undefined;
+    this.counterTween = undefined;
 
     this.isStart = false;
     this.tickingHover = false;
 
     this.handleMouseOver = this.handleMouseOver.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
-
-    // this.init();
   }
 
   animationGradient() {
@@ -87,11 +85,6 @@ export default class RedirectFooter {
     arr.forEach(value => createElm(value));
   }
 
-  getCounterSize() {
-    this.counterSize = this.$elms.counter.offsetHeight;
-
-  }
-
   animationCounter() {
     const posY = (100 - 100 / (this.duration + 1)) * -1;
 
@@ -105,21 +98,23 @@ export default class RedirectFooter {
   }
 
   start(isMobile = false) {
-    this.animationGradient();
-    !isMobile && this.animationCounter();
-    // if (this.shouldPlay) {
-    //   this.animationGradient();
-    //   this.animationCounter();
-    // } else {
-    //   this.textTween && this.textTween.pause(0);
-    //   this.counterTween && this.counterTween.pause(0);
-    // }
+    if (this.textTween === undefined) {
+      this.animationGradient();
+    }
+
+    this.textTween.duration(this.duration);
+    this.textTween.play();
+
+    if (!isMobile) {
+      this.counterTween === undefined && this.animationCounter();
+
+      this.counterTween.duration(this.duration);
+      this.counterTween.play();
+    }
   }
 
   stop() {
     if (this.textTween) {
-      // this.textTween.progress(0);
-      // this.textTween.pause(0);
       this.textTween.duration(1);
       this.textTween.reverse();
 
@@ -128,7 +123,6 @@ export default class RedirectFooter {
     }
 
     if (this.counterTween) {
-      // this.counterTween.pause(0);
       this.counterTween.duration(1);
       this.counterTween.reverse();
     }
@@ -200,9 +194,6 @@ export default class RedirectFooter {
   }
 
   init() {
-    // this.observer = this.intersectionObserver();
-    // this.observer.observe(this.$elms.root);
-
     this.makeCounterElms();
     this.addEvents();
   }
