@@ -79,6 +79,11 @@
     .link__icon {
       top: 2px;
     }
+  
+    .hero-announcement & .link__arrow {
+      stroke-width: 0.5px;
+      stroke: currentColor;
+    }
   }
   
   &--orange {
