@@ -52,14 +52,16 @@ export default class ChangeTheme {
       // setTimeout(() => this.body.style.willChange = null, 500);
     };
 
-    gsap.to(this.body, {
-      background: isAdd ? style.bgColor : '#fff',
-      lazy: true,
-      // delay: 0.1,
-      ease,
-      duration,
-      onStart
-    });
+    // gsap.to(this.body, {
+    //   background: isAdd ? style.bgColor : '#fff',
+    //   lazy: true,
+    //   // delay: 0.1,
+    //   ease,
+    //   duration,
+    //   onStart
+    // });
+
+    onStart();
   }
 
   isVisible(entries) {
@@ -71,15 +73,21 @@ export default class ChangeTheme {
       // const currTop = Math.abs(boundingClientRect.y);
       const { id } = target;
 
+      console.log(entry);
+
       // console.log(`currTop: ${currTop}, prevTop: ${this.prevTop}`);
 
       if (isIntersecting) {
         state.in = id;
         // this.prevTop = currTop;
 
+        console.log(`in ${id}`);
+
         this.animation(target, styles[state.in], classNames[state.in], true);
       } else {
         state.out = id;
+
+        console.log(`out ${id}`);
 
         document.body.classList.remove(classNames[state.out]);
         target.classList.remove(classNames[state.out]);

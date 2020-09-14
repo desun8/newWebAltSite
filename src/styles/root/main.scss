@@ -22,15 +22,16 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   //background-color: #333;
-  //transition: background-color var(--trans-dur-fast) ease-out;
+  transition: background-color 0.4s cubic-bezier(0, 0.55, 0.45, 1); //circ-out
+  will-change: background-color;
   //
-  //&.theme-dark {
-  //  background-color: var(--c-black-second);
-  //}
-  //
-  //&.theme-orange {
-  //  background-color: var(--c-red);
-  //}
+  &.theme-dark {
+    background-color: var(--c-black-second);
+  }
+
+  &.theme-orange {
+    background-color: var(--c-red);
+  }
 }
 
 h1,
