@@ -117,14 +117,14 @@
   
   .icon-arrow-down {
     @include bg-img("../images/i-arrow-down.svg", vw(18));
-  
+    
     position: absolute;
     left: 58%;
     bottom: 3%;
     width: vw(40);
     height: vw(50);
     background-repeat: space;
-  
+    
     @media screen and (--tablet-sm) {
       display: none;
     }
@@ -220,7 +220,7 @@
     left: var(--shadow-size);
     //noinspection CssInvalidFunction
     filter: drop-shadow(calc(var(--shadow-size) * -1) 0 #ff00c1);
-  
+    
     animation: glitch-anim-text 4s 2s infinite linear alternate-reverse;
   }
   
@@ -237,7 +237,7 @@
     --shadow-size: 1px;
     
     @include font-size(18);
-  
+    
     position: relative;
     display: inline-block;
     letter-spacing: 0;
@@ -281,6 +281,13 @@
   
   p {
     line-height: inherit;
+  }
+  
+  .link {
+    // TODO: нужно смотреть как будет на боевом/тестовом сервере
+    // При сборке для netlify в разметке теряется "пробел" между ссылкой и следующим словом
+    // И они "слипаются", так что добавил отступ тут
+    margin-right: 0.4em;
   }
   
   .link__icon {
@@ -344,7 +351,7 @@
     @media screen and (--tablet-sm) {
       display: block;
     }
-  
+    
     &::after {
       @include bg-img("../images/i-arrow-down.svg", 4px);
       content: "";
@@ -403,7 +410,7 @@
   &::before,
   &::after {
     @include bg-logo-letter();
-  
+    
     clip-path: inset(0 9999px 0 0);
     transform: skew(0deg);
     
@@ -425,7 +432,7 @@
   &::after {
     left: -4px;
     filter: drop-shadow(-2px 0 #00fff9) drop-shadow(2px 2px #ff00c1);
-  
+    
     animation: glitch-anim2 4s infinite linear alternate-reverse;
   }
 }
