@@ -1,68 +1,37 @@
 import { gsap } from 'gsap';
+import Splitting from 'splitting';
+
 
 class TypewriteAnimation {
   constructor(elm) {
     this.elm = elm;
     this.chars = null;
+
+    // TODO: удалить
     this.className = 'js-typewrite-char';
 
     this.isComplete = false;
 
     this.tween = null;
-
-    // this.init();
   }
 
-  wrapChar(char) {
-    const elm = document.createElement('span');
-    if (char) {
-      elm.innerHTML = char;
-    }
-    elm.classList.add(this.className);
+  splitting() {
+    Splitting({
+      target: this.elm,
+      by: 'chars'
+    });
 
-    return elm;
-  }
-
-  trimText(text) {
-    const regex = /\s{2,}/gi;
-    return text.replace(regex, ' ');
-  }
-
-  insertChars(text) {
-    const split = text.split('');
-
-    return split.map(el => this.wrapChar(el));
-  }
-
-  replaceNode(nodes) {
-    for (const node of nodes) {
-      if (node.className !== this.className) {
-        if (node.nodeName !== '#text') {
-          // для ссылок в тексте
-          if (node.classList.contains('link')) {
-            const text = node.querySelector('.link__text');
-            const iconWrap = node.querySelector('.link__icon');
-            const icon = iconWrap.querySelector('svg');
-
-            node?.childNodes[0]?.nodeName === '#text'
-            && node.childNodes[0].replaceWith(...this.insertChars(node.innerText));
-
-            text?.childNodes[0]?.nodeName === '#text' && text.childNodes[0].replaceWith(...this.insertChars(text.innerText));
-
-            const wrap = this.wrapChar();
-            wrap.classList.add(this.className);
-            wrap.appendChild(icon);
-            iconWrap.appendChild(wrap);
-          }
-        } else {
-          node.replaceWith(...this.insertChars(this.trimText(node.nodeValue)));
-        }
-      }
+    // добавляем data-аттрибут для иконки-стрелки и пробелов
+    const iconArrow = this.elm.querySelector('.link__icon');
+    const whitespaces = this.elm.querySelectorAll('.whitespace');
+    if (iconArrow && whitespaces) {
+      iconArrow.dataset.char = 'char';
+      whitespaces.forEach(whitespace => whitespace.dataset.char = 'char');
     }
   }
 
-  getCharElms() {
-    this.chars = this.elm.querySelectorAll(`.${this.className}`);
+  getChars() {
+    this.chars = this.elm.querySelectorAll('*[data-char]');
   }
 
   animation(chars) {
@@ -93,8 +62,8 @@ class TypewriteAnimation {
     this.elm.dataset.typewrite = 'true';
     this.elm.style.opacity = '0';
 
-    this.replaceNode(this.elm.childNodes);
-    this.getCharElms();
+    this.splitting(this.elm);
+    this.getChars();
     this.tween = this.animation(this.chars).paused(true);
   }
 }
@@ -213,86 +182,6 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
   init() {
     this.createCursor();
     super.init();
-  }
-}
-
-export class TypewriteAnimationWithBg extends TypewriteAnimation {
-  constructor(...props) {
-    super(...props);
-
-    this.animationEase = 'power2.out';
-    this.classNameWord = 'js-typewrite-word';
-  }
-
-  wrapChar(char) {
-    const elm = document.createElement('span');
-    const elmText = document.createElement('span');
-    if (char) {
-      elmText.innerHTML = char;
-    }
-    elm.classList.add(this.className);
-    elm.appendChild(elmText);
-
-    return elm;
-  }
-
-  wrapWord(word) {
-    const elm = document.createElement('span');
-    if (word) {
-      elm.innerHTML = word;
-    }
-    elm.classList.add(this.classNameWord);
-
-    return elm;
-  }
-
-  insertChars(text) {
-    const words = text.split(' ');
-    let wordsWithSpaces = [];
-
-    for (let i = 0; i < words.length; i++) {
-      wordsWithSpaces.push(words[i]);
-      wordsWithSpaces.push(' ');
-    }
-
-    wordsWithSpaces = wordsWithSpaces.map(word => {
-      const wordElm = this.wrapWord(word);
-      const split = wordElm.innerText.split('');
-      // split.push(' ');
-      const elms = split.map(el => this.wrapChar(el));
-
-      wordElm.innerHTML = '';
-      elms.forEach(el => wordElm.appendChild(el));
-
-      return wordElm;
-    });
-
-    return wordsWithSpaces;
-  }
-
-  animation(chars) {
-    chars = Array.from(chars);
-    const length = chars.length;
-    const start = Math.floor((length / 2) + (length / 4));
-    const formMid = chars.slice(start, length);
-    return gsap.from(formMid, {
-      alpha: 0,
-      duration: 0.01,
-      stagger: {
-        each: 0.06,
-      },
-      ease: 'none',
-      onStart: () => {
-        this.elm.style.opacity = '1';
-        this.isComplete = false;
-      },
-      onComplete: () => this.isComplete = true
-    });
-  }
-
-  init() {
-    super.init();
-    this.elm.style.opacity = '1';
   }
 }
 
