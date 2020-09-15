@@ -66,12 +66,21 @@ body {
 }
 
 .footer-redirect__name {
-  br {
-    display: none;
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    @include hide-text();
     
-    @media screen and (--tablet-sm) {
-      display: block;
-    }
+    display: none;
+  }
+}
+
+.footer-redirect__name-svg {
+  display: none;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    display: unset;
+    width: 100%;
   }
 }
 
