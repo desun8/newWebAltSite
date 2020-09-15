@@ -42,7 +42,7 @@ export class ProgressBarMobile extends ProgressBar {
 
   destroy() {
     window.removeEventListener(
-      'wheel',
+      'scroll',
       this.handleScroll,
       { passive: true }
     );
@@ -53,7 +53,7 @@ export class ProgressBarMobile extends ProgressBar {
     this.handleScroll();
 
     window.addEventListener(
-      'wheel',
+      'scroll',
       this.handleScroll,
       { passive: true }
     );

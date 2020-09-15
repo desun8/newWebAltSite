@@ -251,7 +251,7 @@
     }
     
     .img-bg {
-      border: 1px solid transparent;
+      border: 4px solid transparent;
       
       @media screen and (--tablet-sm) {
         border: 0;
@@ -838,6 +838,10 @@
     font-size: 22px;
     letter-spacing: 0.015em;
     font-weight: 700;
+    
+    .link__text::after {
+      content: none;
+    }
     
     svg {
       opacity: 0.1;
