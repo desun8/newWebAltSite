@@ -29,6 +29,7 @@ body {
   section {
     min-height: 100vh;
     margin-bottom: vh(150);
+    content-visibility: auto;
   
     @media screen and (--tablet-sm) {
       margin-bottom: 50px;
