@@ -1,4 +1,4 @@
-import { MAC_OS } from '../utils/getOS';
+import { ANDROID, MAC_OS } from '../utils/getOS';
 import APP from './APP';
 
 class Index {
@@ -59,6 +59,7 @@ class Index {
 
   initMobile() {
     console.log('init mobile');
+    APP.os === ANDROID && document.body.classList.add('os-android');
   }
 
   handleInit() {

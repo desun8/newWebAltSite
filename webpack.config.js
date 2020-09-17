@@ -91,6 +91,7 @@ module.exports = {
               ident: 'postcss',
               plugins: [
                 require('postcss-100vh-fix'),
+                require('postcss-100vh-fix'),
                 require('postcss-hover-media-feature'),
                 require('postcss-preset-env')({ stage: 1 }),
               ]

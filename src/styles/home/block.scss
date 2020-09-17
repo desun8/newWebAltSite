@@ -443,8 +443,6 @@
     
     path {
       @media screen and (--tablet-sm) {
-        --color: currentColor;
-        //display: none;
         fill: var(--color);
         stroke: var(--color);
       }

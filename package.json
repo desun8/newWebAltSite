@@ -43,6 +43,7 @@
     "gsap": "^3.4.0",
     "lodash": "^4.17.19",
     "overlayscrollbars": "^1.12.0",
+    "postcss-viewport-height-correction": "^2.0.2",
     "scroll-lock": "^2.1.4",
     "simplebar": "^5.2.1",
     "splitting": "^1.0.6",

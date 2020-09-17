@@ -169,7 +169,7 @@ export default class Menu {
   addEvents() {
     this.btnOpen.addEventListener('click', this.handleClick);
     this.btnClose.addEventListener('click', this.handleClick);
-    document.body.addEventListener('click', this.handleClickOutside);
+    APP.isDesktop && document.body.addEventListener('click', this.handleClickOutside);
   }
 
   update() {
