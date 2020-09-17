@@ -187,11 +187,6 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-row-gap: 30px;
-  
-    .ios-chrome &,
-    .os-android & {
-      font-size: 28px;
-    }
   }
   
   &__link {

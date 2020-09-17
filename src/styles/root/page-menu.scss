@@ -207,11 +207,18 @@
     font-size: 8px;
     
     .ios-chrome & {
-      font-size: 14px;
+      font-size: 10px;
     }
     
     .os-android & {
       height: 80px;
+    }
+  }
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--mobile-sm) {
+    .ios-chrome & {
+      font-size: 8px;
     }
   }
 }
