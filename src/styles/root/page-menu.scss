@@ -186,8 +186,16 @@
     //@include font-size(30, 40);
     @include font-size-px(32, 42);
     
-    @media screen and (--tablet-sm) {
+    @media screen and (--tablet-sm) {      
       font-size: $fz-text-lg * 1px;
+      text-transform: uppercase;
+    }
+    
+    .link {
+      //noinspection CssInvalidMediaFeature
+      @media screen and (--tablet-sm) {
+        --icon-size: 0.85em;
+      }
     }
   }
 }
