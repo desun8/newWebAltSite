@@ -1,0 +1,18 @@
+@use "../_config/index" as *;
+
+.page-blog {}
+
+.page-blog__wrap {
+  @include wrap();
+}
+
+.page-blog__title {
+  width: vw(382);
+  margin-bottom: vw(52);
+  color: var(--c-black-second);
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    margin-bottom: 42px;
+  }
+}

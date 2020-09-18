@@ -2,8 +2,9 @@
 //@use "../fonts/suisseIntl-book";
 @use "var";
 @use "main";
-@use "header";
-@use "footer";
+@use "page-header";
+@use "page-breadcrumbs";
+@use "page-footer";
 @use "link";
 @use "button";
 @use "page-menu";

@@ -37,3 +37,12 @@
   //  }
   //}
 }
+
+
+@mixin wrap() {
+  padding: 0 fn.vw(100);
+  
+  @media screen and (--tablet-sm) {
+    padding: 0 fn.vw(20, fn.$mobile-viewport);
+  }
+}

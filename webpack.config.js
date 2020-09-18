@@ -11,6 +11,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 // Copy
 const CopyPlugin = require('copy-webpack-plugin');
+// Vue
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 
 
 // const SpritePlugin = require('svg-sprite-loader/plugin');
@@ -38,6 +41,7 @@ module.exports = {
   entry: {
     core: './src/js/root.js',
     home: './src/js/home.js',
+    blog: './src/js/blog.js',
     // ['style-core']: './src/styles/root.scss',
     // ['style-home']: './src/styles/home.scss'
   },
@@ -58,6 +62,10 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
       // babel
       {
         test: /\.js$/,
@@ -142,39 +150,11 @@ module.exports = {
           },
         ],
       },
-
-      // Sprites
-      // {
-      //   test: /\.png$/,
-      //   use: [
-      //     'file-loader?name=images/[name].[ext]',
-      //   ],
-      // },
     ],
   },
 
   plugins: [
-    // new webpack.ProvidePlugin({
-    //   $: 'jquery',
-    //   jQuery: 'jquery',
-    //   'window.jQuery': 'jquery',
-    // }),
-
-    // new SpritesmithPlugin({
-    //   src: {
-    //     cwd: path.resolve(__dirname, 'src/images/sprites'),
-    //     glob: '*.png',
-    //   },
-    //   target: {
-    //     image: path.resolve(__dirname, 'src/images/sprite.png'),
-    //     css: path.resolve(__dirname, 'src/style/lib/sprite.css'),
-    //   },
-    //   apiOptions: {
-    //     cssImageRef: './images/sprite.png',
-    //   },
-    // }),
-
-    // new SpritePlugin(),
+    new VueLoaderPlugin(),
 
     new CopyPlugin({
       patterns: [

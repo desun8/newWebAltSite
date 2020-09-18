@@ -1,0 +1,53 @@
+@use "../_config/index" as *;
+
+.filter {
+  @include list-unstyled();
+  
+  display: flex;
+  align-items: center;
+}
+
+.filter__icon {
+  fill: none;
+  stroke: #000;
+}
+
+.filter__item {
+  --padding: 5px;
+  --gap: calc((25px -  var(--padding) * 2 ) / 2);
+  
+  @include font-size($fz-text-16);
+  
+  position: relative;
+  margin: 0 var(--gap);
+  
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: underline;
+  
+  opacity: 0.5;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--padding) / 2);
+    left: 50%;
+    transform: translateX(-50%);
+  
+    width: calc(100% - var(--padding));
+    height: 1px;
+    background-color: currentColor;
+  }
+  
+  &:hover {
+    background-color: #ff00c1;
+  }
+}
+
+.filter__item.is-active {
+  opacity: 1;
+}
+
+.filter__btn {
+  padding: var(--padding);
+}

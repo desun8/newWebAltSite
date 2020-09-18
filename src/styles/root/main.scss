@@ -67,4 +67,8 @@ p {
   //&__item {}
 }
 
+.visually-hidden {
+  @include hide-text();
+}
+
 
