@@ -1,0 +1,13 @@
+@mixin fix-ios-chrome-font-size($size) {
+  .ios-chrome & {
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      font-size: $size + 2px;
+    }
+  
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--mobile-sm) {
+      font-size: $size + px;
+    }
+  }
+}

@@ -203,6 +203,7 @@
 .menu-soc {
   //@include font-size($fz-text-sm, 14);
   @include font-size-px(12, 14);
+  @include fix-ios-chrome-font-size(8);
   
   display: flex;
   justify-content: space-between;
@@ -214,19 +215,8 @@
     padding-top: 16px;
     font-size: 8px;
     
-    .ios-chrome & {
-      font-size: 10px;
-    }
-    
     .os-android & {
       height: 80px;
-    }
-  }
-  
-  //noinspection CssInvalidMediaFeature
-  @media screen and (--mobile-sm) {
-    .ios-chrome & {
-      font-size: 8px;
     }
   }
 }
@@ -249,6 +239,7 @@
 
 .page-nav__list {
   @include font-size-px($fz-text-md);
+  @include fix-ios-chrome-font-size($fz-text-lg);
   
   counter-reset: my-counter;
   
@@ -272,6 +263,7 @@
   --mb: #{em(90, $fz-text-md)};
   
   @include font-size-px($fz-text-sm);
+  @include fix-ios-chrome-font-size(15);
   
   position: relative;
   max-height: 0;
