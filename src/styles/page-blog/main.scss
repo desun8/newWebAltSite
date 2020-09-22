@@ -13,6 +13,27 @@
   
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
+    width: vw(382, $mobile-viewport);
     margin-bottom: 42px;
+  }
+}
+
+.page-blog__content {
+  @include grid(12);
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    display: block;
+  }
+}
+
+.page-blog__articles {
+  @include grid(7);
+  
+  grid-column: 1/8;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    display: block;
   }
 }

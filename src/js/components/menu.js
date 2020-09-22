@@ -84,18 +84,20 @@ export default class Menu {
         x: shouldShow ? this.elmWidth : 0,
         duration,
         // TODO: возможно улучшит производитлеьность?
-        // onStart: () => {
-        //   this.pageHeader.style.willChange = 'transform';
-        //   this.pageMain.style.willChange = 'transform';
-        // },
+        onStart: () => {
+          targets.forEach(elm => {
+            elm.style.willChange = 'transform';
+          })
+        },
         onComplete: () => {
-          // this.pageHeader.style.willChange = null;
-          // this.pageMain.style.willChange = null;
-
           if (!shouldShow) {
             this.pageHeader.style.transform = null;
             this.elm.style.transform = null;
           }
+
+          targets.forEach(elm => {
+            elm.style.willChange = null;
+          })
         }
       },
       0);

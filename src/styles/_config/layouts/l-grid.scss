@@ -8,7 +8,7 @@ $col-n: 2, 3;
 
 .l-grid {
   --col: 1;
-  --gap: #{c.rem(30)};
+  --gap-item: #{c.rem(30)};
   
   width: 100%;
   // padding-left: $padding-x;
@@ -41,7 +41,7 @@ $col-n: 2, 3;
     // justify-content: space-between;
     display: grid;
     grid-template-columns: repeat(var(--col), 1fr [col]);
-    column-gap: var(--gap);
+    column-gap: var(--gap-item);
     grid-auto-flow: row;
     
     max-width: $width;
@@ -60,10 +60,10 @@ $col-n: 2, 3;
 }
 
 .gap-86 {
-  --gap: #{c.rem(86)};
+  --gap-item: #{c.rem(86)};
   
   @media (--tablet-lg) {
-    --gap: #{c.rem(30)};
+    --gap-item: #{c.rem(30)};
   }
 }
 

@@ -2,7 +2,7 @@
 
 .h-grid {
   --col: 12;
-  --gap: #{fn.vw(20)};
+  --gap-item: #{fn.vw(20)};
   --grid-padding: #{fn.vw(100)};
 
   position: fixed;
@@ -10,7 +10,7 @@
   left: 0;
   display: grid;
   grid-template-columns: repeat(var(--col), minmax(10px, 1fr));
-  grid-column-gap: var(--gap);
+  grid-column-gap: var(--gap-item);
   width: 100%;
   height: 100%;
   padding: 0 var(--grid-padding);
