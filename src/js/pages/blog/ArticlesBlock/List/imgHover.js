@@ -40,7 +40,9 @@ class ImgHover {
         top: document.body.scrollTop + document.documentElement.scrollTop
       };
 
-      this.DOM.reveal.style.transform = `translate3d(${mousePos.x - 150 - docScrolls.left}px, ${(mousePos.y + 20 - docScrolls.top) - this.DOM.el.getBoundingClientRect().top}px, 0)`;
+      const { top, left } = this.DOM.el.getBoundingClientRect();
+
+      this.DOM.reveal.style.transform = `translate3d(${mousePos.x + 20 - docScrolls.left - left}px, ${mousePos.y + 20 - docScrolls.top - top}px, 0)`;
     };
 
     const handleEnter = (ev) => {
@@ -76,11 +78,11 @@ class ImgHover {
   showImage() {
     gsap.killTweensOf(this.DOM.revealImgs);
     this.tl = gsap.timeline({
-      onStart: () => {
-        this.DOM.reveal.style.opacity = '1';
-        gsap.set(this.DOM.el, { zIndex: 1000 });
-      }
-    })
+        onStart: () => {
+          this.DOM.reveal.style.opacity = '1';
+          gsap.set(this.DOM.el, { zIndex: 1000 });
+        }
+      })
       .set(this.DOM.revealImgs, { opacity: 0 });
 
     for (let i = 0; i <= this.totalImages - 1; ++i) {
@@ -103,14 +105,14 @@ class ImgHover {
   hideImage() {
     gsap.killTweensOf(this.DOM.revealImgs);
     this.tl = gsap.timeline({
-      onStart: () => {
-        gsap.set(this.DOM.el, { zIndex: 999 });
-      },
-      onComplete: () => {
-        gsap.set(this.DOM.el, { zIndex: '' });
-        gsap.set(this.DOM.reveal, { opacity: 0 });
-      }
-    })
+        onStart: () => {
+          gsap.set(this.DOM.el, { zIndex: 999 });
+        },
+        onComplete: () => {
+          gsap.set(this.DOM.el, { zIndex: '' });
+          gsap.set(this.DOM.reveal, { opacity: 0 });
+        }
+      })
       .add(gsap.to(this.DOM.revealImgs[this.totalImages - 1], {
         opacity: 0,
         ease: 'sine.easeOut',
