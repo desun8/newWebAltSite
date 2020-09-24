@@ -41,8 +41,9 @@ class ImgHover {
       };
 
       const { top, left } = this.DOM.el.getBoundingClientRect();
-
-      this.DOM.reveal.style.transform = `translate3d(${mousePos.x + 20 - docScrolls.left - left}px, ${mousePos.y + 20 - docScrolls.top - top}px, 0)`;
+      const posX = mousePos.x + 20 - docScrolls.left - left;
+      const poxY = mousePos.y + 20 - docScrolls.top - top;
+      this.DOM.reveal.style.transform = `translate3d(${posX}px, ${poxY}px, 0)`;
     };
 
     const handleEnter = (ev) => {
