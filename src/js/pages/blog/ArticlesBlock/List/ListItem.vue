@@ -1,13 +1,15 @@
 <template>
   <li
       ref="root"
-      :class="{'blog-item--event': type === 'event'}"
+      :class="{'blog-item--event': isEvent}"
       :data-img="img"
       class="blog-list__item  blog-item"
   >
     <a :href="href" class="blog-item__link"></a>
 
     <img :src="img" alt="" loading="lazy" class="blog-item__img">
+
+    <span v-if="isEvent" class="blog-item__tag">#СОБЫТИЕ</span>
 
     <h2 ref="title" class="blog-item__title">{{ title }}</h2>
 
@@ -58,6 +60,10 @@ export default {
     }
   },
   computed: {
+    isEvent() {
+      return this.type === 'event';
+    },
+
     getNewDate() {
       return new Date(this.date);
     },

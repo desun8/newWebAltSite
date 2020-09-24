@@ -10,13 +10,34 @@
   grid-template-areas:
     "date title"
     "date describe";
-  
   column-gap: vw(20);
   row-gap: vw(10);
   
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
-    display: block;
+    grid-template-areas:
+    "image image"
+    "title title"
+    "date date";
+  }
+}
+
+.blog-item--event {
+  grid-template-rows: repeat(2, min-content);
+  grid-template-areas:
+    "none tag"
+    "date title"
+    "date describe";
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+    "image image"
+    "title title"
+    "date tag";
+    
+    align-items: center;
   }
 }
 
@@ -31,6 +52,21 @@
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+.blog-item__tag {
+  @include font-size-vw($fz-text-sm);
+  
+  grid-area: tag;
+  color: var(--c-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    @include font-size-px($fz-text-sm);
+    justify-self: end;
+  }
 }
 
 .blog-item__date {
@@ -69,7 +105,7 @@
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     @include font-size-px(16);
-  
+    
     position: absolute;
     left: calc(100% + 0.5em);
     
@@ -104,13 +140,29 @@
 .blog-item__describe {
   @include font-size-vw($fz-text-16, 30);
   
+  position: relative;
   grid-area: describe;
+  width: fit-content;
   color: var(--c-grey);
   
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     display: none;
   }
+}
+
+.blog-item--event .blog-item__describe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f00;
+  //background-image: url("../images/underline.svg");
+  //background-position: 0px 0px;
+  //background-size: 4px;
+  //background-repeat-y: no-repeat;
 }
 
 .blog-item__img {
@@ -121,6 +173,7 @@
   @media screen and (--tablet-sm) {
     position: unset;
     display: unset;
+    grid-area: image;
     width: 100%;
     height: vw(210, $mobile-viewport);
     margin-bottom: 10px;

@@ -1,15 +1,18 @@
 <template>
   <div class="blog-list-wrap">
     <list :item-list="filteredList" />
+    <btn-load-more />
   </div>
 </template>
 
 <script>
 import List from './List/List.vue';
+import BtnLoadMore from './BtnLoadMore.vue';
 
 export default {
   name: 'ArticlesBlock',
   components: {
+    BtnLoadMore,
     List
   },
   data() {

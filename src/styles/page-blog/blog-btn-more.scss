@@ -1,0 +1,62 @@
+@use "../_config/index" as *;
+
+.blog-btn-more {
+  --padding: 1em;
+  @include font-size(12);
+  
+  position: relative;
+  margin-left: calc(#{vw(20)} + 30px - var(--padding)); // column-gap + data-width - padding
+  margin-bottom: vw(102);
+  padding: var(--padding);
+  color: var(--c-red);
+  font-weight: 600;
+  text-transform: uppercase;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    @include font-size-px($fz-text-md);
+    margin-bottom: 74px;
+  }
+}
+
+.blog-btn-more::before {
+  content: "";
+  position: absolute;
+  bottom: var(--padding);
+  left: auto;
+  width: calc(100% - var(--padding) * 2);
+  height: 1px;
+  background-color: currentColor;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--desktop) {
+    bottom: calc(var(--padding) - 2px);
+  }
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    bottom: calc(var(--padding) - 1px);
+    height: 2px;
+  }
+}
+
+.blog-btn-more::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--padding) + 0.15em);
+  right: calc(var(--padding) - 1.2em);
+  width: 1em;
+  height: 1.4em;
+  background-image: url(../images/i-arrow-down-orange.svg);
+  background-size: 0.4em;
+  background-repeat: space no-repeat;
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    top: calc(var(--padding) + 2px);
+    right: calc(var(--padding) - 22px);
+    width: 18px;
+    height: 22px;
+    background-size: 8px;
+  }
+}

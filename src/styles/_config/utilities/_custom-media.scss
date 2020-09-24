@@ -12,6 +12,7 @@
 
 /* desktop first */
 @custom-media --desktop-md (width <= 90em);
+@custom-media --desktop (width <= 80em);
 @custom-media --desktop-sm (width <= 78.75em); // 1260px
 @custom-media --tablet (width <= 64em); // 1024px
 @custom-media --tablet-sm (width <= 60em); // 960px
