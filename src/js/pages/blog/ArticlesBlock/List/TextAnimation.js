@@ -1,3 +1,5 @@
+import { mediaQueryEvent } from '../../../../utils/mediaQueryEvent';
+
 class TextAnimation {
   constructor(el, textElm) {
     this.CHAR_SET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ1234567890+>?-$#@%&*';
@@ -49,8 +51,18 @@ class TextAnimation {
   }
 
   init() {
-    this.root.addEventListener('pointerenter', this.handleEnter);
-    this.root.addEventListener('pointerleave', this.handleLeave);
+    const addEvents = () => {
+      this.root.addEventListener('pointerenter', this.handleEnter);
+      this.root.addEventListener('pointerleave', this.handleLeave);
+    }
+
+    const removeEvents = () => {
+      this.root.removeEventListener('pointerenter', this.handleEnter);
+      this.root.removeEventListener('pointerleave', this.handleLeave);
+    }
+
+    addEvents();
+    mediaQueryEvent(removeEvents, addEvents);
   }
 }
 

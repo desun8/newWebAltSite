@@ -25,6 +25,7 @@
 <script>
 import ImgHover from './imgHover';
 import TextAnimation from './TextAnimation';
+import APP from '../../../../app/APP';
 
 const month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
@@ -76,9 +77,11 @@ export default {
     }
   },
   mounted() {
-    const { root, title } = this.$refs;
-    new ImgHover(root);
-    new TextAnimation(root, title);
+    if (APP.isDesktop) {
+      const { root, title } = this.$refs;
+      new ImgHover(root);
+      new TextAnimation(root, title);
+    }
   }
 };
 </script>

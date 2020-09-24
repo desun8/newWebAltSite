@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { mediaQueryEvent } from '../../../../utils/mediaQueryEvent';
 
 const getMousePos = (e) => {
   let posX = 0;
@@ -38,23 +39,38 @@ class ImgHover {
         left: document.body.scrollLeft + document.documentElement.scrollLeft,
         top: document.body.scrollTop + document.documentElement.scrollTop
       };
-      this.DOM.reveal.style.top = `${mousePos.y + 20 - docScrolls.top}px`;
-      this.DOM.reveal.style.left = `${mousePos.x + 20 - docScrolls.left}px`;
+
+      this.DOM.reveal.style.transform = `translate3d(${mousePos.x - 150 - docScrolls.left}px, ${(mousePos.y + 20 - docScrolls.top) - this.DOM.el.getBoundingClientRect().top}px, 0)`;
     };
-    this.mouseenterFn = (ev) => {
+
+    const handleEnter = (ev) => {
       this.positionElement(ev);
       this.showImage();
     };
-    this.mousemoveFn = ev => requestAnimationFrame(() => {
+
+    const handleMove = ev => requestAnimationFrame(() => {
       this.positionElement(ev);
     });
-    this.mouseleaveFn = () => {
+
+    const handleLeave = () => {
       this.hideImage();
     };
 
-    this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-    this.DOM.el.addEventListener('mousemove', this.mousemoveFn);
-    this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
+    const addEvents = () => {
+      console.log('init events');
+      this.DOM.el.addEventListener('pointerenter', handleEnter);
+      this.DOM.el.addEventListener('pointermove', handleMove);
+      this.DOM.el.addEventListener('pointerleave', handleLeave);
+    };
+
+    const removeEvents = () => {
+      this.DOM.el.removeEventListener('pointerenter', handleEnter);
+      this.DOM.el.removeEventListener('pointermove', handleMove);
+      this.DOM.el.removeEventListener('pointerleave', handleLeave);
+    };
+
+    addEvents();
+    mediaQueryEvent(removeEvents, addEvents);
   }
 
   showImage() {
