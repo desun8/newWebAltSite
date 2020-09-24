@@ -1,32 +1,30 @@
 <template>
-<!--  <transition name="fade" appear>-->
-    <li
-        ref="elm"
-        :class="{'blog-item--event': type === 'event'}"
-        :data-img="img"
-        class="blog-list__item  blog-item"
-    >
-      <a :href="href" class="blog-item__link"></a>
+  <li
+      ref="root"
+      :class="{'blog-item--event': type === 'event'}"
+      :data-img="img"
+      class="blog-list__item  blog-item"
+  >
+    <a :href="href" class="blog-item__link"></a>
 
-      <img :src="img" alt="" loading="lazy" class="blog-item__img">
+    <img :src="img" alt="" loading="lazy" class="blog-item__img">
 
-      <h2 class="blog-item__title">{{ title }}</h2>
+    <h2 ref="title" class="blog-item__title">{{ title }}</h2>
 
-      <span class="blog-item__describe">{{ describe }}</span>
+    <span class="blog-item__describe">{{ describe }}</span>
 
-      <span class="blog-item__date">
+    <span class="blog-item__date">
       {{ dayDate }}
       <span class="blog-item__full-date">
         {{ fullDate }}
       </span>
     </span>
-    </li>
-<!--  </transition>-->
+  </li>
 </template>
 
 <script>
-import "../../../../../imageRevealHover/css/base.css"
-import Hover from './hover';
+import ImgHover from './imgHover';
+import TextAnimation from './TextAnimation';
 
 const month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 
@@ -78,23 +76,9 @@ export default {
     }
   },
   mounted() {
-    new Hover(this.$refs.elm);
+    const { root, title } = this.$refs;
+    new ImgHover(root);
+    new TextAnimation(root, title);
   }
 };
 </script>
-
-<style scoped>
-//.fade-enter-active,
-//.fade-leave-active {
-//  transition: all 1s;
-//}
-//
-//.fade-enter {
-//  opacity: 0;
-//  transform: translateY(-100px);
-//}
-//
-//.fade-move {
-//  transition: transform 1s;
-//}
-</style>

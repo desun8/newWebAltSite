@@ -1,0 +1,17 @@
+@use "../_config/index" as *;
+
+.js-img-hover {
+  --size: #{vw(260)};
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.js-img-hover__img {
+  position: absolute;
+  width: var(--size);
+  height: auto;
+}
