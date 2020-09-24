@@ -1,7 +1,9 @@
 <template>
 <!--  <transition name="fade" appear>-->
     <li
+        ref="elm"
         :class="{'blog-item--event': type === 'event'}"
+        :data-img="img"
         class="blog-list__item  blog-item"
     >
       <a :href="href" class="blog-item__link"></a>
@@ -23,7 +25,11 @@
 </template>
 
 <script>
+import "../../../../../imageRevealHover/css/base.css"
+import Hover from './hover';
+
 const month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
 export default {
   name: 'ListItem',
   props: {
@@ -70,6 +76,9 @@ export default {
 
       return '';
     }
+  },
+  mounted() {
+    new Hover(this.$refs.elm);
   }
 };
 </script>

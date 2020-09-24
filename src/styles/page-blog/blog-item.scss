@@ -29,10 +29,10 @@
 }
 
 .blog-item__date {
-  --size: #{vw(30)};
+  --size: 30px;
   --bg-color: var(--c-black-second);
   
-  @include font-size-vw($fz-text-sm);
+  @include font-size-px($fz-text-sm);
   
   grid-area: date;
   
@@ -48,10 +48,6 @@
   
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
-    --size: 30px;
-    
-    @include font-size-px($fz-text-sm);
-  
     position: relative;
   }
 }

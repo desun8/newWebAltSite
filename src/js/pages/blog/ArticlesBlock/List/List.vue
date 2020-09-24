@@ -33,7 +33,7 @@ export default {
   },
   data() {
     return {
-      duration: 0.65,
+      duration: 0.35,
     };
   },
   props: {
@@ -81,7 +81,7 @@ export default {
 
 <style scoped lang="css">
 .item-move {
-  transition: transform 0.65s;
+  transition: transform 0.35s;
 }
 
 .item-leave-active {
