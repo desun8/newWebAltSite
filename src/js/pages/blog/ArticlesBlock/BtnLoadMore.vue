@@ -1,9 +1,15 @@
 <template>
-  <button class="blog-btn-more" type="button">Показать еще</button>
+  <button @click="onLoad" class="blog-btn-more" type="button">Показать еще</button>
 </template>
 
 <script>
 export default {
-  name: 'BtnLoadMore'
+  name: 'BtnLoadMore',
+  props: {
+    onLoad: {
+      type: Function,
+      required: true
+    }
+  }
 };
 </script>

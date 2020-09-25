@@ -16,9 +16,9 @@
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     grid-template-areas:
-    "image image"
-    "title title"
-    "date date";
+      "image image"
+      "title title"
+      "date date";
   }
 }
 
@@ -33,9 +33,9 @@
   @media screen and (--tablet-sm) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-    "image image"
-    "title title"
-    "date tag";
+      "image image"
+      "title title"
+      "date tag";
     
     align-items: center;
   }
