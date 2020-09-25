@@ -1,24 +1,35 @@
 @use "../_config/index" as *;
 
 .filter {
+  --top: 90px;
+  // .filter__group
+  --padding: 5px;
+  --gap-item: calc((25px -  var(--padding) * 2 ) / 2);
+  
   @include list-unstyled();
   
   grid-column: 1/8;
   
+  position: sticky;
+  top: var(--top);
+  z-index: 100;
+  
   display: flex;
   align-items: center;
-  margin-bottom: vw(65);
+  width: fit-content;
+  margin-left: vw(-10);
+  margin-bottom: vw(55);
+  padding: vw(10) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
   
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
+    padding: 0;
+    margin-left: 0;
     margin-bottom: 30px;
   }
 }
 
 .filter__group {
-  --padding: 5px;
-  --gap-item: calc((25px -  var(--padding) * 2 ) / 2);
-  
   margin: 0;
   padding: 0;
   border: 0;
@@ -110,4 +121,66 @@
 //.filter__radio:focus + .filter__item {}
 .filter__radio:checked + .filter__item {
   opacity: 1;
+}
+
+// анимация
+.filter {
+  --duration: 0.4s;
+  --ease: ease-in;
+  
+  transition-property: transform, background-color;
+  transition-duration: var(--duration);
+}
+
+.filter.is-fixed {
+  transform: translateX(calc(var(--page-gap) * -1));
+}
+
+.filter.is-fixed.is-active {
+  background-color: var(--c-red);
+}
+
+.filter__icon {
+  transition-property: transform;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--ease);
+  transform: rotate(0deg);
+  
+  .filter.is-fixed:not(.is-active) & {
+    transform: rotate(90deg);
+  }
+}
+
+.filter__group {
+  transition-property: transform;
+  
+  .filter.is-fixed:not(.is-active) & {
+    transition-delay: var(--duration);
+    transform: scaleX(0);
+  }
+}
+
+.filter__radio-wrapper {
+  --duration: 0.2s;
+  
+  transition-property: transform, opacity;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--ease);
+  
+  .filter.is-fixed:not(.is-active) & {
+    opacity: 0;
+    transform: translateX(-10px);
+  
+    &:nth-of-type(3) {
+      // transition-delay: calc(var(--duration) * 0); // 0
+    }
+  
+    &:nth-of-type(2) {
+      // transition-delay: calc(var(--duration) * 0.2);
+    }
+  
+    &:nth-of-type(1) {
+      // transition-delay: calc(var(--duration) * 0.4);
+    }
+  }
 }

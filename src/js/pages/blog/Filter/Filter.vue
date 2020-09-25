@@ -1,6 +1,6 @@
 <template>
-  <div class="filter">
-    <div class="filter__icon">
+  <div ref="root" class="filter">
+    <div @click="handleClick" class="filter__icon">
       <svg viewBox="0 0 14 12" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
         <path d="M.938.5L7 11 13.062.5H.938z"/>
       </svg>
@@ -21,6 +21,7 @@
 
 <script>
 import FilterItem from './FIlterItem.vue';
+import getFilterRect from './getFilterRect';
 
 export default {
   name: 'FilterElm',
@@ -53,6 +54,20 @@ export default {
       type: Function,
       required: true
     }
+  },
+
+  methods: {
+    handleClick() {
+      console.log('click');
+      this.$refs.root.classList.toggle('is-active')
+    }
+  },
+
+  mounted() {
+    APP.blogFilter = {
+      elm: this.$refs.root,
+      top: getFilterRect(this.$refs.root)?.top
+    };
   }
 };
 </script>

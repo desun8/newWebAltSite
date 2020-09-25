@@ -5,11 +5,10 @@
   grid-template-columns: repeat($col, minmax(10px, $colSize));
   //grid-template-rows: repeat($row, $rowSize);
   column-gap: fn.vw(20);
-  padding: 0 fn.vw(100);
+  padding: 0 var(--page-gap);
   
   @media screen and (--tablet-sm) {
     column-gap: fn.vw(20, fn.$mobile-viewport);
-    padding: 0 fn.vw(20, fn.$mobile-viewport);
   }
   
   // FIXME: only dev

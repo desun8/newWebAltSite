@@ -1,4 +1,4 @@
-@use "../_config";
+@use "../_config" as *;
 
 :root {
   --c-black: #131313;
@@ -11,6 +11,10 @@
   --trans-dur-fast: 0.3s;
   --trans-dur-faster: 0.2s;
   
-  //@media (--tablet) {
-  //}
+  --page-gap: #{vw(100)};
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    --page-gap: #{vw(20, $mobile-viewport)};
+  }
 }

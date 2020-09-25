@@ -2,6 +2,7 @@ import OverlayScrollbars from 'overlayscrollbars';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import ProgressBar from './progressBar';
 import SmoothScroll from './smooth-scroll';
+import getCssProp from '../utils/getCssProp';
 
 export class Scrollbar {
   constructor(elm, options = {}) {
@@ -19,7 +20,7 @@ export class Scrollbar {
   }
 }
 
-export class SmoothScrollbarMenu extends Scrollbar{
+export class SmoothScrollbarMenu extends Scrollbar {
   destroy() {
     super.destroy();
     this.smoothScroll.removeEvent();
@@ -27,9 +28,9 @@ export class SmoothScrollbarMenu extends Scrollbar{
 
   init() {
     super.init();
-    this.scrollTarget = document.querySelector(".page-menu .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible");
+    this.scrollTarget = document.querySelector('.page-menu .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible');
     if (this.scrollTarget) {
-      console.log("menu smooth scroll");
+      console.log('menu smooth scroll');
       this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
     }
   }
@@ -44,6 +45,7 @@ export class ScrollbarPage extends Scrollbar {
 
     this.menuBtn = document.querySelector('.menu-btn');
     this.progressBar = new ProgressBar();
+    this.blogFilterTopGap = undefined;
   }
 
   onScroll() {
@@ -58,7 +60,18 @@ export class ScrollbarPage extends Scrollbar {
           this.menuBtn.classList.remove('menu-btn--fixed');
         }
 
-        // this.smoothScroll.scrollTop = this.scrollData.position.y;
+        if (APP.blogFilter) {
+          if (this.blogFilterTopGap === undefined) {
+            this.blogFilterTopGap = parseFloat(getCssProp('--top', APP.blogFilter.elm));
+          }
+
+          console.log(this.blogFilterTopGap);
+          if (this.scrollData.position.y + this.blogFilterTopGap >= APP.blogFilter.top) {
+            APP.blogFilter.elm.classList.add('is-fixed');
+          } else {
+            APP.blogFilter.elm.classList.remove('is-fixed');
+          }
+        }
 
         this.ticking = false;
       });
@@ -107,7 +120,7 @@ export class ScrollbarPage extends Scrollbar {
     });
 
     // Инициализируем плавный скролл
-    this.scrollTarget = document.querySelector("body > .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible");
+    this.scrollTarget = document.querySelector('body > .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible');
     if (this.scrollTarget) {
       // this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
     }
