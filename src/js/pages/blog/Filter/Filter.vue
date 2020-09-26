@@ -1,6 +1,10 @@
 <template>
-  <div ref="root" class="filter">
-    <div @click="handleClick" class="filter__icon">
+  <div ref="root"
+       :class="{'is-fixed': isFixed, 'is-active': isFixed && isActive}"
+       class="filter"
+  >
+    <button @click="handleClick" class="filter__collapse">Переключить видимость фильтра</button>
+    <div class="filter__icon">
       <svg viewBox="0 0 14 12" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
         <path d="M.938.5L7 11 13.062.5H.938z"/>
       </svg>
@@ -20,8 +24,10 @@
 </template>
 
 <script>
-import FilterItem from './FIlterItem.vue';
-import getFilterRect from './getFilterRect';
+import FilterItem from './FilterItem.vue';
+import FilterRect from './getFilterRect';
+import APP from '../../../app/APP';
+import getCssProp from '../../../utils/getCssProp';
 
 export default {
   name: 'FilterElm',
@@ -30,6 +36,8 @@ export default {
   },
   data() {
     return {
+      isFixed: false,
+      isActive: false,
       filterItems: [
         {
           value: 'all',
@@ -58,16 +66,52 @@ export default {
 
   methods: {
     handleClick() {
-      console.log('click');
-      this.$refs.root.classList.toggle('is-active')
+      this.isActive = !this.isActive;
+    },
+
+    changePosition(target) {
+      const rect = new FilterRect(this.$refs.root);
+      const topGap = parseFloat(getCssProp('--top', this.$refs.root));
+
+      let ticking = false;
+      let start = 0;
+
+      target.addEventListener('wheel', () => {
+        if (!ticking) {
+          requestAnimationFrame((time) => {
+            console.log('%c Filter.vue -> wheel event', 'padding: 0.5em; color: #fff; background: red; font-weight: bold;');
+
+            if (time - start > 50) {
+              start = time;
+
+              if (target.scrollTop + topGap >= rect.getTop()) {
+                this.isFixed = true;
+              } else {
+                this.isFixed = false;
+                this.isActive = false;
+              }
+            }
+
+            ticking = false;
+          });
+
+          ticking = true;
+        }
+      });
     }
   },
 
   mounted() {
-    APP.blogFilter = {
-      elm: this.$refs.root,
-      top: getFilterRect(this.$refs.root)?.top
-    };
+    if (APP.isDesktop) {
+      const intervalId = setInterval(() => {
+        const scrollTarget = document.querySelector('body > .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible');
+
+        if (scrollTarget) {
+          this.changePosition(scrollTarget);
+          clearInterval(intervalId);
+        }
+      }, 200);
+    }
   }
 };
 </script>

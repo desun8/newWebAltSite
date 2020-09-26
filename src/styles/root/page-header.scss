@@ -165,7 +165,8 @@
   
   &--fixed {
     position: fixed;
-    transform: translate3d(#{vw(-84)}, 20px, 0);
+    //transform: translate3d(#{vw(-84)}, 20px, 0);
+    transform: translate3d(#{vw(-82)}, 0, 0);
   }
   
   &__icon {

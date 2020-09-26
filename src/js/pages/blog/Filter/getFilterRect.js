@@ -1,27 +1,32 @@
-import APP from '../../../app/APP';
+class FilterRect {
+  constructor(root) {
+    this.root = root;
+    this.rect = this.root.getBoundingClientRect();
+    this.ticking = false;
 
-const getFilterRect = (elm) => {
-  if (!elm) return undefined;
+    this.addEvents();
+  }
 
-  return elm.getBoundingClientRect();
-};
+  handleResize() {
+    if (!this.ticking) {
+      requestAnimationFrame(() => {
+        console.log('%c blogFilterTopPos.js -> resize event -> getBoundingClientRect()', 'padding: 0.5em; color: #fff; background: red; font-weight: bold;');
 
-let ticking = false;
+        this.rect = this.root.getBoundingClientRect();
+        this.ticking = false;
+      });
 
-const handleResize = () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      console.log('%c blogFilterTopPos.js -> window.resize -> getBoundingClientRect()', 'padding: 0.5em; color: #fff; background: red; font-weight: bold;');
-      APP.blogFilter.top = getFilterRect().top
-      ticking = false;
-    });
+      this.ticking = true;
+    }
+  }
 
-    ticking = true;
+  addEvents() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  getTop() {
+    return this.rect.top;
   }
 }
 
-if (APP.isDesktop) {
-  window.addEventListener('resize', handleResize);
-}
-
-export default getFilterRect;
+export default FilterRect;

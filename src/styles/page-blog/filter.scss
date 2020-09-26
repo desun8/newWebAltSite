@@ -2,9 +2,11 @@
 
 .filter {
   --top: 90px;
+  --margin-left: #{vw(-10)};
   // .filter__group
   --padding: 5px;
   --gap-item: calc((25px -  var(--padding) * 2 ) / 2);
+  --icon-size: #{vw(16)};
   
   @include list-unstyled();
   
@@ -17,7 +19,7 @@
   display: flex;
   align-items: center;
   width: fit-content;
-  margin-left: vw(-10);
+  margin-left: var(--margin-left);
   margin-bottom: vw(55);
   padding: vw(10) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
   
@@ -29,12 +31,43 @@
   }
 }
 
+.filter__collapse {
+  --size: calc(var(--icon-size) * 2);
+  
+  position: absolute;
+  top: 0;
+  left: calc(var(--size) / 4);
+  z-index: 5;
+  
+  width: var(--size);
+  height: 100%;
+  
+  font-size: 0;
+  transform: scaleX(0);
+}
+
+.filter__collapse:focus,
+.filter__collapse:hover {
+  outline: 0;
+  
+  .filter.is-fixed & ~ .filter__icon {
+    stroke: var(--c-red);
+  }
+  
+  .filter.is-fixed.is-active & ~ .filter__icon {
+    stroke: #fff;
+  }
+}
+
+.filter.is-fixed .filter__collapse {
+  transform: scaleX(1);
+}
+
 .filter__group {
   margin: 0;
   padding: 0;
   border: 0;
   
-  //display: flex;
   align-items: center;
   
   //noinspection CssInvalidMediaFeature
@@ -53,7 +86,7 @@
   }
   
   svg {
-    width: vw(16);
+    width: var(--icon-size);
   
     //noinspection CssInvalidMediaFeature
     @media screen and (--desktop-md) {
@@ -123,7 +156,9 @@
   opacity: 1;
 }
 
-// анимация
+// ******
+// АНИМАЦИЯ
+// ******
 .filter {
   --duration: 0.4s;
   --ease: ease-in;
@@ -133,15 +168,19 @@
 }
 
 .filter.is-fixed {
-  transform: translateX(calc(var(--page-gap) * -1));
+  transform: translateX(calc((var(--page-gap) + var(--margin-left)) * -1 ));
 }
 
 .filter.is-fixed.is-active {
   background-color: var(--c-red);
 }
 
+.filter.is-fixed.is-active .filter__item:hover {
+  color: #fff;
+}
+
 .filter__icon {
-  transition-property: transform;
+  transition-property: transform, stroke;
   transition-duration: var(--duration);
   transition-timing-function: var(--ease);
   transform: rotate(0deg);

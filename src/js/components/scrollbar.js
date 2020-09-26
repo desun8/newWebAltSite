@@ -2,7 +2,6 @@ import OverlayScrollbars from 'overlayscrollbars';
 import 'overlayscrollbars/css/OverlayScrollbars.min.css';
 import ProgressBar from './progressBar';
 import SmoothScroll from './smooth-scroll';
-import getCssProp from '../utils/getCssProp';
 
 export class Scrollbar {
   constructor(elm, options = {}) {
@@ -45,7 +44,6 @@ export class ScrollbarPage extends Scrollbar {
 
     this.menuBtn = document.querySelector('.menu-btn');
     this.progressBar = new ProgressBar();
-    this.blogFilterTopGap = undefined;
   }
 
   onScroll() {
@@ -58,19 +56,6 @@ export class ScrollbarPage extends Scrollbar {
           this.menuBtn.classList.add('menu-btn--fixed');
         } else {
           this.menuBtn.classList.remove('menu-btn--fixed');
-        }
-
-        if (APP.blogFilter) {
-          if (this.blogFilterTopGap === undefined) {
-            this.blogFilterTopGap = parseFloat(getCssProp('--top', APP.blogFilter.elm));
-          }
-
-          console.log(this.blogFilterTopGap);
-          if (this.scrollData.position.y + this.blogFilterTopGap >= APP.blogFilter.top) {
-            APP.blogFilter.elm.classList.add('is-fixed');
-          } else {
-            APP.blogFilter.elm.classList.remove('is-fixed');
-          }
         }
 
         this.ticking = false;
