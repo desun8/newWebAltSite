@@ -14,6 +14,7 @@
   color: var(--c-red);
   font-weight: 600;
   text-transform: uppercase;
+  overflow-anchor: none;
   
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
