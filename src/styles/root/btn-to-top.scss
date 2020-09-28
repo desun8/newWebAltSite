@@ -1,0 +1,58 @@
+@use "../_config/index" as *;
+
+.btn-to-top {
+  position: fixed;
+  //bottom: 30%; // 85px
+  bottom: 0;
+  left: vw(30);
+  z-index: 10;
+  
+  padding: 10px 10px 10px 30px;
+  color: var(--c-black-second);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  text-transform: lowercase;
+  text-decoration: none;
+  
+  opacity: 0;
+  visibility: hidden;
+  
+  transform-origin: 0 0;
+  transform: rotate(-90deg) translateX(-100px);
+  
+  transition-property: opacity, visibility, transform;
+  transition-duration: var(--trans-dur-fast);
+}
+
+.btn-to-top:hover {
+  transform: rotate(-90deg) translateX(10px);
+}
+
+.btn-to-top.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(-90deg) translateX(0);
+}
+
+.btn-to-top::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 0.9em;
+  height: 1.4em;
+  background-image: url(../images/i-arrow-down.svg);
+  background-size: 0.4em;
+  background-repeat: space no-repeat;
+  
+  transform: rotate(-90deg);
+}
+
+body.btn-to-top-white .btn-to-top {
+  color: #fff;
+}
+
+body.btn-to-top-white .btn-to-top::after {
+  background-image: url(../images/i-arrow-down-white.svg);
+}

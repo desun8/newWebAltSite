@@ -70,11 +70,35 @@ export default class Footer {
     themeObserver.observe(this.elm);
   }
 
+  observeBtnTopTheme() {
+    const cb = entries => {
+      entries.forEach(entry => {
+        const { isIntersecting } = entry;
+
+        if (isIntersecting) {
+          document.body.classList.add('btn-to-top-white');
+        } else {
+          document.body.classList.remove('btn-to-top-white');
+        }
+      });
+    };
+
+    const options = {
+      root: null,
+      rootMargin: `0px 0px 0px 0px`,
+      threshold: 0.2
+    }
+
+    const themeObserver = new IntersectionObserver(cb, options);
+    themeObserver.observe(this.elm);
+  }
+
   init() {
     this.ticker();
     this.slider();
     this.observer = this.intersectionObserver();
     this.observer.observe(this.elm);
     this.observeMenuBtnTheme();
+    this.observeBtnTopTheme();
   }
 }
