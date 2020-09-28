@@ -28,13 +28,24 @@
   @media screen and (--tablet-sm) {
     column-gap: fn.vw(20, fn.$mobile-viewport);
   }
+}
+
+@mixin grid-dev($col, $row: 1, $colSize: 1fr, $rowSize: 1fr) {
+  display: grid;
+  grid-template-columns: repeat($col, minmax(10px, $colSize));
+  grid-template-rows: repeat($row, minmax(10px, $rowSize));
+  column-gap: fn.vw(20);
+  
+  @media screen and (--tablet-sm) {
+    column-gap: fn.vw(20, fn.$mobile-viewport);
+  }
   
   // FIXME: only dev
-  //@for $i from 1 through 12 {
-  //  & > *:nth-child(#{$i}) {
-  //    background-color: rgba(random(255), random(255), random(255), 0.3);
-  //  }
-  //}
+  @for $i from 1 through 12 {
+    & > *:nth-child(#{$i}) {
+      background-color: rgba(random(255), random(255), random(255), 0.3);
+    }
+  }
 }
 
 

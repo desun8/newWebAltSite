@@ -127,6 +127,7 @@ const json = [
     },
   ]
 ];
+const createDateKey = (date) => date.slice(0, 7); // yyyy-mm
 
 export default {
   name: 'ArticlesBlock',
@@ -163,7 +164,18 @@ export default {
     filteredList() {
       if (this.activeFilter === 'all') return this.articlesList;
 
-      return this.articlesList.filter(elm => elm.type === this.activeFilter);
+      let filtered = {};
+
+      for (const key in this.articlesList) {
+        if (this.articlesList.hasOwnProperty(key)) {
+          const arr = this.articlesList[key]
+              .filter(elm => elm.type === this.activeFilter);
+
+          filtered = { ...filtered, [key]: arr };
+        }
+      }
+
+      return filtered;
     }
   },
 
@@ -182,10 +194,24 @@ export default {
 
 
       if (this.articlesList === undefined) {
-        this.articlesList = [];
+        this.articlesList = {};
       }
 
-      this.articlesList = [...this.articlesList, ...res];
+      res.forEach(item => {
+        const key = createDateKey(item.date);
+
+        if (this.articlesList[key] === undefined) {
+          this.articlesList = {
+            ...this.articlesList,
+            [key]: []
+          };
+        }
+
+        this.articlesList = {
+          ...this.articlesList,
+          [key]: [...this.articlesList[key], item]
+        };
+      });
     }
   },
 

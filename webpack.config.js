@@ -30,6 +30,7 @@ function generateHtmlPlugins(templateDir) {
       template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
       chunks: ['core', isIndex ? 'home' : name],
       inject: true,
+      scriptLoading: 'defer',
     });
   });
 }

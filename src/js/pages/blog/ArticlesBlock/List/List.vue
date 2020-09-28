@@ -1,24 +1,27 @@
 <template>
-  <!--  <ul class="blog-list">-->
-  <transition-group
-      v-on:enter="enter"
-      v-on:leave="leave"
-      name="item"
-      tag="ul"
-      class="blog-list"
-  >
-    <list-item
-        v-for="item in itemList"
-        :key="item.id"
-        :type="item.type"
-        :date="item.date"
-        :title="item.title"
-        :describe="item.describe"
-        :img="item.img"
-        :href="item.href"
-    />
-  </transition-group>
-  <!--  </ul>-->
+  <ul class="blog-list">
+    <li v-for="(value, key) in itemList" :key="key" class="blog-list__category">
+      <div class="blog-list__date"><span>{{ formatDate(key) }}</span></div>
+      <transition-group
+          v-on:enter="enter"
+          v-on:leave="leave"
+          name="item"
+          tag="ul"
+          class="blog-list__sublist"
+      >
+        <list-item
+            v-for="item in value"
+            :key="item.id"
+            :type="item.type"
+            :date="item.date"
+            :title="item.title"
+            :describe="item.describe"
+            :img="item.img"
+            :href="item.href"
+        />
+      </transition-group>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -38,7 +41,7 @@ export default {
   },
   props: {
     itemList: {
-      type: Array,
+      type: Object,
       required: true
     }
   },
@@ -59,7 +62,7 @@ export default {
         onComplete() {
           done();
         }
-      })
+      });
     },
 
     leave(el, done) {
@@ -73,8 +76,13 @@ export default {
         onComplete() {
           done();
         }
-      })
+      });
     },
+
+    formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return new Intl.DateTimeFormat('ru', { year: 'numeric', month: 'long' }).format(date).slice(0, -3); // обрезаем ' г.'
+    }
   }
 };
 </script>
