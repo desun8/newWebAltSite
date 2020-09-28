@@ -1,5 +1,12 @@
 <template>
-  <ul class="blog-list">
+<!--  <ul class="blog-list">-->
+    <transition-group
+        v-on:enter="enter"
+        v-on:leave="leave"
+        name="item"
+        tag="ul"
+        class="blog-list"
+    >
     <li v-for="(value, key) in itemList" :key="key" class="blog-list__category">
       <div class="blog-list__date"><span>{{ formatDate(key) }}</span></div>
       <transition-group
@@ -21,7 +28,8 @@
         />
       </transition-group>
     </li>
-  </ul>
+    </transition-group>
+<!--  </ul>-->
 </template>
 
 <script>
