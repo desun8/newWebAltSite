@@ -158,11 +158,8 @@
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: #f00;
-  //background-image: url("../images/underline.svg");
-  //background-position: 0px 0px;
-  //background-size: 4px;
-  //background-repeat-y: no-repeat;
+  background-image: url("../images/underline.svg");
+  background-repeat: space;
 }
 
 .blog-item__img {
