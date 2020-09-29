@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { mediaQueryEvent } from '../../../../utils/mediaQueryEvent';
+import { mediaQueryEvent } from '../../../../../utils/mediaQueryEvent';
 
 const getMousePos = (e) => {
   let posX = 0;

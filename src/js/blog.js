@@ -1,2 +1,2 @@
-import './pages/blog/index';
+import './pages/blog/vue';
 import '../styles/blog.scss';

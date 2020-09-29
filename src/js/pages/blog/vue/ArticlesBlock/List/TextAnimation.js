@@ -1,4 +1,4 @@
-import { mediaQueryEvent } from '../../../../utils/mediaQueryEvent';
+import { mediaQueryEvent } from '../../../../../utils/mediaQueryEvent';
 
 class TextAnimation {
   constructor(el, textElm) {

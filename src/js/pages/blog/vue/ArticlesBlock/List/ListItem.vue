@@ -27,7 +27,7 @@
 <script>
 import ImgHover from './imgHover';
 import TextAnimation from './TextAnimation';
-import APP from '../../../../app/APP';
+import APP from '../../../../../app/APP';
 
 const month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
 

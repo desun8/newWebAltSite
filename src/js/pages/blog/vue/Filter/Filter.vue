@@ -26,8 +26,8 @@
 <script>
 import FilterItem from './FilterItem.vue';
 import FilterRect from './getFilterRect';
-import APP from '../../../app/APP';
-import getCssProp from '../../../utils/getCssProp';
+import APP from '../../../../app/APP';
+import getCssProp from '../../../../utils/getCssProp';
 
 export default {
   name: 'FilterElm',

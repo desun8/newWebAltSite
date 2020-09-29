@@ -35,7 +35,7 @@
 <script>
 import { gsap } from 'gsap';
 import ListItem from './ListItem.vue';
-import APP from '../../../../app/APP';
+import APP from '../../../../../app/APP';
 
 export default {
   name: 'List',

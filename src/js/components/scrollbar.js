@@ -42,9 +42,11 @@ export class ScrollbarPage extends Scrollbar {
     this.ticking = false;
     this.scrollData = null;
 
+    this.progressBar = new ProgressBar();
     this.menuBtn = document.querySelector('.menu-btn');
     this.btnToTop = document.querySelector('#go-to-top');
-    this.progressBar = new ProgressBar();
+
+    this.isBlogPage = document.querySelector('.page-blog');
   }
 
   onScroll() {
@@ -53,12 +55,14 @@ export class ScrollbarPage extends Scrollbar {
         this.scrollData = this.instance.scroll();
         this.progressBar.update(this.getScrollRatioY(this.scrollData));
 
+        // позиционирование кнопки "меню"
         if (this.scrollData.position.y > 10) {
           this.menuBtn.classList.add('menu-btn--fixed');
         } else {
           this.menuBtn.classList.remove('menu-btn--fixed');
         }
 
+        // появление/скрытие кнопки "вверх"
         if (this.btnToTop) {
           if (this.scrollData.position.y > 200) {
             this.btnToTop.classList.add('is-show');
@@ -66,6 +70,13 @@ export class ScrollbarPage extends Scrollbar {
             this.btnToTop.classList.remove('is-show');
           }
         }
+
+        // анимация на странице "БЛОГ"
+        if (this.blogAnimation) {
+          const { y } = this.scrollData.position;
+          this.blogAnimation(y);
+        }
+
 
         this.ticking = false;
       });
@@ -129,6 +140,14 @@ export class ScrollbarPage extends Scrollbar {
           this.instance.scroll({ y: 0 }, 500);
         }
       });
+    }
+
+    // "БЛОГ" импорт и присвоение анимации
+    if (this.isBlogPage) {
+      (async () => {
+        const module = await import('../pages/blog/blogOnScrollAnimation');
+        this.blogAnimation = module.default;
+      })();
     }
   }
 }

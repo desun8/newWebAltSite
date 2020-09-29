@@ -42,7 +42,7 @@ module.exports = {
   entry: {
     core: './src/js/root.js',
     home: './src/js/home.js',
-    blog: './src/js/blog.js',
+    blog: ['regenerator-runtime', './src/js/blog.js'],
     // ['style-core']: './src/styles/root.scss',
     // ['style-home']: './src/styles/home.scss'
   },
