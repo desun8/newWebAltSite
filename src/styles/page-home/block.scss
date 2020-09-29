@@ -387,7 +387,7 @@
     position: relative;
     
     &::after {
-      @include bg-img("../images/design-title-figures.svg");
+      @include bg-img("../images/deco-double-cross.svg");
       
       content: "";
       right: vw(35);

@@ -1,0 +1,49 @@
+@use "../_config/index" as *;
+
+.blog-deco-top {
+  --width: #{vw(278)};
+  --height: #{vw(212)};
+  
+  position: absolute;
+  top: 0;
+  left: 47%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  
+  width: var(--width);
+  height: var(--height);
+}
+
+.blog-deco-top__item {
+  $pos-y: vw(-40), 0, vw(-120), vw(-100), vw(-170);
+  
+  flex: 1 0 auto;
+  height: 100%;
+  
+  background-image: url("../images/blog-deco-top.png");
+  background-size: contain;
+  background-position-x: 50%;
+  background-repeat: no-repeat;
+  
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      background-position-y: nth($pos-y, $i);
+    }
+  }
+}
+
+.blog-deco-top__cross {
+  position: absolute;
+  right: 30%;
+  bottom: -6%;
+  
+  width: vw(124);
+  height: vw(164);
+  
+  background-image: url("../images/deco-double-cross-black.svg");
+  background-size: contain;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+}
