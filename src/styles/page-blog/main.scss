@@ -1,6 +1,8 @@
 @use "../_config/index" as *;
 
-.page-blog {}
+.page-blog {
+  position: relative;
+}
 
 .page-blog__wrap {
   @include wrap();

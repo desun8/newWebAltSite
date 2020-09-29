@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "deploy": "npm run build && git commit 'deploy' && git push"
+    "deploy": "npm run build && git add dist/ && git commit -m 'deploy' && git push"
   },
   "author": "",
   "license": "ISC",
@@ -53,6 +53,7 @@
     "simplebar": "^5.2.1",
     "splitting": "^1.0.6",
     "three": "^0.119.1",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-fragment": "^1.5.1"
   }
 }
