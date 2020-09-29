@@ -4,17 +4,20 @@ import { gsap } from 'gsap';
 
 const DURATION = 0.4;
 
-const topElms = shuffle(Array.from(document.querySelectorAll('.blog-deco-top__item')));
+const topTextElms = shuffle(Array.from(document.querySelectorAll('.blog-deco-top__item')));
+const topCrossElm = document.querySelector('.blog-deco-top__cross');
 const sideElm = document.querySelector('.blog-deco-side');
 
 const topAnimation = (pos) => {
-  gsap.to(topElms, {
-    y: pos * -1,
+  gsap.to([topTextElms, topCrossElm], {
+    y: (i, elm) => {
+      if (elm === topCrossElm) return pos * -1;
+      return (pos / ((i + 1) * 0.55)  ) * -1;
+    },
     duration: 0.2,
-    delay: (i) => (i + 1) / 50,
     ease: 'none'
-  })
-}
+  });
+};
 
 const sideAnimation = (pos) => {
   gsap.killTweensOf(sideElm);
@@ -22,7 +25,7 @@ const sideAnimation = (pos) => {
 };
 
 const blogOnScrollAnimation = (pos) => {
-  topElms && topElms.length > 0 && topAnimation(pos);
+  topTextElms && topTextElms.length > 0 && topCrossElm && topAnimation(pos);
   sideElm && pos < 450 && sideAnimation(pos);
 };
 
