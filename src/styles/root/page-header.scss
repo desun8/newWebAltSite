@@ -15,8 +15,8 @@
   @include grid-base(var(--grid-col));
   @include font-size-px($fz-text-sm);
   
-  margin-bottom: 66px;
-  padding-top: vw(46);
+  margin-bottom: 64px;
+  padding-top: vw(36);
   
   //transform: translate3d(0px, 0px, 0);
   
@@ -30,6 +30,7 @@
   
   &--short {
     margin-bottom: 0;
+    padding-top: vw(46);
   }
   
   &__wrap {

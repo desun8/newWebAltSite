@@ -48,7 +48,7 @@ export default {
 <style scoped lang="scss">
 @use "../../../../../styles/_config/index" as *;
 
-$top-gap: vw(-165);
+$top-gap: vw(-145);
 $top: 90px;
 $top-pos: calc(#{$top} + #{$top-gap} * -1);
 
@@ -75,7 +75,7 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
   top: 0;
   right: 0;
   width: vw(100);
-  height: 105%;
+  height: 150%;
   background-color: #fff;
   opacity: 0;
 }

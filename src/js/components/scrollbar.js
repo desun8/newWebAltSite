@@ -73,8 +73,7 @@ export class ScrollbarPage extends Scrollbar {
 
         // анимация на странице "БЛОГ"
         if (this.blogAnimation) {
-          const { y } = this.scrollData.position;
-          this.blogAnimation(y);
+          this.blogAnimation(this.scrollData.position.y);
         }
 
 
