@@ -1,8 +1,6 @@
 <template>
   <div class="blog-insta-wrap">
     <article class="blog-insta">
-      <div ref="bg" class="blog-insta__bg"></div>
-
       <div class="blog-insta__header">
         <div class="blog-insta__title">
           <h2 class="visually-hidden">Жизнь Веб Альт</h2>
@@ -25,23 +23,10 @@
 
 <script>
 import List from './List/List.vue';
-import Grained, { grainedOptions } from '../../../../_lib/Grained';
 
 export default {
   name: 'Instagram',
   components: { List },
-  mounted() {
-    // шум для бг
-    let intervalId = undefined;
-    intervalId = setInterval(() => {
-      const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
-      if (isAllow) {
-        new Grained(this.$refs.bg, grainedOptions);
-        this.$refs.bg.style.opacity = '1';
-        clearInterval(intervalId);
-      }
-    }, 0);
-  }
 };
 </script>
 
@@ -70,20 +55,9 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
   padding: 0 vw(100);
 }
 
-.blog-insta__bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: vw(100);
-  height: 150%;
-  background-color: #fff;
-  opacity: 0;
-}
-
 .blog-insta__header {
   margin-bottom: vw(20);
 }
-
 
 .blog-insta__title {
   margin-bottom: 5px;

@@ -81,7 +81,7 @@ class ImgHover {
     this.tl = gsap.timeline({
         onStart: () => {
           this.DOM.reveal.style.opacity = '1';
-          gsap.set(this.DOM.el, { zIndex: 1000 });
+          gsap.set(this.DOM.el, { zIndex: 100 });
         }
       })
       .set(this.DOM.revealImgs, { opacity: 0 });
@@ -107,7 +107,7 @@ class ImgHover {
     gsap.killTweensOf(this.DOM.revealImgs);
     this.tl = gsap.timeline({
         onStart: () => {
-          gsap.set(this.DOM.el, { zIndex: 999 });
+          gsap.set(this.DOM.el, { zIndex: 99 });
         },
         onComplete: () => {
           gsap.set(this.DOM.el, { zIndex: '' });

@@ -2,7 +2,7 @@ import { shuffle } from 'lodash';
 
 import { gsap } from 'gsap';
 
-const DURATION = 0.4;
+const DURATION = 0.2;
 
 const topTextElms = shuffle(Array.from(document.querySelectorAll('.blog-deco-top__item')));
 const topCrossElm = document.querySelector('.blog-deco-top__cross');
@@ -14,7 +14,7 @@ const topAnimation = (pos) => {
       if (elm === topCrossElm) return pos * -1;
       return (pos / ((i + 1) * 0.55)  ) * -1;
     },
-    duration: 0.2,
+    duration: DURATION,
     ease: 'none'
   });
 };
@@ -26,7 +26,7 @@ const sideAnimation = (pos) => {
 
 const blogOnScrollAnimation = (pos) => {
   topTextElms && topTextElms.length > 0 && topCrossElm && topAnimation(pos);
-  sideElm && pos < 450 && sideAnimation(pos);
+  sideElm && pos < 1000 && sideAnimation(pos);
 };
 
 export default blogOnScrollAnimation;
