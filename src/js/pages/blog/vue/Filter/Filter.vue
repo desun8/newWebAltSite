@@ -3,11 +3,12 @@
        :class="{'is-fixed': isFixed, 'is-active': isFixed && isActive}"
        class="filter"
   >
-    <button @click="handleClick" class="filter__collapse">Переключить видимость фильтра</button>
+    <button ref="btnToggle" @click="handleClick" class="filter__collapse">Переключить видимость фильтра</button>
     <div class="filter__icon">
       <svg viewBox="0 0 14 12" width="14" height="12" xmlns="http://www.w3.org/2000/svg">
         <path d="M.938.5L7 11 13.062.5H.938z"/>
       </svg>
+      <span class="icon-text">filter</span>
     </div>
     <fieldset class="filter__group">
       <legend class="visually-hidden">Фильтр статей</legend>
@@ -87,6 +88,7 @@ export default {
               if (target.scrollTop + topGap >= rect.getTop()) {
                 this.isFixed = true;
               } else {
+                this.$refs.btnToggle.blur();
                 this.isFixed = false;
                 this.isActive = false;
               }
