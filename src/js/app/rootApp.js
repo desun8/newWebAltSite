@@ -14,6 +14,9 @@ class RootApp extends Index {
 
     this.scrollbarOptions = {
       className: 'os-theme-default',
+      nativeScrollbarsOverlaid: {
+        initialize: false
+      }
     };
 
     this.scrollbar = new ScrollbarPage(document.body, this.scrollbarOptions);

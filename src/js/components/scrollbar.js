@@ -126,7 +126,7 @@ export class ScrollbarPage extends Scrollbar {
     // Инициализируем плавный скролл
     this.scrollTarget = document.querySelector('body > .os-padding > .os-viewport.os-viewport-native-scrollbars-invisible');
     if (this.scrollTarget) {
-      // this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
+      this.smoothScroll = new SmoothScroll(this.scrollTarget, 480, 10);
     }
 
     this.dragScroll();
