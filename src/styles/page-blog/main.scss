@@ -30,7 +30,7 @@
 }
 
 .page-blog__articles {
-  @include grid(7);
+  @include grid(7, 2, 1fr, min-content);
   
   grid-column: 1/8;
   

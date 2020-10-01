@@ -77,7 +77,7 @@ export default {
       let ticking = false;
       let start = 0;
 
-      target.addEventListener('wheel', () => {
+      target.addEventListener('scroll', () => {
         if (!ticking) {
           requestAnimationFrame((time) => {
             console.log('%c Filter.vue -> wheel event', 'padding: 0.5em; color: #fff; background: red; font-weight: bold;');
@@ -100,6 +100,14 @@ export default {
           ticking = true;
         }
       });
+    },
+
+    handleClickOutside(e) {
+      const isOutside = !e.target.closest("div.filter");
+
+      if (isOutside) {
+        this.isActive = false;
+      }
     }
   },
 
@@ -113,6 +121,8 @@ export default {
           clearInterval(intervalId);
         }
       }, 200);
+
+      document.addEventListener('pointerup', this.handleClickOutside);
     }
   }
 };

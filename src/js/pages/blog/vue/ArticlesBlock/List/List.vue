@@ -8,7 +8,7 @@
         class="blog-list"
     >
     <li v-for="(value, key) in itemList" :key="key" class="blog-list__category">
-      <div class="blog-list__date"><span>{{ formatDate(key) }}</span></div>
+      <div v-if="value.length" class="blog-list__date"><span>{{ formatDate(key) }}</span></div>
       <transition-group
           v-on:enter="enter"
           v-on:leave="leave"
