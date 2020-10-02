@@ -1,12 +1,10 @@
 <template>
-  <fragment>
-    <div class="page-blog__articles">
-      <filter-elm :setActiveFilter="setActiveFilter"/>
-      <articles-block :active-filter="activeFilter"/>
-    </div>
+  <div class="page-blog__articles">
+    <filter-elm :setActiveFilter="setActiveFilter"/>
+    <articles-block :active-filter="activeFilter"/>
+  </div>
 
-    <instagram/>
-  </fragment>
+  <instagram/>
 </template>
 
 <script>
