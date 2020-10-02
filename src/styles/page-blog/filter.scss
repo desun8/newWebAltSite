@@ -73,8 +73,7 @@
   border: 0;
   
   align-items: center;
-  transform: translateY(-1px);
-  transform: translateY(1px); // windows
+  transform: translateY(1px);
 
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
@@ -101,7 +100,6 @@
   
   svg {
     width: var(--icon-size);
-    //transform: translateY(1px);
     
     //noinspection CssInvalidMediaFeature
     @media screen and (--desktop-md) {
@@ -117,8 +115,7 @@
     
     position: absolute;
     top: 50%;
-    //left: calc(100% + #{em(8, $fz-text-sm)});
-    right: 0;
+    left: 35%;
     
     color: currentColor;
     opacity: 0;
@@ -244,13 +241,16 @@
 }
 
 .filter__icon svg {
-  //transform-origin: 45% 55%;
   transform-origin: 55% 40%;
   transition-property: transform, stroke;
   transition-duration: var(--duration);
   transition-timing-function: var(--ease);
-  transform: rotate(0deg) translateY(1px); // mac
   transform: rotate(0deg); // windows
+  
+  body.os-mac & {
+    transform-origin: 58% 42%;
+    transform: rotate(0deg) translateY(1px); // mac
+  }
 
   .filter.is-fixed:not(.is-active) & {
     transform: rotate(-90deg);
