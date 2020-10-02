@@ -3,7 +3,7 @@
     <article class="blog-insta">
       <div class="blog-insta__header">
         <div class="blog-insta__title">
-          <h2 class="visually-hidden">Жизнь Веб Альт</h2>
+          <h2 class="visually-hidden">Жизнь <i class="red">w</i>eb-<i class="red">a</i>lt</h2>
           <svg viewBox="0 0 282 27" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
                stroke-linejoin="round" stroke-miterlimit="1.414">
             <path
@@ -42,29 +42,76 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
 
   grid-column: 8/13;
   transform: translateY($top-gap);
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    transform: none;
+  }
 }
 
 .blog-insta {
-  //--top: 90px;
-
   position: sticky;
   top: $top-pos;
 
   margin-right: vw(-68);
   margin-bottom: 10vh;
   padding: 0 vw(100);
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    position: unset;
+    padding: 0;
+    margin-right: 0;
+    margin-bottom: 100px;
+  }
 }
 
 .blog-insta__header {
   margin-bottom: vw(20);
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    margin-bottom: 20px;
+  }
 }
 
 .blog-insta__title {
   margin-bottom: 5px;
 }
 
+.blog-insta__title h2.visually-hidden {
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    position: unset;
+    margin: 0;
+    height: auto;
+    width: auto;
+    clip-path: unset;
+
+    @include font-size-px(38, 42);
+
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--mobile-sm) {
+    font-size: 32px;
+  }
+
+  i.red {
+    color: var(--c-red);
+    font-style: normal;
+  }
+}
+
 .blog-insta__title svg {
   max-width: vw(282);
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    display: none;
+  }
 }
 
 .blog-insta__describe {
@@ -75,6 +122,12 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
 
   color: var(--c-grey);
   font-weight: 600;
+  text-align: justify;
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    font-size: $fz-text-sm + px;
+  }
 }
 
 .blog-insta__link {
@@ -85,6 +138,12 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
   color: inherit;
   text-decoration: none;
   transition: color var(--trans-dur-fast) ease-in;
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    color: var(--c-red);
+    font-size: $fz-text-md + px;
+  }
 }
 
 .blog-insta__link .icon {
@@ -97,6 +156,12 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
   margin-right: em(10, $fz-text-lg);
 
   transition: background-image var(--trans-dur-fast) ease-in;
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    font-size: $fz-text-md + px;
+    margin-right: em(5, $fz-text-lg);
+  }
 }
 
 .blog-insta__link:hover {

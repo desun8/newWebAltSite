@@ -22,5 +22,12 @@ export default {
 
   width: fit-content;
   gap: vw(10);
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    @include grid(2);
+    width: 100%;
+    gap: 10px;
+  }
 }
 </style>

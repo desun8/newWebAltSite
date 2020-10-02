@@ -35,12 +35,27 @@ export default {
   transform: translateY(var(--pos-y));
   transition: border-color var(--trans-dur-fast) ease-in;
 
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    --size: #{vw(160, $mobile-viewport)};
+  }
+
   &:nth-child(3n-1) {
     --pos-y: #{vw(30)};
+
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      --pos-y: 0;
+    }
   }
 
   &:nth-child(3n) {
     --pos-y: #{vw(60)};
+
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      --pos-y: 0;
+    }
   }
 
   &:nth-child(1) {
@@ -49,15 +64,57 @@ export default {
 
   &:nth-child(3) {
     border-top-right-radius: var(--bdrs);
+
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      border-top-right-radius: 0;
+    }
   }
 
   &:nth-child(7) {
     border-bottom-left-radius: var(--bdrs);
+
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      border-bottom-left-radius: 0;
+    }
   }
 
   &:nth-child(9) {
     border-bottom-right-radius: var(--bdrs);
+
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      border-bottom-right-radius: 0;
+    }
   }
+
+
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    &:nth-last-child(1),
+    &:nth-last-child(2),
+    &:nth-last-child(3) {
+      display: none;
+    }
+
+    &:nth-child(2n) {
+      --pos-y: 30px;
+    }
+
+    &:nth-child(2) {
+      border-top-right-radius: var(--bdrs);
+    }
+
+    &:nth-child(5) {
+      border-bottom-left-radius: var(--bdrs);
+    }
+
+    &:nth-child(6) {
+      border-bottom-right-radius: var(--bdrs);
+    }
+  }
+
 }
 
 .insta-list__item:hover {
