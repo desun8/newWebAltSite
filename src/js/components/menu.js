@@ -20,6 +20,11 @@ export default class Menu {
     this.pageFooter = document.querySelector('footer');
     this.progressBar = document.querySelector('.progress-bar');
     this.footerRedirect = document.querySelector('.footer-redirect'); // только на главной
+    this.blogTopElm = document.querySelector('.blog-deco-top');
+    this.blogSideElm = document.querySelector('.blog-deco-side');
+
+    this.moveTargets = [this.pageHeader, this.pageMain, this.progressBar, this.pageFooter, this.footerRedirect, this.blogTopElm, this.blogSideElm];
+    this.moveTargets = this.moveTargets.filter(el => el !== null);
 
     this.elmWidth = this.elm.offsetWidth;
 
@@ -70,7 +75,8 @@ export default class Menu {
   }
 
   toggleView(shouldShow) {
-    const targets = [this.pageHeader, this.pageMain, this.progressBar, this.pageFooter, this.footerRedirect];
+    const targets = this.moveTargets;
+
     const duration = 0.3;
     const tl = gsap.timeline();
 
@@ -83,11 +89,10 @@ export default class Menu {
       {
         x: shouldShow ? this.elmWidth : 0,
         duration,
-        // TODO: возможно улучшит производитлеьность?
         onStart: () => {
           targets.forEach(elm => {
             elm.style.willChange = 'transform';
-          })
+          });
         },
         onComplete: () => {
           if (!shouldShow) {
@@ -97,48 +102,23 @@ export default class Menu {
 
           targets.forEach(elm => {
             elm.style.willChange = null;
-          })
+          });
         }
       },
       0);
-    tl.to(this.btnOpen, {
-      alpha: shouldShow ? 0 : 1, duration,
-    }, shouldShow ? 0 : 0.5);
 
-    // TODO: возможно улучшит производитлеьность?
-    // this.pageHeader.style.willChange = 'transform';
-    // this.pageMain.style.willChange = 'transform';
-    //
-    // setTimeout(
-    //   () => {
-    //     tl.to(this.elm, {
-    //       x: shouldShow ? 0 : -this.elmWidth,
-    //       duration,
-    //     }, 0);
-    //     tl.to(
-    //       [this.pageHeader, this.pageMain],
-    //       {
-    //         x: shouldShow ? this.elmWidth : 0,
-    //         duration,
-    //         onComplete: () => {
-    //           if (!shouldShow) {
-    //             this.pageHeader.style.transform = null;
-    //             this.elm.style.transform = null;
-    //           }
-    //         }
-    //       },
-    //       0);
-    //     tl.to(this.btnOpen, {
-    //       alpha: shouldShow ? 0 : 1, duration,
-    //       onComplete: () => {
-    //         this.pageHeader.style.willChange = null;
-    //         this.pageMain.style.willChange = null;
-    //       }
-    //     }, shouldShow ? 0 : 0.5);
-    //   },
-    //   300
-    // );
-
+    tl.to(this.pageHeader, {
+      alpha: shouldShow ? 0 : 1,
+      duration,
+      onStart() {
+        const target = this.targets()[0];
+        if (shouldShow) {
+          target.classList.add('is-menu-show');
+        } else {
+          target.classList.remove('is-menu-show');
+        }
+      }
+    }, 0);
   }
 
   handleClick() {

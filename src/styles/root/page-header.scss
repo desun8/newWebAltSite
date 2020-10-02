@@ -75,12 +75,19 @@
     transform: translate3d(#{vw(-372)}, var(--top, 0), 0);
   }
   
-  .page-header__feedback-btn {
-    //transform: translate3d(200%, 0, 0);
-  }
+  //.page-header__feedback-btn {
+  //transform: translate3d(200%, 0, 0);
+  //}
   
   &.page-header--short .menu-btn {
     transform: translate3d(#{vw(-82)}, var(--top, 0), 0);
+  }
+}
+
+.page-header.is-menu-show {
+  .page-header__logo,
+  .menu-btn {
+    transform: translate3d(-50px, var(--top, 0), 0);
   }
 }
 

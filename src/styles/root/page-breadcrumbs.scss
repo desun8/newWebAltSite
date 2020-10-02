@@ -1,8 +1,6 @@
 @use "../_config" as *;
 
 .page-breadcrumbs {
-  @include grid-base(1);
-  
   margin-bottom: 40px;
   
   //noinspection CssInvalidMediaFeature
