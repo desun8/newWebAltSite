@@ -51,7 +51,7 @@ export default {
       required: true
     },
     img: {
-      type: String | undefined,
+      type: String || undefined,
       required: true
     },
     href: {

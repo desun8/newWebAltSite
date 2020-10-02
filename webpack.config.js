@@ -6,17 +6,12 @@ const fs = require('fs-extra');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // Html
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const HtmlWebpackInjector = require('html-webpack-injector');
 // Sprites
 const SpritesmithPlugin = require('webpack-spritesmith');
 // Copy
 const CopyPlugin = require('copy-webpack-plugin');
 // Vue
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
-
-
-// const SpritePlugin = require('svg-sprite-loader/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
@@ -43,14 +38,10 @@ module.exports = {
     core: './src/js/root.js',
     home: './src/js/home.js',
     blog: ['regenerator-runtime', './src/js/blog.js'],
-    // ['style-core']: './src/styles/root.scss',
-    // ['style-home']: './src/styles/home.scss'
   },
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    // filename: 'main.js',
-    // filename: '[name].bundle.js'
     filename: '[name].js'
   },
 
@@ -86,7 +77,6 @@ module.exports = {
       // css
       {
         test: /\.(scss|css)$/,
-        // include: path.resolve(__dirname, 'src/'),
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
