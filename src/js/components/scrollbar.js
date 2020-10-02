@@ -43,7 +43,7 @@ export class ScrollbarPage extends Scrollbar {
     this.scrollData = null;
 
     this.progressBar = new ProgressBar();
-    this.menuBtn = document.querySelector('.menu-btn');
+    this.pageHeader = document.querySelector('.page-header');
     this.btnToTop = document.querySelector('#go-to-top');
 
     this.isBlogPage = document.querySelector('.page-blog');
@@ -57,9 +57,9 @@ export class ScrollbarPage extends Scrollbar {
 
         // позиционирование кнопки "меню"
         if (this.scrollData.position.y > 10) {
-          this.menuBtn.classList.add('menu-btn--fixed');
+          this.pageHeader.classList.add('is-fixed');
         } else {
-          this.menuBtn.classList.remove('menu-btn--fixed');
+          this.pageHeader.classList.remove('is-fixed');
         }
 
         // появление/скрытие кнопки "вверх"
