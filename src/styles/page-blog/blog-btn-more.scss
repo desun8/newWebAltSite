@@ -1,5 +1,37 @@
 @use "../_config/index" as *;
 
+@keyframes fade-down {
+  0%,
+  40%,
+  100% {
+    background-position-y: 0;
+    animation-timing-function: ease-in;
+  }
+  
+  9%,
+  10% {
+    background-position-y: 2em;
+    animation-timing-function: ease-out;
+  }
+  
+  12%,
+  15% {
+    opacity: 0;
+  }
+  
+  24%,
+  25% {
+    opacity: 0;
+    background-position-y: -2em;
+  }
+  
+  29%,
+  30% {
+    opacity: 1;
+  }
+}
+
+
 .blog-btn-more {
   --padding: 1em;
   @include font-size(12);
@@ -52,8 +84,10 @@
   top: calc(var(--padding) + 0.15em);
   right: calc(var(--padding) - 1.2em);
   width: 0.9em;
-  height: 1.4em;
-  background-image: url(../images/i-arrow-down-orange.svg);
+  height: 1.1em;
+  
+  //noinspection CssUnknownTarget
+  background-image: url(../images/i-arrow-down-orange.svg); //stylelint-disable-line
   background-size: 0.4em;
   background-repeat: space no-repeat;
   
@@ -65,4 +99,11 @@
     height: 22px;
     background-size: 8px;
   }
+}
+
+.blog-btn-more:hover::after {
+  animation-name: fade-down;
+  animation-duration: 2s;
+  animation-delay: 0.3s;
+  animation-iteration-count: infinite;
 }
