@@ -169,7 +169,7 @@ export default {
       for (const key in this.articlesList) {
         if (this.articlesList.hasOwnProperty(key)) {
           const arr = this.articlesList[key]
-              .filter(elm => elm.type === this.activeFilter);
+              .filter(elm => elm.type === this.activeFilter || elm.type === "subscribes");
 
           filtered = { ...filtered, [key]: arr };
         }
@@ -197,7 +197,7 @@ export default {
         this.articlesList = {};
       }
 
-      res.forEach(item => {
+      res.forEach((item, index) => {
         const key = createDateKey(item.date);
 
         if (this.articlesList[key] === undefined) {
@@ -211,6 +211,13 @@ export default {
           ...this.articlesList,
           [key]: [...this.articlesList[key], item]
         };
+
+        if (index === res.length - 2) {
+          this.articlesList = {
+            ...this.articlesList,
+            [key]: [...this.articlesList[key], { id: Date.now() + "subscribes", type: "subscribes" }]
+          };
+        }
       });
     }
   },

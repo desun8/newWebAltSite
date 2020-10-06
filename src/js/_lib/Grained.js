@@ -33,7 +33,7 @@ class Grained {
 
       this.elementSelector = this.getElementName();
 
-      console.log(this.element, this.elementSelector);
+      // console.log(this.element, this.elementSelector);
 
       this.options = options ? { ...defaultOptions, ...options } : defaultOptions;
 

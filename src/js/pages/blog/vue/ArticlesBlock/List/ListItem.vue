@@ -1,5 +1,6 @@
 <template>
   <li
+      v-if="type !== 'subscribes'"
       ref="root"
       :class="{'blog-item--event': isEvent}"
       :data-img="img"
@@ -21,6 +22,9 @@
         {{ fullDate }}
       </span>
     </span>
+  </li>
+  <li v-else class="blog-list__item  blog-item subscribes">
+
   </li>
 </template>
 
@@ -85,9 +89,18 @@ export default {
   mounted() {
     if (APP.isDesktop) {
       const { root, title } = this.$refs;
-      new ImgHover(root);
-      new TextAnimation(root, title);
+      // если это блок "подписки", то root == false
+      root && new ImgHover(root);
+      root && new TextAnimation(root, title);
     }
   }
 };
 </script>
+
+<style lang="css">
+.subscribes {
+  width: 100%;
+  height: 60px;
+  background-color: var(--c-red);
+}
+</style>
