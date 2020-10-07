@@ -1,0 +1,9 @@
+@use "../_config" as *;
+
+.page-services {
+
+}
+
+.page-services__wrap {
+  @include wrap();
+}

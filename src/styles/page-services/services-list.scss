@@ -1,0 +1,11 @@
+@use "../_config/index" as *;
+
+.services-list {
+  @include list-unstyled();
+  @include grid(3);
+  
+  //noinspection CssInvalidMediaFeature
+  @media screen and (--tablet-sm) {
+    display: block;
+  }
+}

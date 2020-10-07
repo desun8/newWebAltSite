@@ -38,6 +38,7 @@ module.exports = {
     core: './src/js/root.js',
     home: './src/js/home.js',
     blog: ['regenerator-runtime', './src/js/blog.js'],
+    services: './src/js/services.js',
   },
 
   output: {

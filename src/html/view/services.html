@@ -2,11 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-
-  <link rel="preload" href="../../fonts/SuisseIntl-Bold-WebM.woff2" as="font" crossorigin>
-  <link rel="preload" href="../../fonts/SuisseIntl-Book-WebM.woff2" as="font" crossorigin>
-  <link rel="preload" href="../../fonts/SuisseIntl-Light-WebM.woff2" as="font" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги</title>
 
 </head>
 <body>
@@ -34,85 +31,150 @@
   </symbol>
 </svg>
 
+<%= require('html-loader!../includes/progress-bar.html') %>
 <%= require('html-loader!../includes/header.html') %>
 <%= require('html-loader!../includes/menu.html') %>
 
-<main class="page-service">
-  <div class="page-service__wrap">
-    <div class="card">
-      <h2 class="card__title">разработка</h2>
+<main class="page-services">
+  <div class="page-services__wrap">
+    <%= require('html-loader!../includes/breadcrumbs.html') %>
 
-      <div class="card__wrap">
-        <div class="card__features">
-          <div class="card__tech"></div>
-          <div class="card__tech"></div>
-          <div class="card__tech"></div>
-          <div class="card__tech"></div>
+    <ul class="services-list">
+      <li class="service-card">
+        <div class="service-card__main">
+          <div class="service-card__title  service-card__title--dev">
+            <h2 class="visually-hidden">разработка</h2>
+            <svg viewBox="0 0 356 40" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                 stroke-linejoin="round" stroke-miterlimit="1.414">
+              <path d="M15.252 1.3c2.427 0 4.68.173 6.76.52 2.115.347 3.935.988 5.46 1.924 1.525.901 2.721 2.149 3.588 3.744.867 1.595 1.3 3.623 1.3 6.084 0 2.496-.433 4.541-1.3 6.136a9.944 9.944 0 01-3.588 3.796c-1.525.901-3.345 1.543-5.46 1.924-2.08.347-4.333.52-6.76.52H9.636V39H.744V1.3h14.508zM9.636 8.788v9.672h5.876c1.04 0 2.011-.069 2.912-.208.901-.139 1.681-.381 2.34-.728.693-.381 1.231-.884 1.612-1.508s.572-1.439.572-2.444c0-.971-.191-1.768-.572-2.392a3.87 3.87 0 00-1.612-1.456c-.659-.381-1.439-.624-2.34-.728a19.132 19.132 0 00-2.912-.208H9.636zM42.471 1.3h9.776L66.495 39h-9.672l-2.288-6.708h-14.56L37.739 39h-9.464L42.471 1.3zm-.052 23.764h9.724l-4.836-14.352-4.888 14.352zm49.623-6.136c.971.381 1.837.832 2.6 1.352a6.243 6.243 0 011.872 1.82c.486.693.85 1.508 1.092 2.444.278.901.416 1.976.416 3.224 0 2.115-.433 3.935-1.3 5.46a11.2 11.2 0 01-3.276 3.692c-1.352.936-2.877 1.629-4.576 2.08a19.78 19.78 0 01-5.096.676c-2.773 0-5.165-.329-7.176-.988-2.01-.693-3.692-1.629-5.044-2.808a12.424 12.424 0 01-3.12-4.316c-.728-1.664-1.178-3.484-1.352-5.46h8.736c.208 2.08.936 3.623 2.184 4.628 1.283.971 2.93 1.456 4.94 1.456 1.907 0 3.328-.416 4.264-1.248.936-.867 1.404-2.08 1.404-3.64 0-1.352-.485-2.409-1.456-3.172-.936-.763-2.357-1.144-4.264-1.144h-4.472V16.38h4.004c1.699 0 3.085-.347 4.16-1.04 1.11-.728 1.664-1.733 1.664-3.016 0-.763-.156-1.404-.468-1.924a3.612 3.612 0 00-1.144-1.352 5.178 5.178 0 00-1.716-.78 7.366 7.366 0 00-1.976-.26 8.83 8.83 0 00-2.704.416 6.523 6.523 0 00-2.236 1.144 5.518 5.518 0 00-1.508 1.82c-.381.728-.589 1.56-.624 2.496h-8.736c.208-1.872.694-3.605 1.456-5.2a13.279 13.279 0 013.224-4.212c1.352-1.179 2.982-2.097 4.888-2.756 1.907-.693 4.091-1.04 6.552-1.04 2.046 0 3.9.243 5.564.728 1.699.451 3.155 1.127 4.368 2.028 1.214.867 2.15 1.941 2.808 3.224.694 1.248 1.04 2.669 1.04 4.264 0 2.08-.433 3.727-1.3 4.94-.866 1.179-2.097 2.201-3.692 3.068zM118.084 1.3c2.427 0 4.68.173 6.76.52 2.115.347 3.935.988 5.46 1.924 1.525.901 2.721 2.149 3.588 3.744.867 1.595 1.3 3.623 1.3 6.084 0 2.496-.433 4.541-1.3 6.136a9.944 9.944 0 01-3.588 3.796c-1.525.901-3.345 1.543-5.46 1.924-2.08.347-4.333.52-6.76.52h-5.616V39h-8.892V1.3h14.508zm-5.616 7.488v9.672h5.876c1.04 0 2.011-.069 2.912-.208.901-.139 1.681-.381 2.34-.728.693-.381 1.231-.884 1.612-1.508s.572-1.439.572-2.444c0-.971-.191-1.768-.572-2.392a3.87 3.87 0 00-1.612-1.456c-.659-.381-1.439-.624-2.34-.728a19.132 19.132 0 00-2.912-.208h-5.876zM145.303 1.3h9.776L169.327 39h-9.672l-2.288-6.708h-14.56L140.571 39h-9.464l14.196-37.7zm-.052 23.764h9.724l-4.836-14.352-4.888 14.352zm36.432-9.724h8.164c2.184 0 4.177.191 5.98.572 1.803.347 3.345.971 4.628 1.872 1.317.867 2.34 2.045 3.068 3.536.728 1.491 1.092 3.345 1.092 5.564 0 2.253-.364 4.143-1.092 5.668a9.649 9.649 0 01-3.12 3.744c-1.317.971-2.912 1.664-4.784 2.08-1.872.416-3.952.624-6.24.624h-16.588V1.3h29.224v7.488h-20.332v6.552zm7.8 16.172c3.813 0 5.72-1.595 5.72-4.784s-1.907-4.784-5.72-4.784h-7.8v9.568h7.8zm26.733-11.336c0 2.011.26 3.779.78 5.304.555 1.491 1.283 2.756 2.184 3.796a9.476 9.476 0 003.224 2.288c1.248.52 2.565.78 3.952.78s2.687-.26 3.9-.78a8.848 8.848 0 003.224-2.288c.936-1.04 1.664-2.305 2.184-3.796.555-1.525.832-3.293.832-5.304s-.277-3.761-.832-5.252c-.52-1.525-1.248-2.791-2.184-3.796a8.585 8.585 0 00-3.224-2.34 9.793 9.793 0 00-3.9-.78c-1.387 0-2.704.26-3.952.78-1.213.52-2.288 1.3-3.224 2.34-.901 1.005-1.629 2.271-2.184 3.796-.52 1.491-.78 3.241-.78 5.252zm29.692 0c0 2.947-.485 5.616-1.456 8.008-.936 2.392-2.271 4.437-4.004 6.136-1.699 1.699-3.761 3.016-6.188 3.952-2.392.936-5.027 1.404-7.904 1.404-2.912 0-5.564-.468-7.956-1.404-2.392-.936-4.455-2.253-6.188-3.952-1.699-1.699-3.033-3.744-4.004-6.136-.936-2.392-1.404-5.061-1.404-8.008 0-2.947.468-5.616 1.404-8.008.971-2.392 2.305-4.437 4.004-6.136 1.733-1.699 3.796-3.016 6.188-3.952 2.392-.936 5.044-1.404 7.956-1.404 2.877 0 5.512.468 7.904 1.404 2.427.936 4.489 2.253 6.188 3.952 1.733 1.699 3.068 3.744 4.004 6.136.971 2.392 1.456 5.061 1.456 8.008zM258.101 9.1h-12.064V1.3h33.124v7.8h-12.116V39h-8.944V9.1zm34.032 11.648h-.052V39h-8.892V1.3h8.892v17.42h.052L304.821 1.3h10.296l-13.624 17.628L315.689 39h-10.608l-12.948-18.252zM331.213 1.3h9.776L355.237 39h-9.672l-2.288-6.708h-14.56L326.481 39h-9.464l14.196-37.7zm-.052 23.764h9.724l-4.836-14.352-4.888 14.352z"
+                    stroke-width=".69"/>
+            </svg>
+          </div>
+
+          <div class="service-card__wrap">
+            <div class="service-card__features">
+              <img src="images/_dev-service-tech.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+              <img src="images/_dev-service-tech-2.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+              <img src="images/_dev-service-tech-3.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+              <img src="images/_dev-service-tech.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+            </div>
+
+            <ul class="service-card__list">
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+            </ul>
+
+            <div class="service-card__more">
+              <span class="service-card__sub-title">Еще</span>
+              <ul class="service-card__list">
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+              </ul>
+            </div>
+            <a href="#" class="service-card__link"><span class="text">заказать</span>
+              <i class="icon-arrow">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="102">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i>
+            </a>
+          </div>
         </div>
 
-        <ul class="card__list">
-          <li class="card__item">
-            <a href="" class="link">Интернет магазин<i class="link__icon">
-              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
-              </svg>
-            </i></a>
-          </li>
-          <li class="card__item">
-            <a href="" class="link">Интернет магазин<i class="link__icon">
-              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
-              </svg>
-            </i></a>
-          </li>
-          <li class="card__item">
-            <a href="" class="link">Интернет магазин<i class="link__icon">
-              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
-              </svg>
-            </i></a>
-          </li>
-          <li class="card__item">
-            <a href="" class="link">Интернет магазин<i class="link__icon">
-              <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
-              </svg>
-            </i></a>
-          </li>
-        </ul>
-
-        <a href="" class="card__link"><span>заказать</span>
-          <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
-            <use xlink:href="#icon-arrow"></use>
-          </svg>
-        </a>
-
-        <div class="card__more">
-          <span class="card__sub-title">Еще</span>
-          <ul class="card__list">
-            <li class="card__item">
-              <a href="" class="link">Иностранная версия сайта<i class="link__icon">
+        <div class="service-card__more">
+          <span class="service-card__sub-title">Еще</span>
+          <ul class="service-card__list">
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
                   <use xlink:href="#icon-arrow"></use>
                 </svg>
               </i></a>
             </li>
-            <li class="card__item">
-              <a href="" class="link">Иностранная версия сайта<i class="link__icon">
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
                   <use xlink:href="#icon-arrow"></use>
                 </svg>
               </i></a>
             </li>
-            <li class="card__item">
-              <a href="" class="link">Иностранная версия сайта<i class="link__icon">
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
                   <use xlink:href="#icon-arrow"></use>
                 </svg>
               </i></a>
             </li>
-            <li class="card__item">
-              <a href="" class="link">Иностранная версия сайта<i class="link__icon">
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
                 <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
                   <use xlink:href="#icon-arrow"></use>
                 </svg>
@@ -120,8 +182,298 @@
             </li>
           </ul>
         </div>
-      </div>
-    </div>
+      </li>
+
+      <li class="service-card">
+        <div class="service-card__main">
+          <div class="service-card__title  service-card__title--seo">
+            <h2 class="visually-hidden">продвижение</h2>
+            <svg viewBox="0 0 439 47" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                 stroke-linejoin="round" stroke-miterlimit="1.414">
+              <path d="M14.94 1.3c2.427 0 4.68.173 6.76.52 2.115.347 3.935.988 5.46 1.924 1.525.901 2.721 2.149 3.588 3.744.867 1.595 1.3 3.623 1.3 6.084 0 2.496-.433 4.541-1.3 6.136a9.944 9.944 0 01-3.588 3.796c-1.525.901-3.345 1.543-5.46 1.924-2.08.347-4.333.52-6.76.52H9.324V39H.432V1.3H14.94zM9.324 8.788v9.672H15.2c1.04 0 2.011-.069 2.912-.208.901-.139 1.681-.381 2.34-.728.693-.381 1.231-.884 1.612-1.508s.572-1.439.572-2.444c0-.971-.191-1.768-.572-2.392a3.87 3.87 0 00-1.612-1.456c-.659-.381-1.439-.624-2.34-.728a19.132 19.132 0 00-2.912-.208H9.324zm41.223 16.016h-6.032V39h-8.892V1.3h14.508c2.427 0 4.68.173 6.76.52 2.115.312 3.935.919 5.46 1.82a9.384 9.384 0 013.588 3.588c.867 1.491 1.3 3.397 1.3 5.72 0 2.773-.693 4.992-2.08 6.656-1.386 1.664-3.154 2.912-5.304 3.744L69.163 39H58.711l-8.164-14.196zM44.515 8.788v8.528h5.876c1.04 0 2.011-.052 2.912-.156.936-.104 1.734-.312 2.392-.624.659-.312 1.179-.745 1.56-1.3.382-.555.572-1.283.572-2.184 0-.867-.19-1.577-.572-2.132-.381-.555-.901-.988-1.56-1.3-.658-.312-1.456-.52-2.392-.624a19.132 19.132 0 00-2.912-.208h-5.876zm35.303 11.388c0 2.011.26 3.779.78 5.304.554 1.491 1.282 2.756 2.184 3.796a9.466 9.466 0 003.224 2.288c1.248.52 2.565.78 3.952.78a9.8 9.8 0 003.9-.78 8.856 8.856 0 003.224-2.288c.936-1.04 1.664-2.305 2.184-3.796.554-1.525.832-3.293.832-5.304s-.278-3.761-.832-5.252c-.52-1.525-1.248-2.791-2.184-3.796a8.593 8.593 0 00-3.224-2.34 9.8 9.8 0 00-3.9-.78c-1.387 0-2.704.26-3.952.78-1.214.52-2.288 1.3-3.224 2.34-.902 1.005-1.63 2.271-2.184 3.796-.52 1.491-.78 3.241-.78 5.252zm29.692 0c0 2.947-.486 5.616-1.456 8.008-.936 2.392-2.271 4.437-4.004 6.136-1.699 1.699-3.762 3.016-6.188 3.952-2.392.936-5.027 1.404-7.904 1.404-2.912 0-5.564-.468-7.956-1.404-2.392-.936-4.455-2.253-6.188-3.952-1.699-1.699-3.034-3.744-4.004-6.136-.936-2.392-1.404-5.061-1.404-8.008 0-2.947.468-5.616 1.404-8.008.97-2.392 2.305-4.437 4.004-6.136 1.733-1.699 3.796-3.016 6.188-3.952 2.392-.936 5.044-1.404 7.956-1.404 2.877 0 5.512.468 7.904 1.404 2.426.936 4.489 2.253 6.188 3.952 1.733 1.699 3.068 3.744 4.004 6.136.97 2.392 1.456 5.061 1.456 8.008zm2.438 26.364V31.148h2.132c1.11 0 1.994-.381 2.652-1.144.659-.763 1.162-1.855 1.508-3.276.382-1.456.642-3.207.78-5.252.174-2.08.312-4.403.416-6.968l.52-13.208h27.508v29.848h4.94V46.54h-8.372V39H120.32v7.54h-8.372zm26.624-15.392V9.152h-10.14l-.364 7.748c-.173 3.259-.554 6.067-1.144 8.424-.554 2.357-1.421 4.299-2.6 5.824h14.248zM157.709 1.3h16.432c2.08 0 3.987.139 5.72.416 1.768.277 3.293.78 4.576 1.508a7.873 7.873 0 013.016 3.016c.728 1.248 1.092 2.86 1.092 4.836 0 1.733-.381 3.259-1.144 4.576-.763 1.283-1.872 2.375-3.328 3.276 1.768.624 3.207 1.629 4.316 3.016 1.109 1.352 1.664 3.172 1.664 5.46 0 2.115-.364 3.917-1.092 5.408a9.432 9.432 0 01-3.12 3.588c-1.317.901-2.912 1.56-4.784 1.976-1.872.416-3.952.624-6.24.624h-17.108V1.3zm8.892 30.212h8.32c1.907 0 3.328-.381 4.264-1.144.971-.763 1.456-1.803 1.456-3.12 0-1.317-.485-2.357-1.456-3.12-.936-.763-2.357-1.144-4.264-1.144h-8.32v8.528zm0-15.132h7.852c1.56 0 2.756-.347 3.588-1.04.832-.693 1.248-1.629 1.248-2.808 0-1.179-.416-2.097-1.248-2.756-.832-.659-2.028-.988-3.588-.988h-7.852v7.592zM195.49 1.3h8.58v24.44L220.086 1.3h8.58V39h-8.58V14.56L204.07 39h-8.58V1.3zm61.164 18.876h-.052L244.278 39h-10.244l12.896-19.864L234.398 1.3h10.244l11.96 17.94h.052V1.3h8.892v17.94h.052L277.662 1.3h9.932L275.27 19.136 288.166 39h-10.244l-12.324-18.824h-.052V39h-8.892V20.176zM293.498 1.3h28.912v7.8h-20.02v6.604h18.928v7.852H302.39v7.592h20.02V39h-28.912V1.3zm68.065 0V39h-8.892V23.556h-15.496V39h-8.892V1.3h8.892v14.404h15.496V1.3h8.892zm7.497 0h8.58v24.44L393.656 1.3h8.58V39h-8.58V14.56L377.64 39h-8.58V1.3zm40.676 0h28.912v7.8h-20.02v6.604h18.928v7.852h-18.928v7.592h20.02V39h-28.912V1.3z"
+                    stroke-width=".71"/>
+            </svg>
+          </div>
+
+          <div class="service-card__wrap">
+            <div class="service-card__features">
+              <img src="images/_dev-service-tech.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+              <img src="images/_dev-service-tech-3.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+              <img src="images/_dev-service-tech.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+            </div>
+
+            <ul class="service-card__list">
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+            </ul>
+
+            <div class="service-card__more">
+              <span class="service-card__sub-title">Еще</span>
+              <ul class="service-card__list">
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#" class="service-card__link"><span class="text">заказать</span>
+              <i class="icon-arrow">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="102">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card__more">
+          <span class="service-card__sub-title">Еще</span>
+          <ul class="service-card__list">
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="service-card">
+        <div class="service-card__main">
+          <div class="service-card__title  service-card__title--design">
+            <h2 class="visually-hidden">дизайн</h2>
+            <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"
+                 stroke-linejoin="round" stroke-miterlimit="1.414">
+              <path d="M25.422 20.124c0-2.496-.347-4.489-1.04-5.98-.693-1.491-1.612-2.635-2.756-3.432-1.144-.797-2.48-1.317-4.004-1.56a29.072 29.072 0 00-4.68-.364H9.25v22.724h3.692c1.629 0 3.189-.121 4.68-.364 1.525-.243 2.86-.763 4.004-1.56 1.144-.832 2.063-1.993 2.756-3.484.693-1.491 1.04-3.484 1.04-5.98zM12.786 1.3c3.085 0 5.963.312 8.632.936 2.704.624 5.044 1.664 7.02 3.12 1.976 1.456 3.536 3.397 4.68 5.824 1.144 2.392 1.716 5.373 1.716 8.944 0 3.605-.572 6.621-1.716 9.048-1.144 2.392-2.704 4.316-4.68 5.772-1.976 1.456-4.316 2.496-7.02 3.12-2.67.624-5.547.936-8.632.936H.358V1.3h12.428zm26.572 0H68.27v7.8H48.25v6.604h18.928v7.852H48.25v7.592h20.02V39H39.358V1.3zm55.125 10.92c-.451-1.421-1.335-2.513-2.652-3.276-1.283-.763-2.878-1.144-4.784-1.144-1.734 0-3.172.312-4.316.936-1.11.624-1.664 1.525-1.664 2.704 0 .936.398 1.733 1.196 2.392.797.659 1.854 1.127 3.172 1.404l5.147 1.04c1.526.312 3.103.693 4.732 1.144 1.63.451 3.103 1.075 4.42 1.872a10.233 10.233 0 013.328 3.12c.867 1.283 1.3 2.912 1.3 4.888s-.468 3.744-1.404 5.304a12.255 12.255 0 01-3.587 3.848c-1.456 1.04-3.138 1.837-5.045 2.392a20.192 20.192 0 01-5.771.832c-4.854 0-8.788-1.127-11.804-3.38-3.016-2.288-4.871-5.477-5.565-9.568h8.84c.486 1.976 1.474 3.432 2.965 4.368 1.525.936 3.449 1.404 5.772 1.404.762 0 1.525-.069 2.288-.208a7.73 7.73 0 002.08-.676 4.118 4.118 0 001.508-1.248c.38-.52.57-1.179.57-1.976 0-1.213-.657-2.149-1.974-2.808-1.283-.693-2.964-1.265-5.044-1.716l-4.576-.936a26.977 26.977 0 01-4.42-1.3c-1.422-.555-2.67-1.265-3.744-2.132a10.249 10.249 0 01-2.6-3.12c-.624-1.248-.936-2.721-.936-4.42 0-1.907.468-3.571 1.404-4.992a11.823 11.823 0 013.64-3.536c1.49-.936 3.172-1.629 5.044-2.08a23.686 23.686 0 015.564-.676c1.837 0 3.622.208 5.356.624 1.768.416 3.362 1.092 4.784 2.028a12.625 12.625 0 013.587 3.588c1.006 1.456 1.664 3.224 1.976 5.304h-8.787zM117.719 39h-8.892V1.3h8.892V39zM141.469.676c2.08 0 4.04.26 5.877.78 1.872.52 3.553 1.3 5.044 2.34a13.841 13.841 0 013.744 3.9c1.04 1.56 1.785 3.363 2.236 5.408h-8.736a6.077 6.077 0 00-.988-1.872c-.416-.624-.971-1.161-1.664-1.612-.66-.485-1.456-.867-2.392-1.144-.936-.312-2.011-.468-3.224-.468-1.352 0-2.635.26-3.848.78-1.18.485-2.201 1.231-3.068 2.236-.867 1.005-1.56 2.271-2.08 3.796-.485 1.491-.728 3.224-.728 5.2 0 3.987.9 7.037 2.704 9.152 1.803 2.115 4.195 3.172 7.176 3.172 1.04 0 2.045-.104 3.016-.312a8.454 8.454 0 002.704-1.04 6.161 6.161 0 001.924-1.976c.485-.797.728-1.803.728-3.016v-.728h-9.1v-7.28h17.992V39h-6.812l-.26-4.16a10.874 10.874 0 01-4.68 3.692c-1.872.763-4.16 1.144-6.864 1.144-2.773 0-5.27-.451-7.488-1.352-2.22-.936-4.108-2.253-5.668-3.952-1.525-1.699-2.704-3.761-3.536-6.188-.832-2.427-1.248-5.148-1.248-8.164 0-2.981.468-5.668 1.404-8.06.936-2.392 2.236-4.42 3.9-6.084 1.699-1.664 3.727-2.947 6.084-3.848 2.357-.901 4.975-1.352 7.852-1.352zM188.958 39l-15.132-26v26h-8.58V1.3h10.816l15.132 26v-26h8.58V39h-10.816z"
+                    stroke-width=".71"/>
+            </svg>
+          </div>
+
+          <div class="service-card__wrap">
+            <div class="service-card__features">
+              <img src="images/_dev-service-tech-2.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+              <img src="images/_dev-service-tech-3.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/> <img src="images/_dev-service-tech-2.png" class="service-card__tech"
+                                                title="описание иконки" alt="описание иконки"/>
+              <img src="images/_dev-service-tech-3.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/> <img src="images/_dev-service-tech-2.png" class="service-card__tech"
+                                                title="описание иконки" alt="описание иконки"/>
+              <img src="images/_dev-service-tech-3.png" class="service-card__tech" title="описание иконки"
+                   alt="описание иконки"/>
+            </div>
+
+            <ul class="service-card__list">
+              <li class="service-card__item">
+                <a href=#"" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+              <li class="service-card__item">
+                <a href="#" class="link  link--uppercase"><span class="link__text">Интернет магазин</span><i
+                        class="link__icon">
+                  <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </i></a>
+              </li>
+            </ul>
+
+            <div class="service-card__more">
+              <span class="service-card__sub-title">Еще</span>
+              <ul class="service-card__list">
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+                <li class="service-card__item">
+                  <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                          class="link__icon">
+                    <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </i></a>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#" class="service-card__link"><span class="text">заказать</span>
+              <i class="icon-arrow">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="102" height="102">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i>
+            </a>
+          </div>
+        </div>
+
+        <div class="service-card__more">
+          <span class="service-card__sub-title">Еще</span>
+          <ul class="service-card__list">
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+            <li class="service-card__item">
+              <a href="#" class="link  link--uppercase"><span class="link__text">Иностранная версия сайта</span><i
+                      class="link__icon">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg>
+              </i></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
 </main>
 
