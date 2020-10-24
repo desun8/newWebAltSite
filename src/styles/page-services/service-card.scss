@@ -27,7 +27,7 @@
   
   min-height: em(670, $fz-text-md);
   margin-bottom: em(80, $fz-text-md);
-  padding: em(52, $fz-text-md) em(70, $fz-text-md) 0;
+  padding: vw(52) vw(70) 0;
   background-color: var(--bg-color);
   
   //noinspection CssInvalidMediaFeature
@@ -121,7 +121,7 @@
 
 .service-card__features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: column;
   grid-column-gap: vw(24);
   align-items: center;
   
@@ -150,7 +150,7 @@
   
   position: relative;
   display: flex;
-  margin: 0 em(-70, 28);
+  margin: 0 vw(-70);
   padding: em(72, 28) em(90, 28);
   
   color: var(--c-black-second);
