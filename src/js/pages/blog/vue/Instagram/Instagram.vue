@@ -52,7 +52,6 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
 .blog-insta {
   position: sticky;
   top: $top-pos;
-
   margin-right: vw(-68);
   margin-bottom: 10vh;
   padding: 0 vw(100);
@@ -67,6 +66,7 @@ $top-pos: calc(#{$top} + #{$top-gap} * -1);
 }
 
 .blog-insta__header {
+  max-width: vw(500);
   margin-bottom: vw(20);
 
   //noinspection CssInvalidMediaFeature

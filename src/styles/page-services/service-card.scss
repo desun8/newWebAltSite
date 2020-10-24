@@ -33,7 +33,7 @@
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     @include font-size-px($fz-text-md);
-  
+    
     display: block;
     margin: 0;
     padding: 0;
@@ -238,27 +238,50 @@
       justify-content: flex-end;
       background-color: transparent;
     }
-    
-    svg {
-      width: var(--size);
-      height: var(--size);
-      
-      opacity: 0.1;
-      
-      transform: rotate(-180deg);
-      
-      transition-property: transform;
-      transition-duration: var(--trans-dur-fast);
-      transition-timing-function: ease-in;
-      
-      //noinspection CssInvalidMediaFeature
-      @media screen and (--tablet-sm) {
-        transform: rotate(0deg) translate3d(-100%, 0, 0);
-      }
+  }
   
-      &.is-animation {
-        transform: rotate(0deg) translate3d(0, 0, 0);
-      }
+  .icon-arrow-anim {
+    width: var(--size);
+    height: var(--size);
+    
+    opacity: 0.1;
+    
+    transform: rotate(-180deg);
+    
+    transition-property: transform;
+    transition-duration: var(--trans-dur-fast);
+    transition-timing-function: ease-in;
+    
+    //noinspection CssInvalidMediaFeature
+    @media screen and (--tablet-sm) {
+      transform: rotate(0deg) translate3d(-100%, 0, 0);
+    }
+    
+    &.is-animation {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  
+  .icon-arrow-anim__corner path {
+    transition-property: transform;
+    transition-duration: var(--trans-dur-fast);
+    transition-timing-function: ease-in;
+  }
+  
+  .icon-arrow-anim__corner--top-right path {
+    transform-origin: 0 100%;
+    transform: scaleY(0);
+    
+    &:last-child {
+      transform: scaleX(0);
+    }
+  }
+  
+  .icon-arrow-anim__corner--bottom-left path {
+    transform-origin: 50% 0;
+    
+    &:last-child {
+      transform-origin: 100% 0;
     }
   }
 }
@@ -267,7 +290,7 @@
   .service-card__title {
     svg {
       fill: var(--c-red);
-      stroke: var(--c-red);
+      stroke: transparent;
     }
   }
   
@@ -277,11 +300,24 @@
   
   .icon-arrow {
     --pos-x: calc(100% - (var(--gap) + var(--size)));
-    
-    svg {
-      transform: rotate(0deg);
+  }
+  
+  .icon-arrow-anim__corner--top-right path {
+    transform: scaleY(1);
+  
+    &:last-child {
+      transform: scaleX(1);
     }
   }
+  
+  .icon-arrow-anim__corner--bottom-left path {
+    transform: scaleY(0);
+    
+    &:last-child {
+      transform: scaleX(0);
+    }
+  }
+  
 }
 
 .service-card__more {
