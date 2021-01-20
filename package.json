@@ -46,7 +46,7 @@
     "webpack-spritesmith": "^1.1.0"
   },
   "dependencies": {
-    "gsap": "^3.4.0",
+    "gsap": "^3.6.0",
     "overlayscrollbars": "^1.12.0",
     "postcss-viewport-height-correction": "^2.0.2",
     "scroll-lock": "^2.1.4",
