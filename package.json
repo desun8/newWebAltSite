@@ -52,7 +52,7 @@
     "scroll-lock": "^2.1.4",
     "simplebar": "^5.2.1",
     "splitting": "^1.0.6",
-    "three": "^0.119.1",
+    "three": "^0.125.0",
     "vue": "^3.0.0"
   }
 }
