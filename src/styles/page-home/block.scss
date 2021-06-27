@@ -267,7 +267,7 @@
       
       &--hover {
         //noinspection CssUnknownTarget
-        border-image: url("../images/awards-bg-border.svg") 10 / auto / 2px stretch;
+        border-image: url("/images/awards-bg-border.svg") 10 / auto / 2px stretch;
         
         @media screen and (--tablet-sm) {
           border-image: none;
@@ -387,7 +387,7 @@
     position: relative;
     
     &::after {
-      @include bg-img("../images/deco-double-cross.svg");
+      @include bg-img("/images/deco-double-cross.svg");
       
       content: "";
       right: vw(35);
@@ -759,7 +759,7 @@
   &__item {
     --top: 0;
     
-    @include bg-img("../images/bg-home-symbols-one-lg.svg", contain, 50%, 100%);
+    @include bg-img("/images/home/bg-home-symbols-one-lg.svg", contain, 50%, 100%);
     
     position: absolute;
     right: 0;
@@ -784,7 +784,7 @@
       left: calc(50% - (#{vw(10)} / 2));
       
       //noinspection CssUnknownTarget
-      background-image: url("../images/bg-home-symbols-one-md.svg");
+      background-image: url("/images/home/bg-home-symbols-one-md.svg");
       order: 2;
     }
     
@@ -795,7 +795,7 @@
       left: 0;
       
       //noinspection CssUnknownTarget
-      background-image: url("../images/bg-home-symbols-one-sm.svg");
+      background-image: url("/images/home/bg-home-symbols-one-sm.svg");
       order: 1;
     }
     

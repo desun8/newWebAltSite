@@ -2,37 +2,37 @@
 
 body {
   @include transition-switch-theme(background-color);
-  
-  &.theme-dark {
-    background-color: var(--c-black-second);
-  }
-  
-  &.theme-orange {
-    background-color: var(--c-red);
-  }
+}
+
+body.theme-dark {
+  background-color: var(--c-black-second);
+}
+
+body.theme-orange {
+  background-color: var(--c-red);
 }
 
 .page-home {
   --textColor: var(--c-black-second);
   color: var(--textColor);
+}
+
+.page-home--dark {
+  --bodyBg: var(--c-black-second);
+  --textColor: #fff;
+}
+
+.page-home--orange {
+  --bodyBg: var(--c-red);
+  --linkHover: #fff;
+}
+
+.page-home section {
+  min-height: 100vh;
+  margin-bottom: vh(150);
+  content-visibility: auto;
   
-  &--dark {
-    --bodyBg: var(--c-black-second);
-    --textColor: #fff;
-  }
-  
-  &--orange {
-    --bodyBg: var(--c-red);
-    --linkHover: #fff;
-  }
-  
-  section {
-    min-height: 100vh;
-    margin-bottom: vh(150);
-    content-visibility: auto;
-  
-    @media screen and (--tablet-sm) {
-      margin-bottom: 50px;
-    }
+  @media screen and (--tablet-sm) {
+    margin-bottom: 50px;
   }
 }

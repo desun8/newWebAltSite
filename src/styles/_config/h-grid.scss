@@ -20,8 +20,8 @@
     column-gap: fn.vw(20, fn.$mobile-viewport);
     padding: 0 fn.vw(20, fn.$mobile-viewport);
   }
+}
 
-  &__col {
-    background-color: rgba(255, 0, 0, 0.2);
-  }
+.h-grid__col {
+  background-color: rgba(255, 0, 0, 0.2);
 }

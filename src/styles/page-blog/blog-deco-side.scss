@@ -1,7 +1,7 @@
 @use "../_config/index" as *;
 
 .blog-deco-side {
-  @include bg-img("../images/blog-1030.svg");
+  @include bg-img("/images/blog-1030.svg");
   
   position: fixed;
   right: 0;

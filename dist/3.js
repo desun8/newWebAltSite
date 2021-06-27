@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{33:function(e,o,n){"use strict";n.r(o);var t=n(5),c=n(1),u=Object(t.shuffle)(Array.from(document.querySelectorAll(".blog-deco-top__item"))),r=document.querySelector(".blog-deco-top__cross"),a=document.querySelector(".blog-deco-side");o.default=function(e){u&&u.length>0&&r&&function(e){c.a.to([u,r],{y:function(o,n){return n===r?-1*e:e/(.55*(o+1))*-1},duration:.2,ease:"none"})}(e),a&&e<1e3&&function(e){c.a.killTweensOf(a),c.a.to(a,{y:"".concat(-.1*e,"vh"),duration:.2,ease:"none"})}(e)}}}]);
-//# sourceMappingURL=3.js.map

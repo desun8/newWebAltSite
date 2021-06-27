@@ -27,7 +27,7 @@
   &::after {
     --width: 5px;
     
-    content: url("../images/i-flat-arrow.svg");
+    content: url("/images/i-flat-arrow.svg");
     position: absolute;
     top: 50%;
     right: calc((var(--width)  / -2));

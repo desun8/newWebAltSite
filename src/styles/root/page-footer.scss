@@ -67,7 +67,7 @@
     transition: opacity var(--trans-dur-fast) ease;
     
     @media screen and (--tablet-sm) {
-      @include bg-img("../images/footer-bg-mobile.jpg", auto);
+      @include bg-img("/images/footer-bg-mobile.jpg", auto);
       
       position: absolute;
       bottom: 90px;

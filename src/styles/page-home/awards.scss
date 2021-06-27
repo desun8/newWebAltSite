@@ -20,7 +20,7 @@
     height: 268px;
     
     @media screen and (--tablet-sm) {
-      @include bg-img("../images/awards-cup.svg");
+      @include bg-img("/images/awards-cup.svg");
       content: "";
     }
   }
@@ -87,7 +87,7 @@
 }
 
 .awards-agima__img {
-  @include bg-img("../images/agima-logo.png");
+  @include bg-img("/images/agima-logo.png");
   
   position: sticky;
   top: 100px;
@@ -101,9 +101,9 @@
 .awards-list-bg {
   --size: #{vw(190)};
   //noinspection CssUnknownTarget
-  --image: url("../images/awards-image-1.png");
+  --image: url("/images/awards-image-1.png");
   
-  @include bg-img("../images/awards-bg-grid.svg");
+  @include bg-img("/images/awards-bg-grid.svg");
   
   position: absolute;
   left: calc(#{vw(-164)} - var(--size));
