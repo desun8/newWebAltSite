@@ -1,0 +1,16 @@
+
+body.theme-dark .header-feedback,
+body.header-feedback-white .header-feedback {
+  @apply text-black;
+}
+
+.header-feedback__bg {
+  width: calc(100% + var(--page-gap) + 6px);
+  height: calc(100% + 20px);
+  transition: transform 0.5s, background var(--trans-dur-fast);
+}
+
+body.theme-dark .header-feedback__bg,
+body.header-feedback-white .header-feedback__bg {
+  @apply bg-white;
+}

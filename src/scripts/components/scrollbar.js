@@ -90,7 +90,10 @@ export class ScrollbarPage extends Scrollbar {
 
   destroy() {
     super.destroy();
-    this.smoothScroll.removeEvent();
+
+    if (this.smoothScroll) {
+      this.smoothScroll.removeEvent();
+    }
   }
 
   dragScroll() {

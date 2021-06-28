@@ -1,4 +1,4 @@
-<header class="page-header">
+<header class="page-header {{ class }}">
   <div class="page-header__wrap">
     <a href="/" class="page-header__logo">
       <svg width="38" height="21">
@@ -12,10 +12,7 @@
       </svg>
       menu
     </button>
-    <button class="page-header__feedback-btn link"><span class="link__text">Заказать консультацию</span><i class="link__icon">
-      <svg class="link__arrow" width="12" height="12">
-        <use xlink:href="#icon-arrow"></use>
-      </svg>
-    </i></button>
+
+    <include src="page-header/feedback-btn.html"></include>
   </div>
 </header>

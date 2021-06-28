@@ -208,8 +208,8 @@
 
 .hero__title::before,
 .hero__title::after,
-.hero__title span::before,
-.hero__title span::after {
+.hero__title .sub-title::before,
+.hero__title .sub-title::after {
   clip-path: inset(0 9999px 0 0);
   transform: skew(0deg);
   
@@ -222,7 +222,7 @@
 }
 
 .hero__title::before,
-.hero__title span::before {
+.hero__title .sub-title::before {
   left: var(--shadow-size);
   //noinspection CssInvalidFunction
   filter: drop-shadow(calc(var(--shadow-size) * -1) 0 #ff00c1);
@@ -231,7 +231,7 @@
 }
 
 .hero__title::after,
-.hero__title span::after {
+.hero__title .sub-title::after {
   left: calc(var(--shadow-size) * -1);
   //noinspection CssInvalidFunction
   filter: drop-shadow(calc(var(--shadow-size) * -1) 0 #00fff9) drop-shadow(var(--shadow-size) 2px #ff00c1);
@@ -239,7 +239,7 @@
   animation: glitch-anim-text2 4s 2s infinite linear alternate-reverse;
 }
 
-.hero__title span {
+.hero__title .sub-title {
   --shadow-size: 1px;
   
   @include font-size(18);

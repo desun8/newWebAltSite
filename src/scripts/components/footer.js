@@ -54,8 +54,10 @@ export default class Footer {
 
         if (isIntersecting) {
           document.body.classList.add('menu-btn-white');
+          document.body.classList.add('header-feedback-white');
         } else {
           document.body.classList.remove('menu-btn-white');
+          document.body.classList.remove('header-feedback-white');
         }
       });
     };

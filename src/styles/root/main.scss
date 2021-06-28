@@ -9,7 +9,9 @@
   box-sizing: inherit;
 }
 
-html * { -webkit-text-size-adjust: none; }
+html * {
+  -webkit-text-size-adjust: none;
+}
 
 html {
   height: 100%;
@@ -20,7 +22,7 @@ html {
 body {
   margin: 0;
   //font-family: "Suisse Int'l", sans-serif;
-  font-family: "my-font", sans-serif;
+  font-family: "my-font", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
