@@ -1,10 +1,6 @@
-// const { resolve } = require('path');
-// const vue = require('@vitejs/plugin-vue');
-// const { posthtmlPlugin } = require('vite-plugin-posthtml');
-// const posthtmlInclude = require('posthtml-include');
-
 import {resolve} from "path";
 import vue from "@vitejs/plugin-vue"
+import WindiCSS from 'vite-plugin-windicss'
 import { posthtmlPlugin } from "vite-plugin-posthtml"
 import posthtmlInclude from "posthtml-include";
 
@@ -18,6 +14,7 @@ export default {
           root: 'src/templates',
         })],
     }),
+    WindiCSS(),
     vue(),
   ],
 
