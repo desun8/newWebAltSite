@@ -1,0 +1,60 @@
+.subscribe-banner-btn {
+  @apply transition-opacity delay-200;
+}
+
+.subscribe-banner.is-active .subscribe-banner-btn {
+  opacity: 0;
+}
+
+.subscribe-banner-btn__img {
+  @apply absolute top-0 left-0 w-9 h-14 bg-orange;
+
+  mask: url("/images/home/bg-design-mobile.svg") no-repeat center/contain;
+}
+
+.subscribe-banner-block {
+  @apply absolute bottom-0 -right-8 grid pr-6 bg-orange transition-transform duration-500;
+
+  grid-template-columns: 100px 500px 1fr;
+  gap: 25px;
+  align-items: center;
+  width: 950px;
+  min-height: 100px;
+  transform: translateX(100%);
+}
+
+.subscribe-banner.is-active .subscribe-banner-block {
+  transform: translateX(0);
+}
+
+.subscribe-banner-block:hover .subscribe-banner-block__icon-fire {
+  fill: var(--c-red);
+}
+
+body.theme-orange .subscribe-banner-btn__img {
+  background-color: #fff;
+}
+
+body.theme-orange .subscribe-banner-block {
+  background-color: #fff;
+}
+
+body.theme-orange .subscribe-banner-block__input:hover,
+body.theme-orange .subscribe-banner-block__input:focus {
+  border-color: var(--c-red);
+}
+
+body.theme-orange .subscribe-banner-block__input + span,
+body.theme-orange .subscribe-banner-block__success {
+  color: var(--c-red);
+}
+
+.subscribe-banner-block__input:-internal-autofill-previewed,
+.subscribe-banner-block__input:-internal-autofill-selected,
+.subscribe-banner-block__input:-webkit-autofill,
+.subscribe-banner-block__input:-webkit-autofill:hover,
+.subscribe-banner-block__input:-webkit-autofill:focus,
+.subscribe-banner-block__input:-webkit-autofill:active {
+  background-color: var(--c-red) !important;
+  -webkit-box-shadow: 0 0 0 30px var(--c-red) inset !important;
+}

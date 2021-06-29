@@ -40,6 +40,7 @@
   }
 </include>
 <include src="page-menu.html"></include>
+<include src="components/subscribe-banner.html"></include>
 
 <main class="page-home">
   <section class="hero">
@@ -159,11 +160,11 @@
 
     <div class="block__bg">
       <picture>
-        <source media="(min-width: 64em)" srcset="/images/home-bg-dev.svg"/>
-        <img class="img-bg img-bg--default" src="/images/home-bg-dev-mobile.svg" alt="" loading="lazy">
+        <source media="(min-width: 64em)" srcset="/images/home/bg-dev.svg"/>
+        <img class="img-bg img-bg--default" src="/images/home/bg-dev-mobile.svg" alt="" loading="lazy">
       </picture>
       <picture>
-        <source media="(min-width: 64em)" srcset="/images/home-bg-dev-hover.png"/>
+        <source media="(min-width: 64em)" srcset="/images/home/bg-dev-hover.png"/>
         <img class="img-bg img-bg--hover" src="/images/empty.svg" alt="" loading="lazy">
       </picture>
     </div>
@@ -196,9 +197,9 @@
         <span class="block__number" aria-hidden="true">01</span>
         <p class="block__text">Найдем вашу боль. Предложим лучшее решение. Комплексно подойдем к разработке
           интернет-проекта от проектирования до сдачи под ключ.</p>
-        <span class="block__more">Узнай с чего начать
+        <span class="block__more">С чего начать
           <a href="#" class="link link--uppercase  link--orange  link--bold">
-            <span class="link__text">разработку проекта</span>
+            <span class="link__text">разработку</span>
             <i class="link__icon">
               <svg class="link__arrow" width="12" height="12">
                 <use xlink:href="#icon-arrow"></use>
@@ -278,15 +279,16 @@
         <span class="block__number" aria-hidden="true">02</span>
         <p class="block__text">Для каждой специфики и целей проекта существуют свои виды продвижения. Поможем
           разобраться в каждом, и рассчитать стоимость заявки еще до начала работ!</p>
-        <span class="block__more">Выберите подходящий ДЛЯ ВАС вид <a href="#"
-                                                                     class="link link--uppercase  link--orange  link--bold"><span
-                class="link__text">продвижения</span><i
-                class="link__icon"><svg
-                class="link__arrow" width="12"
-                height="12">
+        <span class="block__more">
+          <a href="#" class="link link--uppercase  link--orange  link--bold"><span
+                  class="link__text">рассчитать</span><i
+                  class="link__icon"><svg
+                  class="link__arrow" width="12"
+                  height="12">
               <use xlink:href="#icon-arrow"></use>
             </svg>
-          </i></a></span>
+          </i></a> Стоимость лида
+        </span>
       </div>
 
       <div class="block__more block__more--mobile">
@@ -310,11 +312,11 @@
 
     <div class="block__bg">
       <picture>
-        <source media="(min-width: 64em)" srcset="/images/home-bg-design.svg"/>
-        <img class="img-bg img-bg--default" src="/images/home-bg-design-mobile.svg" alt="" loading="lazy">
+        <source media="(min-width: 64em)" srcset="/images/home/bg-design.svg"/>
+        <img class="img-bg img-bg--default" src="/images/home/bg-design-mobile.svg" alt="" loading="lazy">
       </picture>
       <picture>
-        <source media="(min-width: 64em)" srcset="/images/home-bg-design-hover.png"/>
+        <source media="(min-width: 64em)" srcset="/images/home/bg-design-hover.png"/>
         <img class="img-bg img-bg--hover" src="/images/empty.svg" alt="" loading="lazy">
       </picture>
     </div>
@@ -349,15 +351,14 @@
         <p class="block__text">«Встречают по одежке»
           Проанализируем вашу специфику и позиционирование, создадим такой дизайн, который навсегда запомнят ваши
           клиенты!</p>
-        <span class="block__more">поСмотри как у нас создаётся <a href="#"
-                                                                  class="link link--uppercase  link--orange  link--bold"><span
-                class="link__text">дизайн</span><i
+        <span class="block__more"><a href="#" class="link link--uppercase  link--orange  link--bold"><span
+                class="link__text">посмотри</span><i
                 class="link__icon"><svg
                 class="link__arrow" width="12"
                 height="12">
               <use xlink:href="#icon-arrow"></use>
             </svg>
-          </i></a></span>
+          </i></a> как у нас создаётся дизайн</span>
       </div>
 
       <div class="block__more block__more--mobile">
@@ -371,11 +372,9 @@
   </section>
 
   <section class="block-form">
-    <div class="block-form__title">
-      <img src="/images/title-needs.svg" alt="Нужно все и сразу?" loading="lazy" width="334" height="192">
-    </div>
     <div class="block-form__link">
-      <a href="#" class="link link--no-icon  link--uppercase  link--bold"><span class="link__text">заполнить бриф</span></a>
+      <a href="#" class="link link--no-icon  link--uppercase"><span class="link__text">нужно<br> <span
+              class="relative text-orange">всё</span> и <br>сразу?</span></a>
       <svg width="66" height="66">
         <use xlink:href="#icon-arrow"></use>
       </svg>
@@ -496,6 +495,10 @@
       </div>
     </div>
   </section>
+
+  <div class="lg:hidden">
+    <include src="components/subscribe-block.html"></include>
+  </div>
 </main>
 
 <include src="page-footer.html"></include>
@@ -539,5 +542,6 @@
 <include src="utils/grid-helper.html"></include>
 
 <script type="module" src="/src/main.ts"></script>
+<script src="mockServiceWorker.js"></script>
 </body>
 </html>

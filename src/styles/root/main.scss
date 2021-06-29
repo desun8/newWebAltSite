@@ -73,4 +73,7 @@ p {
   @include hide-text();
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
 

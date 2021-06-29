@@ -1,0 +1,31 @@
+@use "@/styles/animations/rotate";
+
+.subscribe-block__image {
+  @apply w-22 h-28 bg-no-repeat bg-contain;
+  background-image: url("/images/components/subscribe-planet.svg");
+}
+
+.subscribe-block__text {
+  @apply absolute top-8 -left-5 w-19 h-20 md:w-36 md:h-36 bg-no-repeat;
+  background-image: url("/images/components/subscribe-text.svg");
+  animation: rotate 15s linear infinite both;
+}
+
+.subscribe-block__text::after {
+  @apply absolute top-0 left-0 w-full h-full bg-no-repeat;
+  content: "";
+  background-image: url("/images/components/subscribe-text.svg");
+  transform: scaleY(-1) rotate(35deg);
+}
+
+//.has-error .subscribe-block__input {}
+
+.subscribe-block__input:-internal-autofill-previewed,
+.subscribe-block__input:-internal-autofill-selected,
+.subscribe-block__input:-webkit-autofill,
+.subscribe-block__input:-webkit-autofill:hover,
+.subscribe-block__input:-webkit-autofill:focus,
+.subscribe-block__input:-webkit-autofill:active {
+  background-color: var(--c-red) !important;
+  -webkit-box-shadow: 0 0 0 30px var(--c-red) inset !important;
+}

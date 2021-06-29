@@ -5,7 +5,7 @@
   //bottom: 30%; // 85px
   bottom: 0;
   left: vw(30);
-  z-index: 10;
+  z-index: 20;
   
   padding: 10px 10px 10px 30px;
   color: var(--c-black-second);
@@ -42,7 +42,7 @@
   left: 10px;
   width: 0.9em;
   height: 1.4em;
-  background-image: url(../images/i-arrow-down.svg);
+  background-image: url("/images/i-arrow-down.svg");
   background-size: 0.4em;
   background-repeat: space no-repeat;
   
@@ -54,5 +54,5 @@ body.btn-to-top-white .btn-to-top {
 }
 
 body.btn-to-top-white .btn-to-top::after {
-  background-image: url(../images/i-arrow-down-white.svg);
+  background-image: url("/images/i-arrow-down-white.svg");
 }

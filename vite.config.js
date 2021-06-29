@@ -4,6 +4,28 @@ import WindiCSS from 'vite-plugin-windicss'
 import { posthtmlPlugin } from "vite-plugin-posthtml"
 import posthtmlInclude from "posthtml-include";
 
+// const handleHotUpdate = ({ server }) => {
+//   server.ws.send({
+//     type: 'custom',
+//     event: 'special-update',
+//     data: {}
+//   })
+//   return []
+// }
+
+const reload = {
+  name: 'reload',
+  handleHotUpdate({ file, server }) {
+    const isHTMLComponent = file.includes("templates/") && file.endsWith(".html")
+
+    if (isHTMLComponent) {
+      server.ws.send({
+        type: 'full-reload',
+        path: '*',
+      });
+    }
+  }
+}
 
 export default {
   plugins: [
@@ -16,6 +38,7 @@ export default {
     }),
     WindiCSS(),
     vue(),
+    reload,
   ],
 
   resolve: {
