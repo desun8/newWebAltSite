@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*":["src/*"]
+    },
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext", "DOM"],
@@ -12,7 +16,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "allowJs": true
+    "allowJs": true,
   },
   "include": ["./src"]
 }

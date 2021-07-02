@@ -160,7 +160,7 @@
   --title-pd-r: 0;
   --title-pd-l: #{vw(60)};
   
-  /* noinspection CssInvalidMediaFeature */
+  //noinspection CssInvalidMediaFeature
   @media (--tablet-sm) {
     --col-title: 1/3;
     --col-list: 1/3;
@@ -179,7 +179,6 @@
 .block--reverse .block__decoration {
   grid-column: 12/13;
 }
-
 
 .block__bg {
   position: absolute;
@@ -367,6 +366,24 @@
   }
 }
 
+.block__wrap--simple {
+  grid-template-rows: unset;
+  //@media screen and (--tablet-sm) {
+  //}
+}
+
+.block--marketing .block__wrap {
+  @include grid(11, 2, 1fr, auto);
+  
+  grid-column: 1/12;
+  row-gap: 10px;
+  
+  @media screen and (--tablet-sm) {
+    grid-template-rows: unset;
+    grid-row-gap: 30px;
+  }
+}
+
 .block__title,
 .block__describe {
   grid-row: 1/2;
@@ -417,10 +434,6 @@
     }
   }
   
-  h2 {
-    @include hide-text();
-  }
-  
   > svg {
     max-width: 100%;
     height: auto;
@@ -457,6 +470,35 @@
   }
 }
 
+.block--marketing .block__title {
+  grid-column: 1/8;
+  padding-top: 0;
+  padding-right: 0;
+}
+
+.block--marketing .block__title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  transform: translateY(-55%);
+  width: 48px;
+  height: 32px;
+  background-color: #fff;
+  mask: url("/images/home/title-arrow.svg") no-repeat center/contain;
+  
+  //noinspection CssInvalidMediaFeature
+  @media (--lg) {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateY(0);
+    width: vw(125);
+    height: vw(125);
+    background-color: #f00;
+  }
+}
+
 .block__describe {
   grid-column: var(--col-describe);
   padding-top: var(--describe-pd-t);
@@ -465,6 +507,21 @@
     display: flex;
     justify-content: center;
     grid-row: 2/3;
+  }
+}
+
+.block--marketing .block__describe {
+  @apply lg:p-0;
+
+  grid-column: 10/12;
+  grid-row: 2/3;  
+  
+  @media screen and (--tablet-sm) {
+    @apply pt-3;
+    
+    grid-column: inherit;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }
 
@@ -486,6 +543,16 @@
     
     margin-bottom: 0;
     font-size: $fz-text-md * 1px;
+    
+    .block--marketing & {
+      --bg: rgba(#000, 0);
+      
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-bottom: 20px;
+      color: #fff;
+    }
     
     .block--seo & {
       --top: -2px;
@@ -522,15 +589,24 @@
 }
 
 .block__more {
-  @include font-size($fz-text-38, 40);
+  @include font-size($fz-text-34, 40);
   display: inline-block;
   margin-bottom: em(10, $fz-text-lg);
   font-weight: 600;
   text-transform: uppercase;
   text-align: justify;
   
+  //noinspection CssInvalidMediaFeature
+  @media (--desktop-md) {
+    @include font-size($fz-text-28, 34);
+  }
+  
   @media screen and (--tablet-sm) {
     display: none;
+  }
+  
+  .block--marketing & {
+    margin-bottom: 0;
   }
   
   .block--awards & {
@@ -544,11 +620,16 @@
 .block__more--mobile {
   display: none;
   color: var(--c-red);
-  text-align: right;
+  font-size: 18px;
   font-weight: 500;
+  text-align: right;
   
   @media screen and (--tablet-sm) {
     display: block;
+  }
+  
+  .block--reverse & {
+    text-align: left;
   }
   
   .block--design & {
@@ -565,7 +646,7 @@
   
   @media screen and (--tablet-sm) {
     --text-color: #fff;
-    --bg-color: #000;
+    --bg-color: var(--c-black);
     
     //@include font-size-px($fz-text-16, 21); // lh: 26
     @include font-size-px($fz-text-16, 26); // lh: 26
@@ -597,11 +678,14 @@
   &.splitting {
     display: inline-flex;
     flex-wrap: wrap;
-    //justify-content: space-between;
     justify-content: flex-start;
     
     background-color: transparent;
     text-align: left;
+    
+    .block--marketing & {
+      justify-content: space-between;
+    }
     
     .word,
     .char,

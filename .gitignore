@@ -2,3 +2,7 @@
 /node_modules/
 /.cache/
 .idea
+dist
+/jsconfig.json
+/stats.html
+.DS_Store

@@ -4,6 +4,15 @@ import 'virtual:windi.css'
 import APP from './app/APP';
 import postcssViewportHeightCorrection from './utils/postcssViewportHeightCorrection';
 import headerFeedbackBtnAnimation from '@/scripts/components/headerFeedbackBtnAnimation';
+import checkWebpFeature, { Features } from '@/scripts/utils/checkWebpFeature';
+
+checkWebpFeature(Features.lossy, (_: Features, result: boolean) => {
+  if (result) {
+    document.documentElement.classList.add("webp");
+  } else {
+    document.documentElement.classList.add("no-webp");
+  }
+})
 
 
 if (window.APP === undefined) {

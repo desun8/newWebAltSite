@@ -8,9 +8,10 @@ if (subscribeBanner) {
   let isActive = false;
 
   const btnElm = subscribeBanner.querySelector(".subscribe-banner-btn") as HTMLButtonElement;
-  const block = subscribeBanner.querySelector(".subscribe-banner-block");
+  const block = subscribeBanner.querySelector(".subscribe-banner-block")!;
+  const formElm = block.querySelector("form")!;
 
-  const button = new ButtonCtrl(btnElm);
+  new ButtonCtrl(btnElm);
 
   const toggleActive = (shouldShow: boolean) => {
     if (shouldShow) {
@@ -44,6 +45,7 @@ if (subscribeBanner) {
     }, {passive: true},
   );
 
-  submitForm(block.querySelector("form"));
+  submitForm(formElm);
+
 }
 

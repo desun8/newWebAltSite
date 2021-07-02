@@ -17,6 +17,7 @@ class HomeApp extends Index {
 
     //**** COMMON ****//
     this.$elms = {
+      blockMarketing: document.querySelector('.block--marketing'),
       blockDev: document.querySelector('.block--dev'),
       blockSeo: document.querySelector('.block--seo'),
       blockDesign: document.querySelector('.block--design'),
@@ -35,8 +36,12 @@ class HomeApp extends Index {
     this.taglinesSlider = new SliderWithTypewrite(this.heroSliderElms.taglines, 'hero-taglines__item');
 
     //**** HERO TICKER ****//
-    this.tickerElm = document.querySelector('.hero__scroll');
-    this.ticker = new TextRunner(this.tickerElm);
+    this.tickerElms = document.querySelectorAll('.ticker');
+    if (this.tickerElms.length) {
+      this.tickerElms.forEach(elm => {
+        new TextRunner(elm);
+      });
+    }
 
     //**** HERO ANIMATION LOGO ****//
     this.heroLogoAnimation = new HeroLogoAnimation();
@@ -86,7 +91,9 @@ class HomeApp extends Index {
     super.initMobile();
     this.redirectFooter.initMobile();
     for (const [key, value] of Object.entries(this.$elms)) {
-      new BlockText(value);
+      if (value) {
+        new BlockText(value);
+      }
     }
   }
 
@@ -118,7 +125,7 @@ class HomeApp extends Index {
     intervalId = setInterval(() => {
       const isAllow = !!document.querySelector('body.os-host .os-padding .os-content');
       if (isAllow) {
-        new Grained(this.redirectFooterElm, grainedOptions)
+        new Grained(this.redirectFooterElm, grainedOptions);
         clearInterval(intervalId);
       }
     }, 100);

@@ -21,7 +21,7 @@ export const submit = (formElm: HTMLFormElement) => {
     console.log(response);
   };
 
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolve, _) {
     window.grecaptcha.ready(() => {
       window.grecaptcha.execute(KEY, {action: "form"})
         .then((token: string) => {

@@ -1,6 +1,6 @@
 export default () => {
   const btn = document.querySelector(".header-feedback")!;
-  const btnBg = btn.querySelector(".header-feedback__bg")!;
+  const btnBg = btn.querySelector(".header-feedback__bg") as HTMLElement;
 
   btnBg.style.transform = "translate(100%, -50%)";
 

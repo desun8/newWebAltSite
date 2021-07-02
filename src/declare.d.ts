@@ -1,3 +1,5 @@
+export {};
+
 declare global {
   interface Window {
     grecaptcha: any;
@@ -8,5 +10,6 @@ declare global {
     //   isDesktop: boolean,
     //   isTouchScreen: boolean
     // }
+    APP: any
   }
 }
