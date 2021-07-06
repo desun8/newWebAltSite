@@ -4,26 +4,23 @@ export const marketingTriangleAnimation = () => {
   const block = document.querySelector(".block.block--marketing");
 
   if (block) {
-    const triangleElms = block.querySelectorAll(".marketing-triangle");
-    const tl = gsap.timeline({ paused: true });
+    const triangleElms = Array.from(
+      block.querySelectorAll(".marketing-triangle")
+    ).reverse();
 
-    triangleElms.forEach((triangle) => {
-      gsap.set(triangle, { x: -10 });
-      tl.to(triangle, { x: 0, alpha: 1 });
-    });
+    if (triangleElms.length) {
+      gsap.set(triangleElms, { x: -20, alpha: 0 });
 
-    console.log(window.APP.scrollbar);
-    
-
-    ScrollTrigger.create({
-      trigger: block,
-      animation: tl.play(),
-      start: "top bottom-=50"
-      // onEnter() {
-      //   console.log("Enter");
-
-      //   tl.restart();
-      // },
-    });
+      ScrollTrigger.create({
+        trigger: block,
+        start: "top bottom-=50",
+        animation: gsap.to(triangleElms, {
+          x: 0,
+          alpha: 1,
+          stagger: 0.3,
+          duration: 1.2,
+        }),
+      });
+    }
   }
 };
