@@ -7,7 +7,9 @@ export const initMenu = () => {
   const navElm = document.querySelector(".page-nav");
   const btnOpen = document.querySelector(".menu-btn");
   const btnClose = document.querySelector(".page-menu__close");
-  const tickerElms = document.querySelectorAll(".page-menu .ticker");
+
+  // const tickerElms = document.querySelectorAll(".page-menu .ticker");
+
   const config = {
     isDesktop: APP.isDesktop,
   };
