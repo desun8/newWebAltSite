@@ -1,4 +1,4 @@
-const smallScreen = window.matchMedia('(max-width: 60em)');
+export const smallScreen = window.matchMedia('(max-width: 60em)');
 
 export const isDesktop = !window.matchMedia('(max-width: 60em)').matches;
 

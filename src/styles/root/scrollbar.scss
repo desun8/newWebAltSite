@@ -1,0 +1,37 @@
+.scrollbar-track {
+  --thumb-size: 4px;
+  --thumb-color: var(--c-red);
+
+  background-color: transparent !important;
+}
+
+body.theme-orange .scrollbar-track {
+  --thumb-color: #fff;
+}
+
+.page-menu .scrollbar-track {
+  display: none !important;
+}
+
+.scrollbar-track-y {
+  width: var(--thumb-size) !important;
+}
+
+.scrollbar-track-x {
+  display: none !important;
+  height: var(--thumb-size) !important;
+}
+
+.scrollbar-thumb {
+  background-color: var(--thumb-color) !important;
+  border-radius: 0 !important;
+}
+
+.scrollbar-thumb-y {
+  width: 100% !important;
+}
+
+.scrollbar-thumb-x {
+  height: 100% !important;
+}
+

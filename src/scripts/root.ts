@@ -1,34 +1,38 @@
-import RootApp from './app/rootApp';
-import '@/styles/root.scss';
-import 'virtual:windi.css'
-import APP from './app/APP';
-import postcssViewportHeightCorrection from './utils/postcssViewportHeightCorrection';
-import headerFeedbackBtnAnimation from '@/scripts/components/headerFeedbackBtnAnimation';
-import checkWebpFeature, { Features } from '@/scripts/utils/checkWebpFeature';
+import APP from "./app/APP";
+import postcssViewportHeightCorrection from "./utils/postcssViewportHeightCorrection";
+import headerFeedbackBtnAnimation from "@/scripts/components/headerFeedbackBtnAnimation";
+import checkWebpFeature, { Features } from "@/scripts/utils/checkWebpFeature";
 
-checkWebpFeature(Features.lossy, (_: Features, result: boolean) => {
-  if (result) {
-    document.documentElement.classList.add("webp");
-  } else {
-    document.documentElement.classList.add("no-webp");
+import "virtual:windi.css";
+import "@/styles/root.scss";
+import { initCore } from "./app/core";
+
+export default function initRoot () {
+  initCore();
+
+  // CORE CANDIDATE
+  checkWebpFeature(Features.lossy, (_: Features, result: boolean) => {
+    if (result) {
+      document.documentElement.classList.add("webp");
+    } else {
+      document.documentElement.classList.add("no-webp");
+    }
+  });
+
+  // CORE CANDIDATE
+  if (window.APP === undefined) {
+    window.APP = APP;
   }
-})
 
+  // CORE CANDIDATE
+  if (APP.isDesktop) {
+    headerFeedbackBtnAnimation();
+  } else {
+    postcssViewportHeightCorrection();
 
-if (window.APP === undefined) {
-  window.APP = APP;
-}
+    const isIosChrome = navigator.appVersion.indexOf("CriOS") !== -1; // не сафари
 
-if (APP.isDesktop) {
-  headerFeedbackBtnAnimation();
-} else {
-  postcssViewportHeightCorrection();
-
-  const isIosChrome = navigator.appVersion.indexOf('CriOS') !== -1; // не сафари
-
-  if (isIosChrome) document.body.classList.add('ios-chrome');
-}
-
-const app = new RootApp();
-app.init();
-
+    if (isIosChrome)
+      document.body.classList.add("ios-chrome");
+  }
+};

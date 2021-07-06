@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "serve": "vite preview"
   },
@@ -38,10 +38,10 @@
   },
   "dependencies": {
     "gsap": "^3.6.0",
-    "overlayscrollbars": "^1.12.0",
     "postcss-viewport-height-correction": "^2.0.2",
     "scroll-lock": "^2.1.4",
     "simplebar": "^5.2.1",
+    "smooth-scrollbar": "^8.6.2",
     "splitting": "^1.0.6",
     "three": "^0.125.0",
     "vue": "^3.0.0"

@@ -1,3 +1,5 @@
+import SmoothScrollbar from "smooth-scrollbar";
+
 export {};
 
 declare global {
@@ -5,11 +7,11 @@ declare global {
     grecaptcha: any;
     // Modernizr?: any;
     // ymaps?: any;
-    // APP: {
-    //   scrollbar: SmoothScrollbar | undefined
-    //   isDesktop: boolean,
-    //   isTouchScreen: boolean
-    // }
-    APP: any
+    APP: {
+      os: string,
+      scrollbar: SmoothScrollbar | undefined
+      isDesktop: boolean,
+      isTouchScreen: boolean
+    }
   }
 }
