@@ -1,4 +1,4 @@
-import APP from '../app/APP';
+import APP from '../../app/APP';
 
 export default class ChangeTheme {
   constructor() {

@@ -31,6 +31,10 @@
   fill: var(--c-red);
 }
 
+.subscribe-banner-block__success {
+  @apply absolute right-9 text-xl text-white font-semibold uppercase tracking-wide hover:text-white;
+}
+
 body.theme-orange .subscribe-banner-btn__img {
   background-color: #fff;
 }

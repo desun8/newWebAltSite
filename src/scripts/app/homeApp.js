@@ -1,15 +1,16 @@
 import Index from "./index";
-import SymbolsAnimation from "../home/symbolsAnimation";
-import ChangeTheme from "../home/changeTheme";
-import SliderWithTypewrite from "../home/SliderWithTypewrite";
+import SymbolsAnimation from "../pages/home/symbolsAnimation";
+import ChangeTheme from "../pages/home/changeTheme";
+import SliderWithTypewrite from "../pages/home/SliderWithTypewrite";
 import TextRunner from "../components/textRunner";
 import Counter from "../components/counter";
-import AwardsList from "../home/awards-list";
-import RedirectFooter from "../home/redirectFooter";
-import BlockText from "../home/blockText";
-import CanvasSphere from "../home/canvasShpere";
-import HeroLogoAnimation from "../home/heroLogoAnimation";
-import marketingMagmaParallax from "../home/marketingMagmaParallax";
+import AwardsList from "../pages/home/awards-list";
+import RedirectFooter from "../pages/home/redirectFooter";
+import BlockText from "../pages/home/blockText";
+import CanvasSphere from "../pages/home/canvasShpere";
+import HeroLogoAnimation from "../pages/home/heroLogoAnimation";
+import marketingMagmaParallax from "../pages/home/marketingMagmaParallax";
+import { marketingTriangleAnimation } from "../pages/home/marketingTriangleAnimation";
 
 class HomeApp extends Index {
   constructor(...props) {
@@ -131,6 +132,7 @@ class HomeApp extends Index {
     new CanvasSphere();
 
     if (this.$elms.blockMarketing) {
+      marketingTriangleAnimation();
       marketingMagmaParallax();
     }
   }

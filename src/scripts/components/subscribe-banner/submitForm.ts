@@ -26,9 +26,11 @@ export default (formElm: HTMLFormElement) => {
 
     gsap
       .timeline({
+        onStart() {
+          emailInput.value = "";
+        },
         onComplete() {
           isFetching = false;
-          emailInput.value = "";
         },
       })
       .to(msgElm, {y: 10, alpha: 0, duration})

@@ -1,7 +1,7 @@
 import SmoothScrollbar, { ScrollbarPlugin } from "smooth-scrollbar";
 import { Data2d } from "smooth-scrollbar/interfaces";
 
-class ModalPlugin extends ScrollbarPlugin {
+export class ModalPlugin extends ScrollbarPlugin {
   static pluginName = "modal";
 
   static defaultOptions = {
@@ -20,5 +20,3 @@ export const disableScroll = (scrollBarInstance: SmoothScrollbar) => {
 export const enableScroll = (scrollBarInstance: SmoothScrollbar) => {
   scrollBarInstance.updatePluginOptions("modal", { open: false });
 };
-
-export default ModalPlugin;

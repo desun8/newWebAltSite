@@ -1,9 +1,9 @@
 import Scrollbar from "smooth-scrollbar";
-import ModalPlugin from "./plugins/ModalPlugin";
+import { ModalPlugin } from "./plugins/ModalPlugin";
+import { AnchorPlugin } from "./plugins/AnchorPlugin";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import APP from "@/scripts/app/APP";
-import { AnchorPlugin } from "./plugins/AnchorPlugin";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,7 +52,7 @@ class SmoothScroll {
       },
     });
 
-    this.smoothScrollInstance!.addListener(ScrollTrigger.update);
+    smoothScrollInstance.addListener(ScrollTrigger.update);
 
     ScrollTrigger.defaults({ scroller: this.element! });
   }

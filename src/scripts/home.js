@@ -4,7 +4,6 @@ import HomeApp from "./app/homeApp";
 import "@/styles/home.scss";
 import "@/styles/components/subscribe-block.scss";
 import APP from "@/scripts/app/APP";
-import marketingMagmaParallax from "./home/marketingMagmaParallax";
 
 initRoot();
 
@@ -16,5 +15,3 @@ if (APP.isDesktop) {
 } else {
   import("./components/subscribeBlock");
 }
-
-// marketingMagmaParallax();

@@ -27,7 +27,11 @@ export const initCore = () => {
   defaultInit();
   initMenu();
   initFooter();
+
   initSmoothScroll();
   initProgressBar();
-  addNoise();
+
+  if (APP.scrollbar) {
+    addNoise();
+  }
 };
