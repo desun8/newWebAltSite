@@ -24,8 +24,6 @@ export class AnchorPlugin extends ScrollbarPlugin {
   };
 
   handleHash = (hash: string) => {
-    console.log("hash:", hash);
-
     if (!hash) {
       return;
     }

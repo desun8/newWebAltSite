@@ -21,10 +21,6 @@ export const initSmoothScroll = () => {
     ) as HTMLHeadingElement;
     const btnToTop = document.querySelector("#go-to-top") as HTMLAnchorElement;
     const isBlogPage = document.querySelector(".page-blog");
-    console.log(
-      "🚀 ~ file: smoothScroll.ts ~ line 24 ~ initSmoothScroll ~ isBlogPage",
-      isBlogPage
-    );
     let blogAnimation: (a: number) => void;
 
     if (isBlogPage) {
@@ -55,7 +51,6 @@ export const initSmoothScroll = () => {
         }
       }
 
-      console.log("IS BLOG-ANIMATION?" + !!isBlogPage);
       // анимация на странице "БЛОГ"
       if (isBlogPage && blogAnimation) {
         console.log("Play blog animtaion");

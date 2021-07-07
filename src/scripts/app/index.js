@@ -52,15 +52,9 @@ class Index {
     }
   }
 
-  initDesktop() {
-    console.log('init desktop');
-    APP.os === MAC_OS && document.body.classList.add('os-mac');
-  }
+  initDesktop() {}
 
-  initMobile() {
-    console.log('init mobile');
-    APP.os === ANDROID && document.body.classList.add('os-android');
-  }
+  initMobile() {}
 
   handleInit() {
     if (this.config.isDesktop) {

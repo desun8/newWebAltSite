@@ -49,6 +49,7 @@ export default class Menu {
 
     this.scrollbarInstance = null;
 
+    this.update = this.update.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -184,6 +185,7 @@ export default class Menu {
   }
 
   update() {
+
     this.elmWidth = this.elm.offsetWidth;
   }
 

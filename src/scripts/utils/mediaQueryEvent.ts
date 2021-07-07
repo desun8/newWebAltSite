@@ -1,18 +1,22 @@
+import { log } from "./log";
+
 export const smallScreen = window.matchMedia("(max-width: 60em)");
 
 export const isDesktop = !window.matchMedia("(max-width: 60em)").matches;
+
+let isInit = false;
 
 export const mediaQueryEvent = (
   cbMobile: () => void,
   cbDesktop: () => void,
   cbUpdate?: () => void
 ) => {
-  const handleTabletChange = (event: MediaQueryListEvent) => {
+  const handleTabletChange = (event: MediaQueryList | MediaQueryListEvent) => {
     if (event.matches) {
-      console.log("IS SMALL SCREEN");
+      log("IS SMALL SCREEN")
       cbMobile();
     } else {
-      console.log("IS LARGE SCREEN");
+      log("IS LARGE SCREEN")
       cbDesktop();
     }
 
@@ -22,4 +26,9 @@ export const mediaQueryEvent = (
   };
 
   smallScreen.addEventListener("change", handleTabletChange);
+
+  if (!isInit) {
+    handleTabletChange(smallScreen);
+    isInit = true;
+  }
 };
