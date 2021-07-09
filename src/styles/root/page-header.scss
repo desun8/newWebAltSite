@@ -76,10 +76,6 @@
     transform: translate3d(#{vw(-372)}, var(--top, 0), 0);
   }
   
-  //.page-header__feedback-btn {
-  //transform: translate3d(200%, 0, 0);
-  //}
-  
   &.page-header--short .menu-btn {
     transform: translate3d(#{vw(-82)}, var(--top, 0), 0);
   }
@@ -170,11 +166,10 @@
   
   text-transform: lowercase;
   
-  //&.link::after {
-  //  height: 1px;
-  //}
-  
   .link__arrow {
+    --icon-size: 0.7em;
+
+    top: -1px;
     transform-origin: 0 70%;
   }
   
@@ -228,10 +223,12 @@
   }
   
   &__icon {
+    display: inline;
     width: em(16, 14);
     height: em(13, 14);
     margin-right: em(10, 14);
     fill: currentColor;
+    vertical-align: baseline;
     
     @media screen and (--tablet-sm) {
       @include font-size-px(18);

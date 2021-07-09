@@ -1,4 +1,4 @@
-import { gsap } from "gsap";
+import gsap from "gsap";
 
 export default () => {
   const block = document.querySelector(".block--marketing");
@@ -8,7 +8,8 @@ export default () => {
     const img = block.querySelector(".magma-deco__img")!;
 
     gsap.to(img, {
-      backgroundPositionY: "+=50",
+      y: -100,
+      force3D: true,
       ease: "none",
       scrollTrigger: {
         trigger: elm,

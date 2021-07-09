@@ -18,14 +18,16 @@
 
 .magma-deco__img,
 .magma-deco__pattern {
-  @apply absolute top-0 left-0 w-full h-full bg-center;
+  @apply absolute top-0 left-0 w-full;
+  
 }
 
 .magma-deco__img {
-  @apply bg-no-repeat;
+  @apply h-3/2 bg-no-repeat bg-right-top;
+
+  background-size: auto 100%;
   
-  background-image: image-set(url("/images/home/magma.jpg") 1x,
-          url("/images/home/magma@2x.jpg") 2x);
+  background-image: image-set(url("/images/home/magma.jpg") 1x, url("/images/home/magma@2x.jpg") 2x);
   
   //noinspection CssInvalidMediaFeature
   @media (--m-tablet) {
@@ -41,7 +43,7 @@
 }
 
 .magma-deco__pattern {
-  @apply opacity-30 lg:opacity-70;
+  @apply h-full bg-center opacity-30 lg:opacity-70;
   
   background-size: 128px;
   

@@ -145,8 +145,12 @@
   }
 }
 
+.page-nav,
 .page-menu__contacts {
-  padding-left: 114px;
+  padding-left: 80px;
+}
+
+.page-menu__contacts {
   padding-right: 124px;
   padding-bottom: vw(56);
   align-self: end;

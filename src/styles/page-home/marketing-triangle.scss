@@ -5,3 +5,7 @@
   mask: url("/images/home/triangle.svg") no-repeat center/contain;
   opacity: 0;
 }
+
+.marketing-triangle:last-child {
+  background-color: var(--c-red);
+}

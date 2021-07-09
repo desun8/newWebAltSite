@@ -20,6 +20,7 @@ export const marketingTriangleAnimation = () => {
           stagger: 0.3,
           duration: 1.2,
         }),
+        once: true,
       });
     }
   }

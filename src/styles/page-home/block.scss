@@ -476,16 +476,19 @@
   padding-right: 0;
 }
 
+// TODO: оставить один вариант
+.block--marketing .block__title .arrow-icon,
 .block--marketing .block__title::after {
-  content: "";
+  // content: "";
   position: absolute;
   top: 50%;
   left: 150px;
   transform: translateY(-55%);
   width: 48px;
   height: 32px;
-  background-color: #fff;
-  mask: url("/images/home/title-arrow.svg") no-repeat center/contain;
+  color: #fff;
+  // background-color: #fff;
+  // mask: url("/images/home/title-arrow-1.svg") no-repeat center/contain;
   
   //noinspection CssInvalidMediaFeature
   @media (--lg) {
@@ -495,7 +498,8 @@
     transform: translateY(0);
     width: vw(125);
     height: vw(125);
-    background-color: #f00;
+    color: var(--c-black-second);
+    // background-color: var(--c-black-second);
   }
 }
 
@@ -796,6 +800,7 @@
       top: 0;
       left: 50%;
       width: 115%;
+      max-width: 115%;
       min-height: 36px;
       transform: translateX(-50%);
       transition: var(--trans-dur-fast) ease;

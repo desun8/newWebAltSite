@@ -30,7 +30,7 @@ body.theme-orange {
 .page-home section {
   min-height: 100vh;
   margin-bottom: vh(150);
-  content-visibility: auto;
+  // content-visibility: auto;
   
   @media screen and (--tablet-sm) {
     margin-bottom: 50px;
