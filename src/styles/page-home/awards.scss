@@ -2,12 +2,14 @@
 
 .awards-stats {
   grid-column: 1/3;
+  padding-top: calc(var(--title-pd-t) + 20px);
   
   @media screen and (--tablet-sm) {
     position: relative;
     grid-column: 1/2;
     grid-row: 1/2;
     margin-bottom: 215px;
+    padding-top: 0;
   }
   
   &::after {
