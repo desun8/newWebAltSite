@@ -2,7 +2,10 @@ import { gsap } from "gsap";
 import { disablePageScroll, enablePageScroll } from "scroll-lock";
 import APP from "../app/APP";
 import Collapsible from "./collapsible";
-import { disableScroll, enableScroll } from "./smoothScroll/plugins/ModalPlugin";
+import {
+  disableScroll,
+  enableScroll,
+} from "./smoothScroll/plugins/ModalPlugin";
 import SmoothScroll from "./smoothScroll/SmoothScroll";
 
 export default class Menu {
@@ -40,13 +43,6 @@ export default class Menu {
 
     this.elmWidth = this.elm.offsetWidth;
 
-    this.scrollbarConfig = {
-      options: {
-        className: "os-theme-menu",
-      },
-      elm: this.elm.querySelector(".page-menu__wrap"),
-    };
-
     this.scrollbarInstance = null;
 
     this.update = this.update.bind(this);
@@ -78,8 +74,10 @@ export default class Menu {
   }
 
   initScrollbar() {
-    this.scrollbarInstance = new SmoothScroll(this.elm.querySelector(".page-menu__wrap"));
-    this.scrollbarInstance.init()
+    this.scrollbarInstance = new SmoothScroll(
+      this.elm.querySelector(".page-menu__wrap")
+    );
+    this.scrollbarInstance.init();
   }
 
   destroyScrollbar() {
@@ -90,58 +88,70 @@ export default class Menu {
 
   toggleView(shouldShow) {
     const targets = this.moveTargets;
-
     const duration = 0.3;
-    const tl = gsap.timeline();
+    const delay = APP.isDesktop ? 0.1 : 0.15;
 
-    tl.to(
-      this.elm,
-      {
-        x: shouldShow ? 0 : -this.elmWidth,
-        duration,
+    const menuTween = () => gsap.to(this.elm, {
+      x: shouldShow ? 0 : -this.elmWidth,
+      duration,
+      delay,
+      onStart: () => {
+        this.elm.style.willChange = "transform";
       },
-      0
-    );
-    tl.to(
-      targets,
-      {
-        x: shouldShow ? this.elmWidth : 0,
-        duration,
-        onStart: () => {
-          targets.forEach((elm) => {
-            elm.style.willChange = "transform";
-          });
-        },
-        onComplete: () => {
-          if (!shouldShow) {
-            this.pageHeader.style.transform = null;
-            this.elm.style.transform = null;
-          }
+      onComplete: () => {
+        this.elm.style.willChange = "";
+      },
+    });
 
-          targets.forEach((elm) => {
-            elm.style.willChange = null;
-          });
-        },
-      },
-      0
-    );
+    if (APP.isDesktop) {
+      gsap
+        .timeline()
+        .add(menuTween())
+        // Сдвигаем контент в сторону
+        .to(
+          targets,
+          {
+            x: shouldShow ? this.elmWidth : 0,
+            duration,
+            delay,
+            onStart: () => {
+              targets.forEach((elm) => {
+                elm.style.willChange = "transform";
+              });
+            },
+            onComplete: () => {
+              if (!shouldShow) {
+                this.pageHeader.style.transform = null;
+                this.elm.style.transform = null;
+              }
 
-    tl.to(
-      this.pageHeader,
-      {
-        alpha: shouldShow ? 0 : 1,
-        duration,
-        onStart() {
-          const target = this.targets()[0];
-          if (shouldShow) {
-            target.classList.add("is-menu-show");
-          } else {
-            target.classList.remove("is-menu-show");
-          }
-        },
-      },
-      0
-    );
+              targets.forEach((elm) => {
+                elm.style.willChange = null;
+              });
+            },
+          },
+          0
+        )
+        .to(
+          this.pageHeader,
+          {
+            alpha: shouldShow ? 0 : 1,
+            duration,
+            delay,
+            onStart() {
+              const target = this.targets()[0];
+              if (shouldShow) {
+                target.classList.add("is-menu-show");
+              } else {
+                target.classList.remove("is-menu-show");
+              }
+            },
+          },
+          0
+        );
+    } else {
+      menuTween().play();
+    }
   }
 
   handleClick() {
@@ -185,7 +195,6 @@ export default class Menu {
   }
 
   update() {
-
     this.elmWidth = this.elm.offsetWidth;
   }
 
@@ -201,6 +210,6 @@ export default class Menu {
   init() {
     this.collapseSubMenu();
     this.addEvents();
-    this.initScrollbar()
+    this.initScrollbar();
   }
 }
