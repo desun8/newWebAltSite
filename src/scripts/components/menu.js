@@ -199,6 +199,10 @@ export default class Menu {
 
   update() {
     this.elmWidth = this.elm.offsetWidth;
+
+    if (!this.isVisible) {
+      gsap.set(this.elm, { x: -this.elmWidth });
+    }
   }
 
   desktop() {
