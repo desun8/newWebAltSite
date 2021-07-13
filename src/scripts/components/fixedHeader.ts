@@ -71,10 +71,11 @@ export const fixedHeader = () => {
         currScrollTop > prevScrollTop
           ? ScrollDirection.Down
           : ScrollDirection.Up;
-      const touchesDifferent = touchEnd - touchStart >= 5;
+
+      // const touchesDifferent = touchEnd - touchStart >= 1;
 
       if (direction === ScrollDirection.Up) {
-        if (currScrollTop > clientHeight && touchesDifferent) {
+        if (currScrollTop > clientHeight) {
           pinHeader();
         } else {
           unpinHeader();
@@ -90,17 +91,17 @@ export const fixedHeader = () => {
       toggleHeader(document.documentElement.scrollTop);
     };
     const onScroll = throttle(handleScroll, 200);
-    const onTouchStart = throttle((event) => {
-      touchStart = event.touches[0].clientY;
-    }, 200);
-    const onTouchEnd = throttle((event) => {
-      touchEnd = event.changedTouches[0].clientY;
-    }, 200);
+    // const onTouchStart = throttle((event) => {
+    //   touchStart = event.touches[0].clientY;
+    // }, 200);
+    // const onTouchEnd = throttle((event) => {
+    //   touchEnd = event.changedTouches[0].clientY;
+    // }, 200);
 
     document.addEventListener("scroll", onScroll, { passive: true });
 
-    document.addEventListener("touchstart", onTouchStart, { passive: true });
+    // document.addEventListener("touchstart", onTouchStart, { passive: true });
 
-    document.addEventListener("touchend", onTouchEnd, { passive: true });
+    // document.addEventListener("touchend", onTouchEnd, { passive: true });
   }
 };
