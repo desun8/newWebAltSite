@@ -16,8 +16,7 @@ export const fixedHeader = () => {
 
     let prevScrollTop = 0;
     let currScrollTop = 0;
-    let touchStart = 0;
-    let touchEnd = 0;
+
     let isHeaderPinned = false;
     const defaultPosY = -100;
 
@@ -25,7 +24,6 @@ export const fixedHeader = () => {
     gsap.set(fixedHeaderElm, {
       y: defaultPosY,
       display: "block",
-      // visibility: "hidden",
     });
 
     const pinHeader = () => {
@@ -72,8 +70,6 @@ export const fixedHeader = () => {
           ? ScrollDirection.Down
           : ScrollDirection.Up;
 
-      // const touchesDifferent = touchEnd - touchStart >= 1;
-
       if (direction === ScrollDirection.Up) {
         if (currScrollTop > clientHeight) {
           pinHeader();
@@ -91,17 +87,6 @@ export const fixedHeader = () => {
       toggleHeader(document.documentElement.scrollTop);
     };
     const onScroll = throttle(handleScroll, 200);
-    // const onTouchStart = throttle((event) => {
-    //   touchStart = event.touches[0].clientY;
-    // }, 200);
-    // const onTouchEnd = throttle((event) => {
-    //   touchEnd = event.changedTouches[0].clientY;
-    // }, 200);
-
     document.addEventListener("scroll", onScroll, { passive: true });
-
-    // document.addEventListener("touchstart", onTouchStart, { passive: true });
-
-    // document.addEventListener("touchend", onTouchEnd, { passive: true });
   }
 };
