@@ -9,13 +9,13 @@ import {
 import SmoothScroll from "./smoothScroll/SmoothScroll";
 
 export default class Menu {
-  constructor(elm, btnOpen, btnClose, nav, appConfig = null) {
+  constructor(elm, btnsOpen, btnClose, nav, appConfig = null) {
     this.elm = elm;
     this.elmSelector =
       this.elm.tagName.toLowerCase() +
       "." +
       Array.from(this.elm.classList).join(".");
-    this.btnOpen = btnOpen;
+    this.btnsOpen = btnsOpen;
     this.btnClose = btnClose;
     this.nav = nav;
 
@@ -91,17 +91,18 @@ export default class Menu {
     const duration = 0.3;
     const delay = APP.isDesktop ? 0.1 : 0.15;
 
-    const menuTween = () => gsap.to(this.elm, {
-      x: shouldShow ? 0 : -this.elmWidth,
-      duration,
-      delay,
-      onStart: () => {
-        this.elm.style.willChange = "transform";
-      },
-      onComplete: () => {
-        this.elm.style.willChange = "";
-      },
-    });
+    const menuTween = () =>
+      gsap.to(this.elm, {
+        x: shouldShow ? 0 : -this.elmWidth,
+        duration,
+        delay,
+        onStart: () => {
+          this.elm.style.willChange = "transform";
+        },
+        onComplete: () => {
+          this.elm.style.willChange = "";
+        },
+      });
 
     if (APP.isDesktop) {
       gsap
@@ -176,7 +177,7 @@ export default class Menu {
 
   // Закрытие меню
   handleClickOutside(e) {
-    if (!this.isVisible || e.target === this.btnOpen) {
+    if (!this.isVisible || e.target === this.btnsOpen[0]) {
       return;
     }
 
@@ -188,7 +189,9 @@ export default class Menu {
   }
 
   addEvents() {
-    this.btnOpen.addEventListener("click", this.handleClick);
+    this.btnsOpen.forEach((btn) => {
+      btn.addEventListener("click", this.handleClick);
+    });
     this.btnClose.addEventListener("click", this.handleClick);
     APP.isDesktop &&
       document.body.addEventListener("click", this.handleClickOutside);

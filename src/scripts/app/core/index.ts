@@ -1,3 +1,4 @@
+import { fixedHeader } from "@/scripts/components/fixedHeader";
 import { ANDROID, MAC_OS } from "@/scripts/utils/getOS";
 import { mediaQueryEvent } from "@/scripts/utils/mediaQueryEvent";
 import APP from "../APP";
@@ -26,6 +27,7 @@ const defaultInit = () => {
 export const initCore = () => {
   defaultInit();
   initMenu();
+  fixedHeader();
   initFooter();
 
   initSmoothScroll();
