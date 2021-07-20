@@ -33,7 +33,7 @@
 }
 
 .form__input input.is-valid + label::before {
-  @apply bg-orange opacity-100;
+  @apply bg-sun opacity-100;
 }
 
 .form__input input.has-value + label,
@@ -42,7 +42,7 @@
 }
 
 .form__input input:focus-visible + label {
-  @apply text-orange;
+  @apply text-sun;
 }
 
 .form__input input:focus-visible + label::before {
@@ -50,7 +50,7 @@
 }
 
 .form__input.has-error input {
-  @apply border-orange-opacity-50;
+  @apply border-sun-opacity-50;
 }
 
 .form__input .form-field__error {

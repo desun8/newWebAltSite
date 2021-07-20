@@ -99,7 +99,7 @@
     //}
   }
   
-  &.theme-orange {
+  &.theme-sun {
     .block__number,
     .block__text {
       color: inherit;
@@ -123,7 +123,7 @@
   }
   
   &.theme-dark,
-  &.theme-orange {
+  &.theme-sun {
     svg {
       @include transition-switch-theme(all, 0.5s);
     }
@@ -493,7 +493,7 @@
     transform: translateY(0);
     width: vw(125);
     height: vw(125);
-    color: var(--c-black-second);
+    color: var(--c-dark-grey);
   }
 }
 
@@ -574,7 +574,7 @@
     //
     .theme-dark .block--design & {
       //--bg: var(--c-red);
-      color: var(--c-black-second);
+      color: var(--c-dark-grey);
     }
   }
   
@@ -896,7 +896,7 @@
     svg {
       width: 100%;
       height: 100%;
-      fill: var(--c-black-second);
+      fill: var(--c-dark-grey);
     }
   }
 }

@@ -7,13 +7,13 @@
 }
 
 .subscribe-banner-btn__img {
-  @apply absolute top-0 left-0 w-9 h-14 bg-orange;
+  @apply absolute top-0 left-0 w-9 h-14 bg-sun;
 
   mask: url("/images/home/bg-design-mobile.svg") no-repeat center/contain;
 }
 
 .subscribe-banner-block {
-  @apply absolute bottom-0 -right-8 grid pr-6 bg-orange transition-transform duration-500;
+  @apply absolute bottom-0 -right-8 grid pr-6 bg-sun transition-transform duration-500;
 
   grid-template-columns: 100px 500px 1fr;
   gap: 25px;
@@ -35,21 +35,21 @@
   @apply absolute right-9 text-xl text-white font-semibold uppercase tracking-wide hover:text-white;
 }
 
-body.theme-orange .subscribe-banner-btn__img {
+body.theme-sun .subscribe-banner-btn__img {
   background-color: #fff;
 }
 
-body.theme-orange .subscribe-banner-block {
+body.theme-sun .subscribe-banner-block {
   background-color: #fff;
 }
 
-body.theme-orange .subscribe-banner-block__input:hover,
-body.theme-orange .subscribe-banner-block__input:focus {
+body.theme-sun .subscribe-banner-block__input:hover,
+body.theme-sun .subscribe-banner-block__input:focus {
   border-color: var(--c-red);
 }
 
-body.theme-orange .subscribe-banner-block__input + span,
-body.theme-orange .subscribe-banner-block__success {
+body.theme-sun .subscribe-banner-block__input + span,
+body.theme-sun .subscribe-banner-block__success {
   color: var(--c-red);
 }
 

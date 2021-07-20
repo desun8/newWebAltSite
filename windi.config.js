@@ -27,11 +27,11 @@ module.exports = {
         teal: colors.teal,
         black: "#131313",
         "black-opacity-50": "rgba(0, 0, 0, 0.5)",
-        "black-second": "#262626",
-        "black-second-opacity-10": "rgba(38, 38, 38, 0.1)",
+        "dark-grey": "#262626",
+        "dark-grey-opacity-10": "rgba(38, 38, 38, 0.1)",
         gray: "#dfdddf",
-        orange: "#ff5000",
-        "orange-opacity-50": "rgba(255, 80, 0, 0.5)",
+        sun: "#ff5000",
+        "sun-opacity-50": "rgba(255, 80, 0, 0.5)",
       },
 
       gridTemplateColumns: {

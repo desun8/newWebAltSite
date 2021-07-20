@@ -2,7 +2,7 @@
 
 .form__submit {
   @media (--lg) {
-    @apply text-black-second;
+    @apply text-dark-grey;
 
     --gap: #{em(135, 54)};
     --pd: #{em(64, 54)} 0;
@@ -31,5 +31,5 @@
 }
 
 .form__submit .link__arrow {
-  @apply lg:fill-black-second-opacity-10;
+  @apply lg:fill-dark-grey-opacity-10;
 }

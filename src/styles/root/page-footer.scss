@@ -6,7 +6,7 @@
   padding-top: vh(148);
   padding-bottom: vh(148);
   color: #fff;
-  background-color: var(--c-black-second);
+  background-color: var(--c-dark-grey);
   content-visibility: auto;
   
   @media screen and (--tablet-sm) {
@@ -382,7 +382,7 @@
     }
     
     &:hover {
-      --stroke-color: var(--c-black-second);
+      --stroke-color: var(--c-dark-grey);
       
       .link__text {
         -webkit-text-fill-color: var(--c-red);
@@ -396,7 +396,7 @@
     }
     
     &.link {
-      color: var(--c-black-second);
+      color: var(--c-dark-grey);
       
       &::after {
         @media screen and (--tablet-sm) {

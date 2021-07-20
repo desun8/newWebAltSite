@@ -64,7 +64,7 @@
       font-size: 88px;
     }
     
-    body.theme-orange & {
+    body.theme-sun & {
       color: #fff;
     }
   }
@@ -148,7 +148,7 @@
 }
 
 .awards-list {
-  --color: var(--c-black-second);
+  --color: var(--c-dark-grey);
   --icon-scale: scaleY(1);
   
   margin-bottom: vw(30);

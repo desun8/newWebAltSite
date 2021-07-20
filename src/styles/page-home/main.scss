@@ -5,20 +5,20 @@ body {
 }
 
 body.theme-dark {
-  background-color: var(--c-black-second);
+  background-color: var(--c-dark-grey);
 }
 
-body.theme-orange {
+body.theme-sun {
   background-color: var(--c-red);
 }
 
 .page-home {
-  --textColor: var(--c-black-second);
+  --textColor: var(--c-dark-grey);
   color: var(--textColor);
 }
 
 .page-home--dark {
-  --bodyBg: var(--c-black-second);
+  --bodyBg: var(--c-dark-grey);
   --textColor: #fff;
 }
 

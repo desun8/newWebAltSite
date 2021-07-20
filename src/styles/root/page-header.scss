@@ -101,7 +101,7 @@
   align-items: center;
   width: 40px;
   height: 30px;
-  color: var(--c-black-second);
+  color: var(--c-dark-grey);
   
   .page-header--short & {
     display: none;
@@ -211,7 +211,7 @@
     --color: #fff;
   }
   
-  body.theme-orange & {
+  body.theme-sun & {
     --color-hover: #fff;
   }
   

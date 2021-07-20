@@ -10,7 +10,7 @@ export default class ChangeTheme {
       },
       {
         target: document.querySelector('.block--design'),
-        className: 'theme-orange',
+        className: 'theme-sun',
       }];
     this.state = {
       in: '',

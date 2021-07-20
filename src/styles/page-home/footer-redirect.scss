@@ -1,7 +1,7 @@
 @use "../_config" as *;
 
 body {
-  --redirect-color: var(--c-black-second);
+  --redirect-color: var(--c-dark-grey);
   
   @media screen and (--tablet-sm) {
     --redirect-color: #c4c4c4;
@@ -104,7 +104,7 @@ body {
   }
   
   .link__arrow {
-    fill: var(--c-black-second);
+    fill: var(--c-dark-grey);
   }
 }
 
@@ -128,9 +128,9 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--c-black-second);
+  color: var(--c-dark-grey);
   //-webkit-text-fill-color: transparent;
-  //-webkit-text-stroke: 1px var(--c-black-second);
+  //-webkit-text-stroke: 1px var(--c-dark-grey);
   
   div {
     display: flex;

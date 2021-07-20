@@ -10,7 +10,7 @@ export default (formElm: HTMLFormElement) => {
   let isFetching = false;
   const animationDuration = 0.6;
   const isThemeOrange = () => {
-    return document.body.classList.contains("theme-orange");
+    return document.body.classList.contains("theme-sun");
   };
 
   const showSuccessMessage = () => {

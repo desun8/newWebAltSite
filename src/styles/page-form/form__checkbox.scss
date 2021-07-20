@@ -1,10 +1,10 @@
 .form__checkbox input[type="checkbox"]:checked + label {
-  @apply bg-orange text-white;
+  @apply bg-sun text-white;
 }
 
 .form__checkbox input[type="checkbox"]:focus-visible:not(:checked) + label,
 .form__checkbox input[type="checkbox"]:hover:not(:checked) + label {
-  @apply text-orange;
+  @apply text-sun;
 }
 
 .form__checkbox input[type="checkbox"]:focus-visible:checked + label,
