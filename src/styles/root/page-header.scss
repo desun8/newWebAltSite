@@ -17,8 +17,7 @@
   position: relative;
   z-index: 100;
   
-  margin-bottom: calc(64px + #{vw(30)});
-  padding-top: vw(36);
+  // margin-bottom: calc(64px + #{vw(30)});
   
   @media screen and (--tablet-sm) {
     --grid-col: 5;
@@ -27,17 +26,14 @@
     @include grid-base(var(--grid-col));
     
     position: unset;
-    margin-bottom: 10px;
-    padding-top: 20px;
+    // margin-bottom: 10px;
     padding-bottom: 20px;
   }
 }
 
-.page-header--short {
-  margin-bottom: 0;
-  padding-top: vw(46);
-  padding-top: 0;
-}
+// .page-header--short {
+//   margin-bottom: 0;
+// }
 
 
 

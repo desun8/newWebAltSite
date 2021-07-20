@@ -33,7 +33,7 @@ export const initCore = () => {
   initSmoothScroll();
   initProgressBar();
 
-  if (APP.scrollbar) {
+  if (APP.scrollbar && APP.isDesktop) {
     addNoise();
   }
 };

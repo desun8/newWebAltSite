@@ -1,15 +1,9 @@
 /* mobile first */
-//@custom-media --mobile-sm (width >= 23.4375em);
-@custom-media --m-tablet (width >= 48em);
-@custom-media --lg (width >= 64em);
-//@custom-media --desktop (width >= 68.75em);
-//@custom-media --desktop-md (width >= 90em);
-//@custom-media --desktop-lg (width >= 100em);
-//
-//@custom-media --desktop-height-sm (height < 43.75em) and (--desktop);
-//@custom-media --desktop-height-md (height <= 53em) and (--desktop);
-//
-//@custom-media --only-mobile (width < 68.75em);
+@custom-media --md (width >= 48em); // 768px
+@custom-media --lg (width >= 64em); // 1024px
+@custom-media --xl (width >= 80em); // 1280px
+@custom-media --xl-2 (width >= 96em); // 1536px
+
 
 /* desktop first */
 @custom-media --desktop-md (width <= 90em);

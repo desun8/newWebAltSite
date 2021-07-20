@@ -1,0 +1,51 @@
+<div class="grid gap-16 xl:grid-cols-2 2xl:grid-cols-7 2xl:gap-x-$fields-gap">
+  <include src="components/pages/Form/input.html">
+    { "class": "2xl:col-span-3", "id": "name", "type": "text", "name": "Имя",
+    "required": "required", "prefix": "*" }
+  </include>
+  <include src="components/pages/Form/input.html">
+    { "class": "xl:row-start-2 2xl:col-span-3", "id": "tel", "type": "text", "name": "Телефон",
+    "required": "required", "prefix": "*" }
+  </include>
+  <include src="components/pages/Form/input.html">
+    { "class": "2xl:col-start-5 2xl:col-span-3", "id": "company", "type": "text", "name": "Компания", "required": "",
+    "prefix": "" }
+  </include>
+  <include src="components/pages/Form/input.html">
+    { "class": "2xl:col-start-5 2xl:col-span-3", "id": "email", "type": "email", "name": "Email", "required": "",
+    "prefix": "" }
+  </include>
+
+  <div class="form__textarea relative flex xl:col-span-full">
+    <textarea
+      id="message"
+      class="
+        w-full
+        pt-10
+        text-black-second
+        bg-gray bg-opacity-20
+        resize-y
+        border-b-2 border-transparent
+        transition-colors
+        focus:outline-none focus:border-orange
+      "
+      name="message"
+      cols="30"
+      rows="11"
+    ></textarea>
+    <label
+      for="message"
+      class="
+        absolute
+        top-0
+        left-0
+        text-xl text-black-second text-opacity-50
+        font-semibold
+        uppercase
+      "
+      >Ваше сообщение</label
+    >
+  </div>
+</div>
+
+<include src="components/pages/Form/input-file.html"></include>

@@ -1,0 +1,55 @@
+
+    <div class="flex flex-wrap">
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "site", "value": "Сайт" }</include
+      >
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "context", "value": "Контекст" }</include
+      >
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "smm", "value": "SMM" }</include
+      >
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "disign", "value": "Дизайн" }</include
+      >
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "personal-style", "value": "Фирменный стиль" }</include
+      >
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "target", "value": "Таргет" }</include
+      >
+      <include src="components/pages/Form/checkbox.html">
+        { "id": "integration", "value": "1с интеграция" }</include
+      >
+
+      <div class="form__checkbox relative">
+        <input
+          id="all"
+          class="absolute t-0 l-0 w-full h-full opacity-0"
+          type="checkbox"
+          name="type"
+          value="all"
+        /><label
+          for="all"
+          class="
+            inline-block
+            w-full
+            py-6
+            px-9
+            bg-black
+            text-white 
+            text-sm 
+            text-center 
+            leading-none
+            uppercase
+            shadow-collapsing
+            transition-colors
+            lg:py-5 
+            lg:px-7
+            lg:text-xl
+            lg:leading-none
+          "
+          >Нужно всё!</label
+        >
+      </div>
+    </div>

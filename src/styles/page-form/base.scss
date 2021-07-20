@@ -1,0 +1,15 @@
+@use "../_config/functions/index" as fn;
+
+.page-form {
+  @media (--xl) {
+    --fields-gap: #{fn.vw(20)};
+  }
+}
+
+.page-form-footer .footer-social {
+  @apply hidden lg:block;
+}
+
+.page-form-footer .footer-social.contacts {
+  @apply lg:hidden xl:block;  
+}

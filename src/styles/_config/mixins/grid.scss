@@ -6,11 +6,11 @@
   //grid-template-rows: repeat($row, $rowSize);
   column-gap: fn.vw(20);
   padding: 0 var(--page-gap);
-  
+
   @media screen and (--tablet-sm) {
     column-gap: fn.vw(20, fn.$mobile-viewport);
   }
-  
+
   // FIXME: only dev
   //@for $i from 1 through 12 {
   //  & > *:nth-child(#{$i}) {
@@ -24,9 +24,20 @@
   grid-template-columns: repeat($col, minmax(10px, $colSize));
   grid-template-rows: repeat($row, minmax(10px, $rowSize));
   column-gap: fn.vw(20);
-  
+
   @media screen and (--tablet-sm) {
     column-gap: fn.vw(20, fn.$mobile-viewport);
+  }
+}
+
+@mixin grid-new($col, $row: 1, $colSize: 1fr, $rowSize: 1fr) {
+  display: grid;
+  grid-template-columns: repeat($col, minmax(10px, $colSize));
+  grid-template-rows: repeat($row, minmax(10px, $rowSize));
+  column-gap: fn.vw(20, fn.$mobile-viewport);
+
+  @media (--lg) {
+    column-gap: fn.vw(20);
   }
 }
 
@@ -35,11 +46,11 @@
   grid-template-columns: repeat($col, minmax(10px, $colSize));
   grid-template-rows: repeat($row, minmax(10px, $rowSize));
   column-gap: fn.vw(20);
-  
+
   @media screen and (--tablet-sm) {
     column-gap: fn.vw(20, fn.$mobile-viewport);
   }
-  
+
   // FIXME: only dev
   @for $i from 1 through 12 {
     & > *:nth-child(#{$i}) {
@@ -48,11 +59,20 @@
   }
 }
 
-
 @mixin wrap() {
   padding: 0 fn.vw(100);
-  
+
   @media screen and (--tablet-sm) {
     padding: 0 fn.vw(20, fn.$mobile-viewport);
+  }
+}
+
+@mixin wrap-new() {
+  padding-left: fn.vw(20, fn.$mobile-viewport);
+  padding-right: fn.vw(20, fn.$mobile-viewport);
+
+  @media (--lg) {
+    padding-left: fn.vw(100);
+    padding-right: fn.vw(100);
   }
 }

@@ -1,9 +1,10 @@
+@use "sass:math";
 @use "../_config" as *;
 
 .page-menu {
   //--width: #{vw(535)};
   --width: 535px;
-  
+
   position: fixed;
   top: 0;
   left: 0;
@@ -14,12 +15,12 @@
   color: #fff;
   background-color: var(--c-black-second) !important;
   transform: translateX(calc(-1 * var(--width)));
-  
+
   @media screen and (--tablet-sm) {
     max-width: 100%;
     overflow-y: scroll;
   }
-  
+
   &__wrap {
     position: absolute;
     top: 0;
@@ -27,16 +28,16 @@
     width: 100%;
     min-height: 100%;
     padding-top: vw(46);
-    
+
     display: grid;
-  
+
     @media screen and (--tablet-sm) {
       //display: block;
       padding-top: 0;
       align-content: start;
       grid-template-rows: auto auto 1fr;
     }
-    
+
     .os-content {
       display: grid;
       grid-template-columns: 100%;
@@ -63,7 +64,7 @@
   display: flex;
   align-items: center;
   margin-bottom: vw(110);
-  
+
   @media screen and (--tablet-sm) {
     justify-content: space-between;
     margin-bottom: 30px;
@@ -80,7 +81,7 @@
   width: 38px;
   height: 21px;
   margin-right: vw(84);
-  
+
   @media screen and (--tablet-sm) {
     width: 40px;
     height: auto;
@@ -89,37 +90,37 @@
 
 .page-menu__close {
   @include font-size-px($fz-text-sm);
-  
+
   color: inherit;
   transition: color var(--trans-dur-fast) ease-in;
   transform: translateY(15%);
-  
+
   @media screen and (--tablet-sm) {
     --size: 30px;
-    
+
     width: var(--size);
     height: var(--size);
     font-size: 0;
     transform: none;
   }
-  
+
   &:hover {
     color: var(--c-red);
   }
-  
+
   .icon-cross {
     --size: #{em(9, $fz-text-sm)};
-    
+
     position: relative;
     display: inline-block;
     width: var(--size);
     height: var(--size);
     margin-right: em(20, $fz-text-sm);
-  
+
     @media screen and (--tablet-sm) {
       --size: 20px;
     }
-    
+
     &::before,
     &::after {
       content: "";
@@ -129,16 +130,16 @@
       width: 100%;
       height: 1px;
       background-color: currentColor;
-  
+
       @media screen and (--tablet-sm) {
         height: 2px;
       }
     }
-    
+
     &::before {
       transform: rotate(45deg);
     }
-    
+
     &::after {
       transform: rotate(-45deg);
     }
@@ -154,7 +155,7 @@
   padding-right: 124px;
   padding-bottom: vw(56);
   align-self: end;
-  
+
   @media screen and (--tablet-sm) {
     padding-bottom: 46px;
   }
@@ -162,39 +163,38 @@
 
 .menu-contact {
   margin-bottom: vw(40);
-  
+
   @media screen and (--tablet-sm) {
     margin-bottom: 20px;
   }
-  
+
   &__name {
     //@include font-size($fz-text-sm);
     @include font-size-px(12);
-    
+
     max-width: em(84, 12);
     margin-bottom: em(5, 12);
     font-weight: 300;
-  
+
     @media screen and (--tablet-sm) {
       max-width: em(60, 10);
       font-size: 10px;
     }
-    
-    
+
     .ticker__item {
       margin-right: em(5, $fz-text-sm);
     }
   }
-  
+
   &__link {
     //@include font-size(30, 40);
     @include font-size-px(32, 42);
-    
-    @media screen and (--tablet-sm) {      
+
+    @media screen and (--tablet-sm) {
       font-size: $fz-text-lg * 1px;
       text-transform: uppercase;
     }
-    
+
     .link {
       //noinspection CssInvalidMediaFeature
       @media screen and (--tablet-sm) {
@@ -208,17 +208,17 @@
   //@include font-size($fz-text-sm, 14);
   @include font-size-px(12, 14);
   @include fix-ios-chrome-font-size(8);
-  
+
   display: flex;
   justify-content: space-between;
-  
+
   text-transform: uppercase;
   font-weight: 600;
-  
+
   @media screen and (--tablet-sm) {
     padding-top: 16px;
     font-size: 8px;
-    
+
     .os-android & {
       height: 80px;
     }
@@ -228,7 +228,7 @@
 .page-nav {
   margin-bottom: 80px;
   padding-left: 84px;
-  
+
   @media screen and (--tablet-sm) {
     margin-bottom: vh(65, 812);
   }
@@ -237,16 +237,16 @@
 .page-nav__list,
 .page-nav__sub-list {
   @include list-unstyled();
-  
+
   display: inline-block;
 }
 
 .page-nav__list {
   @include font-size-px($fz-text-md);
   @include fix-ios-chrome-font-size($fz-text-lg);
-  
+
   counter-reset: my-counter;
-  
+
   @media screen and (--tablet-sm) {
     @include font-size-px($fz-text-lg);
     display: block;
@@ -258,17 +258,17 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  
+
   counter-increment: my-counter;
 }
 
 .page-nav__sub-list {
-  --mt: #{em(30 / 2, $fz-text-md)};
+  --mt: #{em(math.div(30, 2), $fz-text-md)};
   --mb: #{em(90, $fz-text-md)};
-  
+
   @include font-size-px($fz-text-sm);
   @include fix-ios-chrome-font-size(15);
-  
+
   position: relative;
   max-height: 0;
   padding-left: em(20, $fz-text-sm);
@@ -276,14 +276,14 @@
   overflow: hidden;
   transform: translateY(var(--mt));
   transition: margin-bottom var(--trans-dur-fast);
-  
+
   @media screen and (--tablet-sm) {
     --mt: #{em(10, 15)};
     --mb: #{em(40, 15)};
-    
+
     @include font-size-px(15);
   }
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -293,7 +293,7 @@
     height: 100%;
     background-color: var(--c-red);
   }
-  
+
   .page-nav__link[data-hidden="false"] + & {
     margin-bottom: var(--mb);
   }
@@ -301,11 +301,11 @@
 
 .page-nav__sub-elm {
   margin-bottom: em(25, $fz-text-sm);
-  
+
   @media screen and (--tablet-sm) {
     margin-bottom: em(28, 15);
   }
-  
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -322,83 +322,83 @@
 }
 
 .page-nav__link {
-  --pd: #{em(30 / 2, $fz-text-md)} 0;
+  --pd: #{em(math.div(30, 2), $fz-text-md)} 0;
   position: relative;
   padding: var(--pd);
   opacity: 0.7;
   outline: 0;
-  
+
   @media screen and (--tablet-sm) {
-    --pd: #{em(30 / 2, $fz-text-lg)} 0;
+    --pd: #{em(math.div(30, 2), $fz-text-lg)} 0;
     text-align: left;
   }
-  
+
   &::before {
     content: "0" counter(my-counter);
     position: absolute;
     top: 0;
     left: -40px;
-    
+
     display: flex;
     align-items: center;
-    
+
     padding: var(--pd);
-    
+
     color: var(--c-red);
     font-weight: 300;
     letter-spacing: inherit;
-    
+
     opacity: 0;
     transform: translateX(-10px);
     transition: var(--trans-dur-faster) ease-in;
     transition-property: opacity, transform;
-  
+
     @media screen and (--tablet-sm) {
       left: auto;
       right: 0;
     }
   }
-  
+
   &:hover {
     opacity: 1 !important;
   }
-  
+
   .page-nav__list:hover & {
     opacity: 0.2;
   }
-  
+
   .page-nav__list:hover .page-nav__elm--active:hover & {
     opacity: 0.7;
   }
-  
+
   .page-nav__list:hover .page-nav__elm--selected & {
     opacity: 0.7;
   }
-  
+
   .page-nav__elm--selected:not(.page-nav__elm--disable) &,
   .page-nav__elm--active & {
     &::before {
       opacity: 1;
       transform: none;
     }
-    
+
     //stylelint-disable
     .icon-arrow svg {
       transform: translate3d(-50%, -50%, 0);
     }
-    
+
     //stylelint-enable
   }
-  
+
   .icon-arrow {
     --size: #{em(10, $fz-text-md)};
-    
+
     position: relative;
     display: inline-block;
     width: var(--size);
     height: var(--size);
     overflow: hidden;
-    
+
     svg {
       position: absolute;
       top: 50%;
@@ -418,4 +418,3 @@
     color: var(--c-red);
   }
 }
-

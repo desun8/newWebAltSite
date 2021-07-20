@@ -1,0 +1,50 @@
+@keyframes arrow {
+  0%,
+  40%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    animation-timing-function: ease-in;
+  }
+  
+  9%,
+  10% {
+    transform: translate3d(100%, -100%, 0);
+    animation-timing-function: ease-out;
+  }
+  
+  12%,
+  15% {
+    opacity: 0;
+  }
+  
+  24%,
+  25% {
+    opacity: 0;
+    transform: translate3d(-100%, 100%, 0);
+  }
+  
+  29%,
+  30% {
+    opacity: 1;
+  }
+}
+
+.link {
+  @apply relative text-current no-underline whitespace-nowrap transition-colors;
+}
+
+.link--uppercase {
+  @apply uppercase;
+}
+
+.link--no-icon {
+  padding-right: 0;
+}
+
+.link--bold {
+  @apply font-semibold;
+}
+
+.link--orange {
+  @apply text-orange;
+}

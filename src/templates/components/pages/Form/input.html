@@ -1,0 +1,50 @@
+<div
+  class="form__input form-field relative grid gap-2 {{class}}"
+>
+  <input
+    id="{{id}}"
+    class="
+      pb-2.5
+      text-sm
+      font-light
+      tracking-wide
+      bg-transparent
+      border-b-2 border-black-opacity-50
+      placeholder-transparent
+      transition-colors
+      focus:outline-none focus:border-orange
+      hover:border-orange
+      lg:font-medium lg:text-2xl
+    "
+    type="{{type}}"
+    placeholder="{{name}}"
+    {{required}}
+  />
+  <label
+    for="{{id}}"
+    class="
+      absolute
+      w-full
+      text-base
+      font-semibold
+      text-black-second
+      uppercase
+      transition-all
+      cursor-text
+      before:cursor-default
+      lg:text-2xl lg:leading-none
+    "
+    >{{name}}{{prefix}}</label
+  >
+  <span
+    class="
+      form-field__error
+      absolute
+      -bottom-5
+      text-orange text-xs
+      font-light
+      tracking-wide
+    "
+    >*это поле необходимо заполнить</span
+  >
+</div>

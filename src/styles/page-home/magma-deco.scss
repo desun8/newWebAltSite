@@ -30,7 +30,7 @@
   background-image: image-set(url("/images/home/magma.jpg") 1x, url("/images/home/magma@2x.jpg") 2x);
   
   //noinspection CssInvalidMediaFeature
-  @media (--m-tablet) {
+  @media (--md) {
     background-image: image-set(url("/images/home/magma-md.jpg") 1x,
             url("/images/home/magma-md@2x.jpg") 2x);
   }

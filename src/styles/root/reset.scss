@@ -1,0 +1,9 @@
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: var(--autofill-bg, transparent) !important;
+  -webkit-box-shadow: 0 0 0 30px var(--autofill-bg, transparent) inset !important;
+}

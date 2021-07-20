@@ -1,0 +1,35 @@
+@use "../_config/index" as *;
+
+.form__submit {
+  @media (--lg) {
+    @apply text-black-second;
+
+    --gap: #{em(135, 54)};
+    --pd: #{em(64, 54)} 0;
+
+    @include font-size-new(54);
+  }
+
+  @media (--xl) {
+    --pd: #{em(64, 54)} #{em(90, 54)};
+  }
+}
+
+.form__submit .link__text {
+  @apply font-medium lg:font-bold;
+}
+
+.form__submit .link__icon {
+  margin-left: -4px;
+
+  @media (--lg) {
+    --icon-size: #{em(102, 54)};
+
+    margin-left: var(--gap);
+    transform: translateY(-5px);
+  }
+}
+
+.form__submit .link__arrow {
+  @apply lg:fill-black-second-opacity-10;
+}

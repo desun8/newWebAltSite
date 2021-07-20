@@ -53,12 +53,6 @@ body.theme-orange .subscribe-banner-block__success {
   color: var(--c-red);
 }
 
-.subscribe-banner-block__input:-internal-autofill-previewed,
-.subscribe-banner-block__input:-internal-autofill-selected,
-.subscribe-banner-block__input:-webkit-autofill,
-.subscribe-banner-block__input:-webkit-autofill:hover,
-.subscribe-banner-block__input:-webkit-autofill:focus,
-.subscribe-banner-block__input:-webkit-autofill:active {
-  background-color: var(--c-red) !important;
-  -webkit-box-shadow: 0 0 0 30px var(--c-red) inset !important;
+.subscribe-banner-block__input {
+  --autofill-bg: var(--c-red);
 }

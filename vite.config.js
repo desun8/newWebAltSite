@@ -60,6 +60,7 @@ export default {
         main: resolve(__dirname, "index.html"),
         services: resolve(__dirname, "nested/services.html"),
         blog: resolve(__dirname, "nested/blog.html"),
+        form: resolve(__dirname, "nested/form.html"),
       },
     },
   },

@@ -5,6 +5,13 @@
     "*.sass"
   ],
   "rules": {
+    "at-rule-no-unknown": [ true, {
+      "ignoreAtRules": [
+        "apply",
+        "include",
+        "use"
+      ]
+    }],
     "selector-no-qualifying-type": null,
     "max-nesting-depth": [
       3,

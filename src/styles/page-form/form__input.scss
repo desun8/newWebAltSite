@@ -1,0 +1,58 @@
+.form__input input {
+  --autofill-bg: #fff;
+}
+
+.form__input input:required + label::before {
+  @apply bg-warm-gray-200 opacity-0 transition-opacity;
+
+  --size: 6px;
+
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  transform: translateY(-60%);
+  width: var(--size);
+  height: var(--size);
+  opacity: 0;
+
+  @media (--xl) {
+    --size: 8px;
+    --top: 10px;
+    --left: 10px;
+
+    top: calc(100% + var(--top));
+    left: calc(100% + var(--left));
+  }
+
+  @media (--xl-2) {
+    --size: 14px;
+    --top: 5px;
+    --left: 20px;
+  }
+}
+
+.form__input input.is-valid + label::before {
+  @apply bg-orange opacity-100;
+}
+
+.form__input input.has-value + label,
+.form__input input:focus + label {
+  @apply transform -translate-y-6;
+}
+
+.form__input input:focus-visible + label {
+  @apply text-orange;
+}
+
+.form__input input:focus-visible + label::before {
+  @apply opacity-100;
+}
+
+.form__input.has-error input {
+  @apply border-orange-opacity-50;
+}
+
+.form__input .form-field__error {
+  @apply font-light;
+}
