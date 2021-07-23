@@ -5,6 +5,7 @@ import checkWebpFeature, { Features } from "@/scripts/utils/checkWebpFeature";
 
 import "virtual:windi.css";
 import "@/styles/root.scss";
+import "focus-visible";
 import { initCore } from "./app/core";
 
 export default function initRoot () {

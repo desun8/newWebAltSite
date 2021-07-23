@@ -6,7 +6,8 @@
   transition-property: opacity, transform;
 }
 
-.form-field.has-error .form-field__error {
+.form-field.has-error .form-field__error,
+.form-field input.has-error ~ .form-field__error {
   opacity: 1;
   transform: translateX(0);
 }

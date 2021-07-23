@@ -2,7 +2,7 @@
   <div class="relative mb-12">
     <input
       id="files"
-      class="absolute top-0 left-0 w-full h-full opacity-0"
+      class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
       type="file"
       name="file"
     />
@@ -20,17 +20,16 @@
           w-13
           h-12
           bg-black
+          transition-colors
           lg:w-108px lg:h-100px
         "
       >
         <svg
-          class="w-6 h-6 lg:w-12 lg:h-12"
-          fill="none"
+          class="w-6 h-6 fill-white transition-colors lg:w-12 lg:h-12"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
           <path
-            fill="#fff"
             d="M17.987 0l-8.96 8.959L0 17.987 6.013 24l6.065-6.064 7.81-7.81-4.07-4.071L6.49 15.38l.827.827 8.5-8.5 2.416 2.417-1.93 1.93-10.29 10.291-4.36-4.36 10.291-10.29 6.042-6.042 4.36 4.36-1.813 1.811.827.827L24 6.013 17.987 0z"
           />
         </svg>
@@ -42,9 +41,6 @@
     </label>
   </div>
 
-  <!-- lg:grid-cols-[200px,repeat(auto-fill,minmax(190px,230px)),300px] -->
-  <!-- lg:grid-cols-[1fr,2fr,1fr] -->
-
   <ul
     class="
       list
@@ -52,155 +48,18 @@
       gap-5
       max-w-96
       pl-8
-      lg:grid-cols-autoFill
-      lg:max-w-none
-      lg:pl-138px
-      2xl:gap-19
+      md:max-w-none
+      md:flex
+      md:flex-wrap
+      md:gap-0
+      md:pl-0
+      md:-mb-5
+      md:children:ml-8
+      md:children:mb-5
+      lg:pl-106px
+      xl:pl-98px
+      xl:children:ml-10
+      2xl:-mb-19 2xl:pl-62px 2xl:children:ml-19 2xl:children:mb-19
     "
-  >
-    <li>
-      <button class="flex items-center w-full hover:text-sun lg:w-auto" type="button">
-        <span class="icon-file w-4 h-5 mr-5 lg:w-6 lg:h-7">
-          <svg fill="none" viewBox="0 0 17 20" aria-hidden="true">
-            <g clip-path="url(#clip0)">
-              <path
-                fill="#131313"
-                d="M9.056 10.335v9.523l8.132-4.761V5.574l-8.132 4.761zm-.925 0L0 5.574v9.523l8.131 4.76v-9.522zM.463 4.762L8.593 0l8.132 4.762-8.131 4.76-8.131-4.76z"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <path fill="#fff" d="M0 0h17v20H0z" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <span class="name flex-grow text-left text-dark-grey lg:text-lg">name.txt</span>
-        <span class="icon-cross w-3 h-3 ml-5 transition-colors">
-          <svg fill="none" viewBox="0 0 11 11" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M11 8.8L7.698 5.5 11 2.2 8.8 0 5.5 3.3 2.2 0 0 2.2l3.3 3.3L0 8.8 2.2 11l3.3-3.3L8.8 11 11 8.8z"
-            />
-          </svg>
-        </span>
-      </button>
-    </li>
-    
-    
-    <li>
-      <button class="flex items-center w-full hover:text-sun lg:w-auto" type="button">
-        <span class="icon-file w-4 h-5 mr-5 lg:w-6 lg:h-7">
-          <svg fill="none" viewBox="0 0 17 20" aria-hidden="true">
-            <g clip-path="url(#clip0)">
-              <path
-                fill="#131313"
-                d="M9.056 10.335v9.523l8.132-4.761V5.574l-8.132 4.761zm-.925 0L0 5.574v9.523l8.131 4.76v-9.522zM.463 4.762L8.593 0l8.132 4.762-8.131 4.76-8.131-4.76z"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <path fill="#fff" d="M0 0h17v20H0z" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <span class="name flex-grow text-left text-dark-grey lg:text-lg">name.txt</span>
-        <span class="icon-cross w-3 h-3 ml-5 transition-colors">
-          <svg fill="none" viewBox="0 0 11 11" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M11 8.8L7.698 5.5 11 2.2 8.8 0 5.5 3.3 2.2 0 0 2.2l3.3 3.3L0 8.8 2.2 11l3.3-3.3L8.8 11 11 8.8z"
-            />
-          </svg>
-        </span>
-      </button>
-    </li>
-    <li>
-      <button class="flex items-center w-full hover:text-sun lg:w-auto" type="button">
-        <span class="icon-file w-4 h-5 mr-5 lg:w-6 lg:h-7">
-          <svg fill="none" viewBox="0 0 17 20" aria-hidden="true">
-            <g clip-path="url(#clip0)">
-              <path
-                fill="#131313"
-                d="M9.056 10.335v9.523l8.132-4.761V5.574l-8.132 4.761zm-.925 0L0 5.574v9.523l8.131 4.76v-9.522zM.463 4.762L8.593 0l8.132 4.762-8.131 4.76-8.131-4.76z"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <path fill="#fff" d="M0 0h17v20H0z" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <span class="name flex-grow text-left text-dark-grey lg:text-lg">name.txt</span>
-        <span class="icon-cross w-3 h-3 ml-5 transition-colors">
-          <svg fill="none" viewBox="0 0 11 11" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M11 8.8L7.698 5.5 11 2.2 8.8 0 5.5 3.3 2.2 0 0 2.2l3.3 3.3L0 8.8 2.2 11l3.3-3.3L8.8 11 11 8.8z"
-            />
-          </svg>
-        </span>
-      </button>
-    </li>
-    <li>
-      <button class="flex items-center w-full hover:text-sun lg:w-auto" type="button">
-        <span class="icon-file w-4 h-5 mr-5 lg:w-6 lg:h-7">
-          <svg fill="none" viewBox="0 0 17 20" aria-hidden="true">
-            <g clip-path="url(#clip0)">
-              <path
-                fill="#131313"
-                d="M9.056 10.335v9.523l8.132-4.761V5.574l-8.132 4.761zm-.925 0L0 5.574v9.523l8.131 4.76v-9.522zM.463 4.762L8.593 0l8.132 4.762-8.131 4.76-8.131-4.76z"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <path fill="#fff" d="M0 0h17v20H0z" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <span class="name flex-grow text-left text-dark-grey lg:text-lg">name.txt</span>
-        <span class="icon-cross w-3 h-3 ml-5 transition-colors">
-          <svg fill="none" viewBox="0 0 11 11" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M11 8.8L7.698 5.5 11 2.2 8.8 0 5.5 3.3 2.2 0 0 2.2l3.3 3.3L0 8.8 2.2 11l3.3-3.3L8.8 11 11 8.8z"
-            />
-          </svg>
-        </span>
-      </button>
-    </li>
-    <li>
-      <button class="flex items-center w-full hover:text-sun lg:w-auto" type="button">
-        <span class="icon-file w-4 h-5 mr-5 lg:w-6 lg:h-7">
-          <svg fill="none" viewBox="0 0 17 20" aria-hidden="true">
-            <g clip-path="url(#clip0)">
-              <path
-                fill="#131313"
-                d="M9.056 10.335v9.523l8.132-4.761V5.574l-8.132 4.761zm-.925 0L0 5.574v9.523l8.131 4.76v-9.522zM.463 4.762L8.593 0l8.132 4.762-8.131 4.76-8.131-4.76z"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0">
-                <path fill="#fff" d="M0 0h17v20H0z" />
-              </clipPath>
-            </defs>
-          </svg>
-        </span>
-        <span class="name flex-grow text-left text-dark-grey lg:text-lg">name.txt</span>
-        <span class="icon-cross w-3 h-3 ml-5 transition-colors">
-          <svg fill="none" viewBox="0 0 11 11" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M11 8.8L7.698 5.5 11 2.2 8.8 0 5.5 3.3 2.2 0 0 2.2l3.3 3.3L0 8.8 2.2 11l3.3-3.3L8.8 11 11 8.8z"
-            />
-          </svg>
-        </span>
-      </button>
-    </li>
-
-
-  </ul>
+  ></ul>
 </div>

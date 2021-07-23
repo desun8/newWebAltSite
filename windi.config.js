@@ -1,9 +1,10 @@
-const colors = require("windicss/colors");
-const typography = require("windicss/plugin/typography");
+import { defineConfig } from 'windicss/helpers'
+import colors from "windicss/colors";
+import typography from "windicss/plugin/typography";
 
-module.exports = {
+export default defineConfig ({
   extract: {
-    include: ["./**/*.html"],
+    include: ["./**/*.html", "./src/scripts/**/*.ts"],
   },
   safelist: ["prose", "prose-sm", "m-auto"],
   darkMode: "class",
@@ -24,7 +25,7 @@ module.exports = {
 
     extend: {
       colors: {
-        teal: colors.teal,
+        "true-black": colors.black,
         black: "#131313",
         "black-opacity-50": "rgba(0, 0, 0, 0.5)",
         "dark-grey": "#262626",
@@ -49,4 +50,4 @@ module.exports = {
       },
     },
   },
-};
+});

@@ -4,12 +4,14 @@
   <input
     id="{{id}}"
     class="
-      pb-2.5
-      text-sm
+      pb-1
+      text-base
+      leading-none
       font-light
       tracking-wide
       bg-transparent
       border-b-2 border-black-opacity-50
+      rounded-none
       placeholder-transparent
       transition-colors
       focus:outline-none focus:border-sun
@@ -17,8 +19,9 @@
       lg:font-medium lg:text-2xl
     "
     type="{{type}}"
-    placeholder="{{name}}"
+    placeholder="{{placeholder}}"
     {{required}}
+    data-validation="{{validation}}""
   />
   <label
     for="{{id}}"

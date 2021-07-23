@@ -1,0 +1,4 @@
+.form__input-file input[type="file"]:hover + label .icon,
+.form__input-file input[type="file"]:focus-visible + label .icon {
+  @apply bg-white svg:fill-black;
+}

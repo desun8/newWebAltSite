@@ -2,11 +2,16 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*":["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "moduleResolution": "Node",
     "strict": true,
     "sourceMap": true,
@@ -17,6 +22,9 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "allowJs": true,
+    "experimentalDecorators": true
   },
-  "include": ["./src"]
+  "include": [
+    "./src"
+  ]
 }

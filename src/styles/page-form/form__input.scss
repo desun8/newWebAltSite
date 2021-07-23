@@ -18,7 +18,7 @@
 
   @media (--xl) {
     --size: 8px;
-    --top: 10px;
+    --top: 14px;
     --left: 10px;
 
     top: calc(100% + var(--top));
@@ -27,29 +27,34 @@
 
   @media (--xl-2) {
     --size: 14px;
-    --top: 5px;
+    --top: 9px;
     --left: 20px;
   }
 }
 
-.form__input input.is-valid + label::before {
+.form__input input[data-valid="true"] + label::before {
   @apply bg-sun opacity-100;
 }
 
 .form__input input.has-value + label,
 .form__input input:focus + label {
-  @apply transform -translate-y-6;
+  @apply transform -translate-y-6  lg:-translate-y-8;
+}
+
+.form__input input#tel:focus-visible {
+  @apply placeholder-dark-grey placeholder-opacity-50;
 }
 
 .form__input input:focus-visible + label {
   @apply text-sun;
 }
 
+.form__input input.has-value + label::before,
 .form__input input:focus-visible + label::before {
   @apply opacity-100;
 }
 
-.form__input.has-error input {
+.form__input input.has-error {
   @apply border-sun-opacity-50;
 }
 
