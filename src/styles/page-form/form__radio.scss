@@ -1,0 +1,3 @@
+.form__radio input[type="radio"]:checked + *::before {
+  @apply opacity-100;
+}

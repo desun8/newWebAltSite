@@ -117,4 +117,14 @@ export class FormDOM {
       </div>
     `;
   }
+
+  static getTemplateRadio(values) {
+    return /*html*/ `
+      <div data-testid="wrapper-radio">
+        <input name="how-to-know" value="${values[0]}" aria-label="${values[0]}" />
+        <input name="how-to-know" value="${values[1]}" aria-label="${values[1]}" />
+        <input name="how-to-know" value="${values[2]}" aria-label="${values[2]}" />
+      </div>
+    `
+  }
 }
