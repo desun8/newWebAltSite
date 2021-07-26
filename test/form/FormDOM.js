@@ -1,7 +1,23 @@
 import jsdom from "jsdom";
 
 export class FormDOM {
-  static getTemplateCheckbox(values) {
+  static getCheckboxValues() {
+    return {
+      SITE: "Сайт",
+      DESIGN: "Дизайн",
+      ALL: "Нужно всё!",
+    };
+  }
+
+  static getRadioValues() {
+    return {
+      RATING: "Рейтинг",
+      RECOMMENDATION: "Рекомендация",
+      ADS: "Реклама в поисковиках",
+    };
+  }
+
+  static getTemplateCheckbox(values = this.getCheckboxValues()) {
     return /* html */ `
     <div data-testid="wrapper-checkbox">
       <div class="form__checkbox relative">
@@ -81,7 +97,7 @@ export class FormDOM {
   }
 
   static getTemplateContactInput() {
-    return /*html*/`
+    return /*html*/ `
       <div data-testid="wrapper-contacts">
         <div class="form__input form-field">
           <input id="name" type="text" name="name" data-validation="text" required/>
@@ -118,13 +134,27 @@ export class FormDOM {
     `;
   }
 
-  static getTemplateRadio(values) {
+  static getTemplateRadio() {
+    const values = this.getRadioValues;
     return /*html*/ `
       <div data-testid="wrapper-radio">
-        <input name="how-to-know" value="${values[0]}" aria-label="${values[0]}" />
-        <input name="how-to-know" value="${values[1]}" aria-label="${values[1]}" />
-        <input name="how-to-know" value="${values[2]}" aria-label="${values[2]}" />
+        <input name="how-to-know" value="${values.RATING}" aria-label="${values.RATING}" />
+        <input name="how-to-know" value="${values.RECOMMENDATION}" aria-label="${values.RECOMMENDATION}" />
+        <input name="how-to-know" value="${values.ADS}" aria-label="${values.ADS}" />
       </div>
-    `
+    `;
+  }
+
+  static getTemplateForm() {
+    return `
+      <form data-testid="form">
+        ${this.getTemplateCheckbox()}
+        ${this.getTemplateContactInput()}
+        ${this.getTemplateInputFile()}
+        ${this.getTemplateRadio()}
+
+        <button type="submit" data-success-msg="Thank you">Submit</button>
+      </form>
+  `;
   }
 }

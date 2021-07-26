@@ -244,6 +244,4 @@ class InputFile {
   }
 }
 
-export const initInputFile = (elm: HTMLElement) => {
-  new InputFile(elm)
-}
+export const initInputFile = (elm: HTMLElement) => new InputFile(elm);

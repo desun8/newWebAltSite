@@ -1,5 +1,5 @@
 import { fireEvent, screen } from "@testing-library/dom";
-import { fieldInputs } from "../../src/scripts/pages/form/fieldInputs";
+import { initContactInputs } from "../../src/scripts/pages/form/contactInputs";
 import { createDOM } from "../createDOM";
 import { FormDOM } from "./FormDOM";
 
@@ -8,7 +8,7 @@ createDOM();
 document.body.innerHTML = FormDOM.getTemplateContactInput();
 
 describe("Check form input field validation", () => {
-  fieldInputs(screen.getByTestId("wrapper-contacts"));
+  initContactInputs(screen.getByTestId("wrapper-contacts"));
 
   describe("Input 'name'", () => {
     const input = screen.getByLabelText("Имя");

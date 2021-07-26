@@ -1,20 +1,16 @@
 import { screen } from "@testing-library/dom";
 import { createDOM } from "../createDOM";
-import { checkboxTypes } from "../../src/scripts/pages/form/checkbox";
+import { initCheckbox } from "../../src/scripts/pages/form/checkbox";
 import { FormDOM } from "./FormDOM";
 
 createDOM();
 
-const values = {
-  SITE: "Сайт",
-  DESIGN: "Дизайн",
-  ALL: "Нужно всё!",
-};
+const values = FormDOM.getCheckboxValues();
 
 beforeEach(() => {
   document.body.innerHTML = FormDOM.getTemplateCheckbox(values);
 
-  checkboxTypes(screen.getByTestId("wrapper-checkbox"));
+  initCheckbox(screen.getByTestId("wrapper-checkbox"));
 });
 
 test("If checked checkbox 'ALL' than other chekboxs should unchecked", () => {
