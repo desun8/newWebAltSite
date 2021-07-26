@@ -6,6 +6,7 @@ import {
   enableScroll,
 } from "@/scripts/components/smoothScroll/plugins/ModalPlugin";
 import { autobind } from "../../decorators/autobind";
+import { fileValidation, validation } from "./validation";
 
 class Dialog {
   elm: HTMLElement;
@@ -76,7 +77,7 @@ class Dialog {
   }
 }
 
-export class InputFile {
+class InputFile {
   private store = new Map();
   private inputElm: HTMLInputElement;
   private listElm: HTMLUListElement;
@@ -97,18 +98,21 @@ export class InputFile {
     this.store.set(key, value);
   }
 
-  private getFromStore(key: any) {
-    if (this.store.has(key)) {
-      return this.store.get(key);
-    }
-
-    return null;
-  }
-
   private removeFromStore(key: any) {
     if (this.store.has(key)) {
       this.store.delete(key);
     }
+  }
+
+  private updateInputStorage() {
+    let list = new DataTransfer();
+
+    this.store.forEach((value, key) => {
+      let file = new File([value], key);
+      list.items.add(file);
+    });
+
+    this.inputElm.files = list.files;
   }
 
   private trimFileName(name: string) {
@@ -134,6 +138,7 @@ export class InputFile {
     button.id = name;
     button.dataset.testid = name;
     button.classList.add(
+      "js-file-input",
       "flex",
       "items-center",
       "w-full",
@@ -142,7 +147,7 @@ export class InputFile {
       "lg:w-auto"
     );
     button.innerHTML = `
-    <span class="icon-file w-4 h-5 mr-5 lg:w-6 lg:h-7">
+    <span class="icon-file  flex-shrink-0 w-4 h-5 mr-5 lg:w-6 lg:h-7">
       <svg fill="none" viewBox="0 0 17 20" aria-hidden="true">
         <g clip-path="url(#clip0)">
           <path
@@ -156,10 +161,10 @@ export class InputFile {
         </defs>
       </svg>
     </span>
-    <span class="name flex-grow text-left text-dark-grey lg:text-lg" title="${name}" aria-label="Файл — ${name}">
+    <span class="name flex-grow text-left text-dark-grey break-all lg:text-lg" title="${name}" aria-label="Файл — ${name}">
       ${this.trimFileName(name)}
     </span>
-    <span class="icon-cross w-3 h-3 ml-5 transition-colors">
+    <span class="icon-cross  flex-shrink-0 w-3 h-3 ml-5 transition-colors">
       <svg fill="none" viewBox="0 0 11 11" aria-hidden="true">
         <path
           fill="currentColor"
@@ -184,21 +189,34 @@ export class InputFile {
     this.appendNewItemList(this.createListItem(name));
   }
 
-  removeFile(elm: HTMLButtonElement) {
-    this.removeFromStore(elm.id);
-    elm.parentElement?.remove();
+  private validation() {
+    validation(this.inputElm, fileValidation);
+
+    const isValid = this.inputElm.dataset.valid === "true";
+    if (isValid) {
+      this.inputElm.classList.remove("has-error");
+    } else {
+      this.inputElm.classList.add("has-error");
+    }
+  }
+
+  private updateStore() {
+    this.updateInputStorage();
+    this.validation();
   }
 
   @autobind
   private handleChange(event: Event) {
     const input = <HTMLInputElement>event.target;
 
-    if (input.files) {
+    if (input.files && input.files[0]) {
       const file = input.files[0];
 
       this.addToStore(file.name, file);
       this.addItemToList(file.name);
     }
+
+    this.updateStore();
   }
 
   @autobind
@@ -209,4 +227,23 @@ export class InputFile {
     this.dialog.setBtnClick(() => this.removeFile(btn));
     this.dialog.dialog.show();
   }
+
+  removeFile(elm: HTMLButtonElement) {
+    this.removeFromStore(elm.id);
+    elm.parentElement?.remove();
+
+    this.updateStore();
+  }
+
+  clear() {
+    const elms =
+      document.querySelectorAll<HTMLButtonElement>(".js-file-input")!;
+    elms.forEach((elm) => {
+      this.removeFile(elm);
+    });
+  }
+}
+
+export const initInputFile = (elm: HTMLElement) => {
+  new InputFile(elm)
 }

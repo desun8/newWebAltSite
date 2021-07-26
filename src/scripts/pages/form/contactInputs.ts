@@ -34,7 +34,32 @@ const inputValidation = (input: HTMLInputElement, type: string) => {
   }
 };
 
-export const fieldInputs = (parent: HTMLElement) => {
+export const checkValidationRequiredInputs = (parent: HTMLElement) => {
+  const inputElms = Array.from(
+    parent.querySelectorAll<HTMLInputElement>("input")
+  );
+
+  inputElms.forEach((input) => {
+    const isRequired = input.hasAttribute("required");
+    const validationType = input.dataset.validation;
+
+    if (validationType) {
+      inputValidation(input, validationType);
+    }
+
+    if (isRequired && input.dataset.valid !== undefined) {
+      const isValid = input.dataset.valid === "true";
+
+      if (isValid) {
+        input.classList.remove("has-error");
+      } else {
+        input.classList.add("has-error");
+      }
+    }
+  });
+};
+
+export const initContactInputs = (parent: HTMLElement) => {
   const inputElms = Array.from(
     parent.querySelectorAll<HTMLInputElement>("input")
   );

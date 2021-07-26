@@ -1,4 +1,4 @@
-<div class="form__input-file">
+<div class="form__input-file form-field">
   <div class="relative mb-12">
     <input
       id="files"
@@ -34,11 +34,23 @@
           />
         </svg>
       </span>
-      <span class="text-xs tracking-wide lg:text-26px lg:leading-1.4em"
+      <span class="text-xs tracking-wide lg:text-26px lg:leading-8 2xl:leading-1.4em"
         >Прикрепить файл (а несколько лучше в
         <span class="text-sun">RAR</span>хивчик)<br />(<15мб)</span
       >
     </label>
+
+    <span
+      class="
+        form-field__error
+        absolute
+        -bottom-5
+        text-sun text-xs
+        font-light
+        tracking-wide
+      "
+      >*слишком большой размер файлов</span
+    >
   </div>
 
   <ul
@@ -47,8 +59,10 @@
       grid
       gap-5
       max-w-96
+      min-h-6
       pl-8
       md:max-w-none
+      md:min-h-12
       md:flex
       md:flex-wrap
       md:gap-0
@@ -57,8 +71,7 @@
       md:children:ml-8
       md:children:mb-5
       lg:pl-106px
-      xl:pl-98px
-      xl:children:ml-10
+      xl:pl-98px xl:children:ml-10
       2xl:-mb-19 2xl:pl-62px 2xl:children:ml-19 2xl:children:mb-19
     "
   ></ul>

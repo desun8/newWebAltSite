@@ -1,4 +1,4 @@
-export const checkboxTypes = (parent: HTMLElement) => {
+export const initCheckbox = (parent: HTMLElement) => {
   const checkboxElms = Array.from(
     parent.querySelectorAll<HTMLInputElement>(
       "input[type='checkbox']:not(#all)"

@@ -1,5 +1,9 @@
 type ValidationElement = HTMLInputElement | HTMLTextAreaElement;
 
+interface MyFile extends File {
+  size: number;
+}
+
 const setValid = (el: ValidationElement, isValid: boolean) => {
   el.dataset.valid = `${isValid}`;
 };
@@ -24,6 +28,23 @@ export const emailValidation = (el: ValidationElement) => {
       /^(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]+)])$/i
     ) !== null
   );
+};
+
+export const fileValidation = (el: ValidationElement) => {
+  const files = (<HTMLInputElement>el).files;
+  let totalSize = 0;
+
+  if (files) {
+    for (const file in files) {
+      if (Object.prototype.hasOwnProperty.call(files, file)) {
+        const fileSize = Math.floor(files[file].size / 1024 / 1024); // MB
+
+        totalSize += fileSize;
+      }
+    }
+  }
+
+  return totalSize <= 15;
 };
 
 export const validation = (
