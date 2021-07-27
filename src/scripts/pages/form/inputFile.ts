@@ -7,16 +7,21 @@ import {
 } from "@/scripts/components/smoothScroll/plugins/ModalPlugin";
 import { autobind } from "../../decorators/autobind";
 import { fileValidation, validation } from "./validation";
+import { throttle } from "lodash";
 
 class Dialog {
   elm: HTMLElement;
   dialog: A11yDialog;
+  private dialogContent: Element;
+  private btnReject: HTMLButtonElement;
   private btnRemove: HTMLButtonElement;
   private title: HTMLElement;
 
   constructor() {
     this.elm = this.getTemplate();
+    this.dialogContent = this.elm.querySelector(".dialog-content")!;
     this.title = this.elm.querySelector("#delete-dialog-title")!;
+    this.btnReject = this.elm.querySelector("#reject-dialog-btn")!;
     this.btnRemove = this.elm.querySelector("#delete-dialog-btn")!;
 
     this.dialog = new A11yDialog(this.elm);
@@ -35,6 +40,8 @@ class Dialog {
         enablePageScroll(this.elm);
       }
     });
+
+    this.addHoverEvent();
   }
 
   private getTemplate() {
@@ -54,12 +61,36 @@ class Dialog {
         <h1 id="delete-dialog-title" class="sr-only" data-title="Подтвердите удаление файла -"></h1>
         <!-- 6. Dialog content -->
         <h2 class="col-span-full text-lg font-semibold text-center tracking-wide" aria-hidden="true">Точно удалить?</h2>
-        <button class="py-2 px-4 text-lg text-white font-semibold bg-black" type="button" aria-label="Не удалять" data-a11y-dialog-hide data-testid="dialog-no">не точно</button>
-        <button id="delete-dialog-btn" class="py-2 px-4 text-lg text-white font-semibold" type="button" aria-label="Удалить" data-a11y-dialog-hide data-testid="dialog-yes">точно</button>
+        <button id="reject-dialog-btn" class="py-2 px-4 text-lg text-white font-semibold bg-black transition-colors focus:outline-none focus-visible:bg-black" type="button" aria-label="Не удалять" data-a11y-dialog-hide data-testid="dialog-no">не точно</button>
+        <button id="delete-dialog-btn" class="py-2 px-4 text-lg text-white font-semibold transition-colors focus:outline-none focus-visible:bg-black" type="button" aria-label="Удалить" data-a11y-dialog-hide data-testid="dialog-yes">точно</button>
   </div>
 `;
 
     return div;
+  }
+
+  private handleHover(event: Event) {
+    if (event.target === this.btnRemove) {
+      this.btnRemove.focus();
+      this.btnReject.style.backgroundColor = "transparent";
+    } else {
+      this.btnReject.focus();
+      this.btnReject.style.backgroundColor = "";
+    }
+  }
+
+  private addHoverEvent() {
+    const handleHover = throttle(this.handleHover, 100).bind(this);
+
+    this.dialogContent.addEventListener("focusin", handleHover, {
+      passive: true,
+    });
+    this.dialogContent.addEventListener("mouseover", handleHover, {
+      passive: true,
+    });
+    this.dialogContent.addEventListener("mouseleave", handleHover, {
+      passive: true,
+    });
   }
 
   addToDOM() {
