@@ -34,7 +34,7 @@
   }
   
   @for $i from 1 through $steps {
-    #{percentage($i*(0.2/$steps))} {
+    #{percentage($i*(math.div(0.2, $steps)))} {
       clip-path: inset((random(100) + #{"%"}) 0 (random(100) + #{"%"}) 0);
       transform: skew((math.div(random(200), 100)) + deg);
     }

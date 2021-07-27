@@ -1,9 +1,5 @@
 type ValidationElement = HTMLInputElement | HTMLTextAreaElement;
 
-interface MyFile extends File {
-  size: number;
-}
-
 const setValid = (el: ValidationElement, isValid: boolean) => {
   el.dataset.valid = `${isValid}`;
 };
@@ -12,8 +8,6 @@ export const textValidation = (el: ValidationElement) => {
   const value = el.value.trim();
   return value.length > 1;
 };
-
-export const nameValidation = (el: ValidationElement) => {};
 
 export const telValidation = (el: ValidationElement) => {
   const MASK = "+7 (999) 999 99 99";
