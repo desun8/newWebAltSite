@@ -1,3 +1,7 @@
+.form__radio input[type="radio"]:hover + * {
+  @apply opacity-100 border-sun;
+}
+
 .form__radio input[type="radio"]:checked + *::before {
   @apply opacity-100;
 }

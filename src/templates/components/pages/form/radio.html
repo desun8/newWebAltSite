@@ -1,10 +1,10 @@
-<li class="form__radio flex items-center">
+<li class="form__radio relative flex items-center">
   <input
     type="radio"
     name="how-to-know"
     id="{{id}}"
     value="{{value}}"
-    class="absolute top-0 right-0 bottom-0 left-0 opacity-0"
+    class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"
   />
 
   <span
@@ -16,8 +16,7 @@
       h-4
       rounded-full
       border-1 border-dark-grey
-      cursor-pointer
-      transition-opacity
+      transition-all
       before:content
       before:w-2
       before:h-2
@@ -35,7 +34,6 @@
       text-sm
       leading-none
       text-dark-grey
-      cursor-pointer
       <md:uppercase
       md:text-22px
       lg:pl-7
