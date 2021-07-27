@@ -73,9 +73,11 @@ class Dialog {
     if (event.target === this.btnRemove) {
       this.btnRemove.focus();
       this.btnReject.style.backgroundColor = "transparent";
+      this.btnRemove.style.backgroundColor = "#131313";
     } else {
       this.btnReject.focus();
       this.btnReject.style.backgroundColor = "";
+      this.btnRemove.style.backgroundColor = "";
     }
   }
 
