@@ -35,7 +35,7 @@ export default {
       /* config */
       plugins: [
         posthtmlInclude({
-          root: "src/templates",
+          root: "./src/templates",
         }),
       ],
     }),
