@@ -1,31 +1,16 @@
-<form class="form  lg:col-span-7" action="/form" novalidate>
+<form class="form lg:col-span-7" action="/form" novalidate>
   <include src="components/pages/form/fieldset.html">
-    {
-      "id": "types-data",
-      "title": "Что делаем?",
-      "include": "types"
-    }
-  </include>
-  
-  <include src="components/pages/form/fieldset.html">
-    {
-      "id": "contacts-data",
-      "title": "Ваши данные?",
-      "include": "fields"
-    }
+    { "id": "types-data", "title": "Что делаем?", "include": "types" }
   </include>
 
   <include src="components/pages/form/fieldset.html">
-    {
-      "id": "how-to-know",
-      "title": "Как вы узнали о нас?",
-      "include": "how-to-know"
-    }
+    { "id": "contacts-data", "title": "Ваши данные?", "include": "fields" }
+  </include>
+
+  <include src="components/pages/form/fieldset.html">
+    { "id": "how-to-know", "title": "Как вы узнали о нас?", "include":
+    "how-to-know" }
   </include>
 
   <include src="components/pages/form/submit.html"></include>
-
- 
 </form>
-
-<div class="text-lg tracking-wide gap-"></div>
