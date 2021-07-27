@@ -1,6 +1,16 @@
 @use "../_config/functions/index" as fn;
 
+.page-header__feedback-btn {
+  display: none;
+}
+
 .page-form {
+  @media (--lg) {
+    --decorate-figure-width: #{fn.vw(243)};
+    --decorate-figure-height: #{fn.vw(253)};
+    --decorate-figure-top: calc(var(--decorate-figure-height) * -0.75);
+    --decorate-figure-right: calc(var(--decorate-figure-width) * -0.9);
+  }
   @media (--xl) {
     --fields-gap: #{fn.vw(20)};
   }
@@ -11,5 +21,5 @@
 }
 
 .page-form-footer .footer-social.contacts {
-  @apply lg:hidden xl:block;  
+  @apply lg:hidden xl:block;
 }

@@ -1,4 +1,4 @@
-<div class="form__radio flex items-center">
+<li class="form__radio flex items-center">
   <input
     type="radio"
     name="how-to-know"
@@ -31,11 +31,15 @@
     for="{{id}}"
     class="
       flex-grow
-      pl-5
+      pl-6
+      text-sm
+      leading-none
       text-dark-grey
       cursor-pointer
-      lg:pl-7 lg:text-22px lg:leading-none
+      <md:uppercase
+      md:text-22px
+      lg:pl-7
     "
     >{{value}}</label
   >
-</div>
+</li>
