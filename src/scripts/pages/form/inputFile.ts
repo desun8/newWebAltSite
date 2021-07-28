@@ -121,9 +121,9 @@ class InputFile {
   constructor(private parentElm: HTMLElement) {
     this.inputElm = this.parentElm.querySelector("input[type='file']")!;
     this.listElm = this.parentElm.querySelector("ul")!;
-  
+
     this.inputElm.addEventListener("change", this.handleChange);
-  
+
     this.dialog = new Dialog();
     this.dialog.addToDOM();
   }
@@ -167,15 +167,16 @@ class InputFile {
     this.inputElm.files = new DataTransfer().files
   }
 
-  private trimFileName(name: string) {
-    if (name.length <= this.maxLengthName) return name;
+  private trimFileName(fileName: string) {
+    if (fileName.length <= this.maxLengthName) return fileName;
 
-    const match = name.match(/([\s\S]+)(\.[a-z]{1,6})$/);
-    if (match === null) return name;
+    const match = fileName.match(/([\s\S]+)(\.\D+)$/);
+    if (match === null) return fileName;
 
+    const name = match[1];
     const kind = match[2];
     const nameSize = this.maxLengthName - kind.length;
-    const trimName = `${match[1].slice(0, nameSize - 2)}...${match[1].slice(
+    const trimName = `${name.slice(0, nameSize - 2)}...${name.slice(
       -2
     )}${kind}`;
 
