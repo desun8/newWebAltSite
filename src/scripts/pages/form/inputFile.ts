@@ -118,12 +118,12 @@ class InputFile {
   private lastTimeFireChange = 0;
   private readonly maxLengthName = 16;
 
-  constructor(elm: HTMLElement) {
-    this.inputElm = elm.querySelector("input[type='file']")!;
-    this.listElm = elm.querySelector("ul")!;
-
+  constructor(private parentElm: HTMLElement) {
+    this.inputElm = this.parentElm.querySelector("input[type='file']")!;
+    this.listElm = this.parentElm.querySelector("ul")!;
+  
     this.inputElm.addEventListener("change", this.handleChange);
-
+  
     this.dialog = new Dialog();
     this.dialog.addToDOM();
   }
@@ -248,6 +248,23 @@ class InputFile {
     }
   }
 
+  private showWarnMsg() {
+    const elm = this.parentElm.querySelector(".js-error-msg")!;
+    const defaultMsg = elm.textContent;
+    const msg = "*такой файл уже добавлен";
+
+    elm.textContent = msg;
+    this.inputElm.classList.add("has-error");
+
+    setTimeout(() => {
+      this.inputElm.classList.remove("has-error");
+
+      setTimeout(() => {
+        elm.textContent = defaultMsg;
+      }, 500);
+    }, 2000);
+  }
+
   @autobind
   private handleChange(event: Event) {
     // В IOS this.updateInputStorage вызывает повторное событие change.
@@ -266,7 +283,7 @@ class InputFile {
       const isFileAlreadyExisting = this.hasStoreItem(id);
 
       if (isFileAlreadyExisting) {
-        // this.showWarnMsg();
+        this.showWarnMsg();
         this.resetInputFiles();
       } else {
         this.addStoreItem(id, file);
