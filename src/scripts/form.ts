@@ -4,7 +4,7 @@ import "../styles/form.scss";
 import APP from "./app/APP";
 import { initCheckbox } from "./pages/form/checkbox";
 import { initContactInputs } from "./pages/form/contactInputs";
-import { initInputFile } from "./pages/form/inputFile";
+import { InputFile } from "./pages/form/inputFile";
 import { loadRecaptcha } from "./utils/loadRecaptcha";
 import { handleSubmit } from "./pages/form/submit";
 import { alertBeforeUnload } from "./alertBeforeUnload";
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== "development") {
 
 initCheckbox(typesChekboxContainer);
 initContactInputs(contactInputContainer);
-initInputFile(form.querySelector(".form__input-file")!);
+new InputFile(form.querySelector(".form__input-file")!);
 
 const onSubmit = throttle(handleSubmit, 500);
 form.onsubmit = (event) => {

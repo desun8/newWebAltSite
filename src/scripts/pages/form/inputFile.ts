@@ -110,7 +110,7 @@ class Dialog {
   }
 }
 
-class InputFile {
+export class InputFile {
   private store = new Map();
   private inputElm: HTMLInputElement;
   private listElm: HTMLUListElement;
@@ -318,5 +318,3 @@ class InputFile {
     });
   }
 }
-
-export const initInputFile = (elm: HTMLElement) => new InputFile(elm);
