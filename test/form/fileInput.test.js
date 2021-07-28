@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { fireEvent, screen } from "@testing-library/dom";
-import { initInputFile } from "../../src/scripts/pages/form/inputFile";
+import { InputFile } from "../../src/scripts/pages/form/inputFile";
 import { createDOM } from "../createDOM";
 import { FormDOM } from "./FormDOM";
 
@@ -41,7 +41,7 @@ beforeEach(() => {
 
 describe("Input File", () => {
   it("should add button (contain file-name) to list when add new file", () => {
-    const inputFile = initInputFile(screen.getByTestId("wrapper-file"));
+    const inputFile = new InputFile(screen.getByTestId("wrapper-file"));
     const store = inputFile.store;
     const input = inputFile.inputElm;
     const file = pngFile;
@@ -58,7 +58,7 @@ describe("Input File", () => {
   });
 
   it("should add button (contain file-name) to list when add multiply new file", () => {
-    const inputFile = initInputFile(screen.getByTestId("wrapper-file"));
+    const inputFile = new InputFile(screen.getByTestId("wrapper-file"));
     const store = inputFile.store;
     const input = inputFile.inputElm;
 
@@ -79,7 +79,7 @@ describe("Input File", () => {
   });
 
   it("should show dialog by button click", () => {
-    const inputFile = initInputFile(screen.getByTestId("wrapper-file"));
+    const inputFile = new InputFile(screen.getByTestId("wrapper-file"));
     const input = inputFile.inputElm;
     const dialog = screen.getByTestId("dialog");
     const file = pngFile;
@@ -97,7 +97,7 @@ describe("Input File", () => {
   });
 
   it("should hidden dialog by dialog button-no click", () => {
-    const inputFile = initInputFile(screen.getByTestId("wrapper-file"));
+    const inputFile = new InputFile(screen.getByTestId("wrapper-file"));
     const input = inputFile.inputElm;
     const dialog = screen.getByTestId("dialog");
     const file = pngFile;
@@ -116,7 +116,7 @@ describe("Input File", () => {
   });
 
   it("should remove file by dialog button-yes click", () => {
-    const inputFile = initInputFile(screen.getByTestId("wrapper-file"));
+    const inputFile = new InputFile(screen.getByTestId("wrapper-file"));
     const store = inputFile.store;
     const input = inputFile.inputElm;
     const dialog = screen.getByTestId("dialog");
