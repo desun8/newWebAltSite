@@ -115,6 +115,7 @@ class InputFile {
   private inputElm: HTMLInputElement;
   private listElm: HTMLUListElement;
   private dialog: Dialog;
+  private lastTimeFireChange = 0;
   private readonly maxLengthName = 16;
 
   constructor(elm: HTMLElement) {
@@ -131,6 +132,10 @@ class InputFile {
     this.store.set(key, value);
   }
 
+  private hasStoreValue(key: any) {
+    return this.store.has(key);
+  }
+
   private removeFromStore(key: any) {
     if (this.store.has(key)) {
       this.store.delete(key);
@@ -140,8 +145,11 @@ class InputFile {
   private updateInputStorage() {
     let list = new DataTransfer();
 
-    this.store.forEach((value, key) => {
-      let file = new File([value], key);
+    this.store.forEach((value: File) => {
+      let file = new File([value], value.name, {
+        type: value.type,
+        lastModified: value.lastModified,
+      });
       list.items.add(file);
     });
 
@@ -163,13 +171,13 @@ class InputFile {
     return trimName;
   }
 
-  private createListItem(name: string) {
+  private createListItem(id: string, name: string) {
     const li = document.createElement("li");
 
     const button = document.createElement("button");
     button.type = "button";
-    button.id = name;
-    button.dataset.testid = name;
+    button.id = id;
+    button.dataset.testid = id;
     button.classList.add(
       "js-file-input",
       "flex",
@@ -218,8 +226,8 @@ class InputFile {
     this.listElm.appendChild(newElm);
   }
 
-  private addItemToList(name: string) {
-    this.appendNewItemList(this.createListItem(name));
+  private addItemToList(id: string, name: string) {
+    this.appendNewItemList(this.createListItem(id, name));
   }
 
   private validation() {
@@ -240,16 +248,31 @@ class InputFile {
 
   @autobind
   private handleChange(event: Event) {
+    // В IOS this.updateInputStorage вызывает повторное событие change.
+    // Из-за того, что явно задается значение для this.inputElm.files
+    const isFireDouble = Date.now() - this.lastTimeFireChange < 100;
+    if (isFireDouble) {
+      event.preventDefault();
+      return;
+    }
+
     const input = <HTMLInputElement>event.target;
 
     if (input.files && input.files[0]) {
       const file = input.files[0];
+      const id = `${file.name}-${file.lastModified}-${file.size}`;
+      const isFileAlreadyExisting = this.hasStoreValue(id);
 
-      this.addToStore(file.name, file);
-      this.addItemToList(file.name);
+      if (isFileAlreadyExisting) {
+        // show error msg
+      } else {
+        this.addToStore(id, file);
+        this.addItemToList(id, file.name);
+        this.updateStore();
+
+        this.lastTimeFireChange = Date.now();
+      }
     }
-
-    this.updateStore();
   }
 
   @autobind
