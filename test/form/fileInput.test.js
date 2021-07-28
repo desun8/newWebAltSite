@@ -26,9 +26,13 @@ global.DataTransfer = function () {
 
 createDOM();
 
-const pngFile = new File(["(⌐□_□)"], "image.png", { type: "image/png" });
+const pngFile = new File(["(⌐□_□)"], "image.png", {
+  type: "image/png",
+  lastModified: Date.now(),
+});
 const textFile = new File(["foo"], "foo.txt", {
   type: "text/plain",
+  lastModified: Date.now(),
 });
 
 beforeEach(() => {
@@ -48,7 +52,7 @@ describe("Input File", () => {
       },
     });
 
-    const fileName = file.name;
+    const fileName = `${file.name}-${file.lastModified}-${file.size}`;
     expect(store.get(fileName)).toBe(file);
     expect(screen.getByTestId(fileName)).toBeInTheDocument();
   });
@@ -58,16 +62,18 @@ describe("Input File", () => {
     const store = inputFile.store;
     const input = inputFile.inputElm;
 
-    [pngFile, textFile].forEach((newFile) => {
+    [pngFile, textFile].forEach((file) => {
+      inputFile.lastTimeFireChange = 0;
+
       fireEvent.change(input, {
         target: {
-          files: [newFile],
+          files: [file],
         },
       });
 
-      const fileName = newFile.name;
+      const fileName = `${file.name}-${file.lastModified}-${file.size}`;
 
-      expect(store.get(fileName)).toBe(newFile);
+      expect(store.get(fileName)).toBe(file);
       expect(screen.getByTestId(fileName)).toBeInTheDocument();
     });
   });
@@ -84,7 +90,7 @@ describe("Input File", () => {
       },
     });
 
-    const fileName = file.name;
+    const fileName = `${file.name}-${file.lastModified}-${file.size}`;
 
     fireEvent.click(screen.getByTestId(fileName));
     expect(dialog.hasAttribute("aria-hidden")).toBe(false);
@@ -102,7 +108,7 @@ describe("Input File", () => {
       },
     });
 
-    const fileName = file.name;
+    const fileName = `${file.name}-${file.lastModified}-${file.size}`;
 
     fireEvent.click(screen.getByTestId(fileName));
     fireEvent.click(screen.getByTestId("dialog-no"));
@@ -122,7 +128,7 @@ describe("Input File", () => {
       },
     });
 
-    const fileName = file.name;
+    const fileName = `${file.name}-${file.lastModified}-${file.size}`;
 
     const button = screen.getByTestId(fileName);
     fireEvent.click(screen.getByTestId(fileName));
