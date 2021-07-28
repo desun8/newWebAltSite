@@ -60,7 +60,7 @@ const replaceSubmitBtnText = (
 
 let isSubmiting = false;
 
-export const handleSubmit = (event: Event) => {
+export const handleSubmit = (event: Event, reset: () => void) => {
   event.preventDefault();
 
   if (isSubmiting) return;
@@ -116,6 +116,9 @@ export const handleSubmit = (event: Event) => {
           })
           .then((res: Response | Object) => {
             showFinallyMsg("success");
+            setTimeout(() => {
+              reset();
+            }, 500);
             return res;
           });
       });

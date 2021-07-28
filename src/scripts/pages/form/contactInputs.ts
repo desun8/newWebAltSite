@@ -59,6 +59,14 @@ export const checkValidationRequiredInputs = (parent: HTMLElement) => {
   });
 };
 
+export const setInputHasValueClass = (input: HTMLInputElement) => {
+  if (input.value !== "") {
+    input.classList.add("has-value");
+  } else {
+    input.classList.remove("has-value");
+  }
+};
+
 export const initContactInputs = (parent: HTMLElement) => {
   const inputElms = Array.from(
     parent.querySelectorAll<HTMLInputElement>("input")
@@ -69,11 +77,7 @@ export const initContactInputs = (parent: HTMLElement) => {
     const validationType = input.dataset.validation;
 
     input.addEventListener("change", () => {
-      if (input.value !== "") {
-        input.classList.add("has-value");
-      } else {
-        input.classList.remove("has-value");
-      }
+      setInputHasValueClass(input);
     });
 
     if (validationType) {

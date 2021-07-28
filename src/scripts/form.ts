@@ -3,7 +3,10 @@ import initRoot from "./root";
 import "../styles/form.scss";
 import APP from "./app/APP";
 import { initCheckbox } from "./pages/form/checkbox";
-import { initContactInputs } from "./pages/form/contactInputs";
+import {
+  initContactInputs,
+  setInputHasValueClass,
+} from "./pages/form/contactInputs";
 import { InputFile } from "./pages/form/inputFile";
 import { loadRecaptcha } from "./utils/loadRecaptcha";
 import { handleSubmit } from "./pages/form/submit";
@@ -28,12 +31,26 @@ if (process.env.NODE_ENV !== "development") {
 
 initCheckbox(typesChekboxContainer);
 initContactInputs(contactInputContainer);
-new InputFile(form.querySelector(".form__input-file")!);
+const inputFile = new InputFile(form.querySelector(".form__input-file")!);
+
+const resetForm = () => {
+  const contactInputs = Array.from(
+    contactInputContainer.querySelectorAll<HTMLInputElement>("input")
+  );
+
+  form.reset();
+  inputFile.clear();
+
+  contactInputs.forEach((input) => {
+    setInputHasValueClass(input);
+    input.removeAttribute("data-valid");
+  });
+};
 
 const onSubmit = throttle(handleSubmit, 500);
 form.onsubmit = (event) => {
   event.preventDefault();
-  onSubmit(event);
+  onSubmit(event, resetForm);
 };
 
 if (APP.isDesktop) {
