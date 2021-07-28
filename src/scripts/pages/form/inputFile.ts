@@ -143,6 +143,8 @@ class InputFile {
   }
 
   private updateStore() {
+    this.lastTimeFireChange = Date.now();
+
     this.updateInputFiles();
     this.validation();
   }
@@ -159,6 +161,10 @@ class InputFile {
     });
 
     this.inputElm.files = list.files;
+  }
+
+  private resetInputFiles() {
+    this.inputElm.files = new DataTransfer().files
   }
 
   private trimFileName(name: string) {
@@ -260,13 +266,12 @@ class InputFile {
       const isFileAlreadyExisting = this.hasStoreItem(id);
 
       if (isFileAlreadyExisting) {
-        // show error msg
+        // this.showWarnMsg();
+        this.resetInputFiles();
       } else {
         this.addStoreItem(id, file);
         this.addItemToList(id, file.name);
         this.updateStore();
-
-        this.lastTimeFireChange = Date.now();
       }
     }
   }
