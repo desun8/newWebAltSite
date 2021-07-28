@@ -164,7 +164,7 @@ class InputFile {
   }
 
   private resetInputFiles() {
-    this.inputElm.files = new DataTransfer().files
+    this.inputElm.files = new DataTransfer().files;
   }
 
   private trimFileName(fileName: string) {
