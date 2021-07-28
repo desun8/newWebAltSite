@@ -128,21 +128,26 @@ class InputFile {
     this.dialog.addToDOM();
   }
 
-  private addToStore(key: any, value: any) {
+  private addStoreItem(key: any, value: any) {
     this.store.set(key, value);
   }
 
-  private hasStoreValue(key: any) {
+  private hasStoreItem(key: any) {
     return this.store.has(key);
   }
 
-  private removeFromStore(key: any) {
+  private removeStoreItem(key: any) {
     if (this.store.has(key)) {
       this.store.delete(key);
     }
   }
 
-  private updateInputStorage() {
+  private updateStore() {
+    this.updateInputFiles();
+    this.validation();
+  }
+
+  private updateInputFiles() {
     let list = new DataTransfer();
 
     this.store.forEach((value: File) => {
@@ -222,12 +227,8 @@ class InputFile {
     return li;
   }
 
-  private appendNewItemList(newElm: HTMLLIElement) {
-    this.listElm.appendChild(newElm);
-  }
-
   private addItemToList(id: string, name: string) {
-    this.appendNewItemList(this.createListItem(id, name));
+    this.listElm.appendChild(this.createListItem(id, name));
   }
 
   private validation() {
@@ -239,11 +240,6 @@ class InputFile {
     } else {
       this.inputElm.classList.add("has-error");
     }
-  }
-
-  private updateStore() {
-    this.updateInputStorage();
-    this.validation();
   }
 
   @autobind
@@ -261,12 +257,12 @@ class InputFile {
     if (input.files && input.files[0]) {
       const file = input.files[0];
       const id = `${file.name}-${file.lastModified}-${file.size}`;
-      const isFileAlreadyExisting = this.hasStoreValue(id);
+      const isFileAlreadyExisting = this.hasStoreItem(id);
 
       if (isFileAlreadyExisting) {
         // show error msg
       } else {
-        this.addToStore(id, file);
+        this.addStoreItem(id, file);
         this.addItemToList(id, file.name);
         this.updateStore();
 
@@ -285,7 +281,7 @@ class InputFile {
   }
 
   removeFile(elm: HTMLButtonElement) {
-    this.removeFromStore(elm.id);
+    this.removeStoreItem(elm.id);
     elm.parentElement?.remove();
 
     this.updateStore();
