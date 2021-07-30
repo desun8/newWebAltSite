@@ -2,11 +2,12 @@
 
 .page-blog {
   position: relative;
-  z-index: 10;
 }
 
 .page-blog__wrap {
-  @include wrap();
+  @apply lg:pt-32;
+  
+  @include wrap-new();
 }
 
 .page-blog__title {
