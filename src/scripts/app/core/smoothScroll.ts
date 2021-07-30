@@ -53,10 +53,7 @@ export const initSmoothScroll = () => {
 
       // анимация на странице "БЛОГ"
       if (isBlogPage && blogAnimation) {
-        console.log("Play blog animtaion");
-
         blogAnimation(posY);
-        console.log("🚀 ~ file: smoothScroll.ts ~ line 64 ~ scrollInstance.addListener ~ blogAnimation", blogAnimation)
       }
     });
   }
