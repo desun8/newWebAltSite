@@ -36,7 +36,9 @@ if (APP.isDesktop) {
     addScrollAnimation();
   });
 } else {
-  import("./components/subscribeBlock");
+  import("./components/subscribeBlock").then(({initSubscribeBlock}) => {
+    initSubscribeBlock();
+  });
 }
 
 loadRecaptcha();
