@@ -1,6 +1,5 @@
 <template>
   <li
-      v-if="type !== 'subscribes'"
       ref="root"
       :class="{'blog-item--event': isEvent}"
       :data-img="img"
@@ -23,20 +22,17 @@
       </span>
     </span>
   </li>
-  <li v-else class="blog-list__item  blog-item subscribes">
-
-  </li>
 </template>
 
 <script>
-import ImgHover from './imgHover';
-import TextAnimation from './TextAnimation';
-import APP from '../../../../../app/APP';
+import ImgHover from "./imgHover";
+import TextAnimation from "./TextAnimation";
+import APP from "../../../../../app/APP";
 
-const month = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
 
 export default {
-  name: 'ListItem',
+  name: "ListItem",
   props: {
     type: {
       type: String,
@@ -65,7 +61,7 @@ export default {
   },
   computed: {
     isEvent() {
-      return this.type === 'event';
+      return this.type === "event";
     },
 
     getNewDate() {
@@ -83,7 +79,7 @@ export default {
         return `${mm} ${yyyy}`;
       }
 
-      return '';
+      return "";
     }
   },
   mounted() {
@@ -96,11 +92,3 @@ export default {
   }
 };
 </script>
-
-<style lang="css">
-.subscribes {
-  width: 100%;
-  height: 60px;
-  background-color: var(--c-red);
-}
-</style>

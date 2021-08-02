@@ -1,145 +1,54 @@
 <template>
-  <div v-if="articlesList" class="blog-list-wrap">
+  <div v-if="itemsList.length" class="blog-list-wrap">
     <list :item-list="filteredList"/>
-    <btn-load-more v-show="!isLoadAll" :on-load="requestJson"/>
+    <btn-load-more v-show="!isLoadAll" :on-load="loadMore"/>
   </div>
 </template>
 
-<script>
-import List from './List/List.vue';
-import BtnLoadMore from './BtnLoadMore.vue';
+<script lang="ts">
+import { defineComponent } from "vue";
+import List from "./List/List.vue";
+import BtnLoadMore from "./BtnLoadMore.vue";
 
-const json = [
-  [
-    {
-      id: 0,
-      type: 'event', // event | article
-      date: '2020-09-22', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 1,
-      type: 'event', // event | article
-      date: '2020-09-20', // yyyy-mm-dd
-      title: 'Тем, кто любит учиться не страшен никакой вирус!',
-      describe: 'Нам всё-таки удалось собрать самых отважных 32 человека!🔥',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 2,
-      type: 'article', // event | article
-      date: '2020-09-12', // yyyy-mm-dd
-      title: 'Разработка индивидуальных сайтов',
-      describe: 'Сколько стоит сайт?💰 Вопрос, на который все хотят услышать четкий ответ.',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-  ],
-  [
-    {
-      id: 3,
-      type: 'event', // event | article
-      date: '2020-09-02', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 4,
-      type: 'event', // event | article
-      date: '2020-08-22', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 5,
-      type: 'article', // event | article
-      date: '2020-08-12', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    }
-  ],
-  [
-    {
-      id: 6,
-      type: 'article', // event | article
-      date: '2020-08-10', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 7,
-      type: 'event', // event | article
-      date: '2020-08-02', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 8,
-      type: 'article', // event | article
-      date: '2020-07-22', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-  ],
-  [
-    {
-      id: 9,
-      type: 'article', // event | article
-      date: '2020-07-22', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 10,
-      type: 'article', // event | article
-      date: '2020-07-22', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-    {
-      id: 11,
-      type: 'event', // event | article
-      date: '2020-07-05', // yyyy-mm-dd
-      title: 'Что такое коллтрекинг? И почему без него вся ваша реклама не имеет смысла?',
-      describe: 'Итак, панацея от неэффективного продвижения в интернете — коллтрекинг 📞',
-      img: './images/_dev-test-img.jpg',
-      href: '#'
-    },
-  ]
-];
-const createDateKey = (date) => date.slice(0, 7); // yyyy-mm
+type Article = {
+  id: number,
+  type: "event" | "article",
+  date: string,
+  title: string,
+  describe: string,
+  img: string,
+  href: string,
+}
 
-export default {
-  name: 'ArticlesBlock',
+type ArticleList = Array<Article>;
+
+type SortedArticleList = Map<string, ArticleList>;
+
+enum FilterTypes {
+  ALL = "all",
+  EVENT = "event",
+  ARTICLE = "article"
+}
+
+type Data = {
+  initSize: number,
+  currSize: number,
+  isLoadAll: boolean,
+  itemsList: ArticleList | [],
+}
+
+export default defineComponent({
+  name: "ArticlesBlock",
   components: {
     BtnLoadMore,
-    List
+    List,
   },
-  data() {
+  data(): Data {
     return {
-      count: 0,
+      initSize: 15,
+      currSize: 15,
       isLoadAll: false,
-      articlesList: undefined
+      itemsList: [],
     };
   },
 
@@ -147,83 +56,124 @@ export default {
     activeFilter: {
       type: String,
       required: true,
-      validator(value) {
+      validator: (value: string) => {
         switch (value) {
-          case 'all':
-          case 'event':
-          case 'article':
+          case FilterTypes.ALL:
+          case FilterTypes.EVENT:
+          case FilterTypes.ARTICLE:
             return true;
           default:
             return false;
         }
-      }
-    }
+      },
+    },
   },
 
   computed: {
-    filteredList() {
-      if (this.activeFilter === 'all') return this.articlesList;
+    eventItemsList(): ArticleList {
+      return this.itemsList.filter(item => item.type === FilterTypes.EVENT);
+    },
 
-      let filtered = {};
+    articleItemsList(): ArticleList {
+      return this.itemsList.filter(item => item.type === FilterTypes.ARTICLE);
+    },
 
-      for (const key in this.articlesList) {
-        if (this.articlesList.hasOwnProperty(key)) {
-          const arr = this.articlesList[key]
-              .filter(elm => elm.type === this.activeFilter || elm.type === "subscribes");
+    filteredList(): Map<string, ArticleList> {
+      let filtered = new Map();
+      const activeFilter = this.activeFilter;
+      let articlesList: ArticleList;
+      let sortedArticlesList: SortedArticleList;
 
-          filtered = { ...filtered, [key]: arr };
-        }
+      switch (activeFilter) {
+        case FilterTypes.EVENT:
+          articlesList = this.eventItemsList;
+          break;
+        case FilterTypes.ARTICLE:
+          articlesList = this.articleItemsList;
+          break;
+        case FilterTypes.ALL:
+        default:
+          articlesList = this.itemsList;
+          break;
       }
 
-      return filtered;
-    }
-  },
-
-  methods: {
-    requestJson() {
-      if (this.isLoadAll) {
-        return;
-      }
-
-      const res = json[this.count];
-      this.count += 1;
-
-      if (this.count >= json.length) {
+      if (this.itemsList.length > this.currSize) {
+        articlesList = articlesList.slice(0, this.currSize);
+        this.isLoadAll = false;
+      } else {
         this.isLoadAll = true;
       }
 
+      if (articlesList.length === 0) return filtered;
 
-      if (this.articlesList === undefined) {
-        this.articlesList = {};
+      sortedArticlesList = this.sortByDate(articlesList);
+
+      if (activeFilter === "all") return sortedArticlesList;
+
+      for (const date of sortedArticlesList.keys()) {
+        const articles = sortedArticlesList.get(date)!;
+        const filteredArticles = articles.filter(article => {
+          return article.type === activeFilter;
+        });
+
+        filtered.set(date, filteredArticles);
       }
 
-      res.forEach((item, index) => {
-        const key = createDateKey(item.date);
+      return filtered;
+    },
+  },
 
-        if (this.articlesList[key] === undefined) {
-          this.articlesList = {
-            ...this.articlesList,
-            [key]: []
-          };
-        }
+  methods: {
+    sortByDate(articles: ArticleList) {
+      const createKey = (date: string) => date.slice(0, 7); // yyyy-mm
+      const collection: Map<string, ArticleList> = new Map();
 
-        this.articlesList = {
-          ...this.articlesList,
-          [key]: [...this.articlesList[key], item]
-        };
+      articles.forEach(item => {
+        const key = createKey(item.date);
 
-        if (index === res.length - 2) {
-          this.articlesList = {
-            ...this.articlesList,
-            [key]: [...this.articlesList[key], { id: Date.now() + "subscribes", type: "subscribes" }]
-          };
+        if (collection.has(key)) {
+          const tmp = collection.get(key)!;
+          collection.set(key, [...tmp, item]);
+        } else {
+          collection.set(key, [item]);
         }
       });
+
+      return collection;
+    },
+
+    async fetchArticles() {
+      const url = "/api/blog";
+
+      const response = await fetch(url, {method: "POST"});
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      const data = await response.json();
+      if (!data.success) {
+        throw Error(response.statusText);
+      }
+
+      this.itemsList = await data.results;
+    },
+
+    loadMore() {
+      this.currSize = this.currSize + this.initSize;
+    },
+  },
+
+  watch: {
+    activeFilter(prev, curr) {
+      console.log('filter change');
+      console.log(prev);
+      console.log(curr);
+      this.currSize = this.initSize;
     }
   },
 
   beforeMount() {
-    this.requestJson();
-  }
-};
+    this.fetchArticles().catch((error: Error) => console.error("Блог -> ArticlesBlock.vue -> ошибка получения списка статей", error));
+  },
+});
 </script>
