@@ -37,6 +37,8 @@ type Data = {
   itemsList: ArticleList | [],
 }
 
+const INIT_SIZE = 15;
+
 export default defineComponent({
   name: "ArticlesBlock",
   components: {
@@ -45,8 +47,8 @@ export default defineComponent({
   },
   data(): Data {
     return {
-      initSize: 15,
-      currSize: 15,
+      initSize: INIT_SIZE,
+      currSize: INIT_SIZE,
       isLoadAll: false,
       itemsList: [],
     };
