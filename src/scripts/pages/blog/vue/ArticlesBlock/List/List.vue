@@ -6,7 +6,7 @@
     tag="ul"
     class="blog-list"
   >
-    <li v-for="[dateKey, items] in itemList" :key="items"
+    <li v-for="[dateKey, items] in itemList" :key="dateKey"
         class="blog-list__category">
       <div class="blog-list__date"><span>{{ formatDate(dateKey) }}</span></div>
       <transition-group
@@ -16,16 +16,19 @@
         tag="ul"
         class="blog-list__sublist"
       >
-        <list-item
-          v-for="item in items"
-          :key="item.id"
-          :type="item.type"
-          :date="item.date"
-          :title="item.title"
-          :describe="item.describe"
-          :img="item.img"
-          :href="item.href"
-        />
+        <div v-for="(item, index) in items" :key="item.id">
+          <SubscribeBanner v-if="firstDateKey === dateKey && index === 1"
+                           :is-only-sm="true" id="list"/>
+
+          <list-item
+            :type="item.type"
+            :date="item.date"
+            :title="item.title"
+            :describe="item.describe"
+            :img="item.img"
+            :href="item.href"
+          />
+        </div>
       </transition-group>
     </li>
   </transition-group>
@@ -35,15 +38,19 @@
 import { gsap } from "gsap";
 import ListItem from "./ListItem.vue";
 import APP from "../../../../../app/APP";
+import SubscribeBanner
+  from "@/scripts/pages/blog/vue/Subscribes/SubscribeBanner.vue";
 
 export default {
   name: "List",
   components: {
+    SubscribeBanner,
     ListItem
   },
   data() {
     return {
       duration: 0.35,
+      firstDateKey: undefined,
     };
   },
   props: {
@@ -92,6 +99,15 @@ export default {
         year: "numeric",
         month: "long"
       }).format(date).slice(0, -3); // обрезаем ' г.'
+    },
+  },
+  beforeMount() {
+    if (this.itemList) {
+      for (const dateKey of this.itemList.keys()) {
+        if (this.firstDateKey === undefined) {
+          this.firstDateKey = dateKey;
+        }
+      }
     }
   }
 };
