@@ -6,14 +6,13 @@
     <title>BLOG</title>
   </head>
   <body>
-    <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
+    <svg style="display: none;">
       <symbol id="icon-dash-cursor" viewBox="0 0 16 13">
         <path d="M.92 0l6.456 6.457-.919.92L0 .918z" />
         <path d="M0 12.021l6.467-6.467.92.919L.919 12.94z" />
         <path stroke="currentColor" stroke-width="1.3" d="M8 12.35h8" />
       </symbol>
       <symbol id="icon-arrow" viewBox="0 0 12 12">
-        <!--    <path fill-rule="nonzero" d="M.714.01l11.259.017.017 11.259h-1.973l-.035-7.894-8.598 8.598L.01 10.616l8.598-8.598-7.894-.035V.01z"/>-->
         <path
           d="M1.588 1l9.398.014.014 9.398H9.353l-.03-6.589L2.148 11 1 9.853l7.177-7.177-6.59-.03V1z"
           fill-rule="nonzero"
@@ -30,7 +29,7 @@
     </svg>
 
     <include src="progress-bar.html"></include>
-    <include src="page-header/index.html"></include>
+    <include src="page-header/index.html">{ "class": "" }</include>
     <include src="page-menu.html"></include>
 
     <div class="blog-deco-top">
@@ -41,8 +40,6 @@
       <div class="blog-deco-top__item"></div>
       <div class="blog-deco-top__cross"></div>
     </div>
-
-    <div class="blog-deco-side"></div>
 
     <div id="scroll-container">
       <main class="page-blog">

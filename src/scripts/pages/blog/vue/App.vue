@@ -1,21 +1,21 @@
 <template>
   <div class="page-blog__articles">
-    <filter-elm :setActiveFilter="setActiveFilter"/>
-    <articles-block :active-filter="activeFilter"/>
+    <FilterElm :setActiveFilter="setActiveFilter"/>
+    <ArticlesBlock :active-filter="activeFilter"/>
   </div>
 
-  <instagram/>
+  <InstagramBlock />
 </template>
 
 <script>
-import FilterElm from './Filter/Filter.vue';
-import ArticlesBlock from './ArticlesBlock/ArticlesBlock.vue';
-import Instagram from './Instagram/Instagram.vue';
+import FilterElm from "./Filter/Filter.vue";
+import ArticlesBlock from "./ArticlesBlock/ArticlesBlock.vue";
+import InstagramBlock from "@/scripts/pages/blog/vue/Instagram/InstagramBlock.vue";
 
 
 export default {
   components: {
-    Instagram,
+    InstagramBlock,
     FilterElm,
     ArticlesBlock
   },
@@ -29,10 +29,5 @@ export default {
       this.activeFilter = newVal;
     }
   },
-  watch: {
-    // TODO: нужно ли?
-    activeFilter(curr, prev) {
-    }
-  }
 };
 </script>

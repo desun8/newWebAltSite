@@ -13,5 +13,7 @@ app.init();
 if (APP.isDesktop) {
   import("./components/subscribe-banner/index");
 } else {
-  import("./components/subscribeBlock");
+  import("./components/subscribeBlock").then(({initSubscribeBlock}) => {
+    initSubscribeBlock();
+  });
 }

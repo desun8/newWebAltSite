@@ -4,16 +4,15 @@ import typography from "windicss/plugin/typography";
 
 export default defineConfig ({
   extract: {
-    include: ["./**/*.html", "./src/scripts/**/*.ts"],
+    include: [
+      "./**/*.html",
+      "./src/scripts/**/*.{ts,vue}"
+    ],
   },
   safelist: ["prose", "prose-sm", "m-auto"],
   darkMode: "class",
   plugins: [typography],
   theme: {
-    letterSpacing: {
-      wide: "0.015em",
-    },
-
     boxShadow: {
       collapsing:
         "1px 0 0 0 #131313, 0 1px 0 0 #131313, 1px 1px 0 0 #131313, 1px 0 0 0 #131313 inset, 0 1px 0 0 #131313 inset",

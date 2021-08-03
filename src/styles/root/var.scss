@@ -11,10 +11,10 @@
   --trans-dur-fast: 0.3s;
   --trans-dur-faster: 0.2s;
   
-  --page-gap: #{vw(100)};
+  --page-gap: #{vw(20, $mobile-viewport)};
   
-  //noinspection CssInvalidMediaFeature
-  @media screen and (--tablet-sm) {
-    --page-gap: #{vw(20, $mobile-viewport)};
+  // noinspection CssInvalidMediaFeature
+  @media (--lg) {
+    --page-gap: #{vw(100)};
   }
 }

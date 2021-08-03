@@ -12,12 +12,6 @@ import { loadRecaptcha } from "./utils/loadRecaptcha";
 import { handleSubmit } from "./pages/form/submit";
 import { alertBeforeUnload } from "./alertBeforeUnload";
 
-if (process.env.NODE_ENV === "development") {
-  import("../mocks/browser.js").then((module) => {
-    module.worker.start();
-  });
-}
-
 initRoot();
 
 const form = document.querySelector<HTMLFormElement>(".form")!;
@@ -59,7 +53,9 @@ if (APP.isDesktop) {
     addScrollAnimation();
   });
 } else {
-  import("./components/subscribeBlock");
+  import("./components/subscribeBlock").then(({initSubscribeBlock}) => {
+    initSubscribeBlock();
+  });
 }
 
 loadRecaptcha();

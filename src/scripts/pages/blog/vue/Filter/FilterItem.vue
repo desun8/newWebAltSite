@@ -7,7 +7,7 @@
         :checked="checked"
         type="radio"
         name="filter"
-        class="filter__radio  visually-hidden"
+        class="filter__radio"
     />
     <label :for="id" class="filter__item">{{ name }}</label>
   </div>

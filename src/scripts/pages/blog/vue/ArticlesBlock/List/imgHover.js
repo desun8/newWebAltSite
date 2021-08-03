@@ -1,5 +1,4 @@
-import { gsap } from 'gsap';
-import { mediaQueryEvent } from '../../../../../utils/mediaQueryEvent';
+import { gsap } from "gsap";
 
 const getMousePos = (e) => {
   let posX = 0;
@@ -18,17 +17,14 @@ const getMousePos = (e) => {
 class ImgHover {
   constructor(el) {
     this.DOM = { el: el };
-
-    this.DOM.reveal = document.createElement('div');
-    this.DOM.reveal.className = 'js-img-hover';
-    this.totalImages = 5;
-    let inner = '';
-    for (let i = 0; i <= this.totalImages - 1; ++i) {
-      inner += `<img src="${this.DOM.el.dataset.img}" alt="" class="js-img-hover__img" />`;
-    }
-    this.DOM.reveal.innerHTML = inner;
+    this.DOM.reveal = document.createElement("div");
+    this.DOM.reveal.className = "hover-reveal";
+    this.DOM.reveal.innerHTML = `<div class="hover-reveal__inner"><div class="hover-reveal__img" style="background-image:url(${this.DOM.el.dataset.img})"></div></div>`;
     this.DOM.el.appendChild(this.DOM.reveal);
-    this.DOM.revealImgs = [...this.DOM.reveal.querySelectorAll('.js-img-hover__img')];
+    this.DOM.revealInner = this.DOM.reveal.querySelector(".hover-reveal__inner");
+    this.DOM.revealInner.style.overflow = "hidden";
+    this.DOM.revealImg = this.DOM.revealInner.querySelector(".hover-reveal__img");
+
     this.initEvents();
   }
 
@@ -42,83 +38,72 @@ class ImgHover {
 
       const { top, left } = this.DOM.el.getBoundingClientRect();
       const posX = mousePos.x + 20 - docScrolls.left - left;
-      const poxY = mousePos.y + 20 - docScrolls.top - top;
-      this.DOM.reveal.style.transform = `translate3d(${posX}px, ${poxY}px, 0)`;
-    };
+      const posY = mousePos.y + 20 - docScrolls.top - top;
 
-    const handleEnter = (ev) => {
+      this.DOM.reveal.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+    };
+    this.mouseenterFn = (ev) => {
       this.positionElement(ev);
       this.showImage();
     };
-
-    const handleMove = ev => requestAnimationFrame(() => {
+    this.mousemoveFn = ev => requestAnimationFrame(() => {
       this.positionElement(ev);
     });
-
-    const handleLeave = () => {
+    this.mouseleaveFn = () => {
       this.hideImage();
     };
 
-    const addEvents = () => {
-      console.log('init events');
-      this.DOM.el.addEventListener('pointerenter', handleEnter);
-      this.DOM.el.addEventListener('pointermove', handleMove);
-      this.DOM.el.addEventListener('pointerleave', handleLeave);
-    };
-
-    const removeEvents = () => {
-      this.DOM.el.removeEventListener('pointerenter', handleEnter);
-      this.DOM.el.removeEventListener('pointermove', handleMove);
-      this.DOM.el.removeEventListener('pointerleave', handleLeave);
-    };
-
-    addEvents();
-    mediaQueryEvent(removeEvents, addEvents);
+    this.DOM.el.addEventListener("mouseenter", this.mouseenterFn);
+    this.DOM.el.addEventListener("mousemove", this.mousemoveFn);
+    this.DOM.el.addEventListener("mouseleave", this.mouseleaveFn);
   }
 
   showImage() {
-    gsap.killTweensOf(this.DOM.revealImgs);
+    gsap.killTweensOf(this.DOM.revealInner);
+    gsap.killTweensOf(this.DOM.revealImg);
+
     this.tl = gsap.timeline({
         onStart: () => {
-          this.DOM.reveal.style.opacity = '1';
-          gsap.set(this.DOM.el, { zIndex: 100 });
+          this.DOM.reveal.style.opacity = 1;
+          gsap.set(this.DOM.el, { zIndex: 1000 });
         }
       })
-      .set(this.DOM.revealImgs, { opacity: 0 });
-
-    for (let i = 0; i <= this.totalImages - 1; ++i) {
-      gsap.set(this.DOM.revealImgs[i], {
-        x: `${(this.totalImages - 1 - i) * 5}%`,
-        y: `${(this.totalImages - 1 - i) * 10}%`
-      });
-
-      this.tl.add(gsap.to(this.DOM.revealImgs[i], {
-        x: i === this.totalImages - 1 ? '0%' : null,
-        y: i === this.totalImages - 1 ? '0%' : null,
-        opacity: i === this.totalImages - 1 ? 1 : 0,
-        ease: i === this.totalImages - 1 ? 'power4.easeOut' : 'power1.easeOut',
-        duration: i === this.totalImages - 1 ? 1.2 : 0.55,
-        startAt: i === this.totalImages - 1 ? { opacity: 1, x: '5%', y: '10%' } : { opacity: 1 },
-      }), i * 0.04);
-    }
+      .add("begin")
+      .add(gsap.to(this.DOM.revealInner, 0.2, {
+        ease: "sine.easeOut",
+        startAt: { x: "-100%" },
+        x: "0%"
+      }), "begin")
+      .add(gsap.to(this.DOM.revealImg, 0.2, {
+        ease: "sine.easeOut",
+        startAt: { x: "100%" },
+        x: "0%"
+      }), "begin");
   }
 
   hideImage() {
-    gsap.killTweensOf(this.DOM.revealImgs);
+    gsap.killTweensOf(this.DOM.revealInner);
+    gsap.killTweensOf(this.DOM.revealImg);
+
     this.tl = gsap.timeline({
         onStart: () => {
-          gsap.set(this.DOM.el, { zIndex: 99 });
+          gsap.set(this.DOM.el, { zIndex: 999 });
         },
         onComplete: () => {
-          gsap.set(this.DOM.el, { zIndex: '' });
+          gsap.set(this.DOM.el, { zIndex: "" });
           gsap.set(this.DOM.reveal, { opacity: 0 });
         }
       })
-      .add(gsap.to(this.DOM.revealImgs[this.totalImages - 1], {
-        opacity: 0,
-        ease: 'sine.easeOut',
-        duration: 0.15
-      }));
+      .add("begin")
+      .add(gsap.to(this.DOM.revealInner, 0.2, {
+        ease: "sine.easeOut",
+        x: "100%"
+      }), "begin")
+
+      .add(gsap.to(this.DOM.revealImg, 0.2, {
+        ease: "sine.easeOut",
+        x: "-100%"
+      }), "begin");
   }
 }
 
