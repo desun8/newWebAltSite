@@ -1,9 +1,9 @@
 <template>
   <li
-      ref="root"
-      :class="{'blog-item--event': isEvent}"
-      :data-img="img"
-      class="blog-list__item  blog-item"
+    ref="root"
+    :class="{'blog-item--event': isEvent}"
+    :data-img="img"
+    class="blog-list__item  blog-item"
   >
     <a :href="href" class="blog-item__link"></a>
 
@@ -86,8 +86,10 @@ export default {
     if (APP.isDesktop) {
       const { root, title } = this.$refs;
       // если это блок "подписки", то root == false
-      root && new ImgHover(root);
-      root && new TextAnimation(root, title);
+      if (root) {
+        new ImgHover(root);
+        new TextAnimation(root, title);
+      }
     }
   }
 };
