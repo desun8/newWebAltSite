@@ -8,12 +8,12 @@ import "@/styles/root.scss";
 import "focus-visible";
 import { initCore } from "./app/core";
 
-if (process.env.NODE_ENV === "development") {
+// if (process.env.NODE_ENV === "development") {
   import("../mocks/browser.js")
     .then((module) => {
       module.worker.start();
     });
-}
+// }
 
 export default function initRoot () {
   initCore();
