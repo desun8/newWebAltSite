@@ -5,13 +5,22 @@
     @apply text-dark-grey;
 
     --gap: #{em(135, 54)};
-    --pd: #{em(64, 54)} 0;
+    --pd: #{em(40, 54)} 0;
 
     @include font-size-new(54);
   }
 
   @media (--xl) {
-    --pd: #{em(64, 54)} #{em(90, 54)};
+    --px: #{em(62, 54)};
+    --pt: #{em(62, 54)};
+    --pb: #{em(60, 54)};
+    --pd: var(--pt) var(--px) var(--pb) var(--px);
+  }
+}
+
+body:not(.os-mac) .form__submit {
+  @media (--xl) {
+    --pb: #{em(56, 54)};
   }
 }
 

@@ -11,3 +11,7 @@
 .form__checkbox input[type="checkbox"]:hover:checked + label {
   @apply text-black;
 }
+
+body:not(.os-mac) .form__checkbox label {
+  @apply lg:pt-20px lg:pb-14px;
+}

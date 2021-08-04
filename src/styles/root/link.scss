@@ -5,25 +5,25 @@
     transform: translate3d(0, 0, 0);
     animation-timing-function: ease-in;
   }
-  
+
   9%,
   10% {
     transform: translate3d(100%, -100%, 0);
     animation-timing-function: ease-out;
   }
-  
+
   12%,
   15% {
     opacity: 0;
     //animation-timing-function: unset;
   }
-  
+
   24%,
   25% {
     opacity: 0;
     transform: translate3d(-100%, 100%, 0);
   }
-  
+
   29%,
   30% {
     opacity: 1;
@@ -35,57 +35,71 @@
   --icon-size: 0.6em;
   --icon-ml: 0.2em;
   --pr: 1em;
-  
+
   position: relative;
   color: inherit;
   text-decoration: none;
   white-space: nowrap;
-  
+
   transition-property: color;
   transition-duration: 0.3s;
   transition-timing-function: ease-in;
-  
+
   &--uppercase {
     --icon-size: 0.85em;
     text-transform: uppercase;
   }
-  
+
   &--no-icon {
     padding-right: 0;
   }
-  
+
   &--bold {
     font-weight: 600;
-    
+
     .link__text::after {
       height: 2px;
     }
-    
+
     .link__icon {
       top: 2px;
     }
-  
+
     .hero-announcement & .link__arrow {
       stroke-width: 0.5px;
       stroke: currentColor;
     }
   }
-  
+
   &--orange {
     color: var(--hover-color);
   }
-  
+
   &--underline {
     .link__text::after {
       transform: scaleX(1);
     }
   }
-  
+
+  &--btn {
+    transition-property: background-color;
+    transition-duration: 0.2s;
+
+    .link__text::after {
+      content: none;
+    }
+
+    &:hover {
+      color: inherit !important;
+      background-color: var(--hover-color);
+    }
+  }
+
   &__text {
     position: relative;
     display: inline-block;
     line-height: 1;
-  
+
     &::after {
       content: "";
       position: absolute;
@@ -101,14 +115,14 @@
       transition-property: transform;
       transition-duration: var(--trans-dur-fast);
       transition-timing-function: ease-in;
-    
+
       @media screen and (--tablet-sm) {
         background-color: currentColor;
         transform: scaleX(1);
       }
     }
   }
-  
+
   &__icon {
     position: relative;
     top: 1px;
@@ -117,25 +131,25 @@
     height: var(--icon-size);
     margin-left: var(--icon-ml);
   }
-  
+
   &__arrow {
     fill: currentColor;
     transform-origin: 0 100%;
-  
+
     position: absolute;
     top: 0;
     left: 0;
     width: var(--icon-size);
     height: var(--icon-size);
   }
-  
+
   &:hover {
     color: var(--hover-color);
-  
+
     .link__text::after {
       transform: scaleX(1);
     }
-    
+
     .link__arrow use {
       animation-name: arrow;
       animation-duration: 2s;
