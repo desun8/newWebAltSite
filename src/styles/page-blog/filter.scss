@@ -3,11 +3,11 @@
 .pin-filter-container {
   --width-shrink: calc(var(--page-gap) + 20px);
   --margin-left: #{vw(-10)};
-  
+
   grid-column: 1/8;
   margin-bottom: 30px;
   margin-left: 0;
-  
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     margin-bottom: vw(55);
@@ -22,9 +22,9 @@
   --icon-size: 16px;
   --duration: var(--trans-dur-fast);
   --ease: ease-in;
-  
+
   @include list-unstyled();
-  
+
   width: fit-content;
   display: grid;
   grid-auto-flow: column;
@@ -35,7 +35,7 @@
   padding: 0;
   transition: background-color var(--duration);
   z-index: 500;
-  
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     position: relative;
@@ -48,21 +48,17 @@ body.os-mac .filter {
   padding: vw(10) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
 }
 
-.filter.is-pinned.is-active {
-  gap: 0;
-}
-
 .filter__collapse {
   --size: calc(var(--icon-size) * 3.6);
-  
+
   position: absolute;
   top: 0;
   left: calc(var(--size) / 4);
   z-index: 5;
-  
+
   width: var(--size);
   height: 100%;
-  
+
   font-size: 0;
   transform: scaleX(0);
 }
@@ -85,14 +81,14 @@ body.os-mac .filter {
   margin: 0 0 0 calc(var(--padding) * -1);
   padding: 0;
   border: 0;
-  
+
   display: grid;
   grid-auto-flow: column;
   gap: var(--gap-item);
-  
+
   transform: translateY(1px);
   transition-property: transform;
-  
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     margin-left: 0;
@@ -113,7 +109,7 @@ body.os-mac .filter {
   fill: none;
   stroke: currentColor;
   will-change: width;
-  
+
   //noinspection CssInvalidMediaFeature
   @media (--lg) {
     display: flex;
@@ -121,7 +117,7 @@ body.os-mac .filter {
 }
 
 .filter.is-pinned .filter__icon {
-  width: var(--page-gap);
+  width: auto;
 }
 
 .filter.is-pinned.is-active .filter__icon {
@@ -130,13 +126,13 @@ body.os-mac .filter {
 
 .filter__icon svg {
   width: var(--icon-size);
-  
+
   transform-origin: 55% 40%;
   transition-property: transform, stroke;
   transition-duration: var(--duration);
   transition-timing-function: var(--ease);
   transform: rotate(0deg); // windows
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--desktop-md) {
     height: auto;
@@ -153,20 +149,17 @@ body.os-mac .filter__icon svg {
 }
 
 .filter__icon .icon-text {
-  --tY: translateY(-50%);
   --tX: translateX(-10px);
-  
+
   @include font-size-px($fz-text-sm);
-  
+
   position: absolute;
-  top: 50%;
-  left: 40%;
-  //right: 0;
-  
+  margin-left: 13px;
+
   color: currentColor;
   opacity: 0;
-  transform: var(--tY) var(--tX);
-  
+  transform: translate3d(var(--tX), 0, 0);
+
   transition-property: transform, opacity, color;
   transition-duration: 0s;
   transition-timing-function: var(--ease);
@@ -175,9 +168,10 @@ body.os-mac .filter__icon svg {
 .filter.is-pinned .filter__icon .icon-text {
   --tX: translateX(0);
   --delay: var(--duration);
-  
+
+  position: relative;
   opacity: 1;
-  
+
   transition: transform var(--trans-dur-faster) var(--delay) var(--ease),
     opacity var(--trans-dur-faster) var(--delay) var(--ease),
     color var(--trans-dur-faster) var(--ease);
@@ -185,7 +179,7 @@ body.os-mac .filter__icon svg {
 
 .filter__radio-wrapper {
   --duration: 0s;
-  
+
   position: relative;
   display: inline-block;
   transition-property: transform, opacity;
@@ -213,26 +207,25 @@ body.os-mac .filter__icon svg {
 
 .filter__item {
   @include font-size-px($fz-text-16);
-  
+
   position: relative;
   padding: var(--padding);
-  
+
   font-weight: 600;
   text-transform: uppercase;
-  
+
   opacity: 0.5;
   cursor: pointer;
   transition-property: opacity, color;
   transition-duration: var(--trans-dur-faster);
   transition-timing-function: ease-in;
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     font-size: 22px;
-    
+
     transition-duration: 0s;
   }
-  
 }
 
 .filter__item::after {
@@ -240,16 +233,16 @@ body.os-mac .filter__icon svg {
   position: absolute;
   bottom: calc(var(--padding) * 1.2);
   left: 50%;
-  
+
   width: calc(100% - var(--padding) * 2);
   height: 1px;
   background-color: currentColor;
-  
+
   transform-origin: 0 50%;
   transform: translateX(-50%) scale(0);
-  
+
   transition: transform var(--trans-dur-faster) ease-in;
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     bottom: calc(var(--padding) * 1.5);
@@ -264,7 +257,7 @@ body.os-mac .filter__icon svg {
 .filter__radio:checked + .filter__item {
   color: var(--c-red) !important;
   opacity: 1;
-  
+
   &::after {
     transform: translateX(-50%) scale(1);
   }

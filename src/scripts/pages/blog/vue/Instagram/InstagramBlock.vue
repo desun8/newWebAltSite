@@ -1,24 +1,51 @@
 <template>
   <div
-    class="instagram-block  hidden lg:block lg:relative lg:col-start-8 lg:col-end-13 lg:transform lg:translate-y-$pos-top">
-    <div ref="subscribeBlock"
-         class="absolute -top-48 -top-178px w-$width-full h-screen z-10 overflow-hidden">
+    class="
+      instagram-block
+      hidden
+      lg:block
+      lg:relative
+      lg:col-start-8
+      lg:col-end-13
+      lg:transform
+      lg:translate-y-$pos-top
+    "
+  >
+    <div
+      ref="subscribeBlock"
+      class="
+        absolute
+        -top-48 -top-178px
+        w-$width-full
+        h-screen
+        z-10
+        overflow-hidden
+      "
+    >
       <div ref="subscribeBlockInner" class="w-full h-full">
-        <SubscribeBlog/>
+        <SubscribeBlock />
       </div>
     </div>
 
     <div ref="wrapper">
       <div ref="instagram">
-        <Instagram/>
+        <Instagram />
       </div>
 
-      <div ref="subscribeBanner"
-           class="instagram-block__banner  hidden opacity-0 transform -translate-y-28 lg:block">
-        <SubscribeBanner :is-only-sm="false" id="instagram"/>
+      <div
+        ref="subscribeBanner"
+        class="
+          instagram-block__banner
+          hidden
+          opacity-0
+          transform
+          -translate-y-28
+          lg:block
+        "
+      >
+        <SubscribeBanner :is-only-sm="false" id="instagram" />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -26,15 +53,13 @@
 import { defineComponent } from "vue";
 import { gsap } from "gsap";
 import Instagram from "@/scripts/pages/blog/vue/Instagram/Instagram.vue";
-import SubscribeBanner
-  from "@/scripts/pages/blog/vue/Subscribes/SubscribeBanner.vue";
-import SubscribeBlog
-  from "@/scripts/pages/blog/vue/Subscribes/SubscribeBlog.vue";
+import SubscribeBanner from "@/scripts/pages/blog/vue/Subscribes/SubscribeBanner.vue";
+import SubscribeBlock from "@/scripts/pages/blog/vue/Subscribes/SubscribeBlock.vue";
 import APP from "@/scripts/app/APP";
 
 export default defineComponent({
   name: "InstagramBlock",
-  components: {SubscribeBlog, SubscribeBanner, Instagram},
+  components: { SubscribeBlock, SubscribeBanner, Instagram },
   mounted() {
     if (APP.scrollbar) {
       const observeFooterVisible = () => {
@@ -43,11 +68,11 @@ export default defineComponent({
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              const {isIntersecting} = entry;
+              const { isIntersecting } = entry;
               isFooterHidden = !isIntersecting;
             });
           },
-          {rootMargin: "200px", threshold: [0.1, 0.5, 1]},
+          { rootMargin: "200px", threshold: [0.1, 0.5, 1] }
         );
 
         observer.observe(footerElm);
@@ -71,24 +96,24 @@ export default defineComponent({
       const hideSubscribeBlock = () => {
         const duration = 0.4;
 
-        gsap.timeline({
-              onStart() {
-                isPlay = true;
-              },
-              onComplete() {
-                isVisibleSubscribeBlock = false;
+        gsap.to(subscribeBlockInner, {
+          x: "100%",
+          duration,
+          onStart() {
+            isPlay = true;
+          },
+          onComplete() {
+            isVisibleSubscribeBlock = false;
 
-                setTimeout(() => {
-                  isPlay = false;
-                }, 1000);
-              },
-            },
-          )
-          .to(subscribeBlockInner, {x: "100%", duration})
-          .from(wrapper, {alpha: 0, duration});
+            setTimeout(() => {
+              isPlay = false;
+            }, 1000);
+          },
+        });
       };
 
-      const moveInstagram = gsap.timeline({
+      const moveInstagram = gsap
+        .timeline({
           paused: true,
           onStart() {
             isPlay = true;
@@ -102,22 +127,23 @@ export default defineComponent({
             isShow = true;
           },
         })
-        .to(instagram, {y: `-=300`, duration: 0.6})
-        .to(subscribeBanner, {y: -250, autoAlpha: 1, duration: 0.4}, "-=0.4");
+        .to(instagram, { y: `-=300`, duration: 0.6 })
+        .to(subscribeBanner, { y: -250, autoAlpha: 1, duration: 0.4 }, "-=0.4");
 
       observeFooterVisible();
 
-
-      APP.scrollbar.addListener(status => {
+      APP.scrollbar.addListener((status) => {
         const currScrollPos = status.offset.y;
         const isScrollDown = currScrollPos > prevScrollPos;
-        const triggerInstagramAnimation = currScrollPos > 300 && !isVisibleSubscribeBlock;
+        const triggerInstagramAnimation =
+          currScrollPos > 300 && !isVisibleSubscribeBlock;
 
         if (isFooterHidden) {
           setWrapperPos(currScrollPos);
 
           if (isVisibleSubscribeBlock) {
-            const shouldHideSubscribeBlock = !isPlay && currScrollPos > 50 && isScrollDown;
+            const shouldHideSubscribeBlock =
+              !isPlay && currScrollPos > 50 && isScrollDown;
 
             setSubscribeBlockPos(currScrollPos);
 
@@ -139,7 +165,7 @@ export default defineComponent({
               }
             }
           } else {
-            if (moveInstagram.isActive) {
+            if (moveInstagram.isActive()) {
               moveInstagram.pause();
             }
 

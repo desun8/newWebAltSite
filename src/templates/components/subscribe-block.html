@@ -1,13 +1,43 @@
 <article class="subscribe-block px-5 py-8 bg-sun">
   <div class="grid grid-cols-subscribe gap-7">
     <form class="grid gap-5" action="/subscribe" novalidate>
-      <h2 class="pr-9 text-lg font-semibold text-white uppercase">Подпишитесь на нашу рассылку</h2>
-      <span class="pr-9 text-sm">Получи доступ к нашей видео базе знаний с семинаров!</span>
-      <div class="grid grid-cols-fillAuto  gap-2.5 items-start">
+      <h2 class="pr-9 text-lg font-semibold text-white uppercase">
+        Подпишитесь на нашу рассылку
+      </h2>
+      <span class="pr-9 text-sm font-light text-justify"
+        >Получи доступ к нашей видео базе знаний с семинаров!</span
+      >
+      <div class="grid grid-cols-fillAuto gap-2.5 items-start">
         <div class="form-field grid gap-2">
           <label class="sr-only" for="subscribe-email">Электронная почта</label>
-          <input class="subscribe-block__input  pb-2.5 text-md font-light  tracking-wide bg-transparent border-b border-black rounded-none  placeholder-black  focus:outline-none hover:border-white focus:border-white transition-colors" type="email" name="email" id="subscribe-email" autocomplete="email" placeholder="Сюда имейлик позязя" required>
-          <span class="text-white text-xs font-light tracking-wide  js-text" data-message="спасибо за подписку!">*это поле необходимо заполнить</span>
+          <input
+            class="
+              subscribe-block__input
+              pb-2.5
+              text-md
+              font-light
+              tracking-wide
+              bg-transparent
+              border-b border-black
+              rounded-none
+              placeholder-black
+              focus:outline-none
+              hover:border-white
+              focus:border-white
+              transition-colors
+            "
+            type="email"
+            name="email"
+            id="subscribe-email"
+            autocomplete="email"
+            placeholder="Сюда имейлик позязя"
+            required
+          />
+          <span
+            class="text-white text-xs font-light tracking-wide js-text"
+            data-message="спасибо за подписку!"
+            >*это поле необходимо заполнить</span
+          >
         </div>
 
         <button class="w-min" type="submit">
