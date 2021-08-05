@@ -17,7 +17,7 @@
         absolute
         -top-48 -top-178px
         w-$width-full
-        h-screen
+        h-101vh
         z-10
         overflow-hidden
       "

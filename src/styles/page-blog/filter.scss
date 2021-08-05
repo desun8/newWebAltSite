@@ -40,12 +40,17 @@
   @media (--lg) {
     position: relative;
     height: 40px;
-    padding: vw(10 + 4) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
+    padding: vw(10) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
   }
 }
 
-body.os-mac .filter {
-  padding: vw(10) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
+// TODO: replace to "body.os-win"
+body:not(.os-mac) .filter {
+  @media (--lg) {
+    min-height: 46px;
+    height: vw(46);
+    padding: vw(12) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
+  }
 }
 
 .filter__collapse {
