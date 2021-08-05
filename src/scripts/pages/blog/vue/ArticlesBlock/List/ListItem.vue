@@ -1,26 +1,25 @@
 <template>
-  <li
-    ref="root"
-    :class="{'blog-item--event': isEvent}"
-    :data-img="img"
-    class="blog-list__item  blog-item"
-  >
-    <a :href="href" class="blog-item__link"></a>
+  <li ref="root" :data-img="img" class="blog-list__item relative">
+    <div :class="{ 'blog-item--event': isEvent }" class="blog-item">
+      <a :href="href" class="blog-item__link"></a>
 
-    <img :src="img" alt="" loading="lazy" class="blog-item__img">
+      <img :src="img" alt="" loading="lazy" class="blog-item__img" />
 
-    <span v-if="isEvent" class="blog-item__tag">#СОБЫТИЕ</span>
+      <span v-if="isEvent" class="blog-item__tag">#СОБЫТИЕ</span>
 
-    <h2 ref="title" class="blog-item__title">{{ title }}</h2>
+      <h2 ref="title" class="blog-item__title">{{ title }}</h2>
 
-    <span class="blog-item__describe">{{ describe }}</span>
+      <span class="blog-item__describe">{{ describe }}</span>
 
-    <span class="blog-item__date">
-      {{ dayDate }}
-      <span class="blog-item__full-date">
-        {{ fullDate }}
+      <span class="blog-item__date">
+        {{ dayDate }}
+        <span class="blog-item__full-date">
+          {{ fullDate }}
+        </span>
       </span>
-    </span>
+    </div>
+
+    <slot></slot>
   </li>
 </template>
 
@@ -29,35 +28,48 @@ import ImgHover from "./imgHover";
 import TextAnimation from "./TextAnimation";
 import APP from "../../../../../app/APP";
 
-const month = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+const month = [
+  "января",
+  "февраля",
+  "марта",
+  "апреля",
+  "мая",
+  "июня",
+  "июля",
+  "августа",
+  "сентября",
+  "октября",
+  "ноября",
+  "декабря",
+];
 
 export default {
   name: "ListItem",
   props: {
     type: {
       type: String,
-      required: true
+      required: true,
     },
     date: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     describe: {
       type: String,
-      required: true
+      required: true,
     },
     img: {
       type: String || undefined,
-      required: true
+      required: true,
     },
     href: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     isEvent() {
@@ -80,7 +92,7 @@ export default {
       }
 
       return "";
-    }
+    },
   },
   mounted() {
     if (APP.isDesktop) {
@@ -91,6 +103,6 @@ export default {
         new TextAnimation(root, title);
       }
     }
-  }
+  },
 };
 </script>

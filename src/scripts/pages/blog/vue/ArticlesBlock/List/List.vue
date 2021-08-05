@@ -6,9 +6,15 @@
     tag="ul"
     class="blog-list"
   >
-    <li v-for="[dateKey, items] in itemList" :key="dateKey"
-        class="blog-list__category">
-      <div class="blog-list__date"><span>{{ formatDate(dateKey) }}</span></div>
+    <li
+      ref="category"
+      v-for="[dateKey, items] in itemList"
+      :key="dateKey"
+      class="blog-list__category"
+    >
+      <div ref="categoryDate" class="blog-list__date">
+        <span>{{ formatDate(dateKey) }}</span>
+      </div>
       <transition-group
         v-on:enter="enter"
         v-on:leave="leave"
@@ -16,19 +22,22 @@
         tag="ul"
         class="blog-list__sublist"
       >
-        <div v-for="(item, index) in items" :key="item.id">
-          <SubscribeBanner v-if="firstDateKey === dateKey && index === 1"
-                           :is-only-sm="true" id="list"/>
-
-          <list-item
-            :type="item.type"
-            :date="item.date"
-            :title="item.title"
-            :describe="item.describe"
-            :img="item.img"
-            :href="item.href"
+        <ListItem
+          v-for="(item, index) in items"
+          :key="item.id"
+          :type="item.type"
+          :date="item.date"
+          :title="item.title"
+          :describe="item.describe"
+          :img="item.img"
+          :href="item.href"
+        >
+          <SubscribeBanner
+            v-if="firstDateKey === dateKey && index === 0"
+            :is-only-sm="true"
+            id="list"
           />
-        </div>
+        </ListItem>
       </transition-group>
     </li>
   </transition-group>
@@ -36,16 +45,17 @@
 
 <script>
 import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import ListItem from "./ListItem.vue";
 import APP from "../../../../../app/APP";
-import SubscribeBanner
-  from "@/scripts/pages/blog/vue/Subscribes/SubscribeBanner.vue";
+import SubscribeBanner from "@/scripts/pages/blog/vue/Subscribes/SubscribeBanner.vue";
+import { resizeObserver } from "@/scripts/utils/resizeObserver";
 
 export default {
   name: "List",
   components: {
     SubscribeBanner,
-    ListItem
+    ListItem,
   },
   data() {
     return {
@@ -56,8 +66,8 @@ export default {
   props: {
     itemList: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   methods: {
@@ -75,7 +85,7 @@ export default {
         delay,
         onComplete() {
           done();
-        }
+        },
       });
     },
 
@@ -89,7 +99,7 @@ export default {
         duration,
         onComplete() {
           done();
-        }
+        },
       });
     },
 
@@ -97,10 +107,34 @@ export default {
       const date = new Date(dateStr);
       return new Intl.DateTimeFormat("ru", {
         year: "numeric",
-        month: "long"
-      }).format(date).slice(0, -3); // обрезаем ' г.'
+        month: "long",
+      })
+        .format(date)
+        .slice(0, -3); // обрезаем ' г.'
+    },
+
+    pinCategoryDate() {
+      const { category, categoryDate } = this.$refs;
+
+      const scrollTrigger = ScrollTrigger.create({
+        trigger: category,
+        start: "top 200",
+        end: "bottom 500",
+        pin: categoryDate,
+      });
+
+      resizeObserver(category, scrollTrigger.refresh);
     },
   },
+
+  watch: {
+    itemList() {
+      setTimeout(() => {
+        this.pinCategoryDate();
+      }, 0);
+    },
+  },
+
   beforeMount() {
     if (this.itemList) {
       for (const dateKey of this.itemList.keys()) {
@@ -109,7 +143,11 @@ export default {
         }
       }
     }
-  }
+  },
+
+  mounted() {
+    this.pinCategoryDate();
+  },
 };
 </script>
 
