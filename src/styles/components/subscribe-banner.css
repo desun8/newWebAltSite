@@ -1,3 +1,5 @@
+@import "../animations/border-fill.css";
+
 .subscribe-banner-btn {
   @apply transition-opacity delay-200;
 }
@@ -43,10 +45,10 @@ body.theme-sun .subscribe-banner-block {
   background-color: #fff;
 }
 
-body.theme-sun .subscribe-banner-block__input:hover,
+/* body.theme-sun .subscribe-banner-block__input:hover,
 body.theme-sun .subscribe-banner-block__input:focus {
   border-color: var(--c-red);
-}
+} */
 
 body.theme-sun .subscribe-banner-block__input + span,
 body.theme-sun .subscribe-banner-block__success {
@@ -55,4 +57,21 @@ body.theme-sun .subscribe-banner-block__success {
 
 .subscribe-banner-block__input {
   --autofill-bg: var(--c-red);
+}
+
+.form-field.has-error .subscribe-banner-block__input {
+  --error-color: #fff;
+
+  animation-name: border-fill;
+  animation-duration: 2s;
+}
+
+body.theme-sun .form-field.has-error .subscribe-banner-block__input {
+  --error-color: var(--c-red);
+}
+
+.form-field:hover ~ .subscribe-banner-block__submit use {
+  animation-name: arrow;
+  animation-duration: 2s;
+  animation-delay: var(--trans-dur-fast);
 }

@@ -1,0 +1,10 @@
+@keyframes border-fill {
+  35%,
+  85% {
+    border-bottom-color: var(--error-color, #fff);
+  }
+
+  100% {
+    border-bottom-color: var(--c-black, #131313);
+  }
+}

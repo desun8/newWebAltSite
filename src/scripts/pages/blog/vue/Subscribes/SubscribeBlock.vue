@@ -1,5 +1,8 @@
 <template>
-  <div class="subscribe-block relative w-full h-full bg-sun">
+  <div
+    ref="subscribeBlock"
+    class="subscribe-block relative w-full h-full bg-sun"
+  >
     <div class="grid content-center w-full h-full">
       <div
         class="grid grid-cols-5 gap-$gap pr-$right transform translate-x-$pos-x"
@@ -34,8 +37,6 @@
                   rounded-none
                   placeholder-black
                   focus:outline-none
-                  hover:border-white
-                  focus:border-white
                   transition-colors
                 "
                 type="email"
@@ -47,6 +48,7 @@
               />
               <span
                 class="
+                  form-field__error
                   msg-size
                   text-white text-xs
                   font-light
@@ -58,7 +60,7 @@
               >
             </div>
 
-            <button class="w-min" type="submit">
+            <button class="subscribe-block__submit w-min" type="submit">
               <span class="sr-only">Отправить</span>
               <svg class="w-7 h-7" width="66" height="66">
                 <use xlink:href="#icon-arrow"></use>
@@ -97,8 +99,13 @@
 </template>
 
 <script>
+import { initSubscribeBlock } from "@/scripts/components/subscribeBlock";
+
 export default {
   name: "SubscribeBlock",
+  mounted() {
+    initSubscribeBlock(this.$refs.subscribeBlock);
+  },
 };
 </script>
 

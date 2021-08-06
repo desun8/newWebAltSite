@@ -29,8 +29,6 @@
                 rounded-none
                 placeholder-black
                 focus:outline-none
-                hover:border-white
-                focus:border-white
                 transition-colors
               "
               type="email"
@@ -42,6 +40,7 @@
             />
             <span
               class="
+                form-field__error
                 msg-size
                 text-white text-xs
                 font-light
@@ -53,7 +52,7 @@
             >
           </div>
 
-          <button class="w-min" type="submit">
+          <button class="subscribe-block__submit w-min" type="submit">
             <span class="sr-only">Отправить</span>
             <svg class="w-7 h-7" width="66" height="66">
               <use xlink:href="#icon-arrow"></use>

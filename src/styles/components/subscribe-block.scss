@@ -1,4 +1,5 @@
 @use "@/styles/animations/rotate";
+@use "@/styles/animations/border-fill";
 
 .subscribe-block__image {
   @apply w-22 h-28 bg-no-repeat bg-contain;
@@ -18,8 +19,6 @@
   transform: scaleY(-1) rotate(35deg);
 }
 
-//.has-error .subscribe-block__input {}
-
 .subscribe-block__input:-internal-autofill-previewed,
 .subscribe-block__input:-internal-autofill-selected,
 .subscribe-block__input:-webkit-autofill,
@@ -28,4 +27,16 @@
 .subscribe-block__input:-webkit-autofill:active {
   background-color: var(--c-red) !important;
   -webkit-box-shadow: 0 0 0 30px var(--c-red) inset !important;
+}
+
+.subscribe-block .form-field:hover + .subscribe-block__submit use {
+  animation-name: arrow;
+  animation-duration: 2s;
+  animation-delay: var(--trans-dur-fast);
+}
+
+.subscribe-block .form-field.has-error input,
+.subscribe-block .form-field input.has-error {
+  animation-name: border-fill;
+  animation-duration: 2s;
 }
