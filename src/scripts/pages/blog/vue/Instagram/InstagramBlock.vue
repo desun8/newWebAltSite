@@ -104,6 +104,7 @@ export default defineComponent({
           },
           onComplete() {
             isVisibleSubscribeBlock = false;
+            gsap.set(subscribeBlock, { display: "none" });
 
             setTimeout(() => {
               isPlay = false;
