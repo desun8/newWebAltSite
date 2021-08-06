@@ -154,16 +154,17 @@ body.os-mac .filter__icon svg {
 }
 
 .filter__icon .icon-text {
-  --tX: translateX(-10px);
+  --pos-x: -10px;
 
   @include font-size-px($fz-text-sm);
 
   position: absolute;
+  left: 100%;
   margin-left: 13px;
 
-  color: currentColor;
+  color: var(--c-dark-grey);
   opacity: 0;
-  transform: translate3d(var(--tX), 0, 0);
+  transform: translate3d(var(--pos-x), 0, 0);
 
   transition-property: transform, opacity, color;
   transition-duration: 0s;
@@ -171,15 +172,20 @@ body.os-mac .filter__icon svg {
 }
 
 .filter.is-pinned .filter__icon .icon-text {
-  --tX: translateX(0);
+  --pos-x: 0;
   --delay: var(--duration);
 
-  position: relative;
   opacity: 1;
 
   transition: transform var(--trans-dur-faster) var(--delay) var(--ease),
-    opacity var(--trans-dur-faster) var(--delay) var(--ease),
-    color var(--trans-dur-faster) var(--ease);
+    opacity var(--trans-dur-faster) var(--delay) var(--ease);
+}
+
+.filter.is-pinned.is-active .filter__icon .icon-text {
+  --pos-x: -10px;
+
+  opacity: 0;
+  transition: none;
 }
 
 .filter__radio-wrapper {
