@@ -12,7 +12,7 @@
           <h2 class="title-size font-semibold text-black">
             Подпишись на нашу рассылку
           </h2>
-          <span class="text-size mb-6 font-light text-justify"
+          <span class="text-size mb-6 font-light text-justify tracking-wide"
             >Мы отправим доступ к нашим секретным
             <span class="font-medium">“ЭДЮКЕЙШЕН” видео лекциям!</span></span
           >

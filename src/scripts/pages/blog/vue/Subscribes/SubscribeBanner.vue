@@ -9,7 +9,8 @@
         <h2 class="title-size pr-9 text-lg font-semibold text-white uppercase">
           Подпишитесь на нашу рассылку
         </h2>
-        <span class="text-size pr-9 text-sm font-light text-justify"
+        <span
+          class="text-size pr-9 text-sm font-light text-justify tracking-wide"
           >Получи доступ к нашей видео базе знаний с семинаров!</span
         >
         <div class="grid grid-cols-fillAuto gap-2.5 items-start">
