@@ -177,7 +177,13 @@ export default class Menu {
 
   // Закрытие меню
   handleClickOutside(e) {
-    if (!this.isVisible || e.target === this.btnsOpen[0]) {
+    const btnOpenMain = this.btnsOpen[0];
+
+    if (
+      !this.isVisible ||
+      e.target === btnOpenMain ||
+      e.target.parentElement === btnOpenMain
+    ) {
       return;
     }
 

@@ -79,7 +79,7 @@ body:not(.os-mac) .filter {
 
 .filter.is-pinned .filter__collapse:focus ~ .filter__icon,
 .filter.is-pinned .filter__collapse:hover ~ .filter__icon {
-  stroke: var(--c-red);
+  color: var(--c-red);
 }
 
 .filter__group {
@@ -112,7 +112,6 @@ body:not(.os-mac) .filter {
   align-items: center;
   color: var(--c-dark-grey);
   fill: none;
-  stroke: currentColor;
   will-change: width;
 
   //noinspection CssInvalidMediaFeature
@@ -131,6 +130,7 @@ body:not(.os-mac) .filter {
 
 .filter__icon svg {
   width: var(--icon-size);
+  stroke: currentColor;
 
   transform-origin: 55% 40%;
   transition-property: transform, stroke;

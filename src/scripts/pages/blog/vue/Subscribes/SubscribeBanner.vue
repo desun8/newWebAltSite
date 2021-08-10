@@ -6,7 +6,16 @@
   >
     <div class="grid grid-cols-subscribe grid-cols gap-7">
       <form class="grid gap-5" action="/subscribe" novalidate>
-        <h2 class="title-size pr-9 text-lg font-semibold text-white uppercase">
+        <h2
+          class="
+            title-size
+            pr-9
+            text-lg
+            font-semibold
+            text-white text-justify
+            uppercase
+          "
+        >
           Подпишитесь на нашу рассылку
         </h2>
         <span
@@ -136,7 +145,7 @@ export default {
 .title-size {
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
-    @include font-size-new(18, 21);
+    @include font-size-new(18, 24);
   }
 }
 
