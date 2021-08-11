@@ -1,29 +1,17 @@
-import { gsap } from 'gsap';
-import { throttle } from 'lodash';
+import { gsap } from "gsap";
+import { throttle } from "lodash";
 
 export default class AwardsList {
   constructor() {
-    this.$elms = {
-      root: document.querySelector('.block--awards'),
-      wrap: document.querySelector('.block--awards .block__lists'),
-      lists: document.querySelectorAll('.awards-list'),
-      img: document.querySelector('.awards-list-bg'),
-    };
+    this.root = document.querySelector(".block--awards");
+    this.wrap = this.root.querySelector(".block__lists");
+    this.elms = document.querySelectorAll(".awards-list");
+    this.img = document.querySelector(".awards-list-bg");
+    this.imgBg = this.img.querySelector(".awards-list-bg__image");
 
-    this.root = document.querySelector('.block--awards');
-    this.wrap = this.root.querySelector('.block__lists');
-    this.elms = document.querySelectorAll('.awards-list');
-    this.img = document.querySelector('.awards-list-bg');
-
-    // this.height = this.wrap.offsetHeight;
-    // this.imgHeight = this.img.offsetHeight;
-    // this.scrollParams.pos = 0;
-    // this.isMax = false;
-    // this.scrollSpeed = 30;
     this.scrollParams = {
       speed: 30,
       pos: 0,
-      // isMax: false,
       parentHeight: this.wrap.offsetHeight,
       height: this.img.offsetHeight,
     };
@@ -33,42 +21,44 @@ export default class AwardsList {
   }
 
   moveImg(deltaY = 0) {
-    // const pos = Math.floor(e.deltaY / 1.5);
     const heightMod = 0.8;
     const pos = deltaY > 0 ? this.scrollParams.speed : -this.scrollParams.speed;
 
-    // if (pos > 0 && this.scrollParams.isMax) {
-    //   return null;
-    // }
-    // this.scrollParams.isMax = false;
-    // console.log(this.scrollParams.isMax);
-
-    const maxPos = Math.floor(this.scrollParams.parentHeight * heightMod - this.scrollParams.height);
+    const maxPos = Math.floor(
+      this.scrollParams.parentHeight * heightMod - this.scrollParams.height
+    );
 
     this.scrollParams.pos += pos;
 
     if (this.scrollParams.pos < 0) {
       this.scrollParams.pos = 0;
     }
-    if (this.scrollParams.pos + this.scrollParams.height > this.scrollParams.parentHeight * heightMod) {
+    if (
+      this.scrollParams.pos + this.scrollParams.height >
+      this.scrollParams.parentHeight * heightMod
+    ) {
       this.scrollParams.pos = maxPos;
-      // this.scrollParams.isMax = true;
     }
-
 
     gsap.to(this.img, { y: this.scrollParams.pos, duration: 1 });
   }
 
+  changeImage(elm) {
+    const imgPath = elm.dataset.img;
+    if (imgPath) {
+      this.imgBg.style.backgroundImage = `url(${imgPath})`;
+    }
+  }
+
   handleClick(elm, list, height) {
-    // list.style.willChange = 'max-height';
     let show = false;
 
-    if (elm.dataset.hidden === 'true') {
-      elm.dataset.hidden = 'false';
+    if (elm.dataset.hidden === "true") {
+      elm.dataset.hidden = "false";
       show = true;
-      // return;
+      this.changeImage(elm);
     } else {
-      elm.dataset.hidden = 'true';
+      elm.dataset.hidden = "true";
     }
 
     gsap.to(list, {
@@ -77,7 +67,7 @@ export default class AwardsList {
       onComplete: () => {
         this.scrollParams.parentHeight = this.wrap.offsetHeight;
         !show && this.moveImg();
-      }
+      },
     });
   }
 
@@ -86,19 +76,13 @@ export default class AwardsList {
   }
 
   addEvent() {
-    this.root.addEventListener(
-      'wheel',
-      this.throttleScroll,
-      { passive: true }
-    );
+    this.root.addEventListener("wheel", this.throttleScroll, { passive: true });
   }
 
   removeEvent() {
-    this.root.removeEventListener(
-      'wheel',
-      this.throttleScroll,
-      { passive: true }
-    );
+    this.root.removeEventListener("wheel", this.throttleScroll, {
+      passive: true,
+    });
   }
 
   desktop() {
@@ -110,21 +94,21 @@ export default class AwardsList {
   }
 
   init() {
-    this.elms.forEach(elm => {
-      const btn = elm.querySelector('.awards-list__btn');
-      const list = elm.querySelector('ul');
+    this.elms.forEach((elm) => {
+      const btn = elm.querySelector(".awards-list__btn");
+      const list = elm.querySelector("ul");
       const childCount = list.childElementCount;
-      const child = list.querySelector('li');
-      const childHeight = child.offsetHeight + parseInt(window.getComputedStyle(child).getPropertyValue('margin-bottom'));
+      const child = list.querySelector("li");
+      const childHeight =
+        child.offsetHeight +
+        parseInt(
+          window.getComputedStyle(child).getPropertyValue("margin-bottom")
+        );
 
       btn.addEventListener(
-        'click',
+        "click",
         this.handleClick.bind(this, ...[elm, list, childHeight * childCount])
       );
     });
   }
 }
-
-
-
-
