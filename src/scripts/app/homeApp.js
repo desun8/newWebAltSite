@@ -43,7 +43,9 @@ class HomeApp extends Index {
     );
 
     //**** HERO TICKER ****//
-    this.tickerElms = document.querySelectorAll(".ticker");
+    this.tickerElms = document.querySelectorAll(
+      ".ticker:not(.page-menu .ticker)"
+    );
     if (this.tickerElms.length) {
       this.tickerElms.forEach((elm) => {
         new TextRunner(elm);
