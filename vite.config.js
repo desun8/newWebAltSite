@@ -3,7 +3,8 @@ import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
-import rollupVisualizer from 'rollup-plugin-visualizer';
+import posthtmlImgAutosize from "posthtml-img-autosize";
+import rollupVisualizer from "rollup-plugin-visualizer";
 
 // const handleHotUpdate = ({ server }) => {
 //   server.ws.send({
@@ -36,6 +37,10 @@ export default {
       plugins: [
         posthtmlInclude({
           root: "src/templates",
+        }),
+        posthtmlImgAutosize({
+          root: "public/",
+          // processEmptySize: true,
         }),
       ],
     }),
