@@ -34,6 +34,6 @@ export const initCore = () => {
   initProgressBar();
 
   if (APP.scrollbar && APP.isDesktop) {
-    addNoise();
+    // addNoise();
   }
 };
