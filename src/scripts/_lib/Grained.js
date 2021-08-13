@@ -1,4 +1,5 @@
-const getCssPropertyVal = (element, property) => getComputedStyle(element).getPropertyValue(property);
+const getCssPropertyVal = (element, property) =>
+  getComputedStyle(element).getPropertyValue(property);
 
 const defaultOptions = {
   animate: true,
@@ -13,13 +14,13 @@ const defaultOptions = {
 };
 
 export const grainedOptions = {
-  'animate': true,
-  'patternWidth': 145,
-  'patternHeight': 118,
-  'grainOpacity': 0.04,
-  'grainDensity': 1,
-  'grainWidth': 1,
-  'grainHeight': 1
+  animate: true,
+  patternWidth: 145,
+  patternHeight: 118,
+  grainOpacity: 0.04,
+  grainDensity: 1,
+  grainWidth: 1,
+  grainHeight: 1,
 };
 
 class Grained {
@@ -35,7 +36,9 @@ class Grained {
 
       // console.log(this.element, this.elementSelector);
 
-      this.options = options ? { ...defaultOptions, ...options } : defaultOptions;
+      this.options = options
+        ? { ...defaultOptions, ...options }
+        : defaultOptions;
 
       this.noise = this.generateNoise();
       this.animation = this.createAnimation();
@@ -53,49 +56,53 @@ class Grained {
     const { id, className } = element;
 
     if (id) return `#${id}`;
-    if (className) return `${element.tagName.toLowerCase()}.${className.split(' ')[0]}`;
+    if (className)
+      return `${element.tagName.toLowerCase()}.${className.split(" ")[0]}`;
+    if (element.tagName.toLowerCase() === "body")
+      return element.tagName.toLowerCase();
 
-    throw new Error('Can\'t get selector from element');
+    throw new Error("Can't get selector from element");
   }
 
   setStyle() {
-    const isPosStatic = getCssPropertyVal(this.element, 'position') === 'static';
+    const isPosStatic =
+      getCssPropertyVal(this.element, "position") === "static";
 
-    if (isPosStatic) this.element.style.position = 'relative';
+    if (isPosStatic) this.element.style.position = "relative";
 
-    this.element.style.overflow = 'hidden';
+    this.element.style.overflow = "hidden";
   }
 
   generateNoise() {
     const { options } = this;
 
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
     canvas.width = options.patternWidth;
     canvas.height = options.patternHeight;
 
     for (let w = 0; w < options.patternWidth; w += options.grainDensity) {
       for (let h = 0; h < options.patternHeight; h += options.grainDensity) {
-        const rgb = Math.random() * 256 | 0; //Math.floor(Math.random() * 256)
+        const rgb = (Math.random() * 256) | 0; //Math.floor(Math.random() * 256)
         ctx.fillStyle = `rgba(${[rgb, rgb, rgb, options.grainOpacity].join()})`;
         ctx.fillRect(w, h, options.grainWidth, options.grainHeight);
       }
     }
-    return canvas.toDataURL('image/png');
+    return canvas.toDataURL("image/png");
   }
 
   addCSSRule(sheet, selector, rules, index) {
-    let ins = '';
+    let ins = "";
     if (selector.length) {
       ins = `${selector}{${rules}}`;
     } else {
       ins = rules;
     }
 
-    if ('insertRule' in sheet) {
+    if ("insertRule" in sheet) {
       sheet.insertRule(ins, index);
-    } else if ('addRule' in sheet) {
+    } else if ("addRule" in sheet) {
       sheet.addRule(selector, rules, index);
     }
   }
@@ -103,51 +110,51 @@ class Grained {
   createAnimation() {
     const keyFrames = [
       {
-        step: '0%',
-        property: 'transform:translate(-10%,10%)',
+        step: "0%",
+        property: "transform:translate(-10%,10%)",
       },
       {
-        step: '10%',
-        property: 'transform:translate(-25%,0%)',
+        step: "10%",
+        property: "transform:translate(-25%,0%)",
       },
       {
-        step: '20%',
-        property: 'transform:translate(-30%,10%)',
+        step: "20%",
+        property: "transform:translate(-30%,10%)",
       },
       {
-        step: '30%',
-        property: 'transform:translate(-30%,30%)',
+        step: "30%",
+        property: "transform:translate(-30%,30%)",
       },
       {
-        step: '40%',
-        property: 'transform:translate(-20%,20%)',
+        step: "40%",
+        property: "transform:translate(-20%,20%)",
       },
       {
-        step: '50%',
-        property: 'transform:translate(-15%,10%)',
+        step: "50%",
+        property: "transform:translate(-15%,10%)",
       },
       {
-        step: '60%',
-        property: 'transform:translate(-20%,20%)',
+        step: "60%",
+        property: "transform:translate(-20%,20%)",
       },
       {
-        step: '70%',
-        property: 'transform:translate(-5%,20%)',
+        step: "70%",
+        property: "transform:translate(-5%,20%)",
       },
       {
-        step: '80%',
-        property: 'transform:translate(-25%,5%)',
+        step: "80%",
+        property: "transform:translate(-25%,5%)",
       },
       {
-        step: '90%',
-        property: 'transform:translate(-30%,25%)',
+        step: "90%",
+        property: "transform:translate(-30%,25%)",
       },
       {
-        step: '10%',
-        property: 'transform:translate(-10%,10%)',
+        step: "10%",
+        property: "transform:translate(-10%,10%)",
       },
     ];
-    let animation = '';
+    let animation = "";
 
     keyFrames.forEach((key) => {
       animation += `${key.step}{${key.property};}`;
@@ -157,12 +164,12 @@ class Grained {
   }
 
   createStyleAnimation() {
-    if (document.getElementById('grained-animation')) {
+    if (document.getElementById("grained-animation")) {
       return;
     }
 
-    const style = document.createElement('style');
-    style.id = 'grained-animation';
+    const style = document.createElement("style");
+    style.id = "grained-animation";
     style.innerHTML = this.animation;
 
     document.body.appendChild(style);
@@ -186,7 +193,7 @@ class Grained {
 
     const selectorElement = `${this.elementSelector}::before`;
 
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.id = `grained-animation-${this.elementSelector}`;
     document.body.appendChild(style);
 
