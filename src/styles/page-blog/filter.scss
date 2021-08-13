@@ -144,6 +144,10 @@ body:not(.os-mac) .filter {
   }
 }
 
+body:not(.os-mac) .filter__icon svg {
+  transform: rotate(0deg) translateY(1px); // mac
+}
+
 body.os-mac .filter__icon svg {
   transform-origin: 58% 42%;
   transform: rotate(0deg) translateY(1px); // mac
@@ -151,6 +155,10 @@ body.os-mac .filter__icon svg {
 
 .filter.is-pinned:not(.is-active) .filter__icon svg {
   transform: rotate(-90deg);
+}
+
+body:not(.os-mac) .filter.is-pinned:not(.is-active) .filter__icon svg {
+  transform: rotate(-90deg) translateX(-1px); // mac
 }
 
 .filter__icon .icon-text {
