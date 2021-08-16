@@ -1,0 +1,76 @@
+.page-inner {
+  @apply text-dark-grey;
+}
+
+.page-inner__body > *:not(header) {
+  @apply mb-5;
+}
+
+.page-inner__backward svg {
+  transform: scaleX(-1);
+}
+
+h3,
+h2,
+h4 {
+  @apply font-bold;
+}
+
+h2:not(:first-of-type),
+h3:not(:first-of-type),
+h4:not(:first-of-type) {
+  @apply mt-2.5;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-lg;
+}
+
+// p {
+//   @apply;
+// }
+
+ul {
+  @apply pl-$base-gap;
+  list-style: disc;
+  padding-left: var(--base-gap);
+}
+
+li:not(:last-child) {
+  @apply mb-5;
+}
+
+.page-inner__body figure {
+  @apply mb-11;
+}
+
+figure figcaption {
+  @apply mt-1 text-xs italic;
+}
+
+table {
+  @apply border-b border-gray text-sm tracking-0.4px;
+  // width: 100%;
+  // overflow: auto;;
+}
+
+thead {
+  @apply bg-dark-grey text-white font-semibold;
+}
+
+th,
+td {
+  @apply py-2 px-6 border-l border-gray;
+}
+
+thead th:first-child {
+  border-left: 0;
+}
+
+tbody tr:nth-child(2n) {
+  @apply bg-true-gray-150;
+}

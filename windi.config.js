@@ -1,13 +1,10 @@
-import { defineConfig } from 'windicss/helpers'
+import { defineConfig } from "windicss/helpers";
 import colors from "windicss/colors";
 import typography from "windicss/plugin/typography";
 
-export default defineConfig ({
+export default defineConfig({
   extract: {
-    include: [
-      "./**/*.html",
-      "./src/scripts/**/*.{ts,vue}"
-    ],
+    include: ["./**/*.html", "./src/scripts/**/*.{ts,vue}"],
   },
   safelist: ["prose", "prose-sm", "m-auto"],
   darkMode: "class",
@@ -30,6 +27,8 @@ export default defineConfig ({
         "dark-grey": "#262626",
         "dark-grey-opacity-10": "rgba(38, 38, 38, 0.1)",
         gray: "#dfdddf",
+        "true-gray-150": "rgb(239,239,239)",
+        "true-gray-350": "#c4c4c4",
         sun: "#ff5000",
         "sun-opacity-50": "rgba(255, 80, 0, 0.5)",
       },
