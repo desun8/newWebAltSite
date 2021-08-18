@@ -30,14 +30,9 @@
 }
 
 .subscribe-banner--static .subscribe-banner-block {
-  @apply static transform translate-x-0;
+  @apply static grid-cols-[100px,1fr] gap-0 items-stretch pr-0 bg-transparent transform translate-x-0 overflow-hidden;
 
-  grid-template-columns: 100px 1fr 1fr;
   max-width: 100%;
-
-  @media (--lg) {
-    grid-template-columns: 100px 500px 1fr;
-  }
 }
 
 .subscribe-banner-block:hover .subscribe-banner-block__icon-fire {

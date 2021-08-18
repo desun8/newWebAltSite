@@ -69,102 +69,7 @@
     <div id="scroll-container">
       <main class="page-inner">
         <div class="page-container wrapper relative">
-          <!-- pinned elements -->
           <div class="page-inner__sphere"></div>
-          <article
-            class="
-              subscribe-block
-              absolute
-              top-120vh
-              right-$base-page-gap
-              w-310px
-              <2xl:hidden
-            "
-          >
-            <div class="grid gap-7">
-              <form class="grid gap-5" action="/subscribe" novalidate>
-                <div class="flex items-center">
-                  <h2
-                    class="
-                      pr-4
-                      text-xl
-                      font-semibold
-                      text-sun text-justify
-                      uppercase
-                      break-words
-                    "
-                  >
-                    Подпишитесь<br />
-                    на нашу рассылку
-                  </h2>
-
-                  <div
-                    class="
-                      relative
-                      flex-shrink-0 flex-grow
-                      transform
-                      translate-x-8
-                    "
-                  >
-                    <div
-                      class="subscribe-block__image subscribe-block__image--sun"
-                    ></div>
-                    <div class="subscribe-block__text"></div>
-                  </div>
-                </div>
-                <span class="text-base font-light text-justify tracking-wide"
-                  >Получи доступ к нашей видео базе знаний с семинаров!</span
-                >
-                <div class="grid grid-cols-fillAuto gap-2.5 items-start">
-                  <div class="form-field grid gap-2">
-                    <label class="sr-only" for="subscribe-email-pinned"
-                      >Электронная почта</label
-                    >
-                    <input
-                      class="
-                        subscribe-block__input
-                        pb-2.5
-                        text-md
-                        font-light
-                        tracking-wide
-                        bg-transparent
-                        border-b border-black
-                        rounded-none
-                        placeholder-black
-                        focus:outline-none
-                        transition-colors
-                      "
-                      type="email"
-                      name="email"
-                      id="subscribe-email-pinned"
-                      autocomplete="email"
-                      placeholder="Сюда имейлик позязя"
-                      required
-                    />
-                    <span
-                      class="
-                        form-field__error
-                        text-white text-xs
-                        font-light
-                        tracking-wide
-                        js-text
-                      "
-                      data-message="спасибо за подписку!"
-                      >*это поле необходимо заполнить</span
-                    >
-                  </div>
-
-                  <button class="w-min" type="submit">
-                    <span class="sr-only">Отправить</span>
-                    <svg class="w-7 h-7" width="66" height="66">
-                      <use xlink:href="#icon-arrow"></use>
-                    </svg>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </article>
-
           <div
             class="
               page-breadcrumbs page-breadcrumbs--md-mb-0
@@ -188,6 +93,103 @@
           </div>
 
           <article class="page-inner__body inner-body">
+            <div
+              class="
+                subscribe-block subscribe-block--transparent
+                absolute
+                top-120vh
+                right-$base-page-gap
+                w-310px
+                -z-1
+                <2xl:hidden
+              "
+            >
+              <div class="grid gap-7">
+                <form class="grid gap-5" action="/subscribe" novalidate>
+                  <div class="flex items-center">
+                    <h2
+                      class="
+                        pr-4
+                        text-xl
+                        font-semibold
+                        text-sun text-justify
+                        uppercase
+                        break-words
+                      "
+                    >
+                      Подпишитесь<br />
+                      на нашу рассылку
+                    </h2>
+
+                    <div
+                      class="
+                        relative
+                        flex-shrink-0 flex-grow
+                        transform
+                        translate-x-8
+                      "
+                    >
+                      <div
+                        class="
+                          subscribe-block__image subscribe-block__image--sun
+                        "
+                      ></div>
+                      <div class="subscribe-block__text"></div>
+                    </div>
+                  </div>
+                  <span class="text-base font-light text-justify tracking-wide"
+                    >Получи доступ к нашей видео базе знаний с семинаров!</span
+                  >
+                  <div class="grid grid-cols-fillAuto gap-2.5 items-start">
+                    <div class="form-field grid gap-2">
+                      <label class="sr-only" for="subscribe-email-pinned"
+                        >Электронная почта</label
+                      >
+                      <input
+                        class="
+                          subscribe-block__input
+                          pb-2.5
+                          text-md
+                          font-light
+                          tracking-wide
+                          bg-transparent
+                          border-b border-black
+                          rounded-none
+                          placeholder-black
+                          focus:outline-none
+                          transition-colors
+                        "
+                        type="email"
+                        name="email"
+                        id="subscribe-email-pinned"
+                        autocomplete="email"
+                        placeholder="Сюда имейлик позязя"
+                        required
+                      />
+                      <span
+                        class="
+                          form-field__error
+                          text-sun text-xs
+                          font-light
+                          tracking-wide
+                          js-text
+                        "
+                        data-message="спасибо за подписку!"
+                        >*это поле необходимо заполнить</span
+                      >
+                    </div>
+
+                    <button class="w-min" type="submit">
+                      <span class="sr-only">Отправить</span>
+                      <svg class="w-7 h-7" width="66" height="66">
+                        <use xlink:href="#icon-arrow"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
             <header class="inner-body__header">
               <div
                 class="
@@ -401,7 +403,17 @@
           <div class="hidden md:block md:mt-14 lg:mt-24">
             <div class="subscribe-banner--static relative">
               <div class="subscribe-banner-block">
-                <div class="flex items-center justify-center h-full bg-black">
+                <div
+                  class="
+                    relative
+                    z-10
+                    flex
+                    items-center
+                    justify-center
+                    h-full
+                    bg-black
+                  "
+                >
                   <svg
                     class="
                       subscribe-banner-block__icon-fire
@@ -419,74 +431,93 @@
                   </svg>
                 </div>
 
-                <span class="tracking-wide"
-                  >С тебя подписка на нашу рассылку, а с нас доступ к нашим
-                  секретным лекциям с кучей инсайтов по темам!</span
+                <div
+                  class="
+                    grid grid-cols-2
+                    gap-x-6
+                    items-center
+                    px-6
+                    bg-sun
+                    transform
+                    -translate-x-full
+                    lg:grid-cols-[500px,1fr]
+                    js-banner
+                  "
                 >
-
-                <form
-                  class="grid gap-5 w-64 justify-self-end"
-                  action="/subscribe"
-                  novalidate
-                >
-                  <div
-                    class="relative grid grid-cols-fillAuto gap-2.5 items-start"
+                  <span class="tracking-wide"
+                    >С тебя подписка на нашу рассылку, а с нас доступ к нашим
+                    секретным лекциям с кучей инсайтов по темам!</span
                   >
-                    <div class="form-field relative grid gap-2">
-                      <label class="sr-only" for="subscribe-banner-email"
-                        >Электронная почта</label
+
+                  <form
+                    class="grid gap-5 w-64 justify-self-end"
+                    action="/subscribe"
+                    novalidate
+                  >
+                    <div
+                      class="
+                        relative
+                        grid grid-cols-fillAuto
+                        gap-2.5
+                        items-start
+                      "
+                    >
+                      <div class="form-field relative grid gap-2">
+                        <label class="sr-only" for="subscribe-banner-email"
+                          >Электронная почта</label
+                        >
+                        <input
+                          class="
+                            subscribe-banner-block__input
+                            pb-2.5
+                            text-sm
+                            font-light
+                            tracking-wide
+                            bg-transparent
+                            border-b border-black
+                            placeholder-black
+                            focus:outline-none
+                            transition-colors
+                          "
+                          type="email"
+                          name="email"
+                          id="subscribe-banner-email"
+                          autocomplete="email"
+                          placeholder="Сюда имейлик позязя"
+                          required
+                        />
+                        <span
+                          class="
+                            form-field__error
+                            absolute
+                            -bottom-5
+                            text-white text-xs
+                            font-light
+                            tracking-wide
+                          "
+                          >*это поле необходимо заполнить</span
+                        >
+                      </div>
+
+                      <button
+                        class="subscribe-banner-block__success link hidden"
+                        type="button"
                       >
-                      <input
-                        class="
-                          subscribe-banner-block__input
-                          pb-2.5
-                          text-sm
-                          font-light
-                          tracking-wide
-                          bg-transparent
-                          border-b border-black
-                          placeholder-black
-                          focus:outline-none
-                          transition-colors
-                        "
-                        type="email"
-                        name="email"
-                        id="subscribe-banner-email"
-                        autocomplete="email"
-                        placeholder="Сюда имейлик позязя"
-                        required
-                      />
-                      <span
-                        class="
-                          form-field__error
-                          absolute
-                          -bottom-5
-                          text-white text-xs
-                          font-light
-                          tracking-wide
-                        "
-                        >*это поле необходимо заполнить</span
+                        <span class="link__text">СПАСИБО! ещё разок?</span>
+                      </button>
+
+                      <button
+                        class="subscribe-banner-block__submit w-min"
+                        type="submit"
                       >
+                        <span class="sr-only">Отправить</span>
+                        <svg class="w-7 h-7" width="66" height="66">
+                          <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                      </button>
                     </div>
-
-                    <button
-                      class="subscribe-banner-block__success link hidden"
-                      type="button"
-                    >
-                      <span class="link__text">СПАСИБО! ещё разок?</span>
-                    </button>
-
-                    <button
-                      class="subscribe-banner-block__submit w-min"
-                      type="submit"
-                    >
-                      <span class="sr-only">Отправить</span>
-                      <svg class="w-7 h-7" width="66" height="66">
-                        <use xlink:href="#icon-arrow"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

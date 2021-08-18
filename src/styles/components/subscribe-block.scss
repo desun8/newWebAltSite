@@ -1,6 +1,10 @@
 @use "@/styles/animations/rotate";
 @use "@/styles/animations/border-fill";
 
+.subscribe-block--transparent {
+  --error-color: var(--c-red);
+}
+
 .subscribe-block__image {
   @apply w-22 h-28 bg-no-repeat bg-contain;
   background-image: url("/images/components/subscribe-planet.svg");
