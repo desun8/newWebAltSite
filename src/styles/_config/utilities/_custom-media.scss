@@ -4,7 +4,6 @@
 @custom-media --xl (width >= 80em); // 1280px
 @custom-media --xl-2 (width >= 96em); // 1536px
 
-
 /* desktop first */
 @custom-media --desktop-md (width <= 90em);
 @custom-media --desktop (width <= 80em);

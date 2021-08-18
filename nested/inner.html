@@ -44,6 +44,20 @@
           clip-rule="evenodd"
         />
       </symbol>
+      <symbol id="icon-tel" viewBox="0 0 28 28">
+        <path
+          fill="#000"
+          d="M9.153 20.214L7.916 21.45l1.237 1.238 1.238-1.238-1.238-1.237zM6.679 17.74L5.44 18.976l1.238 1.237 1.237-1.237-1.237-1.238z"
+        />
+        <path
+          fill="#000"
+          d="M16.223 18.911L9.09 11.776l4.186-4.185-7.47-7.47L0 5.096v8.438l4.204 4.205L5.442 16.5 1.75 12.81V5.9l3.962-3.396L10.8 7.591l-4.186 4.186 9.61 9.609 4.184-4.186 5.088 5.087-3.397 3.963H15.19l-3.561-3.561-1.237 1.237L14.466 28h8.438l4.975-5.804-7.47-7.47-4.186 4.185zM26.25 14H28C27.99 6.272 21.728.01 14 0v1.75c6.762.007 12.243 5.488 12.25 12.25z"
+        />
+        <path
+          fill="#000"
+          d="M21.875 14h1.75A9.636 9.636 0 0014 4.375v1.75A7.884 7.884 0 0121.875 14zM17.5 10.5h-1.75v1.75h1.75V10.5z"
+        />
+      </symbol>
     </svg>
 
     <include src="progress-bar.html"></include>
@@ -54,14 +68,109 @@
 
     <div id="scroll-container">
       <main class="page-inner">
-        <div class="page-container wrapper">
-          <!-- <include src="breadcrumbs.html"></include> -->
+        <div class="page-container wrapper relative">
+          <!-- pinned elements -->
+          <div class="page-inner__sphere"></div>
+          <article
+            class="
+              subscribe-block
+              absolute
+              top-120vh
+              right-$base-page-gap
+              w-310px
+              <2xl:hidden
+            "
+          >
+            <div class="grid gap-7">
+              <form class="grid gap-5" action="/subscribe" novalidate>
+                <div class="flex items-center">
+                  <h2
+                    class="
+                      pr-4
+                      text-xl
+                      font-semibold
+                      text-sun text-justify
+                      uppercase
+                      break-words
+                    "
+                  >
+                    Подпишитесь<br />
+                    на нашу рассылку
+                  </h2>
+
+                  <div
+                    class="
+                      relative
+                      flex-shrink-0 flex-grow
+                      transform
+                      translate-x-8
+                    "
+                  >
+                    <div
+                      class="subscribe-block__image subscribe-block__image--sun"
+                    ></div>
+                    <div class="subscribe-block__text"></div>
+                  </div>
+                </div>
+                <span class="text-base font-light text-justify tracking-wide"
+                  >Получи доступ к нашей видео базе знаний с семинаров!</span
+                >
+                <div class="grid grid-cols-fillAuto gap-2.5 items-start">
+                  <div class="form-field grid gap-2">
+                    <label class="sr-only" for="subscribe-email-pinned"
+                      >Электронная почта</label
+                    >
+                    <input
+                      class="
+                        subscribe-block__input
+                        pb-2.5
+                        text-md
+                        font-light
+                        tracking-wide
+                        bg-transparent
+                        border-b border-black
+                        rounded-none
+                        placeholder-black
+                        focus:outline-none
+                        transition-colors
+                      "
+                      type="email"
+                      name="email"
+                      id="subscribe-email-pinned"
+                      autocomplete="email"
+                      placeholder="Сюда имейлик позязя"
+                      required
+                    />
+                    <span
+                      class="
+                        form-field__error
+                        text-white text-xs
+                        font-light
+                        tracking-wide
+                        js-text
+                      "
+                      data-message="спасибо за подписку!"
+                      >*это поле необходимо заполнить</span
+                    >
+                  </div>
+
+                  <button class="w-min" type="submit">
+                    <span class="sr-only">Отправить</span>
+                    <svg class="w-7 h-7" width="66" height="66">
+                      <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </article>
+
           <div
             class="
               page-breadcrumbs page-breadcrumbs--md-mb-0
               <lg:bg-sun
-              <lg:mx-$base-gap-negative
-              <lg:px-$base-gap
+              <lg:mx-$base-page-gap-negative
+              <lg:px-$base-page-gap
               <lg:pb-35px
               <lg:text-white
             "
@@ -69,37 +178,59 @@
             <ol class="breadcrumbs">
               <li class="breadcrumbs__item"><a href="#">главная</a></li>
               <li class="breadcrumbs__item"><a href="#">блог</a></li>
-              <li class="breadcrumbs__item"><a href="#">хорошо</a></li>
+              <li class="breadcrumbs__item">
+                <a href="#"
+                  >Что такое коллтрекинг? И почему без него вся вашареклама не
+                  имеет смысла?</a
+                >
+              </li>
             </ol>
           </div>
 
-          <article class="page-inner__body">
-            <header class="mb-7">
+          <article class="page-inner__body inner-body">
+            <header class="inner-body__header">
               <div
                 class="
                   mb-7
                   <lg:bg-sun
-                  <lg:mx-$base-gap-negative
-                  <lg:px-$base-gap
+                  <lg:mx-$base-page-gap-negative
+                  <lg:px-$base-page-gap
                   <lg:pb-10
                   <lg:text-white
+                  lg:flex lg:flex-col lg:mb-12
+                  2xl:col-span-8
                 "
               >
-                <h1 class="mb-5 text-2rem leading-8 uppercase">
+                <h1
+                  class="
+                    inner-body__title
+                    mb-5
+                    text-2rem
+                    leading-8
+                    uppercase
+                    lg:order-1 lg:mb-0
+                  "
+                >
                   Что такое коллтрекинг? И почему без него вся ваша реклама не
                   имеет смысла?🔥🔥🔥
                 </h1>
-                <time datetime="" class="font-semibold"
+                <time
+                  datetime=""
+                  class="
+                    font-semibold
+                    lg:mb-5 lg:text-sun lg:text-lg lg:uppercase
+                  "
                   ><span
                     class="
-                      inline-flex
-                      justify-center
-                      items-center
-                      w-7
-                      h-7
-                      bg-dark-grey
-                      text-sm text-white
-                      font-medium
+                      <lg:inline-flex
+                      <lg:justify-center
+                      <lg:items-center
+                      <lg:w-7
+                      <lg:h-7
+                      <lg:bg-dark-grey
+                      <lg:text-sm
+                      <lg:text-white
+                      <lg:font-medium
                     "
                     >13</span
                   >
@@ -107,10 +238,10 @@
                 >
               </div>
 
-              <div class="mx-$base-gap-negative">
+              <div class="<xl:mx-$base-page-gap-negative 2xl:col-span-full">
                 <img
                   class="w-full"
-                  src="https://p4.wallpaperbetter.com/wallpaper/957/493/200/earth-sunset-landscape-nature-wallpaper-preview.jpg"
+                  src="https://cdn.pixabay.com/photo/2021/08/10/10/06/pinwheels-6535595_1280.jpg"
                   alt=""
                 />
               </div>
@@ -154,6 +285,16 @@
               </li>
             </ul>
 
+            <figure class="col-span-full">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/08/03/11/48/canal-6519196_1280.jpg"
+                alt=""
+                width="auto"
+                height="auto"
+              />
+              <figcaption>Изображение на всю ширину</figcaption>
+            </figure>
+
             <h3>H3 Реальный пример из работы наших специалистов.</h3>
 
             <p>
@@ -166,26 +307,31 @@
               Яндекс.Директ.
             </p>
 
-            <figure>
-              <img
-                src="https://p4.wallpaperbetter.com/wallpaper/957/493/200/earth-sunset-landscape-nature-wallpaper-preview.jpg"
-                alt=""
-                width="auto"
-                height="auto"
-              />
-              <figcaption>images describe</figcaption>
-            </figure>
-            <figure>
-              <img
-                src="https://p4.wallpaperbetter.com/wallpaper/957/493/200/earth-sunset-landscape-nature-wallpaper-preview.jpg"
-                alt=""
-                width="auto"
-                height="auto"
-              />
-              <figcaption>images describe</figcaption>
-            </figure>
+            <div class="inner-body__imgs">
+              <figure>
+                <img
+                  src="https://cdn.pixabay.com/photo/2021/01/29/08/10/musician-5960112_1280.jpg"
+                  alt=""
+                  width="auto"
+                  height="auto"
+                />
+                <figcaption>Изображения в 2 колонки</figcaption>
+              </figure>
 
-            <div class="mx-$base-gap-negative px-$base-gap overflow-auto">
+              <figure>
+                <img
+                  src="https://p4.wallpaperbetter.com/wallpaper/957/493/200/earth-sunset-landscape-nature-wallpaper-preview.jpg"
+                  alt=""
+                  width="auto"
+                  height="auto"
+                />
+                <figcaption>Когда изображения с разными пропорциями</figcaption>
+              </figure>
+            </div>
+
+            <div
+              class="mx-$base-page-gap-negative px-$base-page-gap overflow-auto"
+            >
               <table>
                 <thead>
                   <tr>
@@ -200,22 +346,16 @@
                     <td>The table body</td>
                     <td>with two columns</td>
                     <td>with two columns</td>
-                    <td>with two columns</td>
+                    <td>10</td>
                   </tr>
                   <tr>
                     <td>The table body</td>
-                    <td>with two columns</td>
+                    <td>2</td>
                     <td>with two columns</td>
                     <td>with two columns</td>
                   </tr>
                   <tr>
-                    <td>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Laudantium molestiae ad dolores omnis veritatis
-                      repudiandae aliquam asperiores voluptas quidem fugiat
-                      delectus sunt hic corporis doloremque atque deserunt, quo,
-                      deleniti molestias!
-                    </td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing!</td>
                     <td>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Laudantium molestiae ad dolores omnis veritatis
@@ -241,36 +381,194 @@
                 </tbody>
               </table>
             </div>
+
+            <figure class="">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/08/06/09/00/magpie-6525684_1280.jpg"
+                alt=""
+                width="auto"
+                height="auto"
+              />
+              <figcaption>Обычный размер изображения</figcaption>
+            </figure>
           </article>
 
           <!-- subscribe block and banner -->
-          <div class="mx-$base-gap-negative">
+          <div class="mx-$base-page-gap-negative md:hidden">
             <include src="components/subscribe-block.html"></include>
           </div>
-          <include src="components/subscribe-banner.html"></include>
+
+          <div class="hidden md:block md:mt-14 lg:mt-24">
+            <div class="subscribe-banner--static relative">
+              <div class="subscribe-banner-block">
+                <div class="flex items-center justify-center h-full bg-black">
+                  <svg
+                    class="
+                      subscribe-banner-block__icon-fire
+                      w-9
+                      h-14
+                      transition-colors
+                    "
+                    viewBox="0 0 39 57"
+                    fill="transparent"
+                  >
+                    <path
+                      stroke="#ff5000"
+                      d="M10.263 57c-6.316-20.88 7.029-28.503 7.029-28.503-.934 11.141 5.377 19.82 5.377 19.82 2.321-.702 6.751-3.985 6.751-3.985 0 3.986-2.337 12.662-2.337 12.662s8.183-6.347 10.759-16.89c2.573-10.544-4.9-21.129-4.9-21.129a28.329 28.329 0 01-6.997 20.41c.247-.286.454-.604.613-.948.886-1.777 2.308-6.396 1.475-17.091C26.861 6.33 13.301 0 13.301 0c1.168 9.148-2.336 11.256-10.546 28.62C-5.455 45.981 10.263 57 10.263 57z"
+                    />
+                  </svg>
+                </div>
+
+                <span class="tracking-wide"
+                  >С тебя подписка на нашу рассылку, а с нас доступ к нашим
+                  секретным лекциям с кучей инсайтов по темам!</span
+                >
+
+                <form
+                  class="grid gap-5 w-64 justify-self-end"
+                  action="/subscribe"
+                  novalidate
+                >
+                  <div
+                    class="relative grid grid-cols-fillAuto gap-2.5 items-start"
+                  >
+                    <div class="form-field relative grid gap-2">
+                      <label class="sr-only" for="subscribe-banner-email"
+                        >Электронная почта</label
+                      >
+                      <input
+                        class="
+                          subscribe-banner-block__input
+                          pb-2.5
+                          text-sm
+                          font-light
+                          tracking-wide
+                          bg-transparent
+                          border-b border-black
+                          placeholder-black
+                          focus:outline-none
+                          transition-colors
+                        "
+                        type="email"
+                        name="email"
+                        id="subscribe-banner-email"
+                        autocomplete="email"
+                        placeholder="Сюда имейлик позязя"
+                        required
+                      />
+                      <span
+                        class="
+                          form-field__error
+                          absolute
+                          -bottom-5
+                          text-white text-xs
+                          font-light
+                          tracking-wide
+                        "
+                        >*это поле необходимо заполнить</span
+                      >
+                    </div>
+
+                    <button
+                      class="subscribe-banner-block__success link hidden"
+                      type="button"
+                    >
+                      <span class="link__text">СПАСИБО! ещё разок?</span>
+                    </button>
+
+                    <button
+                      class="subscribe-banner-block__submit w-min"
+                      type="submit"
+                    >
+                      <span class="sr-only">Отправить</span>
+                      <svg class="w-7 h-7" width="66" height="66">
+                        <use xlink:href="#icon-arrow"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
 
           <!-- prev & next -->
-          <div class="mx-$base-gap-negative">
-            <button>
-              <div class="grid py-14 px-$base-gap bg-dark-grey text-left">
-                <span
+          <div
+            class="
+              mx-$base-page-gap-negative
+              px-$base-page-gap
+              bg-dark-grey
+              md:relative
+              md:grid
+              md:grid-cols-2
+              md:gap-x-28
+              md:mt-22
+              md:bg-black
+              md:after:content
+              md:after:absolute
+              md:after:left-1/2
+              md:after:w-1px
+              md:after:h-full
+              md:after:bg-white
+              md:after:transform
+              md:after:scale-y-55
+              lg:mt-32
+              xl:gap-x-72
+              2xl:gap-x-36rem
+            "
+          >
+            <a href="" class="text-white <md:hidden hover:text-sun">
+              <div class="grid py-14 text-right xl:py-24 2xl:py-40">
+                <div
                   class="
                     mb-5
                     text-sm text-true-gray-350 text-opacity-50
                     tracking-wide
-                    lg:hidden
                   "
-                  >Читать дальше</span
                 >
-                <span class="hidden lg:inline text-sm">Следующая</span>
+                  <span>Предыдущая</span>
+                </div>
 
                 <span
                   class="
                     mb-2
-                    text-22px text-white
+                    text-22px text-current
                     font-medium
                     leading-26px
                     tracking-wide
+                    transition-colors
+                  "
+                  >Тем, кто любит учиться не страшен никакой вирус!</span
+                >
+
+                <time
+                  datetime=""
+                  class="text-sm text-white text-opacity-50 tracking-wide"
+                  >15.12.2020</time
+                >
+              </div>
+            </a>
+
+            <a href="" class="text-white hover:text-sun">
+              <div class="grid py-14 text-left xl:py-24 2xl:py-40">
+                <div
+                  class="
+                    mb-5
+                    text-sm text-true-gray-350 text-opacity-50
+                    tracking-wide
+                  "
+                >
+                  <span class="md:hidden">Читать дальше</span>
+                  <span class="hidden md:inline">Следующая</span>
+                </div>
+
+                <span
+                  class="
+                    mb-2
+                    text-22px text-current
+                    font-medium
+                    leading-26px
+                    tracking-wide
+                    transition-colors
                   "
                   >Разработка индивидуальных сайтов</span
                 >
@@ -281,7 +579,7 @@
                   >17.12.2020</time
                 >
               </div>
-            </button>
+            </a>
           </div>
 
           <!-- back to blog? -->
@@ -291,7 +589,7 @@
               relative
               py-14
               text-22px text-center
-              lg:hidden
+              md:hidden
             "
           >
             <a href="" class="link link--underline link--bold link--uppercase"

@@ -41,10 +41,15 @@ export default defineConfig({
       },
 
       spacing: {
+        5.5: "1.375rem",
         19: "4.75rem",
         22: "5.5rem",
         "3/2": "150%",
         "5/4": "125%",
+      },
+
+      screens: {
+        "1.5xl": { min: "1440px" },
       },
     },
   },
