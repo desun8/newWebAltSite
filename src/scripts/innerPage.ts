@@ -9,7 +9,7 @@ import submitForm from "./components/subscribe-banner/submitForm";
 initRoot();
 
 const initSubscribeBlockElms = () => {
-  const pageContainer = document.querySelector<HTMLElement>(".page-container")!;
+  const innerBodyElm = document.querySelector<HTMLElement>(".inner-body")!;
   const subscribeElmSm = document.querySelector<HTMLElement>(
     ".subscribe-block:not(.subscribe-block--transparent)"
   );
@@ -31,7 +31,7 @@ const initSubscribeBlockElms = () => {
             trigger: subscribeElmXl,
             start: "top center",
             end: () =>
-              `top -${pageContainer.offsetHeight - window.screen.height * 3}`,
+              `top -${innerBodyElm.offsetHeight - window.screen.height * 2.8}`,
             pin: true,
             pinSpacing: false,
           });

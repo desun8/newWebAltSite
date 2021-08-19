@@ -83,11 +83,9 @@
             <ol class="breadcrumbs">
               <li class="breadcrumbs__item"><a href="#">главная</a></li>
               <li class="breadcrumbs__item"><a href="#">блог</a></li>
-              <li class="breadcrumbs__item">
-                <a href="#"
-                  >Что такое коллтрекинг? И почему без него вся вашареклама не
-                  имеет смысла?</a
-                >
+              <li class="breadcrumbs__item truncate">
+                Что такое коллтрекинг? И почему без него вся вашареклама не
+                имеет смысла?
               </li>
             </ol>
           </div>
@@ -98,7 +96,7 @@
                 subscribe-block subscribe-block--transparent
                 absolute
                 top-120vh
-                right-$base-page-gap
+                right-0
                 w-310px
                 -z-1
                 <2xl:hidden
@@ -199,26 +197,15 @@
                   <lg:px-$base-page-gap
                   <lg:pb-10
                   <lg:text-white
-                  lg:flex lg:flex-col lg:mb-12
+                  lg:mb-12
                   2xl:col-span-8
                 "
               >
-                <h1
-                  class="
-                    inner-body__title
-                    mb-5
-                    text-2rem
-                    leading-8
-                    uppercase
-                    lg:order-1 lg:mb-0
-                  "
-                >
-                  Что такое коллтрекинг? И почему без него вся ваша реклама не
-                  имеет смысла?🔥🔥🔥
-                </h1>
                 <time
                   datetime=""
                   class="
+                    block
+                    mb-4
                     font-semibold
                     lg:mb-5 lg:text-sun lg:text-lg lg:uppercase
                   "
@@ -229,6 +216,7 @@
                       <lg:items-center
                       <lg:w-7
                       <lg:h-7
+                      <lg:mr-2
                       <lg:bg-dark-grey
                       <lg:text-sm
                       <lg:text-white
@@ -238,6 +226,18 @@
                   >
                   февраля 2020</time
                 >
+                <h1
+                  class="
+                    inner-body__title
+                    text-2rem
+                    leading-8
+                    font-bold
+                    uppercase
+                  "
+                >
+                  Что такое коллтрекинг? И почему без него вся ваша реклама не
+                  имеет смысла?🔥🔥🔥
+                </h1>
               </div>
 
               <div class="<xl:mx-$base-page-gap-negative 2xl:col-span-full">
@@ -588,7 +588,7 @@
                     tracking-wide
                   "
                 >
-                  <span class="md:hidden">Читать дальше</span>
+                  <span class="text-sun md:hidden">Читать дальше</span>
                   <span class="hidden md:inline">Следующая</span>
                 </div>
 
@@ -624,7 +624,7 @@
             "
           >
             <a href="" class="link link--underline link--bold link--uppercase"
-              ><span class="link__text">к другим новостям</span></a
+              ><span class="link__text font-bold">к другим новостям</span></a
             >
             <svg class="absolute top-8 w-16 h-16 opacity-10" aria-hidden="true">
               <use href="#icon-arrow"></use>
