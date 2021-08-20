@@ -71,6 +71,23 @@
     }
   }
 
+  &--bolder {
+    font-weight: 700;
+
+    .link__text::after {
+      height: 2px;
+    }
+
+    .link__icon {
+      top: 2px;
+    }
+
+    .hero-announcement & .link__arrow {
+      stroke-width: 0.5px;
+      stroke: currentColor;
+    }
+  }
+
   &--orange {
     color: var(--hover-color);
   }

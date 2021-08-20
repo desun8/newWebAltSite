@@ -67,6 +67,7 @@ export default {
         blog: resolve(__dirname, "nested/blog.html"),
         form: resolve(__dirname, "nested/form.html"),
         inner: resolve(__dirname, "nested/inner.html"),
+        contacts: resolve(__dirname, "nested/contacts.html"),
       },
     },
   },

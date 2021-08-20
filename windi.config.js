@@ -51,6 +51,10 @@ export default defineConfig({
       screens: {
         "1.5xl": { min: "1440px" },
       },
+
+      fontSize: {
+        "1.5xl": "1.375rem",
+      },
     },
   },
 });

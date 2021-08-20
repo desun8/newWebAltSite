@@ -233,7 +233,13 @@
   @apply <lg:bg-sun;
 }
 
-.page-header--orange .page-header__logo,
-.page-header--orange .menu-btn {
+.page-header--dark {
+  @apply <lg:bg-dark-grey;
+}
+
+.page-header--orange,
+.page-header--dark .page-header__logo,
+.page-header--orange,
+.page-header--dark .menu-btn {
   @apply <lg:text-white;
 }
