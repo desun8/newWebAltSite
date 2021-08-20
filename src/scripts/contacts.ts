@@ -86,11 +86,18 @@ const initFooterAnimation = () => {
 };
 
 const updateTime = () => {
+  const createServerDate = (date: string) => {
+    const t = date.split(/[- :]/).map((elm) => parseInt(elm));
+
+    return new Date(...(t as [number, number, number, number, number]));
+  };
+
   const timeElms = document.querySelector<HTMLTimeElement>("time")!;
   const timeValueElms = document.querySelectorAll<HTMLTimeElement>(".js-time")!;
 
   const serverDateString = timeElms.getAttribute("datetime")!;
-  const serverDate = new Date(serverDateString);
+  const serverDate = createServerDate(serverDateString);
+
   let fetched = new Date();
 
   const getDate = () => {
