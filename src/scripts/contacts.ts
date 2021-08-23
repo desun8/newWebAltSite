@@ -4,6 +4,7 @@ import APP from "./app/APP";
 import RedirectFooter from "./pages/home/redirectFooter.js";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 import TextRunner from "./components/textRunner";
+import { pinnedContacts } from "./pages/contacts/pinnedContacts";
 
 initRoot();
 
@@ -129,3 +130,5 @@ initMap();
 initFooterAnimation();
 updateTime();
 initTicker();
+
+pinnedContacts();
