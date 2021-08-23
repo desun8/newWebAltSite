@@ -15,6 +15,23 @@
   }
 }
 
+.page-breadcrumbs--color {
+  @media (--lg-max) {
+    @apply mx-$base-page-gap-negative px-$base-page-gap;
+
+    background-color: var(--c-dark-grey);
+    margin-bottom: 0;
+    padding-bottom: 35px;
+    color: #fff;
+  }
+}
+
+.page-breadcrumbs--dark {
+  @media (--lg-max) {
+    background-color: var(--c-dark-grey);
+  }
+}
+
 .breadcrumbs {
   --padding-item: calc(28px / 2);
 

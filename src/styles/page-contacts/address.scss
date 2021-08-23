@@ -1,0 +1,28 @@
+@use "../_config/mixins/grid.scss" as *;
+
+.address {
+  font-style: normal;
+}
+
+.contacts:not(.contacts--info) .address {
+  @media (--lg) {
+    @include grid-new-lg(12, 2);
+    position: relative;
+  }
+}
+
+.address__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 42px;
+
+  @media (--lg) {
+    margin-bottom: 60px;
+  }
+}
+
+.contacts:not(.contacts--info) .address__header {
+  @media (--lg) {
+    display: none;
+  }
+}

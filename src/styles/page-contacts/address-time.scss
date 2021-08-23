@@ -1,0 +1,58 @@
+.address-time {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+
+  @media (--lg) {
+    margin-bottom: 56px;
+    background-color: var(--c-dark-grey);
+  }
+}
+
+.contacts:not(.contacts--info) .address-time {
+  @media (--lg) {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+}
+
+.address-time__body {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.address-time__row--orange {
+  color: var(--c-sun);
+}
+
+.address-time__cell {
+  width: 50%;
+  padding: 20px;
+  border: 1px solid #fff;
+}
+
+@media (--lg) {
+  .contacts:not(.contacts--info) .address-time__cell:first-child {
+    border-left: 0;
+  }
+
+  .contacts:not(.contacts--info) .address-time__cell:last-child {
+    border-right: 0;
+  }
+
+  .contacts:not(.contacts--info)
+    .address-time__row:first-child
+    .address-time__cell {
+    border-top: 0;
+  }
+
+  .contacts:not(.contacts--info)
+    .address-time__row:last-child
+    .address-time__cell {
+    border-bottom: 0;
+  }
+}

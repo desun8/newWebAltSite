@@ -3,16 +3,16 @@
 :root {
   --c-black: #131313;
   --c-dark-grey: #262626;
-  //--c-grey: #{rgba(#dfddff, 0.2)};
   --c-grey: #898989;
   --c-red: #ff5000;
+  --c-sun: #ff5000;
   --c-blue: #00a3ff;
-  
+
   --trans-dur-fast: 0.3s;
   --trans-dur-faster: 0.2s;
-  
+
   --page-gap: #{vw(20, $mobile-viewport)};
-  
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     --page-gap: #{vw(100)};

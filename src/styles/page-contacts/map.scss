@@ -1,0 +1,24 @@
+.contacts-map {
+  @apply relative lg:mt-32;
+}
+
+.contacts-map__container {
+  @apply h-screen mx-$base-page-gap-negative;
+
+  @media (min-height: 1000px) {
+    height: 900px;
+  }
+}
+
+.contacts-map__container [class*="ground-pane"] {
+  filter: grayscale(1);
+}
+
+.contacts-map__info-container {
+  @apply <lg:hidden;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 415px;
+}

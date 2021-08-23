@@ -78,12 +78,7 @@
           >
             <div
               class="
-                page-breadcrumbs page-breadcrumbs--md-mb-0
-                <lg:bg-dark-grey
-                <lg:mx-$base-page-gap-negative
-                <lg:px-$base-page-gap
-                <lg:pb-35px
-                <lg:text-white
+                page-breadcrumbs page-breadcrumbs--color page-breadcrumbs--dark
               "
             >
               <ol class="breadcrumbs">
@@ -96,18 +91,11 @@
               </ol>
             </div>
 
+            <!-- Content -->
             <div class="content">
-              <div class="lg:hidden">
-                <include
-                  src="components/pages/contacts/contacts-sm.html"
-                ></include>
-              </div>
-
-              <div class="<lg:hidden">
-                <include
-                  src="components/pages/contacts/contacts-lg.html"
-                ></include>
-              </div>
+              <include src="components/pages/contacts/contacts.html"
+                >{ "class": "" }</include
+              >
 
               <include src="components/pages/contacts/map.html"></include>
 
@@ -116,11 +104,7 @@
                 <div class="footer-redirect__wrap">
                   <div class="footer-redirect__title">
                     <span class="footer-redirect__name">ПОРТФОЛИО</span>
-                    <svg
-                      class="footer-redirect__name-svg"
-                      viewBox="0 0 129 49"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg class="footer-redirect__name-svg" viewBox="0 0 129 49">
                       <defs>
                         <linearGradient id="a">
                           <stop

@@ -1,0 +1,79 @@
+@use "../_config/index" as *;
+
+.contacts-info .page-menu__contacts {
+  padding: 0;
+}
+
+.contacts-info .menu-contact {
+  margin-bottom: 0;
+}
+
+.contacts .menu-contact__name {
+  font-size: 12px;
+}
+
+.contacts:not(.contacts--info) .menu-contact__name {
+  @media (--lg) {
+    @include font-size(18);
+
+    margin-bottom: em(15, 18);
+  }
+}
+
+.contacts-info .menu-contact__link {
+  font-size: 32px;
+  text-transform: none;
+}
+
+.contacts:not(.contacts--info) .contacts-info .menu-contact__link {
+  @include font-size-new(42);
+
+  transform: translateX(-3px);
+
+  @media (--xl) {
+    @include font-size-new(54);
+  }
+}
+
+.contacts:not(.contacts--info) .link {
+  @media (--lg) {
+    --icon-size: 0.85em;
+    text-transform: uppercase;
+  }
+}
+
+.contacts:not(.contacts--info) .link--bold {
+  @media (--lg) {
+    font-weight: 700;
+  }
+}
+
+.contacts-info__item-map {
+  display: none;
+}
+
+.contacts:not(.contacts--info) .contacts-info__item-map {
+  @media (--lg) {
+    display: block;
+  }
+}
+
+.contacts-info__item-map .link {
+  padding-bottom: 10px;
+
+  @media (--xl) {
+    padding-bottom: 16px;
+  }
+}
+
+.contacts-info__item-map .text-small {
+  @include font-size-new(18);
+
+  position: absolute;
+  left: 3px;
+  bottom: 0;
+
+  @media (--xl) {
+    @include font-size-new(24);
+  }
+}
