@@ -1,5 +1,7 @@
 .contacts-map {
   @apply relative lg:mt-32;
+
+  background-color: #f6f6f6;
 }
 
 .contacts-map__container {
@@ -12,6 +14,12 @@
 
 .contacts-map__container [class*="ground-pane"] {
   filter: grayscale(1);
+}
+
+.contacts-map__container [class*="controls__control"] {
+  position: absolute !important;
+  left: unset !important;
+  right: var(--base-page-gap) !important;
 }
 
 .contacts-map__info-container {

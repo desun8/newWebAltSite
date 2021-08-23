@@ -6,7 +6,7 @@ export const addMap = () => {
 
   const loadMap = (initMap: () => void) => {
     const key = yMapKey;
-    const url = `https://api-maps.yandex.ru/2.1/?apikey=${key}&lang=ru_RU&load=Map,Placemark`;
+    const url = `https://api-maps.yandex.ru/2.1/?apikey=${key}&lang=ru_RU&load=Map,Placemark,control.ZoomControl`;
 
     const script = document.createElement("script");
     script.src = url;
@@ -31,6 +31,7 @@ export const addMap = () => {
         const map = new ymaps.Map("map", {
           center: coords,
           zoom: 16,
+          controls: ["zoomControl"],
         });
 
         map.geoObjects.add(
