@@ -86,10 +86,12 @@ const initFooterAnimation = () => {
 };
 
 const updateTime = () => {
-  const timeElms = document.querySelector<HTMLTimeElement>("time")!;
-  const timeValueElms = document.querySelectorAll<HTMLTimeElement>(".js-time")!;
+  const timeElm = document.querySelector<HTMLTimeElement>(
+    ".contacts:not(.contacts--info) .time time"
+  )!;
+  const timeValue = document.querySelector(".js-time")!;
 
-  const serverDateString = timeElms.getAttribute("datetime")!;
+  const serverDateString = timeElm.getAttribute("datetime")!;
   const serverDate = new Date(serverDateString);
   let fetched = new Date();
 
@@ -105,10 +107,7 @@ const updateTime = () => {
 
   const updateElmsTime = (date: Date) => {
     const time = `${date.getHours()}:${date.getMinutes()}`;
-
-    timeValueElms.forEach((elm) => {
-      elm.textContent = time;
-    });
+    timeValue.textContent = time;
   };
 
   setInterval(() => {
