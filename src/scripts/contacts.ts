@@ -87,13 +87,20 @@ const initFooterAnimation = () => {
 };
 
 const updateTime = () => {
+  const createServerDate = (date: string) => {
+    const t = date.split(/[- :]/).map((elm) => parseInt(elm));
+
+    return new Date(...(t as [number, number, number, number, number]));
+  };
+
   const timeElm = document.querySelector<HTMLTimeElement>(
     ".contacts:not(.contacts--info) .time time"
   )!;
   const timeValue = document.querySelector(".js-time")!;
 
   const serverDateString = timeElm.getAttribute("datetime")!;
-  const serverDate = new Date(serverDateString);
+  const serverDate = createServerDate(serverDateString);
+
   let fetched = new Date();
 
   const getDate = () => {
