@@ -4,4 +4,5 @@
 @use "fonts/suisseIntl-semi-bold";
 @use "fonts/suisseIntl-bold";
 @use "root/index";
-@use "components/form-field.scss";
+@use "components/form-field";
+@use "components/scroll-to-top";

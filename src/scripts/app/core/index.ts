@@ -36,4 +36,10 @@ export const initCore = () => {
   if (APP.scrollbar && APP.isDesktop) {
     addNoise();
   }
+
+  if (!APP.isDesktop) {
+    import("../../components/scrollToTop").then(({ scrollToTop }) => {
+      scrollToTop();
+    });
+  }
 };
