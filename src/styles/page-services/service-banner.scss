@@ -15,7 +15,7 @@
   overflow: hidden;
 
   //noinspection CssInvalidMediaFeature
-  @media screen and (--tablet-sm) {
+  @media (--lg-max) {
     @include font-size-px(22);
 
     min-height: 184px;
