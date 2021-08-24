@@ -2,7 +2,6 @@
   <div
     class="
       instagram-block
-      hidden
       lg:block
       lg:relative
       lg:col-start-8
@@ -14,6 +13,7 @@
     <div
       ref="subscribeBlock"
       class="
+        <lg:hidden
         absolute
         -top-48 -top-178px
         w-$width-full
