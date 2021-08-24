@@ -2,10 +2,10 @@ import { throttle } from "lodash";
 import { resizeObserver } from "../utils/resizeObserver";
 
 export const scrollToTop = () => {
-  const btn = document.querySelector(".scroll-to-top")!;
+  const btn = document.querySelector(".scroll-to-top");
 
-  let prevScrollTop = 0;
-  let currScrollTop = 0;
+  if (btn === null) return;
+
   let clientHeight = document.documentElement.clientHeight + 200;
 
   resizeObserver(
@@ -22,15 +22,11 @@ export const scrollToTop = () => {
   };
 
   const handleScroll = (scrollTop: number) => {
-    currScrollTop = scrollTop;
-
-    if (currScrollTop > clientHeight) {
+    if (scrollTop > clientHeight) {
       toggleBtnVisibility(true);
     } else {
       toggleBtnVisibility(false);
     }
-
-    prevScrollTop = currScrollTop;
   };
 
   const onScroll = throttle(
