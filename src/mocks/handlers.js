@@ -1,14 +1,17 @@
 import { rest } from "msw";
 
 import jsonBlog from "./blog.json";
+import jsonWorksMain from "./worksMain.json";
 
 export const handlers = [
   rest.post("/subscribe", (req, res, ctx) => {
     return res(
       ctx.status(200),
-      ctx.body(JSON.stringify({
-        message: "OK"
-      }))
+      ctx.body(
+        JSON.stringify({
+          message: "OK",
+        })
+      )
     );
   }),
 
@@ -25,13 +28,22 @@ export const handlers = [
   }),
 
   rest.post("/api/blog", (req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({
-          results: jsonBlog,
-          success: true,
-        })
-      );
-    }
-  ),
+    return res(
+      ctx.status(200),
+      ctx.json({
+        results: jsonBlog,
+        success: true,
+      })
+    );
+  }),
+
+  rest.get("/api/works/main", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        results: jsonWorksMain,
+        success: true,
+      })
+    );
+  }),
 ];

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Работы</title>
+
+    <style>
+      @font-face {
+        font-family: "my-font";
+        font-style: normal;
+        font-weight: 100;
+        src: url("/fonts/suisseIntl-thin.woff2") format("woff2");
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <svg style="display: none">
+      <symbol id="icon-dash-cursor" viewBox="0 0 16 13">
+        <path d="M.92 0l6.456 6.457-.919.92L0 .918z" />
+        <path d="M0 12.021l6.467-6.467.92.919L.919 12.94z" />
+        <path stroke="currentColor" stroke-width="1.3" d="M8 12.35h8" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 12 12">
+        <path
+          d="M1.588 1l9.398.014.014 9.398H9.353l-.03-6.589L2.148 11 1 9.853l7.177-7.177-6.59-.03V1z"
+          fill-rule="nonzero"
+        />
+      </symbol>
+      <symbol id="logo" viewBox="0 0 38 21">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M12.35 21h4.227l2.388-2.566L21.354 21h4.21l-6.607-7.097L12.35 21zM0 5.707l7.12 14.766 4.309-4.405-5.152-8.624L0 5.707zm38-.002L30.88 20.47l-4.309-4.405 5.152-8.624L38 5.705zM18.96 0l-7.103 10.294 1.895 3.375 5.208-5.424 5.207 5.424 1.895-3.375L18.96 0z"
+          clip-rule="evenodd"
+        />
+      </symbol>
+    </svg>
+
+    <include src="progress-bar.html"></include>
+    <include src="page-header/index.html">{ "class": "" }</include>
+    <include src="page-menu.html"></include>
+
+    <div id="scroll-container">
+      <div class="wrapper">
+        <include src="breadcrumbs.html"></include>
+
+        <main class="">
+          <div id="app" class=""></div>
+
+          <div class="bottom">
+            <div id="app-works-modal" class="all-projects">open modal</div>
+            <div class="service-article"></div>
+          </div>
+        </main>
+      </div>
+
+      <include src="page-footer.html"></include>
+    </div>
+
+    <include src="components/scroll-to-top.html"></include>
+
+    <!-- TODO: удалить перед сборкой -->
+    <include src="utils/grid-helper.html"></include>
+
+    <script type="module" src="./works.ts"></script>
+  </body>
+</html>
