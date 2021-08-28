@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="card"
     class="
       card
       relative
@@ -7,10 +8,16 @@
       <md(:mx-$base-page-gap-negative
       px-$base-page-gap) px-30px
       py-25px
+      h-full
       overflow-hidden
     "
   >
-    <div class="bg-arrows <lg:hidden"></div>
+    <div
+      ref="bgArrowsWrapper"
+      class="absolute top-1/20 -left-1/20 w-6/5 h-6/5 -z-1 <lg:hidden"
+    >
+      <div ref="bgArrows" class="bg-arrows"></div>
+    </div>
 
     <card-item-header
       :title="title"
@@ -29,9 +36,17 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, toRefs } from "vue";
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  PropType,
+  ref,
+  toRefs,
+} from "vue";
 import CardItemHeader from "./CardItemHeader.vue";
 import useCardImage from "../composables/useCardImage";
+import useCardHoverAnimation from "../composables/useCardHoverAnimation";
 import CardItemBody from "./CardItemBody.vue";
 
 export default defineComponent({
@@ -67,16 +82,42 @@ export default defineComponent({
   },
 
   setup(props) {
+    const card = ref<HTMLElement>();
+    const bgArrowsWrapper = ref<HTMLElement>();
+    const bgArrows = ref<HTMLElement>();
+
     const { tags, imgPath } = toRefs(props);
 
     const formattedTags = computed(() => `#${tags.value.join(" #")}`);
-
     const { cardImage } = useCardImage(imgPath.value);
 
+    onMounted(() => {
+      if (card.value && bgArrowsWrapper.value && bgArrows.value) {
+        useCardHoverAnimation(
+          card.value,
+          bgArrowsWrapper.value,
+          bgArrows.value
+        );
+      }
+    });
+
     return {
+      card,
+      bgArrowsWrapper,
+      bgArrows,
       formattedTags,
       cardImage,
     };
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.bg-arrows {
+  height: 100%;
+  background-image: url("/images/works/bg-arrows.svg");
+  background-position: center top;
+  background-size: contain;
+  opacity: 0;
+}
+</style>
