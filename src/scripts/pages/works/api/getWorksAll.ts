@@ -1,4 +1,4 @@
-import Https from "@/scripts/helpers/Https";
+import Https from "@/scripts/helpers/Https1";
 import { Card } from "../types";
 
 export const getWorksAll = async (): Promise<Card[]> => {
