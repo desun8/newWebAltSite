@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { throttle } from "lodash";
 
 const getMousePos = (event: MouseEvent) => ({
   x: event.clientX,
@@ -35,12 +36,10 @@ export default function useCardHoverAnimation(
     .to(bgArrows, { autoAlpha: 1, duration }, "same")
     .to(bgArrows, { x: 300, y: -300, duration: 100 }, "same");
 
-  const setPosXArrowsWrapper = gsap.quickSetter(bgArrowsWrapper, "x", "px");
-  const setPosYArrowsWrapper = gsap.quickSetter(bgArrowsWrapper, "y", "px");
-
   const hoverParallax = (pos: Pos) => {
-    setPosXArrowsWrapper(pos.x * -0.015);
-    setPosYArrowsWrapper(pos.y * -0.015);
+    const x = pos.x * -0.015;
+    const y = pos.y * -0.015;
+    gsap.to(bgArrowsWrapper, { x, y, duration: 0.2 });
   };
 
   const handleMouseEnter = () => {
@@ -72,5 +71,7 @@ export default function useCardHoverAnimation(
 
   card.addEventListener("mouseenter", handleMouseEnter, { passive: true });
   card.addEventListener("mouseleave", handleMouseLeave, { passive: true });
-  card.addEventListener("mousemove", handleMouseMove, { passive: true });
+  card.addEventListener("mousemove", throttle(handleMouseMove, 100), {
+    passive: true,
+  });
 }
