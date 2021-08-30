@@ -5,14 +5,18 @@
       :class="{ 'is-pinned': isPinned, 'is-active': isPinned && isActive }"
       class="filter"
     >
-      <button ref="btnToggle" @click="throttleClick" class="filter__collapse"
-              type="button">
+      <button
+        ref="btnToggle"
+        @click="throttleClick"
+        class="filter__collapse"
+        type="button"
+      >
         Переключить видимость фильтра
       </button>
 
       <div class="filter__icon">
         <svg viewBox="0 0 14 12" width="14" height="12">
-          <path d="M.938.5L7 11 13.062.5H.938z"/>
+          <path d="M.938.5L7 11 13.062.5H.938z" />
         </svg>
         <span class="icon-text">filter</span>
       </div>
@@ -51,30 +55,17 @@ export default {
         widthShrink: 0,
         widthExpand: 0,
         posLeft: 0,
-        duration: 0.3
+        duration: 0.3,
       },
       isPinned: false,
       isActive: false,
-      filterItems: [
-        {
-          value: "all",
-          name: "все",
-          checked: true,
-        },
-        {
-          value: "event",
-          name: "события",
-          checked: false,
-        },
-        {
-          value: "article",
-          name: "статьи",
-          checked: false,
-        },
-      ],
     };
   },
   props: {
+    filterItems: {
+      type: Array,
+      required: true,
+    },
     setActiveFilter: {
       type: Function,
       required: true,
@@ -89,11 +80,14 @@ export default {
     },
     setWidthShrink() {
       if (this.config.widthShrink === 0) {
-        this.config.widthShrink = getComputedStyle(this.$refs.pinContainer).getPropertyValue("--width-shrink");
+        this.config.widthShrink = getComputedStyle(
+          this.$refs.pinContainer
+        ).getPropertyValue("--width-shrink");
       }
     },
     setPosLeft() {
-      this.config.posLeft = this.$refs.pinContainer.getBoundingClientRect().left * -1;
+      this.config.posLeft =
+        this.$refs.pinContainer.getBoundingClientRect().left * -1;
     },
 
     expand() {
@@ -102,20 +96,21 @@ export default {
       setTimeout(() => {
         this.setWidthExpand();
 
-        gsap.timeline()
+        gsap
+          .timeline()
           .set(this.$refs.pinContainer, {
-            width: this.config.widthExpand
+            width: this.config.widthExpand,
           })
           .to(this.$refs.pinContainer, {
             background: "#131313",
-            duration: this.config.duration
+            duration: this.config.duration,
           });
       }, 100);
     },
     shrink() {
       gsap.to(this.$refs.pinContainer, {
         background: "transparent",
-        duration: this.config.duration
+        duration: this.config.duration,
       });
 
       if (this.isPinned) {
@@ -123,7 +118,7 @@ export default {
           this.setWidthShrink();
 
           gsap.set(this.$refs.pinContainer, {
-            width: this.config.widthShrink
+            width: this.config.widthShrink,
           });
         }, 500);
       }
@@ -131,7 +126,7 @@ export default {
     pin() {
       gsap.to(this.$refs.pinContainer, {
         x: this.config.posLeft,
-        duration: this.config.duration
+        duration: this.config.duration,
       });
     },
     unpin(shouldClearWidth = true) {
@@ -142,10 +137,10 @@ export default {
         onStart: () => {
           if (shouldClearWidth) {
             gsap.set(this.$refs.pinContainer, {
-              clearProps: "width"
+              clearProps: "width",
             });
           }
-        }
+        },
       });
     },
 
@@ -175,7 +170,10 @@ export default {
     scrollPin() {
       const pinContainer = this.$refs.pinContainer;
       if (pinContainer === null) {
-        console.warn("🚀 ~ file: Filter.vue ~ line 92 ~ fixFilter ~ triggerElm", pinContainer);
+        console.warn(
+          "🚀 ~ file: Filter.vue ~ line 92 ~ fixFilter ~ triggerElm",
+          pinContainer
+        );
         return;
       }
 
@@ -211,7 +209,7 @@ export default {
             this.setWidthExpand(true);
             this.expand();
           }
-        }
+        },
       });
     },
   },
