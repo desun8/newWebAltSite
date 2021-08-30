@@ -3,13 +3,15 @@
     ref="card"
     class="
       card
+      no-saturate
       relative
       text-dark-grey
       <md(:mx-$base-page-gap-negative
-      px-$base-page-gap) px-30px
+      px-$base-page-gap)
+      lg:(px-30px
       py-25px
       h-full
-      overflow-hidden
+      overflow-hidden)
     "
   >
     <div
@@ -47,6 +49,7 @@ import {
 import CardItemHeader from "./CardItemHeader.vue";
 import useCardImage from "../composables/useCardImage";
 import useCardHoverAnimation from "../composables/useCardHoverAnimation";
+import useCardViewportAnimation from "../composables/useCardViewportAnimation";
 import CardItemBody from "./CardItemBody.vue";
 
 export default defineComponent({
@@ -98,6 +101,8 @@ export default defineComponent({
           bgArrowsWrapper.value,
           bgArrows.value
         );
+
+        useCardViewportAnimation(card.value);
       }
     });
 

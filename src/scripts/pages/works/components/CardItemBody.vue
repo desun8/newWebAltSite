@@ -94,6 +94,10 @@ export default defineComponent({
   }
 }
 
+.no-saturate .card-img {
+  filter: saturate(0);
+}
+
 .card-text {
   @media (--xl-2) {
     @include font-size(42);
