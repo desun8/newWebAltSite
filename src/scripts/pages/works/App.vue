@@ -1,16 +1,20 @@
 <template>
   <div class="page-blog__articles">
-    <!-- <filter-elm></filter-elm> -->
+    <filter-elm
+      :filter-items="filterItems"
+      :set-active-filter="setActiveFilter"
+    ></filter-elm>
     <card-list :cards-data="worksCardsFiltered"></card-list>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import FilterElm from "@/scripts/pages/blog/vue/Filter/Filter.vue";
 import CardList from "./components/CardList.vue";
 import { FilterTypes } from "./types";
 import useWorksCards from "./composables/useWorksCards";
+import useFilters from "./composables/useFilters";
 
 export default defineComponent({
   components: {
@@ -19,11 +23,10 @@ export default defineComponent({
   },
 
   setup() {
-    const activeFilter = ref<FilterTypes>(FilterTypes.DEVELOPMENT);
+    const { activeFilter, setActiveFilter, filterItems } = useFilters();
+    const { worksCardsFiltered } = useWorksCards(activeFilter);
 
-    const { worksCardsFiltered } = useWorksCards(activeFilter.value);
-
-    return { worksCardsFiltered, activeFilter };
+    return { worksCardsFiltered, activeFilter, setActiveFilter, filterItems };
   },
 
   methods: {
@@ -33,3 +36,7 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+@use "@/styles/page-blog/filter.scss";
+</style>
