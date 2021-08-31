@@ -82,6 +82,7 @@ export default defineComponent({
 .card-img {
   background-size: 70%;
   background-position: 120% 20%;
+  filter: saturate(0);
 
   @media (--xl-1) {
     background-size: 80%;
@@ -94,8 +95,8 @@ export default defineComponent({
   }
 }
 
-.no-saturate .card-img {
-  filter: saturate(0);
+.is-active .card-img {
+  filter: saturate(1);
 }
 
 .card-text {

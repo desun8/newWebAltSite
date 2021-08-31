@@ -8,6 +8,7 @@
   >
     <li v-for="card in cardsData" :key="card.id" class="list-item">
       <card-item
+        :id="`${card.id}`"
         :title="card.title"
         :kind="card.kind"
         :tags="card.tags"
@@ -20,8 +21,9 @@
 </template>
 
 <script lang="ts">
-import { gsap } from "gsap";
 import { defineComponent, PropType } from "vue";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { CardResponse } from "../types";
 import CardItem from "./CardItem.vue";
 
@@ -68,6 +70,12 @@ export default defineComponent({
         },
       });
     },
+  },
+
+  updated() {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, this.duration * 1000);
   },
 });
 </script>

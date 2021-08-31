@@ -3,7 +3,6 @@
     ref="card"
     class="
       card
-      no-saturate
       relative
       text-dark-grey
       <md(:mx-$base-page-gap-negative
@@ -48,8 +47,7 @@ import {
 } from "vue";
 import CardItemHeader from "./CardItemHeader.vue";
 import useCardImage from "../composables/useCardImage";
-import useCardHoverAnimation from "../composables/useCardHoverAnimation";
-import useCardViewportAnimation from "../composables/useCardViewportAnimation";
+import useCardAnimations from "../composables/useCardAnimations";
 import CardItemBody from "./CardItemBody.vue";
 
 export default defineComponent({
@@ -58,6 +56,10 @@ export default defineComponent({
     CardItemBody,
   },
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -89,20 +91,19 @@ export default defineComponent({
     const bgArrowsWrapper = ref<HTMLElement>();
     const bgArrows = ref<HTMLElement>();
 
-    const { tags, imgPath } = toRefs(props);
+    const { tags, imgPath, id } = toRefs(props);
 
     const formattedTags = computed(() => `#${tags.value.join(" #")}`);
     const { cardImage } = useCardImage(imgPath.value);
 
     onMounted(() => {
       if (card.value && bgArrowsWrapper.value && bgArrows.value) {
-        useCardHoverAnimation(
+        useCardAnimations(
+          id.value,
           card.value,
           bgArrowsWrapper.value,
           bgArrows.value
         );
-
-        useCardViewportAnimation(card.value);
       }
     });
 
