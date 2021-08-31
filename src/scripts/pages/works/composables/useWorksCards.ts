@@ -11,11 +11,17 @@ export default function useWorksCards(activeFilter: Ref) {
   };
 
   const worksCardsFiltered = computed(() => {
-    const filteredCards = worksCards.value.filter((card) => {
+    let filteredCards = worksCards.value.filter((card) => {
       const result = card.types.filter((type) => type === activeFilter.value);
 
       return result.length !== 0;
     });
+
+    const dateNow = Date.now();
+    filteredCards = filteredCards.map((card) => ({
+      ...card,
+      id: card.id + dateNow,
+    }));
 
     return filteredCards;
   });
