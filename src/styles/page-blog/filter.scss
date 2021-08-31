@@ -16,6 +16,14 @@
   }
 }
 
+.page-works .pin-filter-container {
+  @apply <md:(mx-$base-page-gap-negative px-$base-page-gap overflow-x-auto overflow-y-hidden);
+}
+
+.page-works .pin-filter-container::-webkit-scrollbar {
+  display: none;
+}
+
 .filter {
   --padding: 5px;
   --gap-item: calc((25px - var(--padding) * 2) / 2);
@@ -217,7 +225,7 @@ body.os-mac .filter__icon svg {
 }
 
 .filter__item {
-  @include font-size-px($fz-text-16);
+  @include font-size-px($fz-text-16, 20);
 
   position: relative;
   padding: var(--padding);
