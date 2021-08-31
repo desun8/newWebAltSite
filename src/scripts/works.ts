@@ -1,5 +1,6 @@
 import initRoot from "./root";
 import { initApp } from "./pages/works/index.js";
+import APP from "./app/APP";
 import "@/styles/works.scss";
 
 function prepare() {
@@ -12,3 +13,7 @@ function prepare() {
 
 initRoot();
 prepare().then(() => initApp());
+
+if (APP.isDesktop) {
+  import("./components/subscribe-banner/index");
+}
