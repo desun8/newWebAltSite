@@ -1,5 +1,5 @@
 export const submit = (formElm: HTMLFormElement) => {
-  const KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
+  const KEY = window.RECAPTCHA_KEY;
   const url = formElm.action;
   const formData = new FormData(formElm);
   const params = {
@@ -23,7 +23,8 @@ export const submit = (formElm: HTMLFormElement) => {
 
   return new Promise(function (resolve, _) {
     window.grecaptcha.ready(() => {
-      window.grecaptcha.execute(KEY, {action: "form"})
+      window.grecaptcha
+        .execute(KEY, { action: "form" })
         .then((token: string) => {
           // добавляем в отправляемые данные токен рекаптчи
           formData.append("recaptcha_response", token);

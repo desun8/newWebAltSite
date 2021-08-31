@@ -7,6 +7,7 @@ declare global {
     grecaptcha: any;
     // Modernizr?: any;
     ymaps?: any;
+    RECAPTCHA_KEY: string;
     APP: {
       os: string;
       scrollbar: SmoothScrollbar | undefined;
