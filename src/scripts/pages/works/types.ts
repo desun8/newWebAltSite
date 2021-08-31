@@ -29,3 +29,9 @@ export enum FilterTypes {
   CONTEXT = "контекст",
   SMM = "smm",
 }
+
+export type FilterItem = {
+  value: string;
+  name: string;
+  checked: boolean;
+};

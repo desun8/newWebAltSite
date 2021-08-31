@@ -1,7 +1,14 @@
 <template>
-  <ul class="<md:block grid grid-cols-2 xl:grid-cols-3">
+  <transition-group
+    name="works-cards-list"
+    tag="ul"
+    class="<md:block grid grid-cols-2 xl:grid-cols-3"
+    @enter="enter"
+    @leave="leave"
+  >
     <li v-for="card in cardsData" :key="card.id" class="list-item">
       <card-item
+        :id="`${card.id}`"
         :title="card.title"
         :kind="card.kind"
         :tags="card.tags"
@@ -10,11 +17,13 @@
         :href="card.href"
       ></card-item>
     </li>
-  </ul>
+  </transition-group>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { CardResponse } from "../types";
 import CardItem from "./CardItem.vue";
 
@@ -25,6 +34,48 @@ export default defineComponent({
       type: Array as PropType<CardResponse[]>,
       required: true,
     },
+  },
+
+  data() {
+    return {
+      duration: 0.5,
+    };
+  },
+
+  methods: {
+    enter(el: Element, done: () => void) {
+      const { duration } = this;
+      const delay = duration;
+
+      gsap.from(el, {
+        y: 50,
+        alpha: 0,
+        duration,
+        delay,
+        onComplete() {
+          done();
+        },
+      });
+    },
+
+    leave(el: Element, done: () => void) {
+      const { duration } = this;
+
+      gsap.to(el, {
+        y: 50,
+        alpha: 0,
+        duration,
+        onComplete() {
+          done();
+        },
+      });
+    },
+  },
+
+  updated() {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, this.duration * 1000);
   },
 });
 </script>
