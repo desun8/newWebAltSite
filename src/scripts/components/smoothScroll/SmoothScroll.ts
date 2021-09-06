@@ -22,7 +22,10 @@ class SmoothScroll {
   }
 
   private addStyles() {
-    document.body.style.overflow = "hidden";
+    if (this.isGlobal) {
+      document.body.style.overflow = "hidden";
+    }
+
     this.element!.style.height = "100vh";
     const scrollContent = this.element!.querySelector(
       ".scroll-content"
@@ -59,10 +62,11 @@ class SmoothScroll {
 
   private setup() {
     this.addStyles();
+
     if (this.isGlobal) {
       this.addToGlobal();
+      this.setupScrollTrigger();
     }
-    this.setupScrollTrigger();
   }
 
   getInstance() {
