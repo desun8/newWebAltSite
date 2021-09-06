@@ -9,7 +9,7 @@ export const initSmoothScroll = () => {
   const scrollContainer = document.querySelector(
     "#scroll-container"
   ) as HTMLElement;
-  const smoothScroll = new SmoothScroll(scrollContainer);
+  const smoothScroll = new SmoothScroll(scrollContainer, true);
 
   smoothScroll.init();
 

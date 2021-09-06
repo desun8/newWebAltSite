@@ -15,7 +15,7 @@ class SmoothScroll {
     alwaysShowTracks: APP.isDesktop,
   };
 
-  constructor(private element: HTMLElement | null) {}
+  constructor(private element: HTMLElement | null, private isGlobal = false) {}
 
   private addPlugins() {
     Scrollbar.use(ModalPlugin, AnchorPlugin);
@@ -59,7 +59,9 @@ class SmoothScroll {
 
   private setup() {
     this.addStyles();
-    this.addToGlobal();
+    if (this.isGlobal) {
+      this.addToGlobal();
+    }
     this.setupScrollTrigger();
   }
 
