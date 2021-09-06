@@ -54,8 +54,119 @@
         <main class="page-works">
           <div id="app" class=""></div>
 
-          <div class="bottom">
-            <div id="app-works-modal" class="all-projects">open modal</div>
+          <div
+            class="relative mx-$base-page-gap-negative md:grid md:grid-cols-2"
+          >
+            <a
+              href=""
+              class="
+                text-white
+                bg-black
+                px-$base-page-gap
+                <md:hidden
+                xl:py-10
+                2xl:py-5.625vw
+                hover:text-sun
+              "
+            >
+              <div
+                class="
+                  grid
+                  max-w-350px
+                  h-full
+                  py-14
+                  text-right
+                  lg:mx-auto
+                  xl:pl-0 xl:pr-10
+                "
+              >
+                <div
+                  class="
+                    mb-5
+                    text-sm text-true-gray-350 text-opacity-50
+                    tracking-wide
+                  "
+                >
+                  <span>Услуга</span>
+                </div>
+
+                <span
+                  class="
+                    mb-2
+                    text-22px text-current
+                    font-medium
+                    leading-26px
+                    tracking-wide
+                    transition-colors
+                  "
+                  >Тем, кто любит учиться не страшен никакой вирус!</span
+                >
+
+                <time
+                  datetime=""
+                  class="text-sm text-white text-opacity-50 tracking-wide"
+                  >15.12.2020</time
+                >
+              </div>
+            </a>
+
+            <div id="app-works-dialog">
+              <button
+                class="
+                  link link--btn
+                  flex
+                  justify-between
+                  items-center
+                  w-full
+                  h-full
+                  px-$base-page-gap
+                  py-11
+                  bg-sun
+                  text-black text-1.5xl
+                  leading-8
+                  tracking-wide
+                  font-semibold
+                  text-left
+                  uppercase
+                  lg:(justify-end
+                  text-2xl text-right)
+                  xl:(text-32px
+                  font-medium)
+                "
+                aria-label="Открыть модальное окно со всеми проектами."
+                :data-a11y-dialog-show="dialogId"
+              >
+                <span class="link__text">
+                  <span class="inline-block mb-2">все проекты</span><br />
+                  <span>(16)</span>
+                </span>
+
+                <span
+                  class="
+                    link__icon
+                    opacity-10
+                    !w-78px
+                    !h-78px
+                    !lg:(
+                    ml-10)
+                    !xl:(w-150px
+                    h-150px
+                    ml-14)
+                    !2xl:(w-216px
+                    h-216px)
+                  "
+                >
+                  <svg
+                    class="link__arrow !w-full !h-full"
+                    width="12"
+                    height="12"
+                    aria-hidden="true"
+                  >
+                    <use xlink:href="#icon-arrow"></use>
+                  </svg>
+                </span>
+              </button>
+            </div>
             <div class="service-article"></div>
           </div>
         </main>

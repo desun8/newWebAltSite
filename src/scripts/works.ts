@@ -1,5 +1,6 @@
 import initRoot from "./root";
-import { initApp } from "./pages/works/index.js";
+import { initApp as initWorksCatalog } from "./pages/works/index.js";
+import { initApp as initWorksDialog } from "./pages/works-dialog/index.js";
 import APP from "./app/APP";
 import "@/styles/works.scss";
 
@@ -12,7 +13,10 @@ function prepare() {
 }
 
 initRoot();
-prepare().then(() => initApp());
+prepare().then(() => {
+  initWorksCatalog();
+  initWorksDialog();
+});
 
 if (APP.isDesktop) {
   import("./components/subscribe-banner/index");

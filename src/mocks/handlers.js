@@ -2,6 +2,7 @@ import { rest } from "msw";
 
 import jsonBlog from "./blog.json";
 import jsonWorksMain from "./worksMain.json";
+import jsonWorksAll from "./worksAll.json";
 
 export const handlers = [
   rest.post("/subscribe", (req, res, ctx) => {
@@ -42,6 +43,16 @@ export const handlers = [
       ctx.status(200),
       ctx.json({
         results: jsonWorksMain,
+        success: true,
+      })
+    );
+  }),
+
+  rest.get("/api/works", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        results: jsonWorksAll,
         success: true,
       })
     );
