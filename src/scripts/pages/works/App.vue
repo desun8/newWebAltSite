@@ -1,5 +1,5 @@
 <template>
-  <div class="page-blog__articles">
+  <div class="works">
     <filter-elm
       :filter-items="filterItems"
       :set-active-filter="setActiveFilter"
@@ -37,6 +37,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
-@use "@/styles/page-blog/filter.scss";
+<style lang="scss" scoped>
+.works :deep(.filter__item) {
+  @apply <lg:inline-block;
+}
 </style>
