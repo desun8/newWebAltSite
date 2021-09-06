@@ -1,14 +1,74 @@
 [
   {
-    "id": 0,
-    "types": ["разработка","дизайн", "контекст","разработка","дизайн", "контекст","разработка","дизайн", "контекст"],
-    "title": "paintball park khv loremipsum123",
-    "kind": "Развлечения и красота с перевозками продуктов",
-    "tags": ["дизайн", "контекст","дизайн", "контекст","дизайн", "контекст","дизайн", "контекст"],
-    "text": "один большой дизайн! один большой дизайн! один большой дизайн!",
+    "id": 1,
+    "types": ["разработка","дизайн", "контекст"],
+    "title": "paintaball park",
+    "kind": "Развлечения",
+    "tags": ["дизайн", "контекст"],
+    "text": "один<br> большой<br> дизайн!",
     "imgPath": {
       "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
-      "small": ["/images/works/main/paintball-park-sm.png", "/images/works/main/paintball-park-sm.webp"]},
+      "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 2,
+    "types": ["разработка","дизайн"],
+    "title": "ТРАнзит27",
+    "kind": "Перевозки",
+    "tags": ["дизайн"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
+      "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 3,
+    "types": ["дизайн", "разработка", "контекст"],
+    "title": "Броско маркет",
+    "kind": "Торговля и услуги",
+    "tags": ["дизайн", "разработка", "контекст"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
+      "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 4,
+    "types": ["разработка","дизайн", "контекст"],
+    "title": "paintaball park",
+    "kind": "Развлечения",
+    "tags": ["дизайн", "контекст"],
+    "text": "один<br> большой<br> дизайн!",
+    "imgPath": {
+      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
+      "small": ["/images/works/main/v2/paintball-park-sm-v2.png", "/images/works/main/v2/paintball-park-sm-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 5,
+    "types": ["разработка","дизайн"],
+    "title": "ТРАнзит27",
+    "kind": "Перевозки",
+    "tags": ["дизайн"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
+      "small": ["/images/works/main/v2/tranzit27-sm-v2.png", "/images/works/main/v2/tranzit27-sm-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 6,
+    "types": ["дизайн", "разработка", "контекст"],
+    "title": "Броско маркет",
+    "kind": "Торговля и услуги",
+    "tags": ["дизайн", "разработка", "контекст"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
+      "small": ["/images/works/main/v2/brosko-market-sm-v2.png", "/images/works/main/v2/brosko-market-sm-v2.png"]},
     "href": "/nested/works-inner.html"
   },
   {
@@ -45,54 +105,6 @@
     "imgPath": {
       "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
       "small": ["/images/works/main/brosko-market-sm.png", "/images/works/main/brosko-market-sm.webp"]},
-    "href": "/nested/works-inner.html"
-  },
-  {
-    "id": 4,
-    "types": ["дизайн", "контекст","разработка"],
-    "title": "Legenda",
-    "kind": "Авто и сервис",
-    "tags": ["дизайн", "разработка", "контекст"],
-    "text": "<span class='text-sun'>40</span> заявок по <span class='text-sun'>300</span> рублей",
-    "imgPath": {
-      "large": ["/images/works/main/legenda.png", "/images/works/main/legenda.webp"], 
-      "small": ["/images/works/main/legenda-sm.png", "/images/works/main/legenda-sm.webp"]},
-    "href": "/nested/works-inner.html"
-  },
-  {
-    "id": 5,
-    "types": ["дизайн", "контекст","разработка"],
-    "title": "Antera",
-    "kind": "Жд перевозки",
-    "tags": ["дизайн", "разработка", "контекст"],
-    "text": "Много<br> крутого<br> брендинга",
-    "imgPath": {
-      "large": ["/images/works/main/antera.png", "/images/works/main/antera.webp"], 
-      "small": ["/images/works/main/antera-sm.png", "/images/works/main/antera-sm.webp"]},
-    "href": "/nested/works-inner.html"
-  },
-  {
-    "id": 6,
-    "types": ["дизайн", "контекст","разработка"],
-    "title": "ФПМП",
-    "kind": "Финансы",
-    "tags": ["дизайн", "разработка", "контекст"],
-    "text": "Тендер для портала гос услуг",
-    "imgPath": {
-      "large": ["/images/works/main/fpmp.png", "/images/works/main/fpmp.webp"], 
-      "small": ["/images/works/main/fpmp-sm.png", "/images/works/main/fpmp-sm.webp"]},
-    "href": "/nested/works-inner.html"
-  },
-  {
-    "id": 7,
-    "types": ["дизайн", "контекст","разработка"],
-    "title": "АВОКАДО",
-    "kind": "ПИТАНИЕ",
-    "tags": ["дизайн", "разработка", "контекст"],
-    "text": "ctr - <span class='text-sun'>36%</span><br> nice!!!",
-    "imgPath": {
-      "large": ["/images/works/main/avocado.png", "/images/works/main/avocado.webp"], 
-      "small": ["/images/works/main/avocado-sm.png", "/images/works/main/avocado-sm.webp"]},
     "href": "/nested/works-inner.html"
   }
 ]

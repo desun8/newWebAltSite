@@ -100,18 +100,17 @@ export default defineComponent({
 }
 
 .card-img {
-  background-size: 70%;
-  background-position: 120% 20%;
+  background-size: 80%;
+  background-position: 95% 10%;
   filter: brightness(1.6) saturate(0);
 
   @media (--xl-1) {
-    background-size: 80%;
-    background-position: 130% 40%;
+    background-position: 90% 40%;
   }
 
   @media (--xl-2) {
     background-size: 100%;
-    background-position: vw(100) 50%;
+    background-position: vw(20) 45%;
   }
 }
 

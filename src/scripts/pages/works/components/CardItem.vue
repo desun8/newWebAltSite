@@ -7,7 +7,7 @@
       text-dark-grey
       <md(:mx-$base-page-gap-negative
       px-$base-page-gap)
-      lg:(px-30px
+      md:(px-30px
       py-25px
       h-full
       overflow-hidden)
