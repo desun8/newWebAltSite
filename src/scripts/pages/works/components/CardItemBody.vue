@@ -1,6 +1,7 @@
 <template>
   <div class="card-body min-h-52 relative grid 1.5xl:min-h-72">
     <div
+      ref="imgElm"
       :style="bgImage"
       class="
         card-img
@@ -54,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 
 export default defineComponent({
   props: {
@@ -66,6 +67,25 @@ export default defineComponent({
       type: String,
       required: true,
     },
+
+    setImgElm: {
+      type: Function,
+      required: true,
+    },
+  },
+
+  setup(props) {
+    const imgElm = ref<HTMLElement>();
+
+    onMounted(() => {
+      if (imgElm.value) {
+        props.setImgElm(imgElm.value);
+      }
+    });
+
+    return {
+      imgElm,
+    };
   },
 });
 </script>
@@ -82,7 +102,7 @@ export default defineComponent({
 .card-img {
   background-size: 70%;
   background-position: 120% 20%;
-  filter: saturate(0);
+  filter: brightness(1.6) saturate(0);
 
   @media (--xl-1) {
     background-size: 80%;
@@ -96,7 +116,7 @@ export default defineComponent({
 }
 
 .is-active .card-img {
-  filter: saturate(1);
+  filter: brightness(1) saturate(1);
 }
 
 .card-text {

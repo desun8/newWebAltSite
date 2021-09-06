@@ -27,7 +27,8 @@ export default function useCardAnimations(
   scrollTriggerId: string,
   card: HTMLElement,
   bgArrowsWrapper: HTMLElement,
-  bgArrows: HTMLElement
+  bgArrows: HTMLElement,
+  imageElm: HTMLElement
 ) {
   const hoverAnimation = () => {
     const duration = 0.5;
@@ -42,7 +43,11 @@ export default function useCardAnimations(
     const updateArrowsPos = (pos: Pos) => {
       const x = pos.x * -0.015;
       const y = pos.y * -0.015;
-      gsap.to(bgArrowsWrapper, { x, y, duration: 0.2 });
+      gsap.to([bgArrowsWrapper, imageElm], {
+        x: (_, el) => (el === imageElm ? x * -1 : x),
+        y: (_, el) => (el === imageElm ? y * -1 : y),
+        duration: 0.2,
+      });
     };
 
     const handleMouseEnter = () => {

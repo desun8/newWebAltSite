@@ -26,7 +26,11 @@
       :tags="formattedTags"
     ></card-item-header>
 
-    <card-item-body :text="text" :bgImage="cardImage"></card-item-body>
+    <card-item-body
+      :text="text"
+      :bgImage="cardImage"
+      :set-img-elm="setCardImgElm"
+    ></card-item-body>
 
     <a
       :href="href"
@@ -90,6 +94,10 @@ export default defineComponent({
     const card = ref<HTMLElement>();
     const bgArrowsWrapper = ref<HTMLElement>();
     const bgArrows = ref<HTMLElement>();
+    const cardImgElm = ref<HTMLElement>();
+    const setCardImgElm = (elm: HTMLElement) => {
+      cardImgElm.value = elm;
+    };
 
     const { tags, imgPath, id } = toRefs(props);
 
@@ -97,12 +105,18 @@ export default defineComponent({
     const { cardImage } = useCardImage(imgPath.value);
 
     onMounted(() => {
-      if (card.value && bgArrowsWrapper.value && bgArrows.value) {
+      if (
+        card.value &&
+        bgArrowsWrapper.value &&
+        bgArrows.value &&
+        cardImgElm.value
+      ) {
         useCardAnimations(
           id.value,
           card.value,
           bgArrowsWrapper.value,
-          bgArrows.value
+          bgArrows.value,
+          cardImgElm.value
         );
       }
     });
@@ -113,6 +127,8 @@ export default defineComponent({
       bgArrows,
       formattedTags,
       cardImage,
+      cardImgElm,
+      setCardImgElm,
     };
   },
 });
