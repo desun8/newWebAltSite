@@ -44,16 +44,8 @@ p {
 }
 
 .wrapper {
-  --base-gap: #{vw(20, $mobile-viewport)};
-  --base-page-gap: #{vw(20, $mobile-viewport)};
-  --base-page-gap-negative: calc(var(--base-page-gap) * -1);
-
+  @include base-property();
   @include wrap-new();
-
-  @media (--lg) {
-    --base-gap: #{vw(20)};
-    --base-page-gap: #{vw(100)};
-  }
 }
 
 .list-unstyled {

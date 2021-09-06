@@ -1,0 +1,13 @@
+@use "../utilities/custom-media";
+@use "../functions/convert.scss" as *;
+
+@mixin base-property {
+  --base-gap: #{vw(20, $mobile-viewport)};
+  --base-page-gap: #{vw(20, $mobile-viewport)};
+  --base-page-gap-negative: calc(var(--base-page-gap) * -1);
+
+  @media (--lg) {
+    --base-gap: #{vw(20)};
+    --base-page-gap: #{vw(100)};
+  }
+}
