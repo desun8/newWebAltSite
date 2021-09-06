@@ -6,6 +6,7 @@
       class="filter"
     >
       <button
+        v-if="!isStatic"
         ref="btnToggle"
         @click="throttleClick"
         class="filter__collapse"
@@ -14,7 +15,7 @@
         Переключить видимость фильтра
       </button>
 
-      <div class="filter__icon">
+      <div v-if="!isStatic" class="filter__icon">
         <svg viewBox="0 0 14 12" width="14" height="12">
           <path d="M.938.5L7 11 13.062.5H.938z" />
         </svg>
@@ -27,9 +28,10 @@
           v-for="item in filterItems"
           :key="item.type"
           :value="item.value"
-          :name="item.name"
+          :text="item.name"
           :checked="item.checked"
           :handleChange="setActiveFilter"
+          :name="filterName"
         />
       </fieldset>
     </div>
@@ -41,6 +43,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { throttle } from "lodash";
 
+import "@/styles/page-blog/filter.scss";
 import FilterItem from "./FilterItem.vue";
 import APP from "../../../../app/APP";
 
@@ -69,6 +72,14 @@ export default {
     setActiveFilter: {
       type: Function,
       required: true,
+    },
+    filterName: {
+      type: String,
+      default: "filter",
+    },
+    isStatic: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -233,7 +244,7 @@ export default {
   },
 
   mounted() {
-    if (APP.isDesktop) {
+    if (!this.isStatic && APP.isDesktop) {
       if (APP.scrollbar) {
         this.scrollPin();
       }
