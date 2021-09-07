@@ -2,12 +2,17 @@ import { ref } from "vue";
 import { FilterItem, FilterTypes } from "../types";
 
 export default function useFilters() {
-  const activeFilter = ref<string>(FilterTypes.DEVELOPMENT);
+  const activeFilter = ref<string>(FilterTypes.ALL);
   const filterItems: FilterItem[] = [
+    {
+      value: FilterTypes.ALL,
+      name: FilterTypes.ALL,
+      checked: true,
+    },
     {
       value: FilterTypes.DEVELOPMENT,
       name: FilterTypes.DEVELOPMENT,
-      checked: true,
+      checked: false,
     },
     {
       value: FilterTypes.DESIGN,

@@ -24,6 +24,7 @@ export type Card = {
 };
 
 export enum FilterTypes {
+  ALL = "все",
   DEVELOPMENT = "разработка",
   DESIGN = "дизайн",
   CONTEXT = "контекст",
