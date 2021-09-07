@@ -4,7 +4,12 @@ import typography from "windicss/plugin/typography";
 
 export default defineConfig({
   extract: {
-    include: ["./**/*.html", "./src/scripts/**/*.{ts,vue}"],
+    include: [
+      "index.html",
+      "nested/**/*.html",
+      "src/templates/**/*.html",
+      "src/scripts/**/*.{ts,vue}",
+    ],
   },
   safelist: ["prose", "prose-sm", "m-auto"],
   darkMode: "class",
