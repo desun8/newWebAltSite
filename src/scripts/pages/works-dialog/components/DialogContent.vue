@@ -1,42 +1,12 @@
 <template>
   <div class="lg:(grid grid-cols-2)">
-    <div
-      ref="infoElm"
-      class="
-        <lg:hidden
-        grid
-        items-center
-        content-center
-        justify-center
-        h-screen
-        p-$base-page-gap
-      "
-      data-a11y-dialog-hide
-      :img="itemInfo.img"
+    <list-item-info
       :kind="itemInfo.kind"
       :tags="itemInfo.tags"
+      :image="itemInfo.img"
       :text="itemInfo.text"
-    >
-      <img
-        v-show="itemInfo.img"
-        :src="itemInfo.img"
-        class="max-h-70vh mb-3"
-        alt=""
-        role="presentation"
-      />
-      <span
-        ref="kind"
-        class="mb-1 text-2xl leading-none text-sun font-semibold uppercase"
-        >{{ itemInfo.kind }}</span
-      >
-      <span ref="tags" class="text-xs">{{ itemInfo.tags }}</span>
-      <span
-        v-show="!itemInfo.img"
-        ref="text"
-        v-html="itemInfo.text"
-        class="text"
-      ></span>
-    </div>
+      :set-info-elm="setInfoElm"
+    ></list-item-info>
 
     <div ref="listElm" class="list">
       <!-- 
@@ -61,18 +31,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, PropType, ref, watch } from "vue";
-import { gsap } from "gsap";
+import { defineComponent, PropType, watch } from "vue";
 import FilterElement from "../../blog/vue/Filter/Filter.vue";
 import ListElement from "./List.vue";
+import ListItemInfo from "./ListItemInfo.vue";
 import Simplebar from "./Simplebar.vue";
 import useFilters from "../composables/useFilters";
 import useItems from "../composables/useItems";
-import { ItemInfo } from "../types";
-import SmoothScroll from "@/scripts/components/smoothScroll/SmoothScroll";
+import useItemInfo from "../composables/useItemInfo";
+import useListScroll from "../composables/useListScroll";
 
 export default defineComponent({
-  components: { FilterElement, Simplebar, ListElement },
+  components: { FilterElement, Simplebar, ListElement, ListItemInfo },
 
   props: {
     setTotal: {
@@ -90,46 +60,8 @@ export default defineComponent({
       setTotal(newValue);
     });
 
-    const infoElm = ref<HTMLElement>();
-    const itemInfo = ref<ItemInfo>({ img: "", kind: "", tags: "", text: "" });
-    const setItemInfo = (
-      kind: string,
-      tags: string,
-      text: string,
-      img: string
-    ) => {
-      if (infoElm.value) {
-        gsap.killTweensOf(infoElm.value);
-        gsap
-          .timeline()
-          .to(infoElm.value, {
-            alpha: 0,
-            duration: 0.1,
-            onComplete() {
-              itemInfo.value = {
-                img,
-                kind,
-                tags,
-                text,
-              };
-            },
-          })
-          .to(infoElm.value, { alpha: 1, duration: 0.2, delay: 0.1 });
-      }
-    };
-
-    const listElm = ref<HTMLElement>();
-    const scrollbar = ref();
-    onMounted(() => {
-      if (listElm.value) {
-        scrollbar.value = new SmoothScroll(listElm.value);
-        console.log(
-          "🚀 ~ file: DialogContent.vue ~ line 121 ~ onMounted ~ scrollbar.value",
-          scrollbar.value
-        );
-        scrollbar.value.init();
-      }
-    });
+    const { setInfoElm, itemInfo, setItemInfo } = useItemInfo();
+    const { listElm } = useListScroll();
 
     return {
       activeFilter,
@@ -137,9 +69,9 @@ export default defineComponent({
       filterItems,
       itemsFiltered,
       total,
+      setInfoElm,
       itemInfo,
       setItemInfo,
-      infoElm,
       listElm,
     };
   },
@@ -147,8 +79,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@use "@/styles/_config/mixins/typographic" as *;
-
 .list {
   padding: 0 var(--base-page-gap);
   color: #fff;
@@ -181,13 +111,5 @@ export default defineComponent({
   @media (--lg) {
     margin-left: var(--padding);
   }
-}
-
-.text {
-  @include font-size(64, 64);
-
-  margin-top: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 </style>
