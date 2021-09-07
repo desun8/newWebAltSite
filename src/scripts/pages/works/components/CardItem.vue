@@ -3,6 +3,7 @@
     ref="card"
     class="
       card
+      lozad
       relative
       text-dark-grey
       <md(:mx-$base-page-gap-negative
@@ -12,6 +13,7 @@
       h-full
       overflow-hidden)
     "
+    data-toggle-class="is-visible"
   >
     <div
       ref="bgArrowsWrapper"

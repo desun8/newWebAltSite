@@ -24,6 +24,7 @@
 import { defineComponent, PropType } from "vue";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import lozad, { Observer } from "lozad";
 import { CardResponse } from "../types";
 import CardItem from "./CardItem.vue";
 
@@ -36,9 +37,10 @@ export default defineComponent({
     },
   },
 
-  data() {
+  data(): { duration: number; lazyLoad: Observer } {
     return {
       duration: 0.5,
+      lazyLoad: lozad(),
     };
   },
 
@@ -72,9 +74,14 @@ export default defineComponent({
     },
   },
 
+  mounted() {
+    this.lazyLoad.observe();
+  },
+
   updated() {
     setTimeout(() => {
       ScrollTrigger.refresh();
+      this.lazyLoad.observe();
     }, this.duration * 1000);
   },
 });

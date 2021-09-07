@@ -99,6 +99,10 @@ export default defineComponent({
   }
 }
 
+.card:not(.is-visible) .card-img {
+  background-image: none !important;
+}
+
 .card-img {
   background-size: 80%;
   background-position: 95% 10%;
