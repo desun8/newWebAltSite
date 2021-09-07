@@ -1,4 +1,4 @@
-import { onMounted, ref } from "vue";
+import { onMounted, provide, ref } from "vue";
 import A11yDialog from "a11y-dialog";
 import APP from "@/scripts/app/APP";
 import { disableScroll, enableScroll } from "@/scripts/helpers/scrollLock";
@@ -6,6 +6,8 @@ import { disableScroll, enableScroll } from "@/scripts/helpers/scrollLock";
 export default function useDialog() {
   const dialogElm = ref();
   const dialog = ref<A11yDialog>();
+
+  provide("dialogElm", dialogElm);
 
   const openDialog = () => {
     dialog.value?.show();

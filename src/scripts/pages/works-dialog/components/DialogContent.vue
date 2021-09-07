@@ -27,6 +27,8 @@
         :set-item-info="setItemInfo"
       ></list-element>
     </div>
+
+    <btn-to-top></btn-to-top>
   </div>
 </template>
 
@@ -36,13 +38,14 @@ import FilterElement from "../../blog/vue/Filter/Filter.vue";
 import ListElement from "./List.vue";
 import ListItemInfo from "./ListItemInfo.vue";
 import Simplebar from "./Simplebar.vue";
+import BtnToTop from "./BtnToTop.vue";
 import useFilters from "../composables/useFilters";
 import useItems from "../composables/useItems";
 import useItemInfo from "../composables/useItemInfo";
 import useListScroll from "../composables/useListScroll";
 
 export default defineComponent({
-  components: { FilterElement, Simplebar, ListElement, ListItemInfo },
+  components: { FilterElement, Simplebar, ListElement, ListItemInfo, BtnToTop },
 
   props: {
     setTotal: {
