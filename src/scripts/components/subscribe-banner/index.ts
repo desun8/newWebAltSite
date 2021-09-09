@@ -10,8 +10,13 @@ if (subscribeBanner) {
   const btnElm = subscribeBanner.querySelector(
     ".subscribe-banner-btn"
   ) as HTMLButtonElement;
-  const block = subscribeBanner.querySelector(".subscribe-banner-block")!;
+  const block = subscribeBanner.querySelector(
+    ".subscribe-banner-block"
+  ) as HTMLElement;
   const formElm = block.querySelector("form")!;
+
+  // очищаем от инлайн стиля
+  block.style.cssText = "";
 
   new ButtonCtrl(btnElm);
 
