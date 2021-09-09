@@ -4,7 +4,7 @@ import { mediaQueryEvent } from "@/scripts/utils/mediaQueryEvent";
 import APP from "../APP";
 import { initFooter } from "./initFooter";
 import { initMenu } from "./initMenu";
-import { addNoise } from "./noise";
+// import { addNoise } from "./noise";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
 
@@ -34,7 +34,7 @@ export const initCore = () => {
   initProgressBar();
 
   if (APP.scrollbar && APP.isDesktop) {
-    addNoise();
+    // addNoise();
   }
 
   if (!APP.isDesktop) {
