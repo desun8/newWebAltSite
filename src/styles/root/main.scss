@@ -85,3 +85,23 @@ p {
 .grecaptcha-badge {
   visibility: hidden;
 }
+
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-image: url("/images/noise-gif-square-anim.gif");
+  overflow: hidden;
+  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  // z-index: -1;
+}
