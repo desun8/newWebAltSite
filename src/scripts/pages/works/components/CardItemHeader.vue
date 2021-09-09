@@ -68,7 +68,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @use "@/styles/_config/index" as *;
 
-@media (--xl-2) {
+@media (--xxxl) {
   .card-header {
     min-height: vw(160);
   }

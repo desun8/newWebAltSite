@@ -94,7 +94,7 @@ export default defineComponent({
 @use "@/styles/_config/index" as *;
 
 .card-body {
-  @media (--xl-2) {
+  @media (--xxxl) {
     min-height: vw(460);
   }
 }
@@ -108,11 +108,11 @@ export default defineComponent({
   background-position: 95% 10%;
   filter: brightness(1.6) saturate(0);
 
-  @media (--xl-1) {
+  @media (--xxl) {
     background-position: 90% 40%;
   }
 
-  @media (--xl-2) {
+  @media (--xxxl) {
     background-size: 100%;
     background-position: vw(20) 45%;
   }
@@ -123,7 +123,7 @@ export default defineComponent({
 }
 
 .card-text {
-  @media (--xl-2) {
+  @media (--xxxl) {
     @include font-size(42);
   }
 }

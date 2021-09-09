@@ -23,7 +23,7 @@
 .inner-body__header {
   @apply mb-7 lg:mb-12 xl:mb-16 2xl:col-span-9;
 
-  @media (--xl-2) {
+  @media (--xxxl) {
     @include grid(9);
   }
 }
