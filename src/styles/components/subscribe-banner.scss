@@ -1,4 +1,4 @@
-@import "../animations/border-fill.css";
+@use "@/styles/animations/border-fill.css";
 
 .subscribe-banner-btn {
   @apply transition-opacity delay-200;
@@ -27,6 +27,12 @@
 
 .subscribe-banner.is-active .subscribe-banner-block {
   transform: translateX(0);
+}
+
+.subscribe-banner--static .subscribe-banner-block {
+  @apply static grid-cols-[100px,1fr] gap-0 items-stretch pr-0 bg-transparent transform translate-x-0 overflow-hidden;
+
+  max-width: 100%;
 }
 
 .subscribe-banner-block:hover .subscribe-banner-block__icon-fire {

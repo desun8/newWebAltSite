@@ -1,0 +1,29 @@
+.scroll-to-top {
+  @apply lg:hidden;
+
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  width: 42px;
+  height: 42px;
+  padding: 10px 12px;
+  background: var(--c-dark-grey);
+  opacity: 0;
+  transform: translateY(60px) scaleY(-1);
+  transition-property: transform, opacity;
+  transition-duration: var(--trans-dur-fast);
+  z-index: 100;
+}
+
+.scroll-to-top.is-show {
+  opacity: 1;
+  transform: translateY(0) scaleY(-1);
+}
+
+.scroll-to-top::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: url("/images/i-arrow-down-white.svg") center/contain;
+  background-repeat: space no-repeat;
+}

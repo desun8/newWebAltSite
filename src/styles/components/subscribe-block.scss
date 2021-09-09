@@ -1,13 +1,22 @@
 @use "@/styles/animations/rotate";
 @use "@/styles/animations/border-fill";
 
+.subscribe-block--transparent {
+  --error-color: var(--c-red);
+}
+
 .subscribe-block__image {
   @apply w-22 h-28 bg-no-repeat bg-contain;
   background-image: url("/images/components/subscribe-planet.svg");
 }
 
+.subscribe-block__image--sun {
+  background: var(--c-red);
+  mask: url("/images/components/subscribe-planet.svg") no-repeat center/contain;
+}
+
 .subscribe-block__text {
-  @apply absolute top-8 -left-5 w-19 h-20 md:w-36 md:h-36 bg-no-repeat;
+  @apply absolute top-8 -left-5 w-19 h-20 md:w-36 md:h-36 bg-no-repeat 2xl:-top-8 2xl:w-19 2xl:h-20;
   background-image: url("/images/components/subscribe-text.svg");
   animation: rotate 15s linear infinite both;
 }

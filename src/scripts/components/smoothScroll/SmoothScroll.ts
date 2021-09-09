@@ -15,14 +15,17 @@ class SmoothScroll {
     alwaysShowTracks: APP.isDesktop,
   };
 
-  constructor(private element: HTMLElement | null) {}
+  constructor(private element: HTMLElement | null, private isGlobal = false) {}
 
   private addPlugins() {
     Scrollbar.use(ModalPlugin, AnchorPlugin);
   }
 
   private addStyles() {
-    document.body.style.overflow = "hidden";
+    if (this.isGlobal) {
+      document.body.style.overflow = "hidden";
+    }
+
     this.element!.style.height = "100vh";
     const scrollContent = this.element!.querySelector(
       ".scroll-content"
@@ -59,8 +62,11 @@ class SmoothScroll {
 
   private setup() {
     this.addStyles();
-    this.addToGlobal();
-    this.setupScrollTrigger();
+
+    if (this.isGlobal) {
+      this.addToGlobal();
+      this.setupScrollTrigger();
+    }
   }
 
   getInstance() {

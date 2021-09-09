@@ -5,7 +5,7 @@
 *::after {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  
+
   box-sizing: inherit;
 }
 
@@ -39,14 +39,13 @@ p {
   margin: 0;
 }
 
+.page-container {
+  @apply lg:pt-32;
+}
+
 .wrapper {
-  --base-gap: #{vw(20, $mobile-viewport)};
-
+  @include base-property();
   @include wrap-new();
-
-  @media (--lg) {
-    --base-gap: #{vw(20)};
-  }
 }
 
 .list-unstyled {
@@ -56,11 +55,11 @@ p {
 
 .number-count {
   position: relative;
-  
+
   &__static {
     opacity: 0;
   }
-  
+
   &__dynamic {
     position: absolute;
     top: 0;
@@ -71,11 +70,11 @@ p {
 .ticker {
   overflow: hidden;
   white-space: nowrap;
-  
+
   &__wrap {
     display: flex;
   }
-  
+
   //&__item {}
 }
 
@@ -86,4 +85,3 @@ p {
 .grecaptcha-badge {
   visibility: hidden;
 }
-

@@ -1,9 +1,11 @@
 /* mobile first */
 @custom-media --md (width >= 48em); // 768px
 @custom-media --lg (width >= 64em); // 1024px
+@custom-media --lg-max (width < 64em); // 1024px
+@custom-media --xl-max (width < 80em); // 1280px
 @custom-media --xl (width >= 80em); // 1280px
+@custom-media --xl-1 (width >= 90em); // 1440px
 @custom-media --xl-2 (width >= 96em); // 1536px
-
 
 /* desktop first */
 @custom-media --desktop-md (width <= 90em);

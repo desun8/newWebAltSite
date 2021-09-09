@@ -1,0 +1,24 @@
+.time {
+  display: block;
+  margin-bottom: 32px;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (--lg) {
+    display: none;
+  }
+}
+
+.contacts:not(.contacts--info) .time {
+  @media (--lg) {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.time__value {
+  color: var(--c-sun);
+  font-weight: 700;
+}

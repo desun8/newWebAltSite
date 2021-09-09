@@ -1,13 +1,15 @@
 import ButtonCtrl from "./buttonCtrl";
 import submitForm from "./submitForm";
-import "@/styles/components/subscribe-banner.css";
+import "@/styles/components/subscribe-banner.scss";
 
 const subscribeBanner = document.querySelector(".subscribe-banner");
 
 if (subscribeBanner) {
   let isActive = false;
 
-  const btnElm = subscribeBanner.querySelector(".subscribe-banner-btn") as HTMLButtonElement;
+  const btnElm = subscribeBanner.querySelector(
+    ".subscribe-banner-btn"
+  ) as HTMLButtonElement;
   const block = subscribeBanner.querySelector(".subscribe-banner-block")!;
   const formElm = block.querySelector("form")!;
 
@@ -27,7 +29,6 @@ if (subscribeBanner) {
     toggleActive(true);
   };
 
-
   document.addEventListener("click", (e) => {
     if (!isActive) {
       return;
@@ -40,12 +41,13 @@ if (subscribeBanner) {
     }
   });
 
-  window.addEventListener("wheel", () => {
+  window.addEventListener(
+    "wheel",
+    () => {
       toggleActive(false);
-    }, {passive: true},
+    },
+    { passive: true }
   );
 
   submitForm(formElm);
-
 }
-

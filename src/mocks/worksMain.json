@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "types": ["разработка","дизайн", "контекст"],
+    "title": "paintaball park",
+    "kind": "Развлечения",
+    "tags": ["дизайн", "контекст"],
+    "text": "один<br> большой<br> дизайн!",
+    "imgPath": {
+      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
+      "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 2,
+    "types": ["дизайн"],
+    "title": "ТРАнзит27",
+    "kind": "Перевозки",
+    "tags": ["дизайн"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
+      "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 3,
+    "types": ["дизайн",  "контекст"],
+    "title": "Броско маркет",
+    "kind": "Торговля и услуги",
+    "tags": ["дизайн",  "контекст"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
+      "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 4,
+    "types": ["дизайн", "контекст"],
+    "title": "paintaball park",
+    "kind": "Развлечения",
+    "tags": ["дизайн", "контекст"],
+    "text": "один<br> большой<br> дизайн!",
+    "imgPath": {
+      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
+      "small": ["/images/works/main/v2/paintball-park-sm-v2.png", "/images/works/main/v2/paintball-park-sm-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 5,
+    "types": ["дизайн"],
+    "title": "ТРАнзит27",
+    "kind": "Перевозки",
+    "tags": ["дизайн"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
+      "small": ["/images/works/main/v2/tranzit27-sm-v2.png", "/images/works/main/v2/tranzit27-sm-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 6,
+    "types": ["дизайн",  "контекст"],
+    "title": "Броско маркет",
+    "kind": "Торговля и услуги",
+    "tags": ["дизайн",  "контекст"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
+      "small": ["/images/works/main/v2/brosko-market-sm-v2.png", "/images/works/main/v2/brosko-market-sm-v2.png"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 1,
+    "types": ["разработка","дизайн", "контекст"],
+    "title": "paintaball park",
+    "kind": "Развлечения",
+    "tags": ["дизайн", "контекст"],
+    "text": "один<br> большой<br> дизайн!",
+    "imgPath": {
+      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
+      "small": ["/images/works/main/paintball-park-sm.png", "/images/works/main/paintball-park-sm.webp"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 2,
+    "types": ["разработка","дизайн"],
+    "title": "ТРАнзит27",
+    "kind": "Перевозки",
+    "tags": ["дизайн"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
+      "small": ["/images/works/main/tranzit27-sm.png", "/images/works/main/tranzit27-sm.webp"]},
+    "href": "/nested/works-inner.html"
+  },
+  {
+    "id": 3,
+    "types": ["дизайн", "разработка", "контекст"],
+    "title": "Броско маркет",
+    "kind": "Торговля и услуги",
+    "tags": ["дизайн", "разработка", "контекст"],
+    "text": "Smm в топ по лидам за месяц",
+    "imgPath": {
+      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
+      "small": ["/images/works/main/brosko-market-sm.png", "/images/works/main/brosko-market-sm.webp"]},
+    "href": "/nested/works-inner.html"
+  }
+]

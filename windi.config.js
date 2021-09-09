@@ -1,12 +1,14 @@
-import { defineConfig } from 'windicss/helpers'
+import { defineConfig } from "windicss/helpers";
 import colors from "windicss/colors";
 import typography from "windicss/plugin/typography";
 
-export default defineConfig ({
+export default defineConfig({
   extract: {
     include: [
-      "./**/*.html",
-      "./src/scripts/**/*.{ts,vue}"
+      "index.html",
+      "nested/**/*.html",
+      "src/templates/**/*.html",
+      "src/scripts/**/*.{ts,vue}",
     ],
   },
   safelist: ["prose", "prose-sm", "m-auto"],
@@ -30,6 +32,8 @@ export default defineConfig ({
         "dark-grey": "#262626",
         "dark-grey-opacity-10": "rgba(38, 38, 38, 0.1)",
         gray: "#dfdddf",
+        "true-gray-150": "rgb(239,239,239)",
+        "true-gray-350": "#c4c4c4",
         sun: "#ff5000",
         "sun-opacity-50": "rgba(255, 80, 0, 0.5)",
       },
@@ -42,10 +46,19 @@ export default defineConfig ({
       },
 
       spacing: {
+        5.5: "1.375rem",
         19: "4.75rem",
         22: "5.5rem",
         "3/2": "150%",
         "5/4": "125%",
+      },
+
+      screens: {
+        "1.5xl": { min: "1440px" },
+      },
+
+      fontSize: {
+        "1.5xl": "1.375rem",
       },
     },
   },

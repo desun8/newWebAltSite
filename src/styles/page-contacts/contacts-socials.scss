@@ -1,0 +1,32 @@
+@use "../root/link";
+
+.contacts-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 60px;
+  font-size: 22px;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  @media (--lg) {
+    font-size: 12px;
+  }
+}
+
+.contacts:not(.contacts--info) .contacts-socials {
+  @media (--lg) {
+    margin-top: 25px;
+  }
+}
+
+.contacts-socials__item {
+  @extend .link;
+  @extend .link--no-icon;
+  @extend .link--underline;
+  @extend .link--bold;
+}
+
+.contacts-socials__item:not(:last-child):not(:nth-last-child(2)) {
+  margin-bottom: 30px;
+}

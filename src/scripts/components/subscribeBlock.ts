@@ -10,7 +10,9 @@ export const initSubscribeBlock = (subscribeBlock?: HTMLElement) => {
 
   let isFetching = false;
 
-  if (subscribeBlock) {
+  if (subscribeBlock && subscribeBlock.dataset.isInit !== "true") {
+    subscribeBlock.dataset.isInit = "true";
+
     const showSuccessMessage = (elm: HTMLElement) => {
       const defaultText = elm.textContent!;
       const successText = elm.dataset.message || "";
@@ -23,7 +25,7 @@ export const initSubscribeBlock = (subscribeBlock?: HTMLElement) => {
           duration,
           onComplete() {
             elm.textContent = newText;
-            gsap.to(elm, {y: 0, alpha: 1, duration});
+            gsap.to(elm, { y: 0, alpha: 1, duration });
           },
         });
       };
@@ -40,7 +42,9 @@ export const initSubscribeBlock = (subscribeBlock?: HTMLElement) => {
     };
 
     const formElm = subscribeBlock.querySelector("form")!;
-    const emailInput = formElm.querySelector("input[type=email]") as HTMLInputElement;
+    const emailInput = formElm.querySelector(
+      "input[type=email]"
+    ) as HTMLInputElement;
     const msgElm = formElm.querySelector(".js-text") as HTMLElement;
 
     formElm.addEventListener("focusin", () => {

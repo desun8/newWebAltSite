@@ -1,7 +1,8 @@
 @use "fonts/suisseIntl-light";
-@use "fonts/suisseIntl-regular";
+@use "fonts/suisseIntl-book";
 @use "fonts/suisseIntl-medium";
 @use "fonts/suisseIntl-semi-bold";
 @use "fonts/suisseIntl-bold";
 @use "root/index";
-@use "components/form-field.scss";
+@use "components/form-field";
+@use "components/scroll-to-top";

@@ -7,3 +7,7 @@ input:-webkit-autofill:active {
   background-color: var(--autofill-bg, transparent) !important;
   -webkit-box-shadow: 0 0 0 30px var(--autofill-bg, transparent) inset !important;
 }
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}

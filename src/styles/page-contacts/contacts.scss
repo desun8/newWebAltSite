@@ -1,0 +1,71 @@
+@use "../_config/functions/convert" as fn;
+
+.contacts {
+  position: relative;
+
+  @media (--lg-max) {
+    padding-bottom: 44px;
+    color: #fff;
+    background-color: var(--c-dark-grey);
+  }
+
+  @media (--lg) {
+    padding: 0;
+  }
+}
+
+.contacts--info {
+  padding: 35px;
+  color: #fff;
+  background-color: var(--c-dark-grey);
+}
+
+.contacts--info .contacts__logo {
+  width: 213px;
+  height: 23px;
+  margin-bottom: 40px;
+  background: url("/images/logo-wa-full-white.svg") center/contain;
+}
+
+.contacts__title {
+  width: fn.vw(475);
+  margin-bottom: 40px;
+
+  @media (--lg-max) {
+    display: none;
+  }
+}
+
+.contacts--info .contacts__title {
+  display: none;
+}
+
+.contacts__bg-img {
+  display: none;
+  //   @apply absolute top-1/2 right-0 transform -translate-y-1/2 bg-contain bg-center -z-1;
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: fn.vw(1356);
+  height: fn.vw(700);
+  background-size: contain;
+
+  .webp & {
+    background-image: image-set(
+      url("/images/contacts/bg-map@2x.webp") 2x,
+      url("/images/contacts/bg-map.webp") 1x
+    );
+  }
+
+  .no-webp & {
+    background-image: url("/images/contacts/bg-map.png");
+  }
+}
+
+.contacts:not(.contacts--info) .contacts__bg-img {
+  @media (--lg) {
+    display: block;
+  }
+}

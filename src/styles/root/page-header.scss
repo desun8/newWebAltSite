@@ -2,7 +2,7 @@
 
 :root {
   --headerSize: calc(#{vw(46)} + #{$fz-text-sm * 1px});
-  
+
   @media screen and (--tablet-sm) {
     --headerSize: 70px;
   }
@@ -11,48 +11,42 @@
 .page-header {
   --grid-col: 12;
   --top: 50px;
-  
+
   @include font-size-px($fz-text-sm);
-  
+
   position: relative;
   z-index: 100;
-  
+
   // margin-bottom: calc(64px + #{vw(30)});
-  
+
   @media screen and (--tablet-sm) {
     --grid-col: 5;
     --top: 0;
-    
+
     @include grid-base(var(--grid-col));
-    
+
     position: unset;
     // margin-bottom: 10px;
     padding-bottom: 20px;
   }
 }
 
-// .page-header--short {
-//   margin-bottom: 0;
-// }
-
-
-
 .page-header__wrap {
   @include grid(var(--grid-col));
-  
-  grid-column: 1/ calc(var(--grid-col) + 1);
-  
+
+  grid-column: 1 / calc(var(--grid-col) + 1);
+
   align-items: center;
   justify-items: baseline;
-  
+
   position: fixed;
   top: calc(var(--top) * -1);
   left: 0;
-  
+
   width: 100%;
   padding: 0 var(--page-gap);
   padding-top: vw(36);
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     position: unset;
@@ -60,20 +54,19 @@
   }
 }
 
-
 .page-header.is-fixed {
   .page-header__logo {
     transform: translate3d(#{vw(-82 * 3)}, var(--top, 0), 0);
   }
-  
+
   .page-header__logo .hover-text {
     transform: scaleX(0);
   }
-  
+
   .menu-btn {
     transform: translate3d(#{vw(-372)}, var(--top, 0), 0);
   }
-  
+
   &.page-header--short .menu-btn {
     transform: translate3d(#{vw(-82)}, var(--top, 0), 0);
   }
@@ -95,22 +88,22 @@
 .page-header__logo {
   position: relative;
   grid-column: 1/3;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 30px;
   color: var(--c-dark-grey);
-  
+
   .page-header--short & {
     display: none;
-    
+
     @media screen and (--tablet-sm) {
       display: flex;
     }
   }
-  
+
   &:hover,
   &:focus {
     .hover-text {
@@ -118,30 +111,30 @@
       transform: translateX(0);
     }
   }
-  
+
   .hover-text {
     position: absolute;
     left: calc(100% + 20px);
-    
+
     display: flex;
     align-items: center;
     width: max-content;
     height: 100%;
     letter-spacing: 0.015em;
-    
+
     opacity: 0;
     transform: translateX(-15px);
-    
+
     transition-property: opacity, transform;
     transition-duration: var(--trans-dur-faster);
     transition-timing-function: ease-in;
-    
+
     //noinspection CssInvalidMediaFeature
     @media screen and (--tablet-sm) {
       display: none;
     }
   }
-  
+
   svg {
     width: 100%;
     height: auto;
@@ -161,16 +154,16 @@
 .page-header__feedback-btn {
   grid-column: 11/13;
   justify-self: end;
-  
+
   text-transform: lowercase;
-  
+
   .link__arrow {
     --icon-size: 0.7em;
 
     top: -1px;
     transform-origin: 0 70%;
   }
-  
+
   @media screen and (--tablet-sm) {
     display: none !important;
   }
@@ -179,47 +172,46 @@
 .menu-btn {
   --color: inherit;
   --color-hover: var(--c-red);
-  
+
   position: relative;
-  
+
   display: flex;
   align-items: center;
   color: var(--color);
   transition: var(--trans-dur-fast) ease-out;
   transition-property: transform, color;
   z-index: 10;
-  
+
   &:hover {
     color: var(--color-hover);
   }
-  
+
   @media screen and (--tablet-sm) {
     font-size: 0;
-    
+
     grid-column: 5/6;
     justify-self: center;
-    
+
     .page-header--short & {
       @include font-size-px(18);
-      
+
       grid-column: 4/6;
       justify-self: end;
     }
   }
-  
+
   body.theme-dark & {
     --color: #fff;
   }
-  
+
   body.theme-sun & {
     --color-hover: #fff;
   }
-  
-  
+
   body.menu-btn-white & {
     color: #fff;
   }
-  
+
   &__icon {
     display: inline;
     width: em(16, 14);
@@ -227,7 +219,7 @@
     margin-right: em(10, 14);
     fill: currentColor;
     vertical-align: baseline;
-    
+
     @media screen and (--tablet-sm) {
       @include font-size-px(18);
       width: em(24, 18);
@@ -235,4 +227,19 @@
       margin-right: em(6, 18);
     }
   }
+}
+
+.page-header--orange {
+  @apply <lg:bg-sun;
+}
+
+.page-header--dark {
+  @apply <lg:bg-dark-grey;
+}
+
+.page-header--orange,
+.page-header--dark .page-header__logo,
+.page-header--orange,
+.page-header--dark .menu-btn {
+  @apply <lg:text-white;
 }

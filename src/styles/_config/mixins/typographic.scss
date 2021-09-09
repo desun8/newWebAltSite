@@ -13,33 +13,66 @@ $adaptive-mod: 1.5;
   //font-size: calc(1rem + 0.5vw);
   //font-size: calc(1rem + (var(--fz)) - 1rem);
   line-height: fn.em($line-height, $font-size);
-  
+
   @supports (width: clamp(10px, 5vw, 100vw)) {
     /* An enhancement for supporting browsers */
-    font-size: clamp(#{fn.rem($font-size - 4)}, calc(#{fn.vw($font-size)}), #{fn.rem($font-size)});
-  
+    font-size: clamp(
+      #{fn.rem($font-size - 4)},
+      calc(#{fn.vw($font-size)}),
+      #{fn.rem($font-size)}
+    );
+
     @media screen and (--desktop-sm) {
-      font-size: clamp(#{fn.rem($font-size - 6)}, calc(#{fn.vw($font-size - 2, 1260)}), #{fn.rem($font-size)});
+      font-size: clamp(
+        #{fn.rem($font-size - 6)},
+        calc(#{fn.vw($font-size - 2, 1260)}),
+        #{fn.rem($font-size)}
+      );
     }
   }
 }
 
 @mixin font-size-new($font-size, $line-height: $font-size) {
-  --fz: #{fn.vw($font-size)};
-  //font-size: fn.vw($font-size);
-  //font-size: calc(1rem + #{fn.vw($font-size - 16)});
-  //font-size: calc(1rem + #{fn.vw($font-size)});
-  //font-size: calc(#{fn.rem($font-size)} + 0.1vw);
-  //font-size: calc(1rem + 0.5vw);
-  //font-size: calc(1rem + (var(--fz)) - 1rem);
+  font-size: fn.vw($font-size);
   line-height: fn.em($line-height, $font-size);
-  
+
   @supports (width: clamp(10px, 5vw, 100vw)) {
     /* An enhancement for supporting browsers */
-    font-size: clamp(#{fn.rem($font-size - 6)}, calc(#{fn.vw($font-size - 2, 1260)}), #{fn.rem($font-size)});
-    
+    font-size: clamp(
+      #{fn.rem($font-size - 6)},
+      calc(#{fn.vw($font-size - 2, 1260)}),
+      #{fn.rem($font-size)}
+    );
+
     @media (--xl) {
-      font-size: clamp(#{fn.rem($font-size - 4)}, calc(#{fn.vw($font-size)}), #{fn.rem($font-size)});
+      font-size: clamp(
+        #{fn.rem($font-size - 4)},
+        calc(#{fn.vw($font-size)}),
+        #{fn.rem($font-size)}
+      );
+    }
+  }
+}
+
+// Для tailwind/windi
+@mixin font-size-v2($var, $font-size, $line-height: $font-size) {
+  --#{$var}-fz: #{fn.vw($font-size)};
+  --#{$var}-lh: #{fn.em($line-height, $font-size)};
+
+  @supports (width: clamp(10px, 5vw, 100vw)) {
+    /* An enhancement for supporting browsers */
+    --#{$var}-fz: clamp(
+      #{fn.rem($font-size - 6)},
+      calc(#{fn.vw($font-size - 2, 1260)}),
+      #{fn.rem($font-size)}
+    );
+
+    @media (--xl) {
+      --#{$var}-fz: clamp(
+        #{fn.rem($font-size - 4)},
+        calc(#{fn.vw($font-size)}),
+        #{fn.rem($font-size)}
+      );
     }
   }
 }
