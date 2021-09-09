@@ -1,0 +1,33 @@
+main {
+  @apply text-dark-grey;
+}
+
+.project__text {
+  position: relative;
+
+  @media (--md-max) {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 9px;
+  }
+
+  @media (--md) {
+    font-size: 18px;
+  }
+
+  @media (--xl) {
+    font-size: 28px;
+  }
+}
+
+.project__text::before {
+  @media (--md-max) {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--c-red);
+  }
+}

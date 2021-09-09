@@ -69,6 +69,7 @@ export default {
         inner: resolve(__dirname, "nested/inner.html"),
         contacts: resolve(__dirname, "nested/contacts.html"),
         works: resolve(__dirname, "nested/works.html"),
+        project: resolve(__dirname, "nested/project-page.html"),
       },
     },
   },

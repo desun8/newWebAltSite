@@ -1,0 +1,40 @@
+<!-- 
+  1) текст - анимация печати ✅
+  2) изображение - небольшой параллакс эффект (скроллится чуть медленнее)
+-->
+<div class="hero md:grid md:grid-cols-2 md:content-start">
+  <div class="hero-title md:col-start-1 md:row-start-1">
+    <h1 class="hero-title__name">paintaball park</h1>
+    <span class="hero-title__kind">Развлечения</span>
+    <span class="hero-title__tags">#дизайн #контекст</span>
+  </div>
+
+  <div
+    class="md:col-start-2 md:row-start-1 md:row-end-3 md:relative"
+    aria-hidden="true"
+  >
+    <span class="hero__tagline">один большой дизайн!</span>
+    <div
+      class="hero__img"
+      style="
+        --png: url('/images/works/main/v2/paintball-park-v2.png');
+        --webp: url('/images/works/main/v2/paintball-park-v2.png');
+      "
+    ></div>
+  </div>
+
+  <p
+    class="
+      hero__describe
+      project__text
+      js-typewrite
+      md:col-start-1 md:row-start-2
+    "
+  >
+    «Легенда» – большой магазин шин и дисков с услугами шиномонтажа,
+    расположенный в Хабаровске. Заказчику необходим был сайт, «лучше, чем у
+    конкурентов» для продажи услуг и автомобильных товаров.
+  </p>
+
+  <div class="hero__arrow-down" aria-hidden="true"></div>
+</div>

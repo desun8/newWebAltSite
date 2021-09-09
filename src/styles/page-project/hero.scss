@@ -1,0 +1,156 @@
+@use "../_config/mixins/typographic.scss" as *;
+@use "../_config/functions/convert.scss" as *;
+
+.hero {
+  position: relative;
+  padding-bottom: 120px;
+
+  @media (--lg) and (max-height: 1080px) {
+    min-height: calc(100vh - (8rem + 52px));
+  }
+}
+
+.hero__tagline {
+  display: inline-block;
+  max-width: 60%;
+  margin-top: 50px;
+  margin-bottom: 112px;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: 100;
+  text-align: justify;
+  text-transform: uppercase;
+
+  @media (--md) {
+    display: none;
+  }
+}
+
+.hero__img {
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: -1;
+
+  @media (--md-max) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    width: 125%;
+    height: 200%;
+
+    background-size: 80%;
+    background-position: 95% 40%;
+  }
+
+  @media (--md) {
+    --size: min(1080px, 150%);
+
+    right: var(--base-page-gap-negative);
+
+    width: var(--size);
+    height: 0;
+    padding-top: var(--size);
+    background-size: contain;
+    background-position-x: vw(100);
+    background-position-y: top;
+  }
+
+  @media (--lg) {
+    background-position-x: vw(150);
+    background-position-y: -70%;
+  }
+
+  @media (--xl) {
+    background-position-y: -60%;
+    background-size: 90%;
+  }
+
+  @media (--xxl-only) {
+    background-position-y: -48%;
+    background-size: 85%;
+  }
+
+  @media (--xxxxl) {
+    background-position-x: center;
+  }
+}
+
+.no-webp .hero__img {
+  background-image: var(--png);
+}
+
+.webp .hero__img {
+  background-image: var(--webp, var(--png));
+}
+
+.hero-title {
+  @apply grid;
+}
+
+.hero-title__name {
+  @apply mb-2.5
+  text-5xl
+  leading-9
+  font-semibold
+  uppercase
+  1.5xl:text-6xl 1.5xl:leading-45px 1.5xl:mb-3.5;
+
+  @media (--md) {
+    $mod: 0.6;
+    @include font-size(120 * $mod, 92 * $mod);
+    margin-bottom: 20px;
+  }
+
+  @media (--xl) {
+    $mod: 0.8;
+    @include font-size(120 * $mod, 92 * $mod);
+  }
+
+  @media (--xxl) {
+    @include font-size(120, 92);
+  }
+}
+
+.hero-title__kind {
+  @apply mb-1 text-sun text-sm leading-none font-semibold uppercase;
+
+  @media (--md) {
+    font-size: 24px;
+  }
+
+  @media (--xxxl) {
+    @include font-size(24);
+  }
+}
+
+.hero-title__tags {
+  @apply text-xs leading-none opacity-50;
+
+  @media (--md) {
+    font-size: 16px;
+  }
+
+  @media (--xxxl) {
+    @include font-size(16);
+  }
+}
+
+.hero__describe {
+  @media (--md) {
+    margin-top: 100px;
+    padding-right: vw(125);
+    padding-bottom: 50px;
+  }
+}
+
+.hero__arrow-down {
+  @media (--md) {
+    position: absolute;
+    bottom: 32px;
+    width: 44px;
+    height: 52px;
+    background: url("/images/i-arrow-down.svg") center/contain;
+    background-repeat: space no-repeat;
+  }
+}

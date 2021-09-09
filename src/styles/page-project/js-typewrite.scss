@@ -1,0 +1,38 @@
+@keyframes text-fallback {
+  to {
+    color: inherit;
+  }
+}
+
+.js-typewrite {
+  @media (--md) {
+    --text-color: #fff;
+    --bg-color: var(--c-black);
+
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    margin-bottom: 0;
+    background-color: transparent;
+    color: var(--text-color);
+    line-height: 1.35;
+    text-align: justify;
+  }
+}
+
+.js-typewrite:not(.splitting) {
+  @media (--md) {
+    animation: text-fallback 0s 0.5s forwards;
+  }
+}
+
+.js-typewrite .whitespace,
+.js-typewrite .char {
+  background-color: var(--bg-color);
+}
+
+.js-typewrite .whitespace {
+  min-width: 0.3em;
+  display: inline-block;
+}
