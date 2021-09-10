@@ -1,0 +1,100 @@
+@use "../_config/functions/convert.scss" as *;
+
+.project-list {
+  --mb: 80px;
+
+  position: relative;
+  margin-bottom: var(--mb);
+  font-weight: 300;
+  list-style: upper-roman;
+  counter-reset: my-awesome-counter;
+
+  @media (--lg) {
+    --mb: 120px;
+
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 28px;
+  }
+}
+
+.project-list::after {
+  @media (--lg) {
+    --width: #{vw(438)};
+
+    content: "";
+    position: absolute;
+    bottom: calc(var(--mb) * -1);
+    left: calc(100% - var(--width) + var(--base-page-gap));
+
+    display: block;
+    width: var(--width);
+    height: 30px;
+
+    background-color: var(--c-sun);
+  }
+
+  @media (--xxl) {
+    left: auto;
+    right: calc((100vw - 1280px) / -2);
+  }
+}
+
+.project-list__item {
+  --marker-space: 30px;
+  --marker-size: 40px;
+
+  display: flex;
+  counter-increment: my-awesome-counter;
+
+
+  @media (--md) {
+    padding-right: var(--marker-size);
+  }
+
+  @media (--lg) {
+    --marker-space: 50px;
+    --marker-size: 110px;
+  }
+}
+
+.project-list__item:not(:last-child) {
+  margin-bottom: 20px;
+
+  @media (--lg) {
+    margin-bottom: 60px;
+  }
+}
+
+
+.project-list__item::before {
+  flex-shrink: 0;
+  display: inline-block;
+  width: var(--marker-size);
+  margin-right: var(--marker-space);
+
+  color: var(--c-sun);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: right;
+
+  @media (--lg) {
+    font-size: 52px;
+  }
+}
+
+$markers: "005C", "005C\\005C", "005C\\005C\\005C", "005C\\0056", "0056",
+  "0056\\002F", "0056\\002F\\002F", "0056\\002F\\002F\\002F", "005C\\0058",
+  "0058";
+
+@each $marker in $markers {
+  $index: index($markers, $marker);
+
+  @debug "Marker is #{$marker}";
+
+  .project-list__item:nth-child(#{$index})::before {
+    content: #{'"\\' + $marker + '"'} / "#{$index}.";
+  }
+}
