@@ -7,7 +7,6 @@
   margin-bottom: var(--mb);
   font-weight: 300;
   list-style: upper-roman;
-  counter-reset: my-awesome-counter;
 
   @media (--lg) {
     --mb: 120px;
@@ -50,12 +49,23 @@
   }
 }
 
-.project-list__item {
+.project-list__item:not(:last-child) {
+  margin-bottom: 20px;
+
+  @media (--lg) {
+    margin-bottom: 60px;
+  }
+}
+
+.project-list__item::marker {
+  color: transparent;
+}
+
+.list-item {
   --marker-space: 30px;
   --marker-size: 40px;
 
   display: flex;
-  counter-increment: my-awesome-counter;
 
 
   @media (--md) {
@@ -68,16 +78,8 @@
   }
 }
 
-.project-list__item:not(:last-child) {
-  margin-bottom: 20px;
 
-  @media (--lg) {
-    margin-bottom: 60px;
-  }
-}
-
-
-.project-list__item::before {
+.list-item__marker {
   flex-shrink: 0;
   display: inline-block;
   width: var(--marker-size);
@@ -103,7 +105,7 @@ $markers: "005C", "005C\\005C", "005C\\005C\\005C", "005C\\0056", "0056",
 
   @debug "Marker is #{$marker}";
 
-  .project-list__item:nth-child(#{$index})::before {
-    content: #{'"\\' + $marker + '"'} / "#{$index}.";
+  .project-list__item:nth-child(#{$index}) .list-item__marker::before {
+    content: #{'"\\' + $marker + '"'};
   }
 }
