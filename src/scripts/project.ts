@@ -22,6 +22,10 @@ if (window.matchMedia("(min-width: 48em)").matches) {
       }
     }
   );
+
+  import("./pages/works-project/imageParallax").then(({ imageParallax }) => {
+    imageParallax();
+  });
 }
 
 sectionHeaderAnimation();
