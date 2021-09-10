@@ -20,7 +20,8 @@ export const listAnimation = () => {
         alpha: 0,
 
         onComplete() {
-          if (index === listElms.length) {
+          if (index + 1 === listItems.length) {
+            console.log("animation line");
             list.classList.add("is-completed");
           }
         },
