@@ -1,9 +1,8 @@
-/dist/
 /node_modules/
 /.cache/
 .idea
 .vscode
-dist
+dist/images
 /jsconfig.json
 /stats.html
 .DS_Store
