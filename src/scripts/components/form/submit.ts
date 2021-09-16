@@ -1,3 +1,8 @@
+interface ResponseJson {
+  message: string;
+  status: string;
+}
+
 export const submit = (formElm: HTMLFormElement) => {
   const KEY = window.RECAPTCHA_KEY;
   const url = formElm.action;
@@ -16,8 +21,13 @@ export const submit = (formElm: HTMLFormElement) => {
   };
 
   // TODO: можно удалить. Либо закомментировать и оставить для тестов
-  const handleSuccess = (response: Object) => {
-    console.log("форма отправилась");
+  const handleSuccess = (response: ResponseJson) => {
+    if (response.status === "ok") {
+      console.log("форма отправилась");
+    } else {
+      throw Error(response.message);
+    }
+
     console.log(response);
   };
 
