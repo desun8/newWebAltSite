@@ -110,7 +110,7 @@ export const handleSubmit = (event: Event, reset: () => void) => {
             // добавляем в отправляемые данные токен рекаптчи
             formData.append("recaptcha_response", token);
 
-            fetch(url, { method: "POST", body: formData })
+            return fetch(url, { method: "POST", body: formData })
               .then((res: Response) => {
                 if (!res.ok) {
                   throw Error(res.statusText);
