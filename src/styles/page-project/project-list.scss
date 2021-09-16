@@ -103,8 +103,6 @@ $markers: "005C", "005C\\005C", "005C\\005C\\005C", "005C\\0056", "0056",
 @each $marker in $markers {
   $index: index($markers, $marker);
 
-  @debug "Marker is #{$marker}";
-
   .project-list__item:nth-child(#{$index}) .list-item__marker::before {
     content: #{'"\\' + $marker + '"'};
   }
