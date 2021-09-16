@@ -29,11 +29,7 @@ export const submit = (formElm: HTMLFormElement) => {
 
   // TODO: можно удалить. Либо закомментировать и оставить для тестов
   const handleSuccess = (response: ResponseJson) => {
-    console.log(
-      "🚀 ~ file: submit.ts ~ line 30 ~ handleSuccess ~ response",
-      response
-    );
-    if (response.status === "ok") {
+    if (response.status.toLowerCase() === "ok") {
       console.log("форма отправилась");
     } else {
       throw Error(response.message);
