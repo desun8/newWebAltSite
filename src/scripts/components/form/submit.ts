@@ -1,10 +1,12 @@
+import { RECAPTCHA_KEY } from "@/scripts/app/core/api";
+
 interface ResponseJson {
   message: string;
-  status: string;
+  status: "ok" | "error";
 }
 
 export const submit = (formElm: HTMLFormElement) => {
-  const KEY = window.RECAPTCHA_KEY;
+  const KEY = RECAPTCHA_KEY;
   const url = formElm.action;
   const formData = new FormData(formElm);
   const params = {
