@@ -1,7 +1,8 @@
+import { Y_MAP_KEY } from "@/scripts/app/core/api";
 import APP from "../../app/APP";
 
 export const addMap = () => {
-  const yMapKey = "141be02a-bcf9-4842-909e-6a9eb300d4cf";
+  const yMapKey = Y_MAP_KEY;
   const isMobile = !APP.isDesktop;
 
   const loadMap = (initMap: () => void) => {

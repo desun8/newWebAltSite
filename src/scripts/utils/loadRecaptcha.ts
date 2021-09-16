@@ -1,10 +1,8 @@
+import { RECAPTCHA_KEY } from "../app/core/api";
+
 export const loadRecaptcha = () => {
   if (window.grecaptcha === undefined) {
-    const siteKey = window.RECAPTCHA_KEY;
-    console.log(
-      "🚀 ~ file: loadRecaptcha.ts ~ line 4 ~ loadRecaptcha ~ siteKey",
-      siteKey
-    );
+    const siteKey = RECAPTCHA_KEY;
     const url = "https://www.google.com/recaptcha/api.js?render=";
     console.log(
       "🚀 ~ file: loadRecaptcha.ts ~ line 6 ~ loadRecaptcha ~ url",

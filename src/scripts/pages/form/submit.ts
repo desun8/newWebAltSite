@@ -1,5 +1,11 @@
 import gsap from "gsap/all";
 import { checkValidationRequiredInputs } from "./contactInputs";
+import { RECAPTCHA_KEY } from "@/scripts/app/core/api";
+
+interface ResponseJson {
+  message: string;
+  status: "ok" | "error";
+}
 
 const getInvalidateInput = (form: HTMLFormElement) => {
   return (
@@ -72,10 +78,10 @@ export const handleSubmit = (event: Event, reset: () => void) => {
   const submitBtnText = submitBtn.querySelector(".link__text")!;
 
   const url = formElm.action;
-  const key = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
+  const key = RECAPTCHA_KEY;
 
-  const showFinallyMsg = (type: "success" | "error") => {
-    const msg = type === "success" ? "спасибо" : "ошибка";
+  const showFinallyMsg = (type: "ok" | "error") => {
+    const msg = type === "ok" ? "спасибо" : "ошибка";
     replaceSubmitBtnText(submitBtn, submitBtnText, msg);
   };
 
@@ -114,8 +120,8 @@ export const handleSubmit = (event: Event, reset: () => void) => {
                 console.error("Форма не отправилась", error);
               });
           })
-          .then((res: Response | Object) => {
-            showFinallyMsg("success");
+          .then((res: ResponseJson) => {
+            showFinallyMsg(res.status);
             setTimeout(() => {
               reset();
             }, 500);
