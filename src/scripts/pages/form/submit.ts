@@ -2,9 +2,11 @@ import gsap from "gsap/all";
 import { checkValidationRequiredInputs } from "./contactInputs";
 import { RECAPTCHA_KEY } from "@/scripts/app/core/api";
 
+type Status = "OK" | "ERROR";
+type StatusLowerCase = "ok" | "error";
 interface ResponseJson {
   message: string;
-  status: "ok" | "error";
+  status: Status;
 }
 
 const getInvalidateInput = (form: HTMLFormElement) => {
@@ -121,7 +123,9 @@ export const handleSubmit = (event: Event, reset: () => void) => {
               });
           })
           .then((res: ResponseJson) => {
-            showFinallyMsg(res.status);
+            const status = res.status.toLowerCase() as StatusLowerCase;
+            showFinallyMsg(status);
+
             setTimeout(() => {
               reset();
             }, 500);
