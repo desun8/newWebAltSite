@@ -5,19 +5,18 @@ import APP from "./app/APP";
 import "@/styles/works.scss";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 
-function prepare() {
-  // if (process.env.NODE_ENV === "development") {
-  return import("../mocks/browser.js").then((module) => module.worker.start());
-  // }
-
-  // return Promise.resolve();
-}
+// function prepare() {
+// if (process.env.NODE_ENV === "development") {
+// return import("../mocks/browser.js").then((module) => module.worker.start());
+// }
+// return Promise.resolve();
+// }
 
 initRoot();
-prepare().then(() => {
-  initWorksCatalog();
-  initWorksDialog();
-});
+// prepare().then(() => {
+initWorksCatalog();
+initWorksDialog();
+// });
 
 if (APP.isDesktop) {
   import("./components/subscribe-banner/index");
