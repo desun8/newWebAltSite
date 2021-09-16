@@ -1,0 +1,1 @@
+import{R as e}from"./api.568479fb.js";const c=()=>{if(void 0===window.grecaptcha){const c=e,o="https://www.google.com/recaptcha/api.js?render=";console.log("🚀 ~ file: loadRecaptcha.ts ~ line 6 ~ loadRecaptcha ~ url",o);const a=document.createElement("script");a.src=`${o}${c}`,document.head.appendChild(a)}};export{c as l};
