@@ -11,6 +11,7 @@ export const handlers = [
       ctx.body(
         JSON.stringify({
           message: "OK",
+          status: "OK",
         })
       )
     );
@@ -23,6 +24,7 @@ export const handlers = [
       ctx.body(
         JSON.stringify({
           message: "OK",
+          status: "OK",
         })
       )
     );
