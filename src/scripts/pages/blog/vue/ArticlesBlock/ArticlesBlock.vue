@@ -1,7 +1,7 @@
 <template>
   <div v-if="itemsList.length" class="blog-list-wrap">
-    <list :item-list="filteredList"/>
-    <btn-load-more v-show="!isLoadAll" :on-load="loadMore"/>
+    <list :item-list="filteredList" />
+    <btn-load-more v-show="!isLoadAll" :on-load="loadMore" />
   </div>
 </template>
 
@@ -11,14 +11,14 @@ import List from "./List/List.vue";
 import BtnLoadMore from "./BtnLoadMore.vue";
 
 type Article = {
-  id: number,
-  type: "event" | "article",
-  date: string,
-  title: string,
-  describe: string,
-  img: string,
-  href: string,
-}
+  id: number;
+  type: "event" | "article";
+  date: string;
+  title: string;
+  describe: string;
+  img: string;
+  href: string;
+};
 
 type ArticleList = Array<Article>;
 
@@ -27,15 +27,15 @@ type SortedArticleList = Map<string, ArticleList>;
 enum FilterTypes {
   ALL = "all",
   EVENT = "event",
-  ARTICLE = "article"
+  ARTICLE = "article",
 }
 
 type Data = {
-  initSize: number,
-  currSize: number,
-  isLoadAll: boolean,
-  itemsList: ArticleList | [],
-}
+  initSize: number;
+  currSize: number;
+  isLoadAll: boolean;
+  itemsList: ArticleList | [];
+};
 
 const INIT_SIZE = 15;
 
@@ -73,11 +73,11 @@ export default defineComponent({
 
   computed: {
     eventItemsList(): ArticleList {
-      return this.itemsList.filter(item => item.type === FilterTypes.EVENT);
+      return this.itemsList.filter((item) => item.type === FilterTypes.EVENT);
     },
 
     articleItemsList(): ArticleList {
-      return this.itemsList.filter(item => item.type === FilterTypes.ARTICLE);
+      return this.itemsList.filter((item) => item.type === FilterTypes.ARTICLE);
     },
 
     filteredList(): Map<string, ArticleList> {
@@ -114,7 +114,7 @@ export default defineComponent({
 
       for (const date of sortedArticlesList.keys()) {
         const articles = sortedArticlesList.get(date)!;
-        const filteredArticles = articles.filter(article => {
+        const filteredArticles = articles.filter((article) => {
           return article.type === activeFilter;
         });
 
@@ -130,7 +130,7 @@ export default defineComponent({
       const createKey = (date: string) => date.slice(0, 7); // yyyy-mm
       const collection: Map<string, ArticleList> = new Map();
 
-      articles.forEach(item => {
+      articles.forEach((item) => {
         const key = createKey(item.date);
 
         if (collection.has(key)) {
@@ -147,7 +147,7 @@ export default defineComponent({
     async fetchArticles() {
       const url = "/api/blog";
 
-      const response = await fetch(url, {method: "POST"});
+      const response = await fetch(url, { method: "POST" });
       if (!response.ok) {
         throw Error(response.statusText);
       }
@@ -167,15 +167,20 @@ export default defineComponent({
 
   watch: {
     activeFilter(prev, curr) {
-      console.log('filter change');
+      console.log("filter change");
       console.log(prev);
       console.log(curr);
       this.currSize = this.initSize;
-    }
+    },
   },
 
   beforeMount() {
-    this.fetchArticles().catch((error: Error) => console.error("Блог -> ArticlesBlock.vue -> ошибка получения списка статей", error));
+    this.fetchArticles().catch((error: Error) =>
+      console.error(
+        "Блог -> ArticlesBlock.vue -> ошибка получения списка статей",
+        error
+      )
+    );
   },
 });
 </script>
