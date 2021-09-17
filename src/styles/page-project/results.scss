@@ -1,3 +1,14 @@
 .results {
   margin-top: 142px;
 }
+
+.results p {
+  margin-bottom: revert;
+}
+
+.results ol,
+.results ul {
+  margin-bottom: revert;
+  padding-left: calc(var(--base-page-gap) + 10px);
+  list-style: revert;
+}

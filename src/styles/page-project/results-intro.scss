@@ -28,17 +28,6 @@
   }
 }
 
-.results-intro__text p {
-  margin-bottom: revert;
-}
-
-.results-intro__text ol,
-.results-intro__text ul {
-  margin-bottom: revert;
-  padding-left: calc(var(--base-page-gap) + 10px);
-  list-style: revert;
-}
-
 .results-intro__text:last-child {
   margin-bottom: 0;
 }
