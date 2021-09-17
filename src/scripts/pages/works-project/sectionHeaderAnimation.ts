@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
 export const sectionHeaderAnimation = () => {
-  const isSmScreen = window.matchMedia("(max-width: 48em)").matches;
+  const isSmScreen = window.matchMedia("(max-width: 47.999em)").matches;
   const elms = document.querySelectorAll<HTMLElement>(
     ".project-section-header"
   );
