@@ -10,6 +10,12 @@ initRoot();
 
 if (APP.isDesktop) {
   import("./components/subscribe-banner/index");
+
+  import("./pages/works-project/resultsIntroAnimation").then(
+    ({ resultsIntroAnimation }) => {
+      resultsIntroAnimation();
+    }
+  );
 }
 
 if (isMdScreen) {
