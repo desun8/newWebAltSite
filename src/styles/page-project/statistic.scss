@@ -1,0 +1,127 @@
+// @use "sass:math";
+@use "../_config/functions/convert.scss" as *;
+@use "../_config/mixins/typographic.scss" as *;
+
+.statistic {
+  margin-bottom: 50px;
+}
+
+.statistic--after {
+  --color: var(--c-sun);
+}
+
+.statistic__header {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 34px;
+  padding: 12px;
+}
+
+.statistic__title {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statistic-list {
+  --gap: #{vw(92)};
+
+  display: grid;
+  gap: 20px;
+  padding-right: vw(40, $mobile-viewport);
+
+  @media (--md) {
+    grid-template-columns: repeat(auto-fill, vw(415));
+    justify-content: center;
+    gap: var(--gap);
+
+    padding-right: 0;
+  }
+}
+
+.statistic--after .statistic-list {
+  @media (--md) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+
+    margin: 0 calc(var(--gap) / -2);
+    padding-right: 0;
+  }
+}
+
+.flexbox-gap .statistic--after .statistic-list {
+  column-gap: var(--gap);
+  row-gap: vw(100);
+  margin: 0 0 vw(100);
+}
+
+.statistic-list__item {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--c-dark-grey);
+
+  @media (--lg) {
+    gap: 20px;
+  }
+}
+
+.statistic--after .statistic-list__item {
+  @media (--md) {
+    min-width: vw(415);
+    margin: 0 vw(96/2) vw(100);
+  }
+}
+
+.flexbox-gap .statistic--after .statistic-list__item {
+  @media (--lg) {
+    margin: 0;
+  }
+}
+
+.statistic-list__title {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  text-transform: uppercase;
+
+  @media (--lg) {
+    font-size: 18px;
+  }
+}
+
+.statistic-list__describe {
+  grid-row: 1/2;
+  color: var(--color);
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 700;
+
+  @media (--lg) {
+    @include font-size-new(52);
+  }
+}
+
+.statistic--after .statistic-list__item:nth-child(1),
+.statistic--after .statistic-list__item:nth-child(2) {
+  flex-basis: calc(49% - var(--gap));
+}
+
+.flexbox-gap .statistic--after .statistic-list__item:nth-child(1),
+.flexbox-gap .statistic--after .statistic-list__item:nth-child(2) {
+  flex-basis: calc(50% - var(--gap) / 2);
+}
+
+.statistic--after .statistic-list__item:nth-child(1) .statistic-list__describe,
+.statistic--after .statistic-list__item:nth-child(2) .statistic-list__describe {
+  @media (--lg) {
+    @include font-size(120);
+  }
+
+  @media (--xxxl) {
+    @include font-size(220);
+  }
+}
