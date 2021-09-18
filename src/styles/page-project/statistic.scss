@@ -3,7 +3,13 @@
 @use "../_config/mixins/typographic.scss" as *;
 
 .statistic {
-  margin-bottom: 50px;
+  --margin: #{vw(50)};
+
+  margin: var(--margin) 0;
+
+  @media (--lg) {
+    --margin: #{vw(150)};
+  }
 }
 
 .statistic--after {
@@ -77,7 +83,7 @@
 }
 
 .flexbox-gap .statistic--after .statistic-list__item {
-  @media (--lg) {
+  @media (--md) {
     margin: 0;
   }
 }
@@ -117,6 +123,10 @@
 
 .statistic--after .statistic-list__item:nth-child(1) .statistic-list__describe,
 .statistic--after .statistic-list__item:nth-child(2) .statistic-list__describe {
+  @media (--md) {
+    font-size: 72px;
+  }
+
   @media (--lg) {
     @include font-size(120);
   }
