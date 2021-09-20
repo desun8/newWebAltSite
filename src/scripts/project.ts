@@ -41,4 +41,18 @@ if (isMdScreen) {
 
 sectionHeaderAnimation();
 listAnimation();
+
 statisticAnimations();
+
+// Карусель
+(() => {
+  const elm = document.querySelector(".carousel .swiper") as HTMLElement;
+
+  if (elm) {
+    import("./pages/works-project/swiperCarousel").then(
+      ({ swiperCarousel }) => {
+        swiperCarousel(elm);
+      }
+    );
+  }
+})();
