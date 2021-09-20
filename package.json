@@ -64,6 +64,7 @@
     "simplebar": "^5.2.1",
     "smooth-scrollbar": "^8.6.2",
     "splitting": "^1.0.6",
+    "swiper": "^7.0.6",
     "three": "^0.125.0",
     "vue": "^3.0.0"
   },
