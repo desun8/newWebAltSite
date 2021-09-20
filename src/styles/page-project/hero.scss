@@ -144,6 +144,12 @@
   }
 }
 
+html.os-windows .hero__describe {
+  @media (--md) {
+    line-height: 1;
+  }
+}
+
 .hero__arrow-down {
   @media (--md) {
     position: absolute;
