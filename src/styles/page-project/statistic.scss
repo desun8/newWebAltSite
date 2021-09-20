@@ -3,7 +3,7 @@
 @use "../_config/mixins/typographic.scss" as *;
 
 .statistic {
-  --margin: #{vw(50)};
+  --margin: 50px;
 
   margin: var(--margin) 0;
 
