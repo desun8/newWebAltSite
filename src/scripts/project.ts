@@ -4,6 +4,7 @@ import APP from "./app/APP";
 import { sectionHeaderAnimation } from "./pages/works-project/sectionHeaderAnimation";
 import { listAnimation } from "./pages/works-project/listAnimation";
 import { checkFlexGap } from "./utils/checkFlexGap";
+import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 
 const isMdScreen = window.matchMedia("(min-width: 48em)").matches;
 
@@ -18,6 +19,21 @@ if (APP.isDesktop) {
       resultsIntroAnimation();
     }
   );
+} else {
+  const footerToTop = document.querySelector(".footer-redirect");
+
+  if (footerToTop) {
+    import("./pages/home/redirectFooter.js").then(
+      ({ default: RedirectFooter }) => {
+        const redirectFooter = new RedirectFooter(footerToTop);
+
+        mediaQueryEvent(
+          () => redirectFooter.initMobile(),
+          () => {}
+        );
+      }
+    );
+  }
 }
 
 if (isMdScreen) {
