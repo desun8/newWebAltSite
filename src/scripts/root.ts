@@ -7,15 +7,15 @@ import "virtual:windi.css";
 import "@/styles/root.scss";
 import "focus-visible";
 import { initCore } from "./app/core";
+import { WINDOWS } from "./utils/getOS";
 
 // if (process.env.NODE_ENV === "development") {
-  import("../mocks/browser.js")
-    .then((module) => {
-      module.worker.start();
-    });
+import("../mocks/browser.js").then((module) => {
+  module.worker.start();
+});
 // }
 
-export default function initRoot () {
+export default function initRoot() {
   initCore();
 
   // CORE CANDIDATE
@@ -40,7 +40,10 @@ export default function initRoot () {
 
     const isIosChrome = navigator.appVersion.indexOf("CriOS") !== -1; // не сафари
 
-    if (isIosChrome)
-      document.body.classList.add("ios-chrome");
+    if (isIosChrome) document.body.classList.add("ios-chrome");
   }
-};
+
+  if (APP.os === WINDOWS) {
+    document.documentElement.classList.add("os-windows");
+  }
+}
