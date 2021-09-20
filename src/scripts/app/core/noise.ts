@@ -15,7 +15,8 @@ export const addNoise = () => {
     document.body,
     document.querySelector(".page-menu"),
     document.querySelector(".page-footer"),
-    document.querySelector(".footer-redirect")
+    document.querySelector(".footer-redirect"),
+    document.querySelector("main.project .review"),
   ];
 
   elms.forEach((elm) => {

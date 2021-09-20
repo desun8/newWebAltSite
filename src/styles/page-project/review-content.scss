@@ -1,0 +1,44 @@
+@use "review-socials.scss";
+
+.review-content {
+  @media (--lg) {
+    grid-column: 4 / -2;
+    padding: 50px 35px;
+  }
+}
+
+.review-content__header {
+  margin-bottom: 25px;
+}
+
+.review-content__name {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 400;
+
+  @media (--lg) {
+    font-size: 28px;
+  }
+}
+
+.review-content__name br {
+  @media (--lg) {
+    display: none;
+  }
+}
+
+.review-content__text {
+  line-height: 1.6;
+
+  @media (--lg) {
+    font-size: 14px;
+  }
+}
+
+.review-content__hashtag {
+  opacity: 0.5;
+
+  @media (--lg) {
+    font-size: 16px;
+  }
+}
