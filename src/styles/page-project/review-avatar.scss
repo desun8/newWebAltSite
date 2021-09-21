@@ -5,11 +5,11 @@
   margin-bottom: 30px;
 
   @media (--lg) {
-    --pr: #{vw(65)};
-
+    grid-row: 1;
     grid-column: 1 / span 3;
     height: fit-content;
-    padding-right: var(--pr);
+    margin-bottom: 0;
+    margin-right: vw(65);
   }
 }
 
@@ -58,7 +58,6 @@
   line-height: 1;
 
   @media (--lg) {
-    right: var(--pr);
     bottom: 0;
   }
 }
