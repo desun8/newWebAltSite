@@ -21,17 +21,19 @@ if (APP.isDesktop) {
     }
   );
 } else {
-  const footerToTop = document.querySelector(".footer-redirect");
+  const footerRedirectElms = document.querySelectorAll(".footer-redirect");
 
-  if (footerToTop) {
+  if (footerRedirectElms.length) {
     import("./pages/home/redirectFooter.js").then(
       ({ default: RedirectFooter }) => {
-        const redirectFooter = new RedirectFooter(footerToTop);
+        footerRedirectElms.forEach((elm) => {
+          const redirectFooter = new RedirectFooter(elm);
 
-        mediaQueryEvent(
-          () => redirectFooter.initMobile(),
-          () => {}
-        );
+          mediaQueryEvent(
+            () => redirectFooter.initMobile(),
+            () => {}
+          );
+        });
       }
     );
   }
