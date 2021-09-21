@@ -144,10 +144,13 @@
   }
 }
 
-html.os-windows .hero__describe {
-  @media (--md) {
-    line-height: 1;
-  }
+.hero__describe.js-typewrite {
+  color: var(--c-dark-grey);
+}
+
+.hero__describe.js-typewrite .whitespace,
+.hero__describe.js-typewrite .char {
+  background-color: transparent;
 }
 
 .hero__arrow-down {
