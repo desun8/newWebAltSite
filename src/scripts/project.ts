@@ -5,6 +5,7 @@ import { sectionHeaderAnimation } from "./pages/works-project/sectionHeaderAnima
 import { listAnimation } from "./pages/works-project/listAnimation";
 import { checkFlexGap } from "./utils/checkFlexGap";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
+import { initApp as initWorksDialog } from "@/scripts/pages/works-dialog/index";
 
 const isMdScreen = window.matchMedia("(min-width: 48em)").matches;
 
@@ -92,4 +93,17 @@ listAnimation();
       reviewVideo(btn);
     });
   }
+})();
+
+// Диалог проектов
+(() => {
+  function prepare() {
+    return import("../mocks/browser.js").then((module) =>
+      module.worker.start()
+    );
+  }
+
+  prepare().then(() => {
+    initWorksDialog();
+  });
 })();

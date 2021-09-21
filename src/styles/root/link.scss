@@ -98,6 +98,14 @@
     }
   }
 
+  &--underline-sm {
+    .link__text::after {
+      @media (--md-max) {
+        transform: scaleX(1);
+      }
+    }
+  }
+
   &--btn {
     transition-property: background-color;
     transition-duration: 0.2s;

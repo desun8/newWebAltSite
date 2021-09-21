@@ -12,6 +12,7 @@
   --trans-dur-faster: 0.2s;
 
   --page-gap: #{vw(20, $mobile-viewport)};
+  --letter-spacing: 0.015em;
 
   // noinspection CssInvalidMediaFeature
   @media (--lg) {

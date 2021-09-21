@@ -1,0 +1,66 @@
+@use "../_config/functions/convert.scss" as *;
+@use "../_config/mixins/typographic.scss" as *;
+
+.next-project {
+  --pt: 47px;
+
+  position: relative;
+  display: grid;
+  margin: 0 var(--base-page-gap-negative);
+  padding: var(--pt) var(--base-page-gap);
+  background-color: var(--c-dark-grey);
+
+  @media (--md) {
+    --pt: #{vw(170)};
+
+    align-items: center;
+  }
+}
+
+.next-project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-img) no-repeat center/cover;
+  opacity: 0.2;
+}
+
+.next-project__text {
+  color: rgba(#fff, 0.5);
+  z-index: 1;
+
+  @media (--md) {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+
+.next-project__link {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing);
+  z-index: 1;
+
+  @media (--md) {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: center;
+
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  @media (--lg) {
+    @include font-size(52);
+  }
+}
+
+.next-project__link .link__icon {
+  @media (--md-max) {
+    display: none;
+  }
+}
