@@ -10,7 +10,8 @@
       px-$base-page-gap
       py-11
       bg-sun
-      text-black text-1.5xl
+      !text-black
+      text-1.5xl
       leading-8
       tracking-wide
       font-semibold
