@@ -82,3 +82,14 @@ listAnimation();
     );
   }
 })();
+
+// Открытие видео во весь экран или в модалке
+(() => {
+  const btn = document.querySelector<HTMLButtonElement>(".review-avatar__play");
+
+  if (btn) {
+    import("./pages/works-project/reviewVideo").then(({ reviewVideo }) => {
+      reviewVideo(btn);
+    });
+  }
+})();
