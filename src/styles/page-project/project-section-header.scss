@@ -26,13 +26,6 @@
   }
 }
 
-.project-section-header:not(.project-section-header--goals) {
-  @media (--md) {
-    color: var(--c-dark-grey);
-    background-color: transparent;
-  }
-}
-
 .project-section-header__icon {
   --size: 70px;
 
@@ -46,13 +39,6 @@
 
   @media (--lg) {
     --size: 125px;
-  }
-}
-
-.project-section-header--steps .project-section-header__icon,
-.project-section-header--results .project-section-header__icon {
-  @media (--md) {
-    background-color: var(--c-dark-grey);
   }
 }
 

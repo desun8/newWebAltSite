@@ -1,19 +1,11 @@
 import { gsap } from "gsap";
 
 export const sectionHeaderAnimation = () => {
-  const isSmScreen = window.matchMedia("(max-width: 47.999em)").matches;
   const elms = document.querySelectorAll<HTMLElement>(
     ".project-section-header"
   );
 
   elms.forEach((elm) => {
-    if (
-      !isSmScreen &&
-      !elm.classList.contains("project-section-header--goals")
-    ) {
-      return;
-    }
-
     gsap.to(elm, {
       scrollTrigger: {
         trigger: elm,
