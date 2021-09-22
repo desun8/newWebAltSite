@@ -1,14 +1,10 @@
-import { gsap } from 'gsap';
-import Splitting from 'splitting';
-
+import { gsap } from "gsap";
+import Splitting from "splitting";
 
 class TypewriteAnimation {
   constructor(elm) {
     this.elm = elm;
     this.chars = null;
-
-    // TODO: удалить
-    this.className = 'js-typewrite-char';
 
     this.isComplete = false;
 
@@ -18,20 +14,20 @@ class TypewriteAnimation {
   splitting() {
     Splitting({
       target: this.elm,
-      by: 'chars'
+      by: "chars",
     });
 
     // добавляем data-аттрибут для иконки-стрелки и пробелов
-    const iconArrow = this.elm.querySelector('.link__icon');
-    const whitespaces = this.elm.querySelectorAll('.whitespace');
+    const iconArrow = this.elm.querySelector(".link__icon");
+    const whitespaces = this.elm.querySelectorAll(".whitespace");
     if (iconArrow && whitespaces) {
-      iconArrow.dataset.char = 'char';
-      whitespaces.forEach(whitespace => whitespace.dataset.char = 'char');
+      iconArrow.dataset.char = "char";
+      whitespaces.forEach((whitespace) => (whitespace.dataset.char = "char"));
     }
   }
 
   getChars() {
-    this.chars = this.elm.querySelectorAll('*[data-char]');
+    this.chars = this.elm.querySelectorAll("*[data-char]");
   }
 
   animation(chars) {
@@ -41,12 +37,12 @@ class TypewriteAnimation {
       stagger: {
         each: 0.1,
       },
-      ease: 'none',
+      ease: "none",
       onStart: () => {
-        this.elm.style.opacity = '1';
+        this.elm.style.opacity = "1";
         this.isComplete = false;
       },
-      onComplete: () => this.isComplete = true
+      onComplete: () => (this.isComplete = true),
     });
   }
 
@@ -59,8 +55,8 @@ class TypewriteAnimation {
   }
 
   init() {
-    this.elm.dataset.typewrite = 'true';
-    this.elm.style.opacity = '0';
+    this.elm.dataset.typewrite = "true";
+    this.elm.style.opacity = "0";
 
     this.splitting(this.elm);
     this.getChars();
@@ -76,8 +72,8 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
       ...this.getLinesCount(),
       prevY: 0,
       styles: {
-        height: 15
-      }
+        height: 15,
+      },
     };
 
     // this.rectElm = this.elm.getBoundingClientRect();
@@ -85,7 +81,11 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
 
   getLinesCount() {
     const height = this.elm.offsetHeight;
-    const lineHeight = Math.round(parseFloat(window.getComputedStyle(this.elm).getPropertyValue('line-height')));
+    const lineHeight = Math.round(
+      parseFloat(
+        window.getComputedStyle(this.elm).getPropertyValue("line-height")
+      )
+    );
     const lines = Math.round(height / lineHeight);
 
     return { lines, lineHeight };
@@ -94,10 +94,10 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
   createCursor() {
     const height = this.cursorConfig.styles.height;
 
-    const elm = document.createElement('span');
+    const elm = document.createElement("span");
     elm.style.cssText = `position: absolute; top: 0; left: 0; width: 5px; height: ${height}px; border: 1px solid #000; margin-left: 15px`;
 
-    this.elm.style.position = 'relative';
+    this.elm.style.position = "relative";
     this.elm.appendChild(elm);
     this.cursor = elm;
   }
@@ -121,7 +121,7 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
     const linesPos = this.getLinesPos();
     let pos = 0;
 
-    linesPos.some(val => {
+    linesPos.some((val) => {
       if (posY <= val + 5) {
         pos = val;
         return true;
@@ -146,7 +146,7 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
 
   animationCursor(pos = { x: 0, y: 0 }) {
     const { x, y } = pos;
-    gsap.to(this.cursor, { x, y, duration: 0.05, ease: 'none' });
+    gsap.to(this.cursor, { x, y, duration: 0.05, ease: "none" });
   }
 
   animation(chars) {
@@ -158,7 +158,7 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
     return gsap.from(chars, {
       alpha: 0,
       duration: 0.01,
-      ease: 'none',
+      ease: "none",
       stagger: {
         each: 0.1,
         onStart() {
@@ -170,12 +170,12 @@ export class TypewriteAnimationWithCursor extends TypewriteAnimation {
       },
       onStart: () => {
         gsap.set(this.cursor, { x: 0, y: 0 });
-        this.elm.style.opacity = '1';
+        this.elm.style.opacity = "1";
         this.isComplete = false;
       },
       onComplete: () => {
         this.isComplete = true;
-      }
+      },
     });
   }
 

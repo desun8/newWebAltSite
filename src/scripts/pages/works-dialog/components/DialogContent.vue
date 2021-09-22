@@ -9,10 +9,6 @@
     ></list-item-info>
 
     <div ref="listElm" class="list">
-      <!-- 
-        TODO: нужно завернуть в header.
-        Так же перенести сюда кнопку закрытия.
-      -->
       <simplebar>
         <filter-element
           :filter-items="filterItems"

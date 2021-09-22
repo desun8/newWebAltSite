@@ -100,7 +100,6 @@ export const handleSubmit = (event: Event, reset: () => void) => {
       isSubmiting = true;
 
       const formData = new FormData(formElm);
-      // TODO: Возможно нужно будет добавить input с токеном
 
       // подключается через <script>
       window.grecaptcha.ready(() => {

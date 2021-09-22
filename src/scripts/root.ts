@@ -9,12 +9,6 @@ import "focus-visible";
 import { initCore } from "./app/core";
 import { WINDOWS } from "./utils/getOS";
 
-// if (process.env.NODE_ENV === "development") {
-import("../mocks/browser.js").then((module) => {
-  module.worker.start();
-});
-// }
-
 export default function initRoot() {
   initCore();
 

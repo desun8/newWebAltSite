@@ -98,14 +98,4 @@ listAnimation();
 })();
 
 // Диалог проектов
-(() => {
-  function prepare() {
-    return import("../mocks/browser.js").then((module) =>
-      module.worker.start()
-    );
-  }
-
-  prepare().then(() => {
-    initWorksDialog();
-  });
-})();
+initWorksDialog();
