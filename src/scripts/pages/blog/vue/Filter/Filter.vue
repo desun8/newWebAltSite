@@ -1,5 +1,9 @@
 <template>
-  <div ref="pinContainer" class="pin-filter-container">
+  <div
+    ref="pinContainer"
+    :class="{ 'is-active': isPinned && isActive }"
+    class="pin-filter-container"
+  >
     <div
       ref="root"
       :class="{ 'is-pinned': isPinned, 'is-active': isPinned && isActive }"

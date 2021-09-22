@@ -200,16 +200,13 @@
     }
   }
 
-  body.theme-dark & {
+  body.theme-dark &,
+  body.menu-btn-white & {
     --color: #fff;
   }
 
   body.theme-sun & {
     --color-hover: #fff;
-  }
-
-  body.menu-btn-white & {
-    color: #fff;
   }
 
   &__icon {
