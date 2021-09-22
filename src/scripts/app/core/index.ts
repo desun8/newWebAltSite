@@ -37,7 +37,11 @@ export const initCore = () => {
     addNoise();
   }
 
-  if (!APP.isDesktop) {
+  if (APP.isDesktop) {
+    import("./invertTheme").then(({ invertTheme }) => {
+      invertTheme();
+    });
+  } else {
     import("../../components/scrollToTop").then(({ scrollToTop }) => {
       scrollToTop();
     });

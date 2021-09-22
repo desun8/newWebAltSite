@@ -43,11 +43,13 @@
   @apply absolute right-9 text-xl text-white font-semibold uppercase tracking-wide hover:text-white;
 }
 
-body.theme-sun .subscribe-banner-btn__img {
+body.theme-sun .subscribe-banner-btn__img,
+body.subscribe-banner-white .subscribe-banner-btn__img {
   background-color: #fff;
 }
 
-body.theme-sun .subscribe-banner-block {
+body.theme-sun .subscribe-banner-block,
+body.subscribe-banner-white .subscribe-banner-block {
   background-color: #fff;
 }
 
@@ -57,7 +59,9 @@ body.theme-sun .subscribe-banner-block__input:focus {
 } */
 
 body.theme-sun .subscribe-banner-block__input + span,
-body.theme-sun .subscribe-banner-block__success {
+body.theme-sun .subscribe-banner-block__success,
+body.subscribe-banner-white .subscribe-banner-block__input + span,
+body.subscribe-banner-white .subscribe-banner-block__success {
   color: var(--c-red);
 }
 
@@ -72,7 +76,10 @@ body.theme-sun .subscribe-banner-block__success {
   animation-duration: 2s;
 }
 
-body.theme-sun .form-field.has-error .subscribe-banner-block__input {
+body.theme-sun .form-field.has-error .subscribe-banner-block__input,
+body.subscribe-banner-white
+  .form-field.has-error
+  .subscribe-banner-block__input {
   --error-color: var(--c-red);
 }
 
