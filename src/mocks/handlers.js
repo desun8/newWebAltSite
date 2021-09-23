@@ -1,6 +1,7 @@
 import { rest } from "msw";
 
 import jsonBlog from "./blog.json";
+import jsonInstagram from "./instagram.json";
 import jsonWorksMain from "./worksMain.json";
 import jsonWorksAll from "./worksAll.json";
 
@@ -30,12 +31,20 @@ export const handlers = [
     );
   }),
 
-  rest.post("/api/blog", (req, res, ctx) => {
+  rest.get("/api/blog", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
         results: jsonBlog,
-        success: true,
+      })
+    );
+  }),
+
+  rest.get("/api/instagram", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        results: jsonInstagram,
       })
     );
   }),
@@ -45,7 +54,6 @@ export const handlers = [
       ctx.status(200),
       ctx.json({
         results: jsonWorksMain,
-        success: true,
       })
     );
   }),
@@ -55,7 +63,6 @@ export const handlers = [
       ctx.status(200),
       ctx.json({
         results: jsonWorksAll,
-        success: true,
       })
     );
   }),
