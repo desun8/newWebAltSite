@@ -1,15 +1,52 @@
 <template>
   <ul class="insta-list">
-    <list-item v-for="i in [1,2,3,4,5,6,7,8,9]" :key="i"/>
+    <list-item
+      v-for="item in itemsList"
+      :key="item.href"
+      :src="item.src"
+      :href="item.href"
+      :type="item.type"
+      :describe="item.describe"
+    />
   </ul>
 </template>
 
 <script>
-import ListItem from './ListItem/ListItem.vue';
+import ListItem from "./ListItem/ListItem.vue";
 
 export default {
-  name: 'List',
-  components: { ListItem }
+  name: "List",
+  components: { ListItem },
+
+  data() {
+    return {
+      itemsList: [],
+    };
+  },
+
+  methods: {
+    async fetchInstagram() {
+      const url = "/api/instagram";
+
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      const data = await response.json();
+
+      this.itemsList = await data.results;
+    },
+  },
+
+  mounted() {
+    this.fetchInstagram().catch((error) =>
+      console.error(
+        "Блог -> Instagram -> List.vue -> ошибка получения постов инстаграма",
+        error
+      )
+    );
+  },
 };
 </script>
 

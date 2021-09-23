@@ -153,9 +153,6 @@ export default defineComponent({
       }
 
       const data = await response.json();
-      if (!data.success) {
-        throw Error(response.statusText);
-      }
 
       this.itemsList = await data.results;
     },
