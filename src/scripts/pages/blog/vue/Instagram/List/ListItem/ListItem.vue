@@ -1,20 +1,45 @@
 <template>
   <li class="insta-list__item">
-    <a href="#">посмотреть пост</a>
-    <img :src="devImg" alt="">
+    <a :href="href">посмотреть пост</a>
+    <video v-if="isVideo" :src="src"></video>
+    <img v-else :src="src" :alt="describe" />
   </li>
 </template>
 
 <script>
-import devImg from '../../../../../../../../public/images/_dev-test-img.jpg';
+import APP from "@/scripts/app/APP";
 
 export default {
-  name: 'ListItem',
-  data() {
-    return {
-      devImg
-    };
-  }
+  name: "ListItem",
+
+  props: {
+    src: {
+      type: String,
+      required: true,
+    },
+    href: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+    describe: {
+      type: String,
+      required: true,
+    },
+  },
+
+  computed: {
+    isVideo() {
+      return this.type.toLowerCase() === "video";
+    },
+
+    isDesktop() {
+      return APP.isDesktop;
+    },
+  },
 };
 </script>
 
@@ -89,7 +114,6 @@ export default {
     }
   }
 
-
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     &:nth-last-child(1),
@@ -114,15 +138,14 @@ export default {
       border-bottom-right-radius: var(--bdrs);
     }
   }
-
 }
 
 .insta-list__item:hover {
-  //border-color: var(--c-red);
   border-color: rgba(#f50000, 0.5);
 }
 
-.insta-list__item img {
+.insta-list__item img,
+.insta-list__item video {
   max-width: 100%;
   height: 100%;
   object-fit: cover;
@@ -136,5 +159,6 @@ export default {
   width: 100%;
   height: 100%;
   font-size: 0;
+  z-index: 1;
 }
 </style>
