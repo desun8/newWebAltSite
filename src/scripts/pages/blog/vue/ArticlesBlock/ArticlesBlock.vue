@@ -147,15 +147,12 @@ export default defineComponent({
     async fetchArticles() {
       const url = "/api/blog";
 
-      const response = await fetch(url, { method: "POST" });
+      const response = await fetch(url);
       if (!response.ok) {
         throw Error(response.statusText);
       }
 
       const data = await response.json();
-      if (!data.success) {
-        throw Error(response.statusText);
-      }
 
       this.itemsList = await data.results;
     },
