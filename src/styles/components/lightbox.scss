@@ -1,0 +1,6 @@
+.basicLightbox {
+  --safe-area-inset-top: env(safe-area-inset-top);
+
+  top: -1px;
+  height: calc(100% + var(--safe-area-inset-top) + 1px);
+}
