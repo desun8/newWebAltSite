@@ -31,6 +31,8 @@
 }
 
 .review__body {
+  position: relative;
+
   @media (--lg) {
     @include grid(10);
 

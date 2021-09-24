@@ -39,6 +39,12 @@
   }
 }
 
+.review-content__text p {
+  @media (--lg) {
+    font-weight: 400;
+  }
+}
+
 .review-content__hashtag {
   opacity: 0.5;
 

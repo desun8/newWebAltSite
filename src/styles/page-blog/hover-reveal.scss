@@ -2,11 +2,11 @@
 
 .hover-reveal {
   --size: #{vw(260)};
-  
+
   position: absolute;
   width: var(--size);
   height: var(--size);
-  
+
   top: 0;
   left: 0;
   pointer-events: none;
@@ -22,6 +22,7 @@
 }
 
 .hover-reveal__img {
+  background-repeat: no-repeat;
   background-size: contain;
-  background-position: 50% 50%;
+  background-position: top center;
 }
