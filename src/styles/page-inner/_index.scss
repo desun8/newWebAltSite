@@ -3,3 +3,9 @@
 @use "../components/subscribe-banner";
 @use "page-inner";
 @use "inner-body";
+
+// Фиксы инлайн стилей приехавшие после парсинга старого сайта
+// Фикс ifram'а видео с ютуба
+div[data-oembed-url] > div {
+  max-width: 100% !important;
+}
