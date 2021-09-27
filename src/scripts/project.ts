@@ -60,6 +60,19 @@ if (isMdScreen) {
 sectionHeaderAnimation();
 listAnimation();
 
+// Lightbox
+(() => {
+  const lightboxElms = Array.from(
+    document.querySelectorAll<HTMLElement>(".js-lightbox")
+  );
+
+  if (lightboxElms.length) {
+    import("./pages/works-project/lightbox").then(({ lightbox }) => {
+      lightbox(lightboxElms);
+    });
+  }
+})();
+
 // Анимация блока статистики
 (() => {
   const statisticElm = document.querySelector(".statistic");
