@@ -7,7 +7,7 @@
     "tags": ["дизайн", "контекст"],
     "text": "один<br> большой<br> дизайн!",
     "imgPath": {
-      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
+      "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
       "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
     "href": "/nested/works-inner.html"
   },
@@ -19,7 +19,7 @@
     "tags": ["дизайн"],
     "text": "Smm в топ по лидам за месяц",
     "imgPath": {
-      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
+      "large": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"], 
       "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
     "href": "/nested/works-inner.html"
   },
@@ -31,7 +31,7 @@
     "tags": ["дизайн",  "контекст"],
     "text": "Smm в топ по лидам за месяц",
     "imgPath": {
-      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
+      "large": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"], 
       "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
     "href": "/nested/works-inner.html"
   },
@@ -43,8 +43,8 @@
     "tags": ["дизайн", "контекст"],
     "text": "один<br> большой<br> дизайн!",
     "imgPath": {
-      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
-      "small": ["/images/works/main/v2/paintball-park-sm-v2.png", "/images/works/main/v2/paintball-park-sm-v2.png"]},
+      "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
+      "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
     "href": "/nested/works-inner.html"
   },
   {
@@ -55,8 +55,8 @@
     "tags": ["дизайн"],
     "text": "Smm в топ по лидам за месяц",
     "imgPath": {
-      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
-      "small": ["/images/works/main/v2/tranzit27-sm-v2.png", "/images/works/main/v2/tranzit27-sm-v2.png"]},
+      "large": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"], 
+      "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
     "href": "/nested/works-inner.html"
   },
   {
@@ -67,8 +67,8 @@
     "tags": ["дизайн",  "контекст"],
     "text": "Smm в топ по лидам за месяц",
     "imgPath": {
-      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
-      "small": ["/images/works/main/v2/brosko-market-sm-v2.png", "/images/works/main/v2/brosko-market-sm-v2.png"]},
+      "large": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"], 
+      "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
     "href": "/nested/works-inner.html"
   },
   {
@@ -79,8 +79,8 @@
     "tags": ["дизайн", "контекст"],
     "text": "один<br> большой<br> дизайн!",
     "imgPath": {
-      "large": ["/images/works/main/paintball-park.png", "/images/works/main/paintball-park.webp"], 
-      "small": ["/images/works/main/paintball-park-sm.png", "/images/works/main/paintball-park-sm.webp"]},
+      "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
+      "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
     "href": "/nested/works-inner.html"
   },
   {
@@ -91,8 +91,8 @@
     "tags": ["дизайн"],
     "text": "Smm в топ по лидам за месяц",
     "imgPath": {
-      "large": ["/images/works/main/tranzit27.png", "/images/works/main/tranzit27.webp"], 
-      "small": ["/images/works/main/tranzit27-sm.png", "/images/works/main/tranzit27-sm.webp"]},
+      "large": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"], 
+      "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
     "href": "/nested/works-inner.html"
   },
   {
@@ -103,8 +103,8 @@
     "tags": ["дизайн", "разработка", "контекст"],
     "text": "Smm в топ по лидам за месяц",
     "imgPath": {
-      "large": ["/images/works/main/brosko-market.png", "/images/works/main/brosko-market.webp"], 
-      "small": ["/images/works/main/brosko-market-sm.png", "/images/works/main/brosko-market-sm.webp"]},
+      "large": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"], 
+      "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
     "href": "/nested/works-inner.html"
   }
 ]
