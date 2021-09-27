@@ -24,7 +24,21 @@ export default defineComponent({
 
   setup() {
     const { activeFilter, setActiveFilter, filterItems } = useFilters();
+    // TODO: remove
+    console.log(
+      "🚀 ~ file: App.vue ~ line 27 ~ setup ~ filterItems",
+      filterItems
+    );
+    console.log(
+      "🚀 ~ file: App.vue ~ line 27 ~ setup ~ activeFilter",
+      activeFilter
+    );
+
     const { worksCardsFiltered } = useWorksCards(activeFilter);
+    console.log(
+      "🚀 ~ file: App.vue ~ line 32 ~ setup ~ worksCardsFiltered",
+      worksCardsFiltered
+    );
 
     return { worksCardsFiltered, activeFilter, setActiveFilter, filterItems };
   },

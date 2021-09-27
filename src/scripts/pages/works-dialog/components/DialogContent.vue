@@ -52,7 +52,28 @@ export default defineComponent({
 
   setup(props) {
     const { activeFilter, setActiveFilter, filterItems } = useFilters();
+
+    // TODO: remove
+    console.log(
+      "🚀 ~ file: DialogContent.vue ~ line 55 ~ setup ~ filterItems",
+      filterItems
+    );
+    console.log(
+      "🚀 ~ file: DialogContent.vue ~ line 55 ~ setup ~ activeFilter",
+      activeFilter
+    );
+
     const { itemsFiltered, total } = useItems(activeFilter);
+
+    // TODO: remove
+    console.log(
+      "🚀 ~ file: DialogContent.vue ~ line 61 ~ setup ~ total",
+      total
+    );
+    console.log(
+      "🚀 ~ file: DialogContent.vue ~ line 61 ~ setup ~ itemsFiltered",
+      itemsFiltered
+    );
 
     const setTotal = props.setTotal;
     watch(total, (newValue) => {
