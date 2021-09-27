@@ -44,6 +44,11 @@
   padding-top: var(--ratio);
   background-color: #efefef;
   box-shadow: 4px 8px 13px rgba(0, 0, 0, 0.03), 2px 4px 5px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s;
+}
+
+.layouts__img-wrapper:hover {
+  box-shadow: 6px 10px 15px rgba(0, 0, 0, 0.03), 4px 6px 7px rgba(0, 0, 0, 0.15);
 }
 
 .layouts__img-wrapper:nth-child(2n) {
