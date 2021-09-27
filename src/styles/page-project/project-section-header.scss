@@ -17,6 +17,8 @@
   @media (--md) {
     width: fit-content;
     margin-bottom: 60px;
+    color: var(--c-dark-grey);
+    background-color: transparent;
   }
 
   @media (--lg) {
@@ -32,7 +34,7 @@
   width: var(--size);
   height: var(--size);
 
-  background-color: #fff;
+  background-color: currentColor;
   mask-size: var(--size);
   mask-repeat: no-repeat;
   mask-position: center;
