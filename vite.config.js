@@ -6,15 +6,6 @@ import posthtmlInclude from "posthtml-include";
 import posthtmlImgAutosize from "posthtml-img-autosize";
 import rollupVisualizer from "rollup-plugin-visualizer";
 
-// const handleHotUpdate = ({ server }) => {
-//   server.ws.send({
-//     type: 'custom',
-//     event: 'special-update',
-//     data: {}
-//   })
-//   return []
-// }
-
 const reload = {
   name: "reload",
   handleHotUpdate({ file, server }) {
@@ -33,14 +24,12 @@ const reload = {
 export default {
   plugins: [
     posthtmlPlugin({
-      /* config */
       plugins: [
         posthtmlInclude({
           root: "src/templates",
         }),
         posthtmlImgAutosize({
           root: "public/",
-          // processEmptySize: true,
         }),
       ],
     }),
