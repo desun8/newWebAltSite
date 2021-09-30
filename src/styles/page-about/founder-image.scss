@@ -1,0 +1,25 @@
+@use "../components/btn-play.scss";
+
+.founder-image {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.founder-image__img {
+  width: calc(310 / 335 * 100%);
+}
+
+.founder-image__play {
+  position: absolute;
+  left: calc(100% - 102px);
+  bottom: 50px;
+  width: 102px;
+  height: 102px;
+  overflow: hidden;
+}
+
+.founder-image__play .btn-play {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -1,0 +1,37 @@
+@use "../_config/functions/convert.scss" as *;
+
+.founder {
+  position: relative;
+  margin: 0 var(--base-page-gap-negative);
+  padding-right: var(--base-page-gap);
+  padding-left: var(--base-page-gap);
+  padding-top: 70px;
+  padding-bottom: 210px;
+  color: #fff;
+  background-color: var(--c-dark-grey);
+
+  @media (--lg) {
+    padding-top: vw(320);
+    padding-bottom: vw(295);
+  }
+}
+
+.founder-boss {
+  --fz: 130px;
+
+  position: absolute;
+  left: 0;
+  bottom: calc(var(--fz) / -2.3);
+  font-size: var(--fz);
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media (--md) {
+    --fz: 200px;
+  }
+
+  @media (--xl) {
+    left: 20%;
+  }
+}

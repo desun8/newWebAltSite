@@ -2,6 +2,7 @@ import initRoot from "./root";
 import "@/styles/about.scss";
 import APP from "./app/APP";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
+import { founderAnimations } from "./pages/about/founderAnimations";
 
 initRoot();
 
@@ -22,3 +23,18 @@ if (APP.isDesktop) {
     );
   }
 }
+
+founderAnimations();
+
+// Открытие видео во весь экран или в модалке
+(() => {
+  const btns = document.querySelectorAll<HTMLButtonElement>(".btn-play");
+
+  if (btns.length) {
+    import("./pages/works-project/reviewVideo").then(({ reviewVideo }) => {
+      btns.forEach((btn) => {
+        reviewVideo(btn);
+      });
+    });
+  }
+})();

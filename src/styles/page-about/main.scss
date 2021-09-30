@@ -14,3 +14,16 @@
     min-width: 400px;
   }
 }
+
+.title-svg--founder {
+  --max-w: #{vw(252, $mobile-viewport)};
+
+  @media (--md) {
+    --max-w: #{vw(678)};
+    --mb: #{vw(90)};
+  }
+
+  @media (--lg) {
+    padding-top: vw(75);
+  }
+}
