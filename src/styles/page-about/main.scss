@@ -1,0 +1,16 @@
+@use '../_config/functions/convert.scss' as *;
+
+.title-svg {
+  --max-w: #{vw(264, $mobile-viewport)};
+  --mb: #{vw(40, $mobile-viewport)};
+
+  max-width: var(--max-w);
+  margin-bottom: var(--mb);
+
+  @media (--md) {
+    --max-w: #{vw(707)};
+    --mb: #{vw(140)};
+
+    min-width: 400px;
+  }
+}

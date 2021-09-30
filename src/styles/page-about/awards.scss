@@ -1,0 +1,97 @@
+@use "../_config//functions/convert.scss" as *;
+@use "../_config/mixins/grid.scss" as *;
+
+.awards {
+  position: relative;
+  margin-bottom: 270px;
+
+  @media (--lg) {
+    margin-bottom: vw(610);
+  }
+}
+
+.awards-bg {
+  position: absolute;
+  bottom: -220px;
+  right: 0;
+  width: 834px;
+  height: 760px;
+  transform: rotate(-20deg);
+  z-index: 0;
+
+  @media (--lg) {
+    right: var(--base-page-gap-negative);
+    bottom: vw(150);
+    width: vw(834);
+    height: vw(760);
+    transform-origin: 50% -60%;
+  }
+
+  @media (--xxxl) {
+    bottom: vw(-100);
+  }
+}
+
+.awards-bg::after {
+  content: "516x473";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block;
+  padding: vw(2) vw(4);
+
+  background-color: #3893ff;
+  color: #fff;
+  font-size: vw(8);
+  line-height: 1;
+  border-radius: 2px;
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.awards-bg:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+.awards-bg__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  @media (--lg) {
+    border: 4px solid transparent;
+  }
+}
+
+.awards-bg__img--default {
+  opacity: 0.1;
+
+  @media (--lg) {
+    opacity: 0.2;
+  }
+}
+
+.awards-bg:hover .awards-bg__img--default {
+  opacity: 0;
+}
+
+.awards-bg .awards-bg__img--hover {
+  visibility: hidden;
+  opacity: 0;
+
+  @media (--lg) {
+    border-image: url("/images/awards-bg-border.svg") 10 / auto / 2px stretch;
+  }
+}
+
+.awards-bg:hover .awards-bg__img--hover {
+  visibility: visible;
+  opacity: 1;
+}
