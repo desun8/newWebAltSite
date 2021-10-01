@@ -33,12 +33,16 @@
 }
 
 .founder-describe__social-list {
-  display: none;
-  padding-top: 45px;
-  font-size: 18px;
+  display: grid;
+  row-gap: 15px;
+  column-gap: 40px;
+  justify-content: start;
 
-  @media (--lg) {
-    display: grid;
-    gap: 15px;
+  @media (--md) {
+    padding-top: 45px;
+    font-size: 18px;
+  }
+  @media (--lg-max) {
+    grid-auto-flow: column;
   }
 }
