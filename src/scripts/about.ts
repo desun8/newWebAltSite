@@ -7,6 +7,7 @@ import { founderAnimations } from "./pages/about/founderAnimations";
 initRoot();
 
 if (APP.isDesktop) {
+  import("./components/subscribe-banner/index");
 } else {
   const footerRedirectElm = document.querySelector(".footer-redirect");
 
