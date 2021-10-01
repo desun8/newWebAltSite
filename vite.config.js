@@ -4,6 +4,7 @@ import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
 import posthtmlImgAutosize from "posthtml-img-autosize";
+import { posthtmlExternalLink } from "posthtml-external-link";
 import rollupVisualizer from "rollup-plugin-visualizer";
 
 const reload = {
@@ -30,6 +31,9 @@ export default {
         }),
         posthtmlImgAutosize({
           root: "public/",
+        }),
+        posthtmlExternalLink({
+          noreferrer: true,
         }),
       ],
     }),
