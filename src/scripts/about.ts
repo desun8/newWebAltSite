@@ -3,6 +3,7 @@ import "@/styles/about.scss";
 import APP from "./app/APP";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 import { founderAnimations } from "./pages/about/founderAnimations";
+import { typewriteAnimation } from "./pages/works-project/typewriteAnimation";
 
 initRoot();
 
@@ -37,5 +38,14 @@ founderAnimations();
         reviewVideo(btn);
       });
     });
+  }
+})();
+
+// Анимация текста блока митапов
+(() => {
+  const meetupsText = document.querySelector<HTMLElement>(".meetups__text");
+
+  if (meetupsText) {
+    typewriteAnimation(meetupsText);
   }
 })();
