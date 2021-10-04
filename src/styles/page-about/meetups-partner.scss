@@ -1,4 +1,4 @@
-.partner-item {
+.meetups-partner {
   display: grid;
   grid-template-columns: calc(127 / 349 * 100%) 1fr;
   grid-template-rows: auto auto;
@@ -11,7 +11,7 @@
   }
 }
 
-.partner-item__img {
+.meetups-partner__img {
   --bg-img: url("");
   --bg-size: 80px;
 
@@ -36,11 +36,11 @@
   }
 }
 
-.partner-item:hover .partner-item__img {
+.meetups-partner:hover .meetups-partner__img {
   border-color: rgb(220, 48, 0);
 }
 
-.partner-item__img--visotsky {
+.meetups-partner__img--visotsky {
   --bg-img: url("/images/about/logo-visotsky.svg");
   --bg-size: 92px;
 
@@ -53,7 +53,7 @@
   }
 }
 
-.partner-item__img--bbooster {
+.meetups-partner__img--bbooster {
   --bg-size: 92px;
 
   @media (--md) {
@@ -65,15 +65,15 @@
   }
 }
 
-html.no-webp .partner-item__img--bbooster {
+html.no-webp .meetups-partner__img--bbooster {
   --bg-img: url("/images/about/logo-bbooster.png");
 }
 
-html.webp .partner-item__img--bbooster {
+html.webp .meetups-partner__img--bbooster {
   --bg-img: url("/images/about/logo-bbooster.webp");
 }
 
-.partner-item__text {
+.meetups-partner__text {
   align-self: end;
   font-size: 14px;
   line-height: 18px;
@@ -86,7 +86,7 @@ html.webp .partner-item__img--bbooster {
   }
 }
 
-.partner-item__link {
+.meetups-partner__link {
   align-self: start;
   font-weight: 500;
 }
