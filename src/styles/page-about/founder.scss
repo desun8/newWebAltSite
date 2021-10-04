@@ -2,7 +2,7 @@
 
 .founder {
   position: relative;
-  margin: 0 var(--base-page-gap-negative);
+  margin: 0 var(--base-page-gap-negative) 140px;
   padding-right: var(--base-page-gap);
   padding-left: var(--base-page-gap);
   padding-top: 70px;
@@ -11,6 +11,7 @@
   background-color: var(--c-dark-grey);
 
   @media (--lg) {
+    margin-bottom: 190px;
     padding-top: vw(320);
     padding-bottom: vw(295);
   }

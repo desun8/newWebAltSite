@@ -7,6 +7,7 @@ export const founderAnimations = () => {
   const root = document.querySelector(".founder") as HTMLElement;
   const image = root.querySelector(".founder-image__img")!;
   const videoBtn = root.querySelector(".founder-image__play")!;
+  const instagramBtn = root.querySelector(".founder-image__instagram")!;
   const describe = root.querySelector(".founder-describe")!;
   const textBoss = root.querySelector(".founder-boss")!;
 
@@ -31,7 +32,7 @@ export const founderAnimations = () => {
         },
       })
       .from(image, { y: 50, autoAlpha: 0 })
-      .from(videoBtn, { width: 0, duration: 0.35 });
+      .from([videoBtn, instagramBtn], { width: 0, duration: 0.35 });
 
     ScrollTrigger.create({
       trigger: describe,

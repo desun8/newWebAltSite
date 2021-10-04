@@ -10,34 +10,38 @@
   width: calc(310 / 335 * 100%);
 }
 
-.founder-image__play {
+.founder-image__play,
+.founder-image__instagram {
   position: absolute;
   left: calc(100% - 102px);
   bottom: 104px;
   width: 102px;
   height: 102px;
   overflow: hidden;
+}
+
+.founder-image__play {
+  bottom: 104px;
 
   @media (--md) {
     bottom: vw(155);
   }
 }
 
-.founder-image__play .btn-play {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .founder-image__instagram {
-  position: absolute;
-  left: calc(100% - 102px);
   bottom: -10px;
   text-align: center;
 
   @media (--md) {
     display: none;
   }
+}
+
+.founder-image__play .btn-play,
+.founder-image__instagram .btn-play {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .founder-image__instagram .btn-play__icon {
