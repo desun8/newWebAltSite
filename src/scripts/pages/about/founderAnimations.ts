@@ -5,6 +5,9 @@ export const founderAnimations = () => {
   const isMdScreen = window.matchMedia("(min-width: 48em)").matches;
 
   const root = document.querySelector(".founder") as HTMLElement;
+
+  if (!root) return;
+
   const image = root.querySelector(".founder-image__img")!;
   const videoBtn = root.querySelector(".founder-image__play")!;
   const instagramBtn = root.querySelector(".founder-image__instagram")!;
