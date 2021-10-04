@@ -4,6 +4,7 @@ import APP from "./app/APP";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 import { founderAnimations } from "./pages/about/founderAnimations";
 import { typewriteAnimation } from "./pages/works-project/typewriteAnimation";
+import { clientsAnimation } from "./pages/about/clientsAnimation";
 
 initRoot();
 
@@ -27,6 +28,7 @@ if (APP.isDesktop) {
 }
 
 founderAnimations();
+clientsAnimation();
 
 // Открытие видео во весь экран или в модалке
 (() => {
