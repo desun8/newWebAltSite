@@ -3,13 +3,13 @@
 @use "page-home/footer-redirect.scss";
 
 .page-title {
-  width: vw(382);
+  width: vw(522);
   margin-bottom: vw(32);
   color: var(--c-dark-grey);
 
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
-    width: vw(382, $mobile-viewport);
+    width: vw(373, $mobile-viewport);
     margin-bottom: 42px;
   }
 }
