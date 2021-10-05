@@ -5,7 +5,7 @@ export type CardResponse = {
   kind: string;
   tags: string[];
   text: string;
-  imgPath: {
+  imgs: {
     large: [string, string];
     small: [string, string];
   };
