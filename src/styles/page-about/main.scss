@@ -27,3 +27,12 @@
     padding-top: vw(75);
   }
 }
+
+.title-svg--reviews {
+  --max-w: #{vw(246, $mobile-viewport)};
+
+  @media (--md) {
+    --max-w: #{vw(638)};
+    --mb: #{vw(70)};
+  }
+}

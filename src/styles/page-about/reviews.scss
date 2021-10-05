@@ -1,0 +1,13 @@
+@use "../_config/functions/convert.scss" as *;
+
+.reviews {
+  margin-bottom: 150px;
+
+  @media (--lg) {
+    margin-bottom: vw(320);
+  }
+
+  @media (--xxl) {
+    margin-bottom: 320px;
+  }
+}
