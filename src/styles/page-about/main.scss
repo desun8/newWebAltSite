@@ -1,5 +1,11 @@
 @use '../_config/functions/convert.scss' as *;
 
+.page-breadcrumbs {
+  @media (--md-max) {
+    display: none;
+  }
+}
+
 .title-svg {
   --max-w: #{vw(264, $mobile-viewport)};
   --mb: #{vw(40, $mobile-viewport)};
@@ -12,6 +18,15 @@
     --mb: #{vw(140)};
 
     min-width: 400px;
+  }
+}
+
+.title-svg--hero {
+  --max-w: #{vw(482)};
+  --mb: #{vw(78)};
+
+  @media (--md-max) {
+    display: none;
   }
 }
 

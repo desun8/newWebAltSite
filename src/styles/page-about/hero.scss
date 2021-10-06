@@ -1,0 +1,81 @@
+@use "../_config/functions/convert.scss" as *;
+
+.hero {
+  margin-bottom: 230px;
+  color: var(--c-dark-grey);
+}
+
+.hero__body {
+  display: grid;
+}
+
+.hero__content {
+}
+
+.hero__bg-logo {
+  grid-row: 1/2;
+
+  position: relative;
+  height: vw(480, $mobile-viewport);
+  margin: 0 var(--base-page-gap-negative);
+  color: var(--c-sun);
+}
+
+.hero__bg-logo svg {
+  --ratio: calc(907 / 898);
+  --width: 195%;
+  --height: calc(var(--width) * var(--ratio));
+
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--width);
+  height: var(--height);
+
+  opacity: 0.6;
+}
+
+.hero__title {
+  margin-bottom: 34px;
+  color: var(--c-black);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.hero-goals {
+  margin-bottom: 32px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.hero-goals__title {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hero-stats {
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.hero-tech-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.hero-tech-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 55px;
+  padding: 12px 20px;
+  background-color: rgba(#c4c4c4, 0.1);
+}
