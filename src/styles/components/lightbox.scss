@@ -11,12 +11,6 @@
   height: 100%;
 }
 
-// TODO: remove?
-// .basicLightbox .basicLightbox__placeholder {
-//   height: auto;
-//   overflow: auto;
-// }
-
 .basicLightbox .basicLightbox__placeholder > * {
   position: static !important;
   max-width: 1024px !important;

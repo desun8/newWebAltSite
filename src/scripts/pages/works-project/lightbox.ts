@@ -4,9 +4,6 @@ import * as basicLightbox from "basiclightbox";
 import "basiclightbox/dist/basicLightbox.min.css";
 import "@/styles/components/lightbox.scss";
 
-// TODO: remove?
-// import SmoothScroll from "@/scripts/components/smoothScroll/SmoothScroll";
-
 export const lightbox = (elms: HTMLElement[]) => {
   elms.forEach((elm) => {
     const instance = basicLightbox.create(elm.children[0].outerHTML, {
@@ -18,14 +15,6 @@ export const lightbox = (elms: HTMLElement[]) => {
         };
 
         disableScroll(instance.element() as HTMLElement, APP.scrollbar);
-
-        // TODO: remove?
-        // setTimeout(() => {
-        //   const scrollbarInstance = new SmoothScroll(
-        //     document.querySelector(".basicLightbox")
-        //   );
-        //   scrollbarInstance.init();
-        // }, 100);
 
         return true;
       },
