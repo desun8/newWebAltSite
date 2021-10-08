@@ -1,7 +1,7 @@
 @use '../_config/functions/convert.scss' as *;
 
 .page-breadcrumbs {
-  @media (--md-max) {
+  @media (--lg-max) {
     display: none;
   }
 }
@@ -25,7 +25,7 @@
   --max-w: #{vw(482)};
   --mb: #{vw(78)};
 
-  @media (--md-max) {
+  @media (--lg-max) {
     display: none;
   }
 }
