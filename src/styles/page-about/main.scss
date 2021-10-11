@@ -1,5 +1,10 @@
 @use '../_config/functions/convert.scss' as *;
 
+body.theme-dark {
+  background-color: var(--c-black);
+  color: #fff;
+}
+
 .page-breadcrumbs {
   @media (--lg-max) {
     display: none;

@@ -1,5 +1,14 @@
 @use "../_config/functions/convert.scss" as *;
 
+.team {
+  position: relative;
+  z-index: 1;
+}
+
+.theme-dark .team {
+  color: #fff;
+}
+
 .team__text {
   --mb: 130px;
 

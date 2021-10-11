@@ -3,6 +3,14 @@
 .hero {
   margin-bottom: 100px;
   color: var(--c-dark-grey);
+
+  @media (--lg) {
+    margin-bottom: 100vh;
+  }
+}
+
+.theme-dark .hero {
+  color: #fff;
 }
 
 .hero__body {
@@ -15,10 +23,21 @@
 }
 
 .hero__content {
+  position: relative;
+  z-index: 1;
+
   @media (--lg) {
-    position: relative;
-    z-index: 1;
     grid-column: 1/6;
+  }
+}
+
+.hero__body .pin-spacer {
+  @media (--lg-max) {
+    grid-row: 1/2;
+  }
+
+  @media (--lg) {
+    grid-column: 7/13;
   }
 }
 
@@ -35,6 +54,7 @@
   @media (--lg) {
     grid-column: 7/13;
     height: vw(910);
+    transform-origin: 50% 0;
   }
 }
 
@@ -73,6 +93,10 @@
     line-height: 1.05;
     font-weight: 700;
   }
+}
+
+.theme-dark .hero__title {
+  color: #fff;
 }
 
 .hero-goals {
@@ -145,6 +169,12 @@
     height: 30px;
     filter: saturate(0);
     transition: filter 0.3s;
+  }
+}
+
+.theme-dark .hero-tech-list__item {
+  @media (--md-max) {
+    background-color: rgba(#c4c4c4, 0.45);
   }
 }
 
