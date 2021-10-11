@@ -20,6 +20,10 @@
   text-align: justify;
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing);
+
+  @media (max-width: 370px) {
+    font-size: 30px;
+  }
 }
 
 .team-section {
