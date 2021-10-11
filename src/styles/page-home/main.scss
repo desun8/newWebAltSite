@@ -1,17 +1,5 @@
 @use "../_config" as *;
 
-body {
-  @include transition-switch-theme(background-color);
-}
-
-body.theme-dark {
-  background-color: var(--c-dark-grey);
-}
-
-body.theme-sun {
-  background-color: var(--c-red);
-}
-
 .page-home {
   --textColor: var(--c-dark-grey);
   color: var(--textColor);
@@ -31,7 +19,7 @@ body.theme-sun {
   min-height: 100vh;
   margin-bottom: vh(150);
   // content-visibility: auto;
-  
+
   @media screen and (--tablet-sm) {
     margin-bottom: 50px;
   }

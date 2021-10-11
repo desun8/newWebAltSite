@@ -1,0 +1,5 @@
+@use "../../_config/mixins/transition.scss" as *;
+
+body {
+  @include transition-switch-theme(background-color);
+}

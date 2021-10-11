@@ -1,0 +1,5 @@
+@use "transition.scss";
+
+body.theme-dark {
+  background-color: var(--c-dark-grey);
+}
