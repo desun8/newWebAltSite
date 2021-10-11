@@ -4,7 +4,7 @@
 
   grid-column: span var(--size) / span var(--size);
 
-  @media (--lg) {
+  @media (--md) {
     --pos: calc(var(--pos-y, 1) / 19.2 * 1vw);
   }
 }
@@ -13,26 +13,26 @@
 .team-card--vertical,
 .team-card--vertical-ultra,
 .team-card--square {
-  @media (--lg-max) {
+  @media (--md-max) {
     --size: 4;
   }
 }
 
 .team-card--main {
-  @media (--lg) {
+  @media (--md) {
     --size: 7;
   }
 }
 
 .team-card--vertical,
 .team-card--vertical-ultra {
-  @media (--lg) {
+  @media (--md) {
     --size: 3;
   }
 }
 
 .team-card--square {
-  @media (--lg) {
+  @media (--md) {
     --size: 4;
   }
 }
@@ -56,21 +56,24 @@
 }
 
 .team-card--main {
-  @media (--lg) {
+  @media (--md) {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (--lg) {
     column-gap: var(--base-gap);
   }
 }
 
 .team-card--main .team-card__video-container {
-  @media (--lg) {
+  @media (--md) {
     grid-column: 1/5;
   }
 }
 
 .team-card--main .team-card__text {
-  @media (--lg) {
+  @media (--md) {
     grid-column: 6/8;
   }
 }
@@ -101,13 +104,13 @@
   font-size: 18px;
   font-weight: 300;
 
-  @media (--lg) {
+  @media (--md) {
     margin-bottom: 8px;
   }
 }
 
 .team-card--main .team-card__name {
-  @media (--lg) {
+  @media (--md) {
     margin-top: 0;
     font-size: 48px;
     font-weight: 100;
@@ -121,7 +124,7 @@
 }
 
 .team-card--main .team-card__position {
-  @media (--lg) {
+  @media (--md) {
     font-size: 22px;
   }
 }

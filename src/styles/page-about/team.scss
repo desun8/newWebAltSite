@@ -16,7 +16,7 @@
 .team-section {
   margin-bottom: 84px;
 
-  @media (--lg) {
+  @media (--md) {
     margin-bottom: 126px;
   }
 }
@@ -25,22 +25,26 @@
   display: grid;
   column-gap: var(--base-gap);
 
-  @media (--lg-max) {
+  @media (--md-max) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     row-gap: 50px;
   }
 
-  @media (--lg) {
+  @media (--md) {
     grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  @media (--md) and (--lg-max) {
+    column-gap: 0;
   }
 }
 
 .team-section__wrapper > .team-card {
-  @media (--lg-max) {
+  @media (--md-max) {
     // grid-column: span 5 / span 5;
   }
 
-  @media (--lg) {
+  @media (--md) {
     grid-column-start: 2;
   }
 }
@@ -49,7 +53,7 @@
   width: var(--width, 100%);
   margin-bottom: 40px;
 
-  @media (--lg) {
+  @media (--md) {
     margin-bottom: 80px;
   }
 }
