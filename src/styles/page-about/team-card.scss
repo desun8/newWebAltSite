@@ -1,18 +1,20 @@
 .team-card {
+  --size: 5;
   --ratio-video: calc(395 / 700 * 100%);
 
-  @media (--lg) {
-    --size: 5;
-    --pos: calc(var(--pos-y, 1) / 19.2 * 1vw);
+  grid-column: span var(--size) / span var(--size);
 
-    grid-column: span var(--size) / span var(--size);
+  @media (--lg) {
+    --pos: calc(var(--pos-y, 1) / 19.2 * 1vw);
   }
 }
 
-// item size (grid)
-.team-card:nth-child(2n) {
+.team-card--main,
+.team-card--vertical,
+.team-card--vertical-ultra,
+.team-card--square {
   @media (--lg-max) {
-    grid-column-start: 2;
+    --size: 4;
   }
 }
 
@@ -91,18 +93,16 @@
 }
 
 .team-card__text {
-  font-size: 14px;
   line-height: 1.2;
 }
 
 .team-card__name {
-  margin-top: 10px;
+  margin-top: 8px;
+  font-size: 18px;
   font-weight: 300;
 
   @media (--lg) {
     margin-bottom: 8px;
-    font-size: 18px;
-    font-weight: 300;
   }
 }
 
@@ -116,6 +116,7 @@
 
 .team-card__position {
   color: var(--c-sun);
+  font-weight: 14;
   font-weight: 500;
 }
 

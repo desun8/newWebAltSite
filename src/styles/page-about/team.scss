@@ -14,6 +14,8 @@
 }
 
 .team-section {
+  margin-bottom: 84px;
+
   @media (--lg) {
     margin-bottom: 126px;
   }
@@ -25,8 +27,7 @@
 
   @media (--lg-max) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-
-    row-gap: 102px;
+    row-gap: 50px;
   }
 
   @media (--lg) {
@@ -36,7 +37,7 @@
 
 .team-section__wrapper > .team-card {
   @media (--lg-max) {
-    grid-column: span 4 / span 4;
+    // grid-column: span 5 / span 5;
   }
 
   @media (--lg) {
@@ -54,7 +55,7 @@
 }
 
 .team-section__title--management {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(335, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(997)};
@@ -62,7 +63,7 @@
 }
 
 .team-section__title--sales {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(229, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(703)};
@@ -70,7 +71,7 @@
 }
 
 .team-section__title--hr {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(71, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(184)};
@@ -78,7 +79,7 @@
 }
 
 .team-section__title--context {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(271, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(700)};
@@ -86,7 +87,7 @@
 }
 
 .team-section__title--smm {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(121, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(318)};
@@ -94,7 +95,7 @@
 }
 
 .team-section__title--dev {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(333, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(857)};
