@@ -6,6 +6,8 @@ import { founderAnimations } from "./pages/about/founderAnimations";
 import { typewriteAnimation } from "./pages/works-project/typewriteAnimation";
 import { clientsAnimation } from "./pages/about/clientsAnimation";
 import { reviews } from "./pages/about/reviews";
+import { teamVideoAutoplay } from "./pages/about/teamVideoAutoplay";
+import { teamAnimations } from "./pages/about/teamAnimations";
 
 initRoot();
 
@@ -28,6 +30,8 @@ if (APP.isDesktop) {
   }
 }
 
+teamAnimations();
+teamVideoAutoplay();
 founderAnimations();
 reviews();
 clientsAnimation();

@@ -1,0 +1,5 @@
+@use "transition.scss";
+
+body.theme-sun {
+  background-color: var(--c-sun);
+}

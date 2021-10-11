@@ -1,6 +1,6 @@
 @use "../_config/utilities/custom-media";
-//@use "/fonts/suisseIntl-light";
-
+@use "../components/theme/dark.scss";
+@use "../components/theme/sun.scss";
 @use "main";
 @use "hero";
 @use "block";

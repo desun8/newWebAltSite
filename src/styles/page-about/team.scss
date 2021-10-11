@@ -1,5 +1,14 @@
 @use "../_config/functions/convert.scss" as *;
 
+.team {
+  position: relative;
+  z-index: 1;
+}
+
+.theme-dark .team {
+  color: #fff;
+}
+
 .team__text {
   --mb: 130px;
 
@@ -14,7 +23,9 @@
 }
 
 .team-section {
-  @media (--lg) {
+  margin-bottom: 84px;
+
+  @media (--md) {
     margin-bottom: 126px;
   }
 }
@@ -23,23 +34,26 @@
   display: grid;
   column-gap: var(--base-gap);
 
-  @media (--lg-max) {
+  @media (--md-max) {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-
-    row-gap: 102px;
+    row-gap: 50px;
   }
 
-  @media (--lg) {
+  @media (--md) {
     grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  @media (--md) and (--lg-max) {
+    column-gap: 0;
   }
 }
 
 .team-section__wrapper > .team-card {
-  @media (--lg-max) {
-    grid-column: span 4 / span 4;
+  @media (--md-max) {
+    // grid-column: span 5 / span 5;
   }
 
-  @media (--lg) {
+  @media (--md) {
     grid-column-start: 2;
   }
 }
@@ -48,13 +62,13 @@
   width: var(--width, 100%);
   margin-bottom: 40px;
 
-  @media (--lg) {
+  @media (--md) {
     margin-bottom: 80px;
   }
 }
 
 .team-section__title--management {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(335, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(997)};
@@ -62,7 +76,7 @@
 }
 
 .team-section__title--sales {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(229, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(703)};
@@ -70,7 +84,7 @@
 }
 
 .team-section__title--hr {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(71, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(184)};
@@ -78,7 +92,7 @@
 }
 
 .team-section__title--context {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(271, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(700)};
@@ -86,7 +100,7 @@
 }
 
 .team-section__title--smm {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(121, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(318)};
@@ -94,7 +108,7 @@
 }
 
 .team-section__title--dev {
-  --width: #{vw(1, $mobile-viewport)};
+  --width: #{vw(333, $mobile-viewport)};
 
   @media (--lg) {
     --width: #{vw(857)};

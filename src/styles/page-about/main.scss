@@ -1,5 +1,10 @@
 @use '../_config/functions/convert.scss' as *;
 
+body.theme-dark {
+  background-color: var(--c-black);
+  color: #fff;
+}
+
 .page-breadcrumbs {
   @media (--lg-max) {
     display: none;
@@ -22,8 +27,8 @@
 }
 
 .title-svg--hero {
-  --max-w: #{vw(482)};
-  --mb: #{vw(78)};
+  --max-w: #{vw(440)};
+  --mb: #{vw(106)};
 
   @media (--lg-max) {
     display: none;
@@ -31,11 +36,11 @@
 }
 
 .title-svg--founder {
-  --max-w: #{vw(252, $mobile-viewport)};
+  --max-w: #{vw(335, $mobile-viewport)};
 
   @media (--md) {
-    --max-w: #{vw(678)};
-    --mb: #{vw(90)};
+    --max-w: #{vw(973)};
+    --mb: #{vw(140)};
   }
 
   @media (--lg) {
