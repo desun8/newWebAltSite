@@ -3,6 +3,15 @@
 .team {
   position: relative;
   z-index: 1;
+  margin-bottom: 250px;
+
+  @media (--md) {
+    margin-bottom: 350px;
+  }
+
+  @media (--xxxl) {
+    margin-bottom: 505px;
+  }
 }
 
 .theme-dark .team {
@@ -20,6 +29,10 @@
   text-align: justify;
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing);
+
+  @media (max-width: 370px) {
+    font-size: 30px;
+  }
 }
 
 .team-section {
