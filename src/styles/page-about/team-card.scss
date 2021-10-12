@@ -97,8 +97,7 @@
 }
 
 .team-card__video-container--fix-ratio video {
-  height: 115%;
-  object-position: 50% -35px;
+  object-fit: cover;
 }
 
 .team-card__text {
