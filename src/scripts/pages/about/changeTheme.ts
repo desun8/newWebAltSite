@@ -1,10 +1,21 @@
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-export const changeTheme = (elm: HTMLElement) => {
+const isMdScreen = !window.matchMedia("(max-width: 48.99em)").matches;
+
+export const changeTheme = (triggerElm: HTMLElement, endElm?: HTMLElement) => {
   ScrollTrigger.create({
-    trigger: elm,
+    trigger: triggerElm,
     start: "top bottom",
-    end: "bottom center",
+    end: () => {
+      if (!endElm) return "bottom center";
+
+      if (isMdScreen) {
+        return "bottom center";
+      } else {
+        const end = endElm.getBoundingClientRect().height * -0.65;
+        return `bottom ${end}`;
+      }
+    },
     onToggle({ isActive }) {
       if (isActive) {
         document.body.classList.add("theme-dark");

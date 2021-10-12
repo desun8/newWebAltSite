@@ -9,6 +9,8 @@ import { reviews } from "./pages/about/reviews";
 import { teamVideoAutoplay } from "./pages/about/teamVideoAutoplay";
 import { teamAnimations } from "./pages/about/teamAnimations";
 
+const isMdScreen = !window.matchMedia("(max-width: 47.99em)").matches;
+
 initRoot();
 
 if (APP.isDesktop) {
@@ -28,6 +30,12 @@ if (APP.isDesktop) {
       }
     );
   }
+}
+
+if (isMdScreen) {
+  import("./pages/about/recruitAnimation").then(({ recruitAnimation }) => {
+    recruitAnimation();
+  });
 }
 
 teamAnimations();
