@@ -1,0 +1,147 @@
+@use "../_config/functions/convert.scss" as *;
+
+.team-unnamed {
+  position: relative;
+  margin-bottom: 145px;
+
+  @media (--md) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-items: start;
+    align-items: center;
+    margin-bottom: 386px;
+  }
+
+  @media (--lg) {
+    column-gap: var(--base-gap);
+  }
+}
+
+.team-unnamed__bg {
+  position: absolute;
+  right: var(--base-page-gap-negative);
+  bottom: -105px;
+  width: vw(123, $mobile-viewport);
+  height: vw(400, $mobile-viewport);
+
+  @media (--md) {
+    right: calc(var(--base-page-gap-negative) * 1.3);
+    bottom: -190px;
+    width: 207px;
+    height: 423px;
+  }
+}
+
+.team-unnamed__bg::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-black);
+  mask: url("/images/about/team-symbols-bg.svg") no-repeat center/cover;
+
+  @media (--md) {
+    mask-size: 220px 759px;
+    mask-position: left top;
+  }
+}
+
+.theme-dark .team-unnamed__bg::after {
+  background-color: #fff;
+}
+
+.team-unnamed__title {
+  margin-bottom: 42px;
+  font-size: 36px;
+  line-height: 0.96;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media (--md) {
+    grid-column: 6/13;
+    align-self: end;
+    margin-bottom: 50px;
+  }
+}
+
+.team-unnamed__gif {
+  position: relative;
+  width: vw(264, $mobile-viewport);
+  height: vw(352, $mobile-viewport);
+  overflow: hidden;
+
+  @media (--md) {
+    grid-column: 2/5;
+    grid-row: 1/3;
+
+    width: 100%;
+    height: 0;
+    padding-top: calc(551 / 413 * 100%);
+  }
+}
+
+.team-unnamed__gif video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+
+.team-unnamed-list {
+  position: relative;
+  margin-bottom: 42px;
+
+  @media (--md) {
+    grid-column: 6/12;
+    align-self: start;
+    margin-bottom: 0;
+  }
+}
+
+.team-unnamed-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 32%;
+  width: 1px;
+  background-color: rgba(#131313, 0.4);
+
+  @media (--md) {
+    left: 35%;
+  }
+}
+
+.theme-dark .team-unnamed-list::before {
+  background-color: rgba(#fff, 0.4);
+}
+
+.team-unnamed-list__item {
+  display: grid;
+
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+
+  @media (--md) {
+    column-gap: 30px;
+  }
+}
+
+.team-unnamed-list__item:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.team-unnamed-list__name {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.team-unnamed-list__position {
+  color: var(--c-sun);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
