@@ -5,6 +5,7 @@ import APP from "../APP";
 import { initFooter } from "./initFooter";
 import { initMenu } from "./initMenu";
 import { addNoise } from "./noise";
+import { pageTransitions } from "./pageTransitions";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
 
@@ -32,6 +33,7 @@ export const initCore = () => {
 
   initSmoothScroll();
   initProgressBar();
+  pageTransitions();
 
   if (APP.scrollbar && APP.isDesktop) {
     addNoise();

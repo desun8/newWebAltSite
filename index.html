@@ -9,8 +9,20 @@
     <script>
       window.RECAPTCHA_KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
     </script>
+
+    <style>
+      .preloader {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #262626;
+        z-index: 9999;
+      }
+    </style>
   </head>
-  <body id="body">
+  <body id="body" data-barba="wrapper">
     <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
       <symbol id="seo-symbols" viewBox="0 0 6 437">
         <path
@@ -70,7 +82,11 @@
     <include src="components/subscribe-banner.html"></include>
 
     <div id="scroll-container">
-      <main class="page-home">
+      <main
+        class="page-home"
+        data-barba="container"
+        data-barba-namespace="home"
+      >
         <section class="hero">
           <div class="hero__wrap-center">
             <h1
@@ -783,7 +799,11 @@
 
       <include src="page-footer.html"></include>
 
-      <div class="footer-redirect">
+      <div
+        class="footer-redirect"
+        data-barba="container"
+        data-barba-namespace="footer-redirect"
+      >
         <a href="" class="footer-redirect__link"></a>
         <div class="footer-redirect__wrap">
           <div class="footer-redirect__title">
