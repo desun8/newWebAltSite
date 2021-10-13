@@ -104,10 +104,13 @@
 
 .review-item__text-container {
   @media (--md-max) {
-    overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
+    overflow: hidden;
+
+    font-size: 14px;
+    line-height: 1.6;
   }
 }
 
@@ -138,9 +141,15 @@
 }
 
 .review-item__text {
-  font-size: 14px;
-  line-height: 1.6;
+  @media (--md-max) {
+    display: inline;
+  }
+
   font-weight: 300;
+}
+
+.review-item__text-container.is-active .review-item__text {
+  display: block;
 }
 
 .review-item__text:not(:last-child) {
