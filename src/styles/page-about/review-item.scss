@@ -159,3 +159,10 @@
     font-size: 14px;
   }
 }
+
+.review-item__site.link--uppercase {
+  @media (--md-max) {
+    --icon-size: 0.6em;
+    text-transform: inherit;
+  }
+}

@@ -1,15 +1,12 @@
 @use "../_config/functions/convert.scss" as *;
 
 .awards-describe-list {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   font-size: 14px;
+  font-weight: 300;
 
   @media (--md) {
-    margin-bottom: vw(165);
-  }
-
-  @media (--xl) {
-    margin-bottom: 165px;
+    margin-bottom: 0;
   }
 }
 
@@ -34,8 +31,4 @@
   @media (--md) {
     margin-bottom: 28px;
   }
-}
-
-.awards-describe-list__title {
-  font-weight: 300;
 }
