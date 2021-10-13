@@ -1,0 +1,94 @@
+@use "../_config/functions/convert.scss" as *;
+
+.team-section {
+  margin-bottom: 84px;
+
+  @media (--md) {
+    margin-bottom: 126px;
+  }
+}
+
+.team-section__wrapper {
+  display: grid;
+  column-gap: var(--base-gap);
+
+  @media (--md-max) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 50px;
+  }
+
+  @media (--md) {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  @media (--md) and (--lg-max) {
+    column-gap: 0;
+  }
+}
+
+.team-section__wrapper > .team-card {
+  @media (--md-max) {
+    // grid-column: span 5 / span 5;
+  }
+
+  @media (--md) {
+    grid-column-start: 2;
+  }
+}
+
+.team-section__title {
+  width: var(--width, 100%);
+  margin-bottom: 50px;
+
+  @media (--md) {
+    margin-bottom: 80px;
+  }
+}
+
+.team-section__title--management {
+  --width: #{vw(335, $mobile-viewport)};
+
+  @media (--lg) {
+    --width: #{vw(997)};
+  }
+}
+
+.team-section__title--sales {
+  --width: #{vw(229, $mobile-viewport)};
+
+  @media (--lg) {
+    --width: #{vw(703)};
+  }
+}
+
+.team-section__title--hr {
+  --width: #{vw(71, $mobile-viewport)};
+
+  @media (--lg) {
+    --width: #{vw(184)};
+  }
+}
+
+.team-section__title--context {
+  --width: #{vw(271, $mobile-viewport)};
+
+  @media (--lg) {
+    --width: #{vw(700)};
+  }
+}
+
+.team-section__title--smm {
+  --width: #{vw(121, $mobile-viewport)};
+
+  @media (--lg) {
+    --width: #{vw(318)};
+  }
+}
+
+.team-section__title--dev {
+  --width: #{vw(333, $mobile-viewport)};
+
+  @media (--lg) {
+    --width: #{vw(857)};
+  }
+}

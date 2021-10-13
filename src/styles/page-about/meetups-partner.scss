@@ -60,7 +60,7 @@
     --bg-size: 169px;
   }
 
-  @media (--md) {
+  @media (--lg) {
     --bg-size: calc(169 / var(--base-w) * 100%);
   }
 }

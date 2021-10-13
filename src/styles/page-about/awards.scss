@@ -6,7 +6,11 @@
   margin-bottom: 270px;
 
   @media (--lg) {
-    margin-bottom: vw(610);
+    margin-bottom: vw(450);
+
+    @media (--xxxl) {
+      margin-bottom: vw(550);
+    }
   }
 }
 
@@ -27,8 +31,12 @@
     transform-origin: 50% -60%;
   }
 
+  @media (--xl) {
+    bottom: 0;
+  }
+
   @media (--xxxl) {
-    bottom: vw(-100);
+    bottom: vw(-250);
   }
 }
 
