@@ -14,7 +14,7 @@
       :kind="item.kind"
       :tags="item.tags"
       :text="item.text"
-      :imgPath="item.imgPath"
+      :imgPath="item.img"
       :href="item.href"
       :set-item-info="setItemInfo"
     ></list-item>
