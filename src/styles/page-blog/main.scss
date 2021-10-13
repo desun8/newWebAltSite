@@ -6,25 +6,25 @@
 
 .page-blog__wrap {
   @apply lg:pt-32;
-  
+
   @include wrap-new();
 }
 
 .page-blog__title {
-  width: vw(382);
+  width: vw(393);
   margin-bottom: vw(32);
   color: var(--c-dark-grey);
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
-    width: vw(382, $mobile-viewport);
+    width: vw(281, $mobile-viewport);
     margin-bottom: 42px;
   }
 }
 
 .page-blog__content {
   @include grid(12);
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     display: block;
@@ -33,9 +33,9 @@
 
 .page-blog__articles {
   @include grid(7, 2, 1fr, min-content);
-  
+
   grid-column: 1/8;
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     display: block;
