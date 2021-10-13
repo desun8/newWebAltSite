@@ -245,6 +245,38 @@ export default {
         },
       });
     },
+
+    scrollPinMobile() {
+      const pinContainer = this.$refs.pinContainer;
+      const pageHeader = document.querySelector(".page-header");
+
+      if (pinContainer === null || pageHeader === null) {
+        return;
+      }
+
+      pageHeader.style.backgroundColor = "#fff";
+
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        pin: pageHeader,
+        pinSpacing: false,
+        markers: true,
+      });
+
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: () => {
+          const start =
+            pinContainer.getBoundingClientRect().top -
+            pageHeader.getBoundingClientRect().height;
+
+          return `${start} top`;
+        },
+        pin: pinContainer,
+        pinSpacing: false,
+        markers: true,
+      });
+    },
   },
 
   mounted() {
@@ -254,6 +286,8 @@ export default {
       }
 
       document.addEventListener("pointerup", this.handleClickOutside);
+    } else {
+      this.scrollPinMobile();
     }
   },
 };

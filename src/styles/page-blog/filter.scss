@@ -14,6 +14,11 @@
   margin-bottom: 30px;
   margin-left: 0;
 
+  @media (--lg-max) {
+    background-color: #fff;
+    z-index: 10;
+  }
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     margin-bottom: vw(55);
