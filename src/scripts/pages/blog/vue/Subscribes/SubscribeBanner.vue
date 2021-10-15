@@ -134,6 +134,10 @@ export default {
   }
 }
 
+.subscribe-block * ::selection {
+  background-color: var(--c-dark-grey);
+}
+
 .subscribe-block__text {
   // noinspection CssInvalidMediaFeature
   @media (--lg) {

@@ -29,6 +29,10 @@
   transform: translateX(0);
 }
 
+.subscribe-banner-block *::selection {
+  background-color: var(--c-dark-grey);
+}
+
 .subscribe-banner--static .subscribe-banner-block {
   @apply static grid-cols-[100px,1fr] gap-0 items-stretch pr-0 bg-transparent transform translate-x-0 overflow-hidden;
 
