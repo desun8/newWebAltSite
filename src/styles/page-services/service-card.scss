@@ -156,7 +156,7 @@
   margin: 0 vw(-70);
   padding: em(72, 28) em(90, 28);
 
-  color: var(--c-dark-grey);
+  color: var(--c-black);
   background-color: var(--bg-color);
   text-transform: uppercase;
   font-weight: 700;
@@ -278,6 +278,10 @@
 
   .icon-arrow {
     --pos-x: calc(100% - (var(--gap) + var(--size)));
+  }
+
+  .icon-arrow svg {
+    opacity: 1;
   }
 }
 

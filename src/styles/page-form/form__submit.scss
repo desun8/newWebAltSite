@@ -2,7 +2,7 @@
 
 .form__submit {
   @media (--lg) {
-    @apply text-dark-grey;
+    @apply text-black;
 
     --gap: #{em(135, 54)};
     --pd: #{em(40, 54)} 0;
@@ -40,5 +40,13 @@ body:not(.os-mac) .form__submit {
 }
 
 .form__submit .link__arrow {
-  @apply lg:fill-dark-grey-opacity-10;
+  @media (--lg) {
+    fill: rgba(#131313, 0.1);
+  }
+}
+
+.form__submit:hover .link__arrow {
+  @media (--lg) {
+    fill: rgba(#131313, 1);
+  }
 }
