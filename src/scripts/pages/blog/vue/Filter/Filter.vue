@@ -45,7 +45,7 @@
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 
 import "@/styles/page-blog/filter.scss";
 import FilterItem from "./FilterItem.vue";

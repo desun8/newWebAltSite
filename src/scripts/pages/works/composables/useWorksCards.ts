@@ -1,4 +1,4 @@
-import { random } from "lodash";
+import { random } from "lodash-es";
 import { computed, onMounted, Ref, ref } from "vue";
 import { getWorksMain } from "../api/getWorksMain";
 import { CardResponse, FilterTypes } from "../types";

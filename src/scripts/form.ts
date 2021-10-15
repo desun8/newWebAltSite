@@ -1,4 +1,4 @@
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 import initRoot from "./root";
 import "../styles/form.scss";
 import APP from "./app/APP";

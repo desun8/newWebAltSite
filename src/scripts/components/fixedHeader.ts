@@ -1,4 +1,4 @@
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 import gsap from "gsap";
 import APP from "../app/APP";
 

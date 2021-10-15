@@ -1,6 +1,6 @@
 //скролл анимация символов (по краям блоков)
 import { gsap } from 'gsap';
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-es';
 
 export default class SymbolsAnimation {
   constructor(elms, parentBlock) {
