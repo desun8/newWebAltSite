@@ -7,7 +7,6 @@ import Counter from "../components/counter";
 import AwardsList from "../pages/home/awards-list";
 import RedirectFooter from "../pages/home/redirectFooter";
 import BlockText from "../pages/home/blockText";
-import CanvasSphere from "../pages/home/canvasShpere";
 import HeroLogoAnimation from "../pages/home/heroLogoAnimation";
 import marketingMagmaParallax from "../pages/home/marketingMagmaParallax";
 import { marketingTriangleAnimation } from "../pages/home/marketingTriangleAnimation";
@@ -131,7 +130,10 @@ class HomeApp extends Index {
 
     this.changeTheme.init();
     this.awardsList.init();
-    new CanvasSphere();
+
+    import("../pages/home/canvasSphere").then(({ default: CanvasSphere }) => {
+      new CanvasSphere();
+    });
 
     if (this.$elms.blockMarketing) {
       marketingTriangleAnimation();

@@ -26,6 +26,7 @@
     "@types/simplebar": "^5.3.3",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.1.2",
+    "@yushijinhun/three-minifier-rollup": "^0.3.0",
     "autoprefixer": "^10.2.6",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6",
