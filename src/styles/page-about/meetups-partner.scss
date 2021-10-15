@@ -1,0 +1,92 @@
+.meetups-partner {
+  display: grid;
+  grid-template-columns: calc(127 / 349 * 100%) 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 10px;
+
+  @media (--md) {
+    row-gap: 18px;
+    column-gap: 55px;
+  }
+}
+
+.meetups-partner__img {
+  --bg-img: url("");
+  --bg-size: 80px;
+
+  grid-row: 1/-1;
+  align-self: stretch;
+  min-height: 196px;
+  padding: 50px 20px;
+  border: 1px solid rgba(#000, 0.2);
+  background-image: var(--bg-img);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--bg-size);
+  transition: border-color 0.3s;
+
+  @media (--lg) {
+    --base-w: 232;
+
+    min-height: 0;
+    height: 0;
+    padding-top: calc(var(--base-w) / 240 * 100%);
+    padding-bottom: 0;
+  }
+}
+
+.meetups-partner:hover .meetups-partner__img {
+  border-color: rgb(220, 48, 0);
+}
+
+.meetups-partner__img--visotsky {
+  --bg-img: url("/images/about/logo-visotsky.svg");
+  --bg-size: 92px;
+
+  @media (--md) {
+    --bg-size: 124px;
+  }
+
+  @media (--lg) {
+    --bg-size: calc(124 / var(--base-w) * 100%);
+  }
+}
+
+.meetups-partner__img--bbooster {
+  --bg-size: 92px;
+
+  @media (--md) {
+    --bg-size: 169px;
+  }
+
+  @media (--lg) {
+    --bg-size: calc(169 / var(--base-w) * 100%);
+  }
+}
+
+html.no-webp .meetups-partner__img--bbooster {
+  --bg-img: url("/images/about/logo-bbooster.png");
+}
+
+html.webp .meetups-partner__img--bbooster {
+  --bg-img: url("/images/about/logo-bbooster.webp");
+}
+
+.meetups-partner__text {
+  align-self: end;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 300;
+  text-align: justify;
+
+  @media (--md) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.meetups-partner__link {
+  align-self: start;
+  font-weight: 500;
+}

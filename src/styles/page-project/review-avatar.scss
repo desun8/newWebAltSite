@@ -1,3 +1,4 @@
+@use "../components/btn-play.scss";
 @use "../_config/functions/convert.scss" as *;
 
 @keyframes there-and-back-again {
@@ -64,41 +65,7 @@
   bottom: 64px;
   right: 0;
 
-  display: grid;
-  gap: 16px;
-  justify-content: center;
-  align-content: end;
-
-  width: 102px;
-  height: 102px;
-  padding-bottom: 12px;
-
-  color: rgba(#fff, 0.5);
-  background-color: var(--c-sun);
-  font-size: 12px;
-  line-height: 1;
-  overflow: hidden;
-  transition: background-color 0.3s;
-
   @media (--lg) {
     bottom: 0;
   }
-}
-
-.review-avatar__play .icon-play {
-  display: block;
-  margin: 0 auto;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 13px 0 13px 22.5px;
-  border-color: transparent transparent transparent #fff;
-}
-
-.review-avatar__play:hover {
-  background-color: darken(#f55000, 3);
-}
-
-.review-avatar__play:hover .icon-play {
-  animation: there-and-back-again 1s;
 }

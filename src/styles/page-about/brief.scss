@@ -1,0 +1,130 @@
+@use "../_config/functions/convert.scss" as *;
+
+.brief {
+  position: relative;
+  color: var(--c-dark-grey);
+  margin-bottom: 100px;
+
+  @media (--md) {
+    padding-bottom: 0;
+  }
+
+  @media (--lg) {
+    margin-bottom: vw(275);
+  }
+}
+
+.brief__title {
+  margin-bottom: 14px;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media (--md) {
+    margin-bottom: 38px;
+    font-size: 68px;
+  }
+}
+
+.brief__text {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+
+  @media (--md) {
+    margin-bottom: 38px;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  @media (--lg) {
+    max-width: vw(995);
+  }
+}
+
+.brief__text .link__text::after {
+  transform: scaleX(0);
+}
+
+.brief__bg {
+  --ratio: calc(430 / 366 * 100%);
+
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: vw(366, $mobile-viewport);
+  height: vw(195, $mobile-viewport);
+  overflow: hidden;
+  z-index: -1;
+
+  @media (--lg) {
+    top: vw(-250);
+    right: var(--base-page-gap-negative);
+    left: unset;
+    transform: none;
+
+    width: vw(667);
+    height: vw(785);
+  }
+
+  @media (--xl) {
+    right: 0;
+  }
+}
+
+.brief__bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: vw(430, $mobile-viewport);
+  background: url("/images/about/brief-bg.svg") no-repeat center top/contain;
+  transform-origin: 40% 50%;
+  transform: translateX(25px) rotate(15deg);
+
+  @media (--md) {
+    display: none;
+  }
+
+  @media (--lg) {
+    display: block;
+    height: 100%;
+    background-position: center;
+    background-size: 85%;
+  }
+}
+
+.brief-contacts {
+  @media (--md) {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 128px;
+  }
+}
+
+.brief-contacts .menu-contact {
+  margin-bottom: 0;
+}
+
+.brief-contacts .menu-contact__name {
+  font-size: 12px;
+}
+
+.brief-contacts .menu-contact__link {
+  @media (--md-max) {
+    color: var(--c-sun);
+    font-size: 24px;
+  }
+}
+
+.brief-contacts .menu-contact__link .link__icon {
+  @media (--md-max) {
+    display: none;
+  }
+}

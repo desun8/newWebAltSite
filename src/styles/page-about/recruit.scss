@@ -1,0 +1,155 @@
+@use "../_config/functions/convert.scss" as *;
+@use "../components/subscribe-banner.scss";
+
+.recruit {
+  position: relative;
+  margin-bottom: 218px;
+
+  @media (--md) {
+    margin-bottom: 212px;
+    margin-right: var(--base-page-gap-negative);
+    margin-left: var(--base-page-gap-negative);
+    padding-right: vw(65);
+  }
+}
+
+.theme-dark .recruit {
+  color: #fff;
+}
+
+.recruit::before {
+  @media (--md-max) {
+    content: "";
+    position: absolute;
+    top: -25%;
+    left: var(--base-page-gap-negative);
+
+    width: 100%;
+    height: 478px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+.no-webp .recruit::before {
+  background-image: url("/images/about/recruit-bg-bw.png");
+}
+
+.webp .recruit::before {
+  background-image: url("/images/about/recruit-bg-bw.webp");
+}
+
+.recruit__text {
+  margin-bottom: 28px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.recruit__bg {
+  margin-right: 20px;
+  margin-left: auto;
+  margin-bottom: 128px;
+  width: 232px;
+  height: 232px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.no-webp .recruit__bg {
+  background-image: url("/images/about/recruit-bg-color.png");
+}
+
+.webp .recruit__bg {
+  background-image: url("/images/about/recruit-bg-color.webp");
+}
+
+.recruit__tagline {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 100;
+
+  @media (--md) {
+    max-width: 280px;
+    font-size: 48px;
+  }
+
+  @media (--lg) {
+    max-width: 380px;
+    font-size: 64px;
+  }
+}
+
+.recruit__bg-block {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 600px;
+  min-height: 600px;
+  margin: 0 auto;
+
+  @media (--xl) {
+    min-width: 450px;
+    min-height: 450px;
+  }
+
+  @media (--xxxl) {
+    width: vw(830);
+    height: vw(830);
+  }
+}
+
+.recruit__bg-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.no-webp .recruit__bg-block::before {
+  background-image: url("/images/about/recruit-bg-lg.png");
+}
+
+.webp .recruit__bg-block::before {
+  background-image: url("/images/about/recruit-bg-lg.webp");
+}
+
+.recruit .subscribe-banner--static .subscribe-banner-block {
+  grid-template-columns: 124px auto;
+
+  @media (--lg) {
+    grid-template-columns: 156px auto;
+  }
+}
+
+.recruit .subscribe-banner-block__icon {
+  width: 124px;
+  height: 124px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 64px;
+
+  @media (--lg) {
+    width: 156px;
+    height: 156px;
+    background-size: 92px;
+  }
+}
+
+.no-webp .recruit .subscribe-banner-block__icon {
+  background-image: url("/images/about/recruit-bg-color.png");
+}
+
+.webp .recruit .subscribe-banner-block__icon {
+  background-image: url("/images/about/recruit-bg-color.webp");
+}

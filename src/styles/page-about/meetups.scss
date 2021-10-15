@@ -1,0 +1,74 @@
+@use "../_config/functions/convert.scss" as *;
+
+.meetups {
+  position: relative;
+  margin-bottom: 110px;
+  color: var(--c-dark-grey);
+
+  @media (--lg) {
+    margin-bottom: 220px;
+  }
+}
+
+.meetups__bg {
+  --bg-img: url("/images/about/grid.png");
+
+  position: absolute;
+  top: -40px;
+  right: var(--base-page-gap-negative);
+  width: 162px;
+  height: 236px;
+  background: var(--bg-img) no-repeat center/contain;
+
+  @media (--lg) {
+    --bg-img: url("/images/about/grid--lg.png");
+
+    top: 0;
+    left: var(--base-page-gap-negative);
+    width: vw(615);
+    height: vw(446);
+    background: var(--c-dark-grey);
+    mask: var(--bg-img) no-repeat center/contain;
+    opacity: 0.2;
+    transition-property: opacity, background-color;
+    transition-duration: 0.3s;
+  }
+}
+
+.meetups__bg:hover,
+.meetups__text:hover + .meetups__bg {
+  background-color: var(--c-sun);
+  opacity: 0.5;
+}
+
+.meetups__text {
+  position: relative;
+  z-index: 1;
+
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 100;
+
+  @media (--lg-max) {
+    margin-bottom: 70px;
+  }
+
+  @media (--md) {
+    font-size: 36px;
+  }
+
+  @media (--lg) {
+    padding-top: vw(48);
+    padding-right: vw(70);
+  }
+}
+
+.meetups__partners {
+  @media (--md-max) {
+    margin-left: calc((var(--base-page-gap) - 6px) * -1);
+  }
+
+  @media (--lg) {
+    margin-left: vw(26);
+  }
+}

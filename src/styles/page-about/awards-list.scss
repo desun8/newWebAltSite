@@ -1,0 +1,100 @@
+@use "../_config/functions/convert.scss" as *;
+
+.awards-list {
+  @media (--md) {
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    grid-template-rows: repeat(3, auto);
+    column-gap: vw(120);
+    row-gap: vw(58);
+  }
+
+  @media (--xl) {
+    row-gap: 58px;
+  }
+}
+
+.awards-list--rating {
+  @media (--md) {
+    grid-template-columns: 188px 1fr;
+    column-gap: vw(102);
+  }
+}
+
+.awards-list__img {
+  width: 100%;
+  max-width: vw(168, $mobile-viewport);
+  margin: 0 auto 70px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  @media (--md) {
+    grid-row: 1/3;
+    align-self: start;
+    margin-bottom: 0;
+  }
+}
+
+.awards-list__img::before {
+  --ratio: calc(235 / 168 * 100%);
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: var(--ratio);
+}
+
+.awards-list__img--2 {
+  max-width: vw(120, $mobile-viewport);
+
+  @media (--md-max) {
+    margin-left: 40%;
+  }
+
+  @media (--md) {
+    max-width: 100%;
+  }
+}
+
+.awards-list__img--2::before {
+  --ratio: calc(233 / 188 * 100%);
+}
+
+html.no-webp .awards-list__img--1 {
+  background-image: url("/images/about/award-1.png");
+}
+html.webp .awards-list__img--1 {
+  background-image: image-set(
+    url("/images/about/award-1.webp") 1x,
+    url("/images/about/award-1@2x.webp") 2x
+  );
+}
+html.no-webp .awards-list__img--2 {
+  background-image: url("/images/about/award-2.png");
+}
+html.webp .awards-list__img--2 {
+  background-image: image-set(
+    url("/images/about/award-2.webp") 1x,
+    url("/images/about/award-2@2x.webp") 2x
+  );
+}
+
+.awards-list__title {
+  margin-bottom: 25px;
+  color: var(--c-sun);
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+
+  @media (--md) {
+    margin-bottom: 0;
+    font-size: 27px;
+    line-height: 1.2;
+    font-weight: 300;
+    letter-spacing: var(--letter-spacing);
+    text-transform: none;
+    text-align: left;
+  }
+}

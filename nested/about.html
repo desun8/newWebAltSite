@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О нас</title>
+
+    <style>
+      @font-face {
+        font-family: "my-font";
+        font-style: normal;
+        font-weight: 100;
+        src: url("/fonts/suisseIntl-thin.woff2") format("woff2");
+        font-display: swap;
+      }
+    </style>
+
+    <script>
+      window.RECAPTCHA_KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
+    </script>
+
+    <link
+      rel="preload"
+      as="video"
+      href="/video/team/management-svetlana.webm"
+    />
+    <link rel="preload" as="video" href="/video/team/management-ruslan.webm" />
+    <link
+      rel="preload"
+      as="video"
+      href="/video/team/management-aleksandr.webm"
+    />
+    <link rel="preload" as="video" href="/video/team/management-daria.webm" />
+    <link
+      rel="preload"
+      as="video"
+      href="/video/team/management-aleksandra.webm"
+    />
+    <link rel="preload" as="video" href="/video/team/management-arina.webm" />
+  </head>
+  <body>
+    <svg style="display: none">
+      <symbol id="icon-dash-cursor" viewBox="0 0 16 13">
+        <path d="M.92 0l6.456 6.457-.919.92L0 .918z" />
+        <path d="M0 12.021l6.467-6.467.92.919L.919 12.94z" />
+        <path stroke="currentColor" stroke-width="1.3" d="M8 12.35h8" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 12 12">
+        <path
+          d="M1.588 1l9.398.014.014 9.398H9.353l-.03-6.589L2.148 11 1 9.853l7.177-7.177-6.59-.03V1z"
+          fill-rule="nonzero"
+        />
+      </symbol>
+      <symbol id="logo" viewBox="0 0 38 21">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M12.35 21h4.227l2.388-2.566L21.354 21h4.21l-6.607-7.097L12.35 21zM0 5.707l7.12 14.766 4.309-4.405-5.152-8.624L0 5.707zm38-.002L30.88 20.47l-4.309-4.405 5.152-8.624L38 5.705zM18.96 0l-7.103 10.294 1.895 3.375 5.208-5.424 5.207 5.424 1.895-3.375L18.96 0z"
+          clip-rule="evenodd"
+        />
+      </symbol>
+      <symbol id="icon-tel" viewBox="0 0 28 28">
+        <path
+          fill="#000"
+          d="M9.153 20.214L7.916 21.45l1.237 1.238 1.238-1.238-1.238-1.237zM6.679 17.74L5.44 18.976l1.238 1.237 1.237-1.237-1.237-1.238z"
+        />
+        <path
+          fill="#000"
+          d="M16.223 18.911L9.09 11.776l4.186-4.185-7.47-7.47L0 5.096v8.438l4.204 4.205L5.442 16.5 1.75 12.81V5.9l3.962-3.396L10.8 7.591l-4.186 4.186 9.61 9.609 4.184-4.186 5.088 5.087-3.397 3.963H15.19l-3.561-3.561-1.237 1.237L14.466 28h8.438l4.975-5.804-7.47-7.47-4.186 4.185zM26.25 14H28C27.99 6.272 21.728.01 14 0v1.75c6.762.007 12.243 5.488 12.25 12.25z"
+        />
+        <path
+          fill="#000"
+          d="M21.875 14h1.75A9.636 9.636 0 0014 4.375v1.75A7.884 7.884 0 0121.875 14zM17.5 10.5h-1.75v1.75h1.75V10.5z"
+        />
+      </symbol>
+    </svg>
+
+    <include src="progress-bar.html"></include>
+    <include src="page-header/index.html">{ "class": "" }</include>
+    <include src="page-menu.html"></include>
+    <include src="components/subscribe-banner.html"></include>
+
+    <div id="scroll-container">
+      <div class="page-container wrapper overflow-hidden">
+        <include src="breadcrumbs.html"></include>
+
+        <include src="components/pages/about/_index.html"></include>
+      </div>
+
+      <include src="page-footer.html"></include>
+      <div class="footer-redirect lg:hidden">
+        <a href="" class="footer-redirect__link"></a>
+        <div class="footer-redirect__wrap">
+          <div class="footer-redirect__title">
+            <span class="footer-redirect__name">ПОРТФОЛИО</span>
+            <svg class="footer-redirect__name-svg" viewBox="0 0 129 49">
+              <defs>
+                <linearGradient id="a">
+                  <stop
+                    id="anim-grad-color-active-top"
+                    offset="0%"
+                    stop-color="#ff5000"
+                  />
+                  <stop offset="0%" stop-color="#c4c4c4" />
+                </linearGradient>
+                <linearGradient id="b">
+                  <stop
+                    id="anim-grad-color-active-bottom"
+                    offset="0%"
+                    stop-color="#ff5000"
+                  />
+                  <stop offset="0%" stop-color="#c4c4c4" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M21.845 24.25V.836H1.554V24.25H7.15V5.714h9.098v18.535h5.597zm8.989-11.69c0-4.974 2.88-7.557 6.382-7.557s6.382 2.583 6.382 7.556-2.88 7.557-6.382 7.557-6.382-2.584-6.382-7.557zm18.687 0c0-7.299-5.04-12.11-12.305-12.11-7.298 0-12.306 4.811-12.306 12.11 0 7.297 5.008 12.109 12.306 12.109 7.265 0 12.305-4.812 12.305-12.11zM52.594.837V24.25h5.597v-8.105h3.534c6.153 0 10.768-1.518 10.768-7.686 0-6.135-4.615-7.62-10.768-7.62h-9.13zm9.295 4.65c2.618 0 4.68.517 4.68 2.971s-2.062 3.036-4.68 3.036H58.19V5.488h3.698zM80.654 24.25h5.63V5.68h7.625V.837H73.06v4.844h7.593V24.25z"
+                fill="url(#a)"
+              />
+              <path
+                d="M16.052 22.681h-5.695v2.777C3.78 26.072.016 29.753.016 35.372c0 5.941 3.763 9.623 10.341 10.236v2.842h5.695v-2.842c6.546-.613 10.31-4.327 10.31-9.913 0-5.942-3.732-9.623-10.31-10.237v-2.777zm-5.695 18.632c-3.01-.549-4.909-2.422-4.909-5.78s1.899-5.231 4.91-5.78v11.56zm5.695-11.56c3.01.613 4.876 2.422 4.876 5.78s-1.865 5.167-4.876 5.78v-11.56zm17.946 5.942c0-4.973 2.88-7.557 6.382-7.557s6.382 2.584 6.382 7.557c0 4.973-2.88 7.556-6.382 7.556s-6.382-2.583-6.382-7.556zm18.687 0c0-7.298-5.04-12.11-12.305-12.11-7.298 0-12.306 4.812-12.306 12.11 0 7.298 5.008 12.11 12.306 12.11 7.265 0 12.305-4.812 12.305-12.11zm22.03 11.689V23.973H58.057l-.23 7.879c-.163 5.425-.49 10.656-3.534 10.656h-.72v4.876h1.67c5.988 0 7.658-6.49 7.92-13.724l.196-4.811h5.76v18.535h5.596zm4.725 0h5.4l10.08-15.177v15.177h5.401V23.973h-5.4L84.84 39.15V23.973h-5.4v23.411zm29.888-11.689c0-4.973 2.88-7.557 6.382-7.557s6.382 2.584 6.382 7.557c0 4.973-2.88 7.556-6.382 7.556s-6.382-2.583-6.382-7.556zm18.688 0c0-7.298-5.04-12.11-12.306-12.11-7.298 0-12.305 4.812-12.305 12.11 0 7.298 5.007 12.11 12.305 12.11 7.266 0 12.306-4.812 12.306-12.11z"
+                fill="url(#b)"
+              />
+            </svg>
+          </div>
+          <div class="footer-redirect__link-name">
+            <span class="link"
+              >перейти<span class="link__icon">
+                <svg class="link__arrow" width="12" height="12">
+                  <use xlink:href="#icon-arrow"></use>
+                </svg> </span
+            ></span>
+          </div>
+        </div>
+        <div class="footer-redirect__counter">
+          <div class="footer-redirect__counter-wrap"></div>
+        </div>
+      </div>
+    </div>
+
+    <include src="components/scroll-to-top.html"></include>
+
+    <!-- TODO: удалить перед сборкой -->
+    <include src="utils/grid-helper.html"></include>
+
+    <script type="module" src="./about.ts"></script>
+  </body>
+</html>

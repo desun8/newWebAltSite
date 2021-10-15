@@ -51,6 +51,7 @@ import {
   ref,
   toRefs,
 } from "vue";
+import { CardImage } from "../types";
 import CardItemHeader from "./CardItemHeader.vue";
 import useCardImage from "../composables/useCardImage";
 import useCardAnimations from "../composables/useCardAnimations";
@@ -83,7 +84,7 @@ export default defineComponent({
       required: true,
     },
     imgPath: {
-      type: Array as PropType<string[]>,
+      type: Object as PropType<CardImage>,
       required: true,
     },
     href: {

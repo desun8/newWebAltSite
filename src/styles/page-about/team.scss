@@ -1,0 +1,38 @@
+.team {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 250px;
+
+  @media (--md) {
+    margin-bottom: 350px;
+  }
+
+  @media (--xxxl) {
+    margin-bottom: 505px;
+  }
+}
+
+.theme-dark .team {
+  color: #fff;
+}
+
+.team__text {
+  --mb: 130px;
+
+  max-width: 560px;
+  margin: 0 auto var(--mb);
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 600;
+  text-align: justify;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+
+  @media (max-width: 370px) {
+    font-size: 30px;
+  }
+
+  @media (--lg) {
+    --mb: 50vh;
+  }
+}

@@ -1,0 +1,46 @@
+@use "../_config/functions/convert.scss" as *;
+
+.clients {
+  margin-bottom: 118px;
+  color: var(--c-dark-grey);
+
+  @media (--md) {
+    margin-bottom: vw(415);
+  }
+}
+
+.clients__text {
+  margin-bottom: 12px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 300;
+
+  @media (--md) {
+    margin-bottom: 38px;
+    font-size: 38px;
+    font-weight: 100;
+  }
+
+  @media (--lg) {
+    max-width: 50%;
+  }
+}
+
+.clients__line {
+  margin-bottom: 18px;
+  margin-left: var(--base-page-gap-negative);
+  width: calc(50% + var(--base-page-gap));
+  height: 6px;
+  background-color: var(--c-sun);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+
+  @media (--md) {
+    margin-bottom: 112px;
+  }
+}
+
+.clients__line.is-active {
+  transform: scaleX(1);
+}

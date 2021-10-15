@@ -15,6 +15,7 @@ export const lightbox = (elms: HTMLElement[]) => {
         };
 
         disableScroll(instance.element() as HTMLElement, APP.scrollbar);
+
         return true;
       },
       onClose: (instance) => {

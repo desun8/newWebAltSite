@@ -13,7 +13,7 @@
         :kind="card.kind"
         :tags="card.tags"
         :text="card.text"
-        :imgPath="card.imgs.small"
+        :imgPath="card.imgs"
         :href="card.href"
       ></card-item>
     </li>

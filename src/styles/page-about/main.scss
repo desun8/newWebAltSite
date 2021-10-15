@@ -1,0 +1,58 @@
+@use '../_config/functions/convert.scss' as *;
+
+body.theme-dark {
+  background-color: var(--c-black);
+  color: #fff;
+}
+
+.page-breadcrumbs {
+  @media (--lg-max) {
+    display: none;
+  }
+}
+
+.title-svg {
+  --max-w: #{vw(264, $mobile-viewport)};
+  --mb: #{vw(40, $mobile-viewport)};
+
+  max-width: var(--max-w);
+  margin-bottom: var(--mb);
+
+  @media (--md) {
+    --max-w: #{vw(707)};
+    --mb: #{vw(140)};
+
+    min-width: 400px;
+  }
+}
+
+.title-svg--hero {
+  --max-w: #{vw(440)};
+  --mb: #{vw(106)};
+
+  @media (--lg-max) {
+    display: none;
+  }
+}
+
+.title-svg--founder {
+  --max-w: #{vw(335, $mobile-viewport)};
+
+  @media (--md) {
+    --max-w: #{vw(973)};
+    --mb: #{vw(140)};
+  }
+
+  @media (--lg) {
+    padding-top: vw(75);
+  }
+}
+
+.title-svg--reviews {
+  --max-w: #{vw(246, $mobile-viewport)};
+
+  @media (--md) {
+    --max-w: #{vw(638)};
+    --mb: #{vw(70)};
+  }
+}

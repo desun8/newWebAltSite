@@ -49,11 +49,8 @@ form.onsubmit = (event) => {
 
 if (APP.isDesktop) {
   import("./components/subscribe-banner/index");
-  import("./pages/form/addScrollAnimation").then(({ addScrollAnimation }) => {
-    addScrollAnimation();
-  });
 } else {
-  import("./components/subscribeBlock").then(({initSubscribeBlock}) => {
+  import("./components/subscribeBlock").then(({ initSubscribeBlock }) => {
     initSubscribeBlock();
   });
 }

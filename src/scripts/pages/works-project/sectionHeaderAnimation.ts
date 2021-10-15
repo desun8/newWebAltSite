@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 
 export const sectionHeaderAnimation = () => {
+  const isSmScreen = window.matchMedia("(max-width: 47.999em)").matches;
   const elms = document.querySelectorAll<HTMLElement>(
     ".project-section-header"
   );
@@ -13,6 +14,7 @@ export const sectionHeaderAnimation = () => {
         once: true,
       },
       backgroundColor: "#ff5000",
+      color: !isSmScreen ? "#fff" : undefined,
       duration: 0.3,
     });
   });

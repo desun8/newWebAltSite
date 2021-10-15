@@ -1,0 +1,135 @@
+.team-card {
+  --size: 5;
+  --ratio-video: calc(395 / 700 * 100%);
+
+  grid-column: span var(--size) / span var(--size);
+
+  @media (--md) {
+    --pos: calc(var(--pos-y, 1) / 19.2 * 1vw);
+  }
+}
+
+.team-card--main,
+.team-card--vertical,
+.team-card--vertical-ultra,
+.team-card--square {
+  @media (--md-max) {
+    --size: 4;
+  }
+}
+
+.team-card--main {
+  @media (--md) {
+    --size: 7;
+  }
+}
+
+.team-card--vertical,
+.team-card--vertical-ultra {
+  @media (--md) {
+    --size: 3;
+  }
+}
+
+.team-card--square {
+  @media (--md) {
+    --size: 4;
+  }
+}
+
+// video ratio
+.team-card--horizontal {
+  --ratio-video: calc(468 / 703 * 100%);
+}
+
+.team-card--vertical {
+  --ratio-video: calc(622 / 414 * 100%);
+}
+
+.team-card--vertical-ultra,
+.team-card--main {
+  --ratio-video: calc(986 / 555 * 100%);
+}
+
+.team-card--square {
+  --ratio-video: 100%;
+}
+
+.team-card--main {
+  @media (--md) {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (--lg) {
+    column-gap: var(--base-gap);
+  }
+}
+
+.team-card--main .team-card__video-container {
+  @media (--md) {
+    grid-column: 1/5;
+  }
+}
+
+.team-card--main .team-card__text {
+  @media (--md) {
+    grid-column: 6/8;
+  }
+}
+
+.team-card__video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: var(--ratio-video);
+  overflow: hidden;
+}
+
+.team-card__video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+
+.team-card__video-container--fix-ratio video {
+  object-fit: cover;
+}
+
+.team-card__text {
+  line-height: 1.2;
+}
+
+.team-card__name {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 300;
+
+  @media (--md) {
+    margin-bottom: 8px;
+  }
+}
+
+.team-card--main .team-card__name {
+  @media (--md) {
+    margin-top: 0;
+    font-size: 48px;
+    font-weight: 100;
+  }
+}
+
+.team-card__position {
+  color: var(--c-sun);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.team-card--main .team-card__position {
+  @media (--md) {
+    font-size: 22px;
+  }
+}

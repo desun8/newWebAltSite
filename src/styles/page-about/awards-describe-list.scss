@@ -1,0 +1,34 @@
+@use "../_config/functions/convert.scss" as *;
+
+.awards-describe-list {
+  margin-bottom: 70px;
+  font-size: 14px;
+  font-weight: 300;
+
+  @media (--md) {
+    margin-bottom: 0;
+  }
+}
+
+.awards-describe-list__item {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr;
+  column-gap: 40px;
+
+  @media (--md) {
+    column-gap: vw(50);
+  }
+
+  @media (--xl) {
+    column-gap: 50px;
+  }
+}
+
+.awards-describe-list__item:not(:last-child) {
+  margin-bottom: 24px;
+
+  @media (--md) {
+    margin-bottom: 28px;
+  }
+}

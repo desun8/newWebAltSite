@@ -4,16 +4,8 @@ import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
 import posthtmlImgAutosize from "posthtml-img-autosize";
+import { posthtmlExternalLink } from "posthtml-external-link";
 import rollupVisualizer from "rollup-plugin-visualizer";
-
-// const handleHotUpdate = ({ server }) => {
-//   server.ws.send({
-//     type: 'custom',
-//     event: 'special-update',
-//     data: {}
-//   })
-//   return []
-// }
 
 const reload = {
   name: "reload",
@@ -33,14 +25,15 @@ const reload = {
 export default {
   plugins: [
     posthtmlPlugin({
-      /* config */
       plugins: [
         posthtmlInclude({
           root: "src/templates",
         }),
         posthtmlImgAutosize({
           root: "public/",
-          // processEmptySize: true,
+        }),
+        posthtmlExternalLink({
+          noreferrer: true,
         }),
       ],
     }),
@@ -70,6 +63,7 @@ export default {
         contacts: resolve(__dirname, "nested/contacts.html"),
         works: resolve(__dirname, "nested/works.html"),
         project: resolve(__dirname, "nested/project-page.html"),
+        about: resolve(__dirname, "nested/about.html"),
       },
     },
   },

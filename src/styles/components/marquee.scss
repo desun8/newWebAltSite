@@ -1,0 +1,31 @@
+$width: 85px;
+$duration: 4s;
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-$width, 0);
+  }
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+  min-width: $width;
+  min-height: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee__item {
+  position: absolute;
+  animation: marquee-scroll $duration linear 0s infinite;
+}
+
+.marquee__item:nth-child(2) {
+  left: $width;
+}

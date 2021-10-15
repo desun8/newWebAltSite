@@ -1,3 +1,8 @@
+export type CardImage = {
+  large: [string, string];
+  small: [string, string];
+};
+
 export type CardResponse = {
   id: number;
   types: string[];
@@ -19,7 +24,7 @@ export type Card = {
   kind: string;
   tags: string[];
   text: string;
-  imgPath: [string, string];
+  imgPath: CardImage;
   href: string;
 };
 
