@@ -18,3 +18,41 @@
 .page-inner__backward svg {
   transform: scaleX(-1);
 }
+
+.page-inner__header {
+  @apply mb-7 lg:mb-12 xl:mb-16 2xl:col-span-9;
+
+  @media (--xxxl) {
+    @include grid(9);
+  }
+}
+
+.page-inner__header-title {
+  @media (--lg) {
+    @include font-size-new(68);
+  }
+}
+
+.page-inner__body {
+  @apply 2xl:relative 2xl:z-1;
+
+  @media (--lg) {
+    @include grid(12);
+  }
+}
+
+.page-inner__body > * {
+  @apply lg:col-span-12 2xl:col-span-8;
+}
+
+.page-inner__body > .col-span-full {
+  @apply col-span-full;
+}
+
+.page-inner__body > figure {
+  @apply 2xl:col-span-9;
+}
+
+.page-inner__body .wysiwyg-imgs {
+  @apply 2xl:col-span-9;
+}
