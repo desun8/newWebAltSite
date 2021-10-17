@@ -1,0 +1,1 @@
+import{g as e}from"./vendor.14e0bc55.js";const r=()=>{const r=document.querySelector(".hero").querySelector(".hero__img");r&&e.to(r,{y:()=>window.screen.height>window.screen.width?.1*window.screen.height:.25*window.screen.height,scrollTrigger:{trigger:r,start:()=>`top ${r.getBoundingClientRect().top}`,scrub:!0}})};export{r as imageParallax};
