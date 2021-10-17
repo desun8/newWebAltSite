@@ -10,10 +10,7 @@ export type CardResponse = {
   kind: string;
   tags: string[];
   text: string;
-  imgs: {
-    large: [string, string];
-    small: [string, string];
-  };
+  imgs: CardImage;
   href: string;
 };
 

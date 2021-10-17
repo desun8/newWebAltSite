@@ -4,7 +4,7 @@ module.exports = {
     'postcss-hover-media-feature': {},
     "postcss-media-minmax": {},
     "postcss-custom-media": {},
-    'postcss-preset-env': {},
+    'postcss-preset-env': {stage: 1},
     autoprefixer: {},
   },
 }

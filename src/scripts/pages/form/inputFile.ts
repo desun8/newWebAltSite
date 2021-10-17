@@ -7,7 +7,7 @@ import {
 } from "@/scripts/components/smoothScroll/plugins/ModalPlugin";
 import { autobind } from "../../decorators/autobind";
 import { fileValidation, validation } from "./validation";
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 
 class Dialog {
   elm: HTMLElement;
