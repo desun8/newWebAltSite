@@ -9,7 +9,8 @@ import submitForm from "./components/subscribe-banner/submitForm";
 initRoot();
 
 const initSubscribeBlockElms = () => {
-  const innerBodyElm = document.querySelector<HTMLElement>(".inner-body")!;
+  const innerBodyElm =
+    document.querySelector<HTMLElement>(".page-inner__body")!;
   const subscribeElmSm = document.querySelector<HTMLElement>(
     ".subscribe-block:not(.subscribe-block--transparent)"
   );

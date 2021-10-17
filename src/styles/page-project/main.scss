@@ -32,40 +32,6 @@ main {
   }
 }
 
-.project h6 {
-  margin-bottom: 18px;
-  font-size: 18px;
-  font-weight: 700;
-
-  @media (--lg) {
-    font-size: 22px;
-  }
-}
-
-.project p {
-  margin-bottom: revert;
-}
-
-.project ol,
-.project ul {
-  margin-bottom: revert;
-  padding-left: calc(var(--base-page-gap) + 10px);
-  list-style: revert;
-
-  @media (--lg) {
-    padding-left: 26px;
-    font-size: 18px;
-  }
-}
-
-.project p,
-.project ol,
-.project ul {
-  @media (--lg) {
-    font-weight: 300;
-  }
-}
-
 .project__link-site {
   font-size: 32px;
   line-height: 2;
