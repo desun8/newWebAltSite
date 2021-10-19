@@ -25,14 +25,21 @@ const initSubscribeBlockElms = () => {
     () => {
       if (subscribeElmXl) {
         const is2XLScreen = window.matchMedia("(min-width: 96em)").matches;
+
         if (is2XLScreen) {
+          // Если мало контента, то скрываем фиксированную подписку.
+          if (innerBodyElm.offsetHeight < window.screen.height * 2) {
+            subscribeElmXl.style.display = "none";
+            return;
+          }
+
           initSubscribeBlock(subscribeElmXl);
 
           ScrollTrigger.create({
             trigger: subscribeElmXl,
             start: "top center",
             end: () =>
-              `top -${innerBodyElm.offsetHeight - window.screen.height * 2.8}`,
+              `${innerBodyElm.offsetHeight - window.screen.height * 2.8} top`,
             pin: true,
             pinSpacing: false,
           });
