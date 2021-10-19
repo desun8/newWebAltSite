@@ -58,6 +58,7 @@
 }
 
 // IMAGE
+
 .wysiwyg-imgs {
   @apply grid gap-y-11 lg:grid-cols-2 lg:gap-$base-gap;
 }
@@ -70,6 +71,12 @@
 .wysiwyg > figure img,
 .wysiwyg-imgs figure img {
   width: 100%;
+}
+
+.wysiwyg > figure img,
+.wysiwyg-imgs figure img,
+.wysiwyg > img,
+.wysiwyg > p img {
   filter: drop-shadow(0 5px 20px rgba(194, 194, 194, 0.3));
 }
 
