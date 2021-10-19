@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 
 export const listAnimation = () => {
   const listElms = document.querySelectorAll<HTMLOListElement>(".project-list");
+  const line = document.querySelector(".goals__line");
 
   listElms.forEach((list) => {
     const listItems = list.querySelectorAll<HTMLLIElement>(
@@ -20,9 +21,8 @@ export const listAnimation = () => {
         alpha: 0,
 
         onComplete() {
-          if (index + 1 === listItems.length) {
-            console.log("animation line");
-            list.classList.add("is-completed");
+          if (line && index + 1 === listItems.length) {
+            line.classList.add("is-active");
           }
         },
       });
