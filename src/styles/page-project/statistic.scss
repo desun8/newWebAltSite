@@ -2,16 +2,6 @@
 @use "../_config/functions/convert.scss" as *;
 @use "../_config/mixins/typographic.scss" as *;
 
-.statistic {
-  --margin: 50px;
-
-  margin: var(--margin) 0;
-
-  @media (--lg) {
-    --margin: #{vw(150)};
-  }
-}
-
 .statistic--after {
   --color: var(--c-sun);
 }
