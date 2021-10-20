@@ -56,3 +56,9 @@
 .page-inner__body .wysiwyg-imgs {
   @apply 2xl:col-span-9;
 }
+
+.page-inner__body .wysiwyg-layouts {
+  @media (--xxxl) {
+    --px: #{vw(80)};
+  }
+}
