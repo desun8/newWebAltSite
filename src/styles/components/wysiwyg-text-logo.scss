@@ -1,7 +1,7 @@
 @use "../_config/mixins/grid.scss" as *;
 @use "../_config/functions/convert.scss" as *;
 
-.steps-intro {
+.wysiwyg-text-logo {
   margin-bottom: 120px;
 
   @media (--lg) {
@@ -9,7 +9,7 @@
   }
 }
 
-.steps-intro__image {
+.wysiwyg-text-logo__image {
   @media (--lg-max) {
     margin: 0 auto 20px;
   }
@@ -25,7 +25,7 @@
   }
 }
 
-.steps-intro__text {
+.wysiwyg-text-logo__text {
   text-align: justify;
 
   @media (--lg) {

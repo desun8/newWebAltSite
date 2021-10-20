@@ -1,6 +1,7 @@
 @use "../_config/utilities/_custom-media";
 @use "../components/subscribe-block";
 @use "../components/subscribe-banner";
+@use "../components/wysiwyg-extended.scss";
 @use "page-inner";
 
 // Фиксы инлайн стилей приехавшие после парсинга старого сайта
