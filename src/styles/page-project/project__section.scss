@@ -1,6 +1,6 @@
 @use "../_config/mixins/grid.scss" as *;
 
-@custom-selector :--full-col .project-section-header, .layouts, .results-intro, .statistic, .carousel, .steps-intro;
+@custom-selector :--full-col .project-section-header, .layouts, .wysiwyg-curtain-block, .statistic, .wysiwyg-gallery-carousel, .wysiwyg-text-logo;
 
 .project__section {
   @media (--xl) {

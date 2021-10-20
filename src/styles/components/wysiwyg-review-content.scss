@@ -1,7 +1,7 @@
 @use "../_config/functions/convert.scss" as *;
-@use "review-socials.scss";
+@use "wysiwyg-review-socials.scss";
 
-.review-content {
+.wysiwyg-review-content {
   @media (--lg) {
     grid-row: 1;
     grid-column: 3 / -2;
@@ -11,11 +11,11 @@
   }
 }
 
-.review-content__header {
+.wysiwyg-review-content__header {
   margin-bottom: 25px;
 }
 
-.review-content__name {
+.wysiwyg-review-content__name {
   font-size: 22px;
   line-height: 1.2;
   font-weight: 400;
@@ -25,13 +25,13 @@
   }
 }
 
-.review-content__name br {
+.wysiwyg-review-content__name br {
   @media (--lg) {
     display: none;
   }
 }
 
-.review-content__text {
+.wysiwyg-review-content__text {
   line-height: 1.6;
 
   @media (--lg) {
@@ -39,13 +39,13 @@
   }
 }
 
-.review-content__text p {
+.wysiwyg-review-content__text p {
   @media (--lg) {
     font-weight: 400;
   }
 }
 
-.review-content__hashtag {
+.wysiwyg-review-content__hashtag {
   opacity: 0.5;
 
   @media (--lg) {

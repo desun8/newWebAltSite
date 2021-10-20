@@ -22,7 +22,7 @@
   }
 }
 
-.review-avatar {
+.wysiwyg-review-avatar {
   position: relative;
   margin-bottom: 30px;
 
@@ -35,7 +35,7 @@
   }
 }
 
-.review-avatar__image-container {
+.wysiwyg-review-avatar__image-container {
   --ratio: calc(400 / 335 * 100%);
 
   position: relative;
@@ -50,7 +50,7 @@
   }
 }
 
-.review-avatar__image {
+.wysiwyg-review-avatar__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,7 +60,7 @@
   object-position: center;
 }
 
-.review-avatar__play {
+.wysiwyg-review-avatar__play {
   position: absolute;
   bottom: 64px;
   right: 0;

@@ -1,6 +1,6 @@
 @use "../_config/functions/convert.scss" as *;
 
-.results-intro {
+.wysiwyg-curtain-block {
   padding-top: 50px;
   margin-bottom: 42px;
 
@@ -20,7 +20,7 @@
   }
 }
 
-.results-intro__text {
+.wysiwyg-curtain-block__text {
   margin-bottom: 40px;
 
   @media (--lg) {
@@ -29,18 +29,18 @@
   }
 }
 
-.results-intro__text:last-child {
+.wysiwyg-curtain-block__text:last-child {
   margin-bottom: 0;
 }
 
-.results-intro__img {
+.wysiwyg-curtain-block__img {
   @media (--lg-max) {
     max-width: calc(100% + (var(--base-page-gap) * 2));
     margin: 0 var(--base-page-gap-negative);
   }
 }
 
-.results-intro__img:not(:last-child) {
+.wysiwyg-curtain-block__img:not(:last-child) {
   @media (--lg-max) {
     margin-bottom: 16px;
   }

@@ -1,22 +1,6 @@
 @use "../_config/functions/convert.scss" as *;
-@use "../_config/mixins/typographic.scss" as *;
 
-.layouts__title {
-  margin-bottom: 100px;
-  color: var(--c-sun);
-  font-size: 36px;
-  line-height: 1;
-  font-weight: 600;
-  text-transform: uppercase;
-
-  @media (--lg) {
-    @include font-size(36);
-
-    margin-bottom: 30px;
-  }
-}
-
-.layouts__content {
+.wysiwyg-layouts {
   --gap-x: #{vw(60, $mobile-viewport)};
   --gap-y: #{vw(40, $mobile-viewport)};
   --px: #{vw(28, $mobile-viewport)};
@@ -35,7 +19,7 @@
   }
 }
 
-.layouts__img-wrapper {
+.wysiwyg-layouts__img-wrapper {
   --ratio: calc(580 / 390 * 100%);
 
   position: relative;
@@ -47,21 +31,21 @@
   transition: box-shadow 0.3s;
 }
 
-.layouts__img-wrapper:hover {
+.wysiwyg-layouts__img-wrapper:hover {
   box-shadow: 6px 10px 15px rgba(0, 0, 0, 0.03), 4px 6px 7px rgba(0, 0, 0, 0.15);
 }
 
-.layouts__img-wrapper:nth-child(2n) {
+.wysiwyg-layouts__img-wrapper:nth-child(2n) {
   --pos-y: #{vw(60, $mobile-viewport)};
 
   transform: translateY(var(--pos-y));
 }
 
-.layouts__img-wrapper:nth-child(2n):last-child {
+.wysiwyg-layouts__img-wrapper:nth-child(2n):last-child {
   margin-bottom: var(--pos-y);
 }
 
-.layouts__img {
+.wysiwyg-layouts__img {
   position: absolute;
   top: 0;
   left: 0;

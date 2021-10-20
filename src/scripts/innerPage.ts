@@ -5,6 +5,10 @@ import "@/styles/inner.scss";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 import { initSubscribeBlock } from "./components/subscribeBlock";
 import submitForm from "./components/subscribe-banner/submitForm";
+import { lightboxInit } from "./components/lightbox";
+import APP from "./app/APP";
+import { wysiwygGalleryCarousel } from "./components/wysiwygGalleryCarousel";
+import { wysiwygReviewVideo } from "./components/wysiwygReviewVideo";
 
 initRoot();
 
@@ -69,3 +73,15 @@ const initSubscribeBanner = () => {
 
 initSubscribeBlockElms();
 initSubscribeBanner();
+
+lightboxInit();
+wysiwygGalleryCarousel();
+wysiwygReviewVideo();
+
+if (APP.isDesktop) {
+  import("./components/wysiwygCurtainBlockAnimation").then(
+    ({ wysiwygCurtainBlockAnimation }) => {
+      wysiwygCurtainBlockAnimation();
+    }
+  );
+}

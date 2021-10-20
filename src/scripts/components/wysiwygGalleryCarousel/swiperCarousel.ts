@@ -6,21 +6,23 @@ Swiper.use([Navigation, Pagination]);
 
 export const swiperCarousel = (elm?: HTMLElement) => {
   if (!elm) {
-    elm = document.querySelector(".carousel .swiper") as HTMLElement;
+    elm = document.querySelector(
+      ".wysiwyg-gallery-carousel .swiper"
+    ) as HTMLElement;
   }
 
   if (elm) {
     new Swiper(elm, {
       loop: true,
       pagination: {
-        el: ".carousel .swiper-pagination",
+        el: ".wysiwyg-gallery-carousel .swiper-pagination",
         clickable: true,
       },
 
       // Navigation arrows
       navigation: {
-        nextEl: ".carousel .swiper-button-next",
-        prevEl: ".carousel .swiper-button-prev",
+        nextEl: ".wysiwyg-gallery-carousel .swiper-button-next",
+        prevEl: ".wysiwyg-gallery-carousel .swiper-button-prev",
       },
 
       on: {

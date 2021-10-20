@@ -117,3 +117,23 @@
 .wysiwyg-table tbody td {
   vertical-align: baseline;
 }
+
+.custom_block_50 {
+  @apply lg:w-1/2 lg:text-lg;
+}
+
+.custom_block_important_text {
+  @apply mt-3 px-2.5 py-1 text-lg text-white leading-normal text-justify bg-dark-grey uppercase lg:max-w-3/4 lg:text-3xl;
+
+  font-weight: 700 !important;
+
+  @media (--lg) {
+    font-weight: 600 !important;
+  }
+}
+
+.custom_block_important_text > strong {
+  @apply text-sun;
+
+  font-weight: inherit;
+}

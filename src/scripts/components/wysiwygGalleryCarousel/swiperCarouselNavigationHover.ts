@@ -11,12 +11,14 @@ type RenderedStyle = {
 };
 
 export const swiperCarouselNavigationHover = () => {
-  const elm = document.querySelector(".carousel") as HTMLElement;
+  const elm = document.querySelector(
+    ".wysiwyg-gallery-carousel"
+  ) as HTMLElement;
   const btnNext = elm.querySelector<HTMLElement>(
-    ".carousel .swiper-button-next"
+    ".wysiwyg-gallery-carousel .swiper-button-next"
   );
   const btnPrev = elm.querySelector<HTMLElement>(
-    ".carousel .swiper-button-prev"
+    ".wysiwyg-gallery-carousel .swiper-button-prev"
   );
 
   if (btnNext && btnPrev) {

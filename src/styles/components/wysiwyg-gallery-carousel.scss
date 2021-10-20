@@ -22,7 +22,7 @@
   }
 }
 
-.carousel {
+.wysiwyg-gallery-carousel {
   --my: 90px;
 
   position: relative;
@@ -35,7 +35,7 @@
   }
 }
 
-.carousel .swiper {
+.wysiwyg-gallery-carousel .swiper {
   @media (--lg) {
     --pb: #{vw(100)};
 
@@ -43,7 +43,7 @@
   }
 }
 
-.carousel .swiper-wrapper {
+.wysiwyg-gallery-carousel .swiper-wrapper {
   height: vw(230, $mobile-viewport);
 
   @media (--lg) {
@@ -51,14 +51,14 @@
   }
 }
 
-.carousel .swiper-slide__img {
+.wysiwyg-gallery-carousel .swiper-slide__img {
   margin: auto;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.carousel .swiper-pagination {
+.wysiwyg-gallery-carousel .swiper-pagination {
   position: absolute;
   bottom: 15px;
   left: 50%;
@@ -74,7 +74,7 @@
   }
 }
 
-.carousel .swiper-pagination-bullet {
+.wysiwyg-gallery-carousel .swiper-pagination-bullet {
   --color: #fff;
   --size: 10px;
 
@@ -89,11 +89,11 @@
   }
 }
 
-.carousel .swiper-pagination-bullet-active {
+.wysiwyg-gallery-carousel .swiper-pagination-bullet-active {
   background-color: var(--color);
 }
 
-.carousel .swiper-button {
+.wysiwyg-gallery-carousel .swiper-button {
   color: var(--c-sun);
   font-size: 32px;
   line-height: 1;
@@ -134,15 +134,15 @@
   }
 }
 
-.carousel .swiper-button:hover {
+.wysiwyg-gallery-carousel .swiper-button:hover {
   animation: fill 0.2s forwards;
 }
 
-html.js-touch-screen .carousel .swiper-button {
+html.js-touch-screen .wysiwyg-gallery-carousel .swiper-button {
   -webkit-text-fill-color: var(--c-sun);
 }
 
-.carousel .swiper-button-prev {
+.wysiwyg-gallery-carousel .swiper-button-prev {
   @media (--lg-max) {
     display: none;
   }
@@ -153,7 +153,7 @@ html.js-touch-screen .carousel .swiper-button {
   }
 }
 
-.carousel .swiper-button-next {
+.wysiwyg-gallery-carousel .swiper-button-next {
   @media (--lg-max) {
     position: relative;
     margin-left: auto;

@@ -1,9 +1,9 @@
 @use "../_config/functions/convert.scss" as *;
 @use "../_config/mixins/grid.scss" as *;
-@use "review-avatar.scss";
-@use "review-content.scss";
+@use "wysiwyg-review-avatar.scss";
+@use "wysiwyg-review-content.scss";
 
-.review {
+.wysiwyg-review {
   margin: 0 var(--base-page-gap-negative);
   padding: 54px var(--base-page-gap) 38px;
   color: #fff;
@@ -15,7 +15,7 @@
   }
 }
 
-.review__title {
+.wysiwyg-review__title {
   --width: #{vw(190, $mobile-viewport)};
   --mb: 30px;
 
@@ -30,7 +30,7 @@
   }
 }
 
-.review__body {
+.wysiwyg-review__body {
   position: relative;
 
   @media (--lg) {

@@ -1,6 +1,6 @@
 @use "../_config/utilities/list-unstyled.scss" as *;
 
-.review-socials {
+.wysiwyg-review-socials {
   --gap-x: 20px;
   --gap-y: 10px;
   --mt: 30px;
@@ -24,11 +24,11 @@
   }
 }
 
-.review-socials__item {
+.wysiwyg-review-socials__item {
   padding: calc(var(--gap-y) / 2) calc(var(--gap-x) / 2);
 }
 
-.flexbox-gap .review-socials {
+.flexbox-gap .wysiwyg-review-socials {
   margin-left: 0;
   margin-right: 0;
 
@@ -36,6 +36,6 @@
   row-gap: var(--gap-y);
 }
 
-.flexbox-gap .review-socials__item {
+.flexbox-gap .wysiwyg-review-socials__item {
   padding: 0;
 }
