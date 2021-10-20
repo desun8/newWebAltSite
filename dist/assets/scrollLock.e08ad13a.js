@@ -1,1 +1,0 @@
-import{s as o}from"./vendor.14e0bc55.js";import{d as e,e as s}from"./root.28bb904b.js";const r=(s,r)=>{r?e(r):o.exports.disablePageScroll(s)},a=(e,r)=>{r?s(r):o.exports.enablePageScroll(e)};export{r as d,a as e};
