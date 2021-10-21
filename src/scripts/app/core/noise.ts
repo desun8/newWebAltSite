@@ -18,6 +18,7 @@ export const addNoise = () => {
     document.querySelector(".footer-redirect"),
     document.querySelector("main.project .review"),
     document.querySelector("main.page-about .founder"),
+    document.querySelector("#dialog-form .dialog-overlay"),
   ];
 
   elms.forEach((elm) => {
