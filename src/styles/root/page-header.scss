@@ -173,7 +173,9 @@
   }
 
   @media screen and (--tablet-sm) {
-    display: none !important;
+    &:not(.dialog-close) {
+      display: none !important;
+    }
   }
 }
 
