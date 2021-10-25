@@ -46,6 +46,7 @@ body.filter-white .pin-filter-container.is-active {
   --duration: var(--trans-dur-fast);
   --ease: ease-in;
 
+  @include base-property();
   @include list-unstyled();
 
   width: fit-content;
@@ -58,6 +59,13 @@ body.filter-white .pin-filter-container.is-active {
   padding: 0;
   transition: background-color var(--duration);
   z-index: 500;
+
+  @media (--lg-max) {
+    width: calc(100% + var(--base-page-gap) * 2);
+    margin: 0 var(--base-page-gap-negative);
+    padding: 15px var(--base-page-gap);
+    background-color: #fff;
+  }
 
   // noinspection CssInvalidMediaFeature
   @media (--lg) {

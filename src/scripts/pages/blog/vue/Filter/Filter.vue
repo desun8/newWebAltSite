@@ -50,6 +50,7 @@ import { throttle } from "lodash";
 import "@/styles/page-blog/filter.scss";
 import FilterItem from "./FilterItem.vue";
 import APP from "../../../../app/APP";
+import { resizeObserver } from "@/scripts/utils/resizeObserver";
 
 export default {
   name: "FilterElm",
@@ -247,35 +248,117 @@ export default {
     },
 
     scrollPinMobile() {
-      const pinContainer = this.$refs.pinContainer;
-      const pageHeader = document.querySelector(".page-header");
+      const filterContainer = this.$refs.pinContainer;
+      const filterElm = this.$refs.root;
+      const pageHeader = document.querySelector(".page-header-pin");
+      const content = document.querySelector(".blog-list"); //! should be a prop
 
-      if (pinContainer === null || pageHeader === null) {
+      if (!filterContainer || !pageHeader || !content) {
         return;
       }
 
-      pageHeader.style.backgroundColor = "#fff";
+      const pinHeader = () => {
+        const headerDefaultTopPos = -pageHeader.offsetHeight;
+        gsap.set(pageHeader, { y: headerDefaultTopPos });
 
-      ScrollTrigger.create({
-        trigger: document.documentElement,
-        pin: pageHeader,
-        pinSpacing: false,
-        markers: true,
-      });
+        const duration = 0.5;
+        let isHeaderPinned = false;
+        let triggerScrollPos = document.documentElement.clientHeight + 200;
 
-      ScrollTrigger.create({
-        trigger: document.documentElement,
-        start: () => {
-          const start =
-            pinContainer.getBoundingClientRect().top -
-            pageHeader.getBoundingClientRect().height;
+        resizeObserver(document.documentElement, () => {
+          triggerScrollPos = document.documentElement.clientHeight + 200;
+        });
 
-          return `${start} top`;
-        },
-        pin: pinContainer,
-        pinSpacing: false,
-        markers: true,
-      });
+        const pin = gsap
+          .timeline({
+            onStart() {
+              isHeaderPinned = true;
+            },
+            paused: true,
+          })
+          .to(pageHeader, { y: 0, duration }, "one")
+          .to(filterElm, { y: pageHeader.offsetHeight, duration }, "one");
+
+        const unpin = gsap
+          .timeline({
+            onComplete() {
+              isHeaderPinned = false;
+            },
+            paused: true,
+          })
+          .to(pageHeader, { y: headerDefaultTopPos, duration }, "one")
+          .to(filterElm, { y: 0, duration }, "one");
+
+        const unpinReset = () => {
+          isHeaderPinned = false;
+
+          gsap.set(pageHeader, { y: headerDefaultTopPos });
+          gsap.set(filterElm, { y: 0 });
+        };
+
+        let isPlaying = () => pin.isActive() || unpin.isActive();
+        let isScrollUp = false;
+
+        ScrollTrigger.create({
+          trigger: document.documentElement,
+          end: () => {
+            const end = content.offsetHeight;
+
+            return `${end} top`;
+          },
+          onUpdate({ direction }) {
+            const isScrolled =
+              document.documentElement.scrollTop >= triggerScrollPos;
+
+            if (document.documentElement.scrollTop === 0) {
+              unpinReset();
+              return;
+            }
+
+            setTimeout(() => {
+              isScrollUp = direction === -1;
+            }, 100);
+
+            if (!isPlaying()) {
+              if (isScrollUp) {
+                if (isScrolled) {
+                  if (!isHeaderPinned) {
+                    pin.restart();
+                  }
+                } else {
+                  if (isHeaderPinned) {
+                    unpin.restart();
+                  }
+                }
+              } else {
+                if (isHeaderPinned) {
+                  unpin.restart();
+                }
+              }
+            }
+          },
+        });
+      };
+
+      const pinFilter = () => {
+        ScrollTrigger.create({
+          id: "filter-pin",
+          trigger: filterContainer,
+          start: "top top",
+          end: () => {
+            const end =
+              content.offsetHeight -
+              (window.screen.height - filterContainer.offsetHeight * 10);
+
+            return `${end} top`;
+          },
+          pin: true,
+          pinSpacing: false,
+        });
+      };
+
+      pinHeader();
+      pinFilter();
     },
   },
 
@@ -287,7 +370,17 @@ export default {
 
       document.addEventListener("pointerup", this.handleClickOutside);
     } else {
-      this.scrollPinMobile();
+      setTimeout(() => {
+        this.scrollPinMobile();
+
+        const content = document.querySelector(".blog-list"); //! should be a prop
+
+        resizeObserver(content, () => {
+          setTimeout(() => {
+            ScrollTrigger.getById("filter-pin")?.refresh();
+          }, 300);
+        });
+      }, 500);
     }
   },
 };
