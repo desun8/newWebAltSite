@@ -31,14 +31,6 @@ body.filter-white .pin-filter-container.is-active {
   animation: invert-filter-bg 0s 0.1s forwards;
 }
 
-.page-works .pin-filter-container {
-  @apply <md:(mx-$base-page-gap-negative px-$base-page-gap overflow-x-auto overflow-y-hidden);
-}
-
-.page-works .pin-filter-container::-webkit-scrollbar {
-  display: none;
-}
-
 .filter {
   --padding: 5px;
   --gap-item: calc((25px - var(--padding) * 2) / 2);
@@ -65,6 +57,7 @@ body.filter-white .pin-filter-container.is-active {
     margin: 0 var(--base-page-gap-negative);
     padding: 15px var(--base-page-gap);
     background-color: #fff;
+    overflow: auto;
   }
 
   // noinspection CssInvalidMediaFeature
@@ -73,6 +66,10 @@ body.filter-white .pin-filter-container.is-active {
     height: 40px;
     padding: vw(10) calc(#{vw(15)} - var(--gap-item)) vw(10) vw(15);
   }
+}
+
+.filter::-webkit-scrollbar {
+  display: none;
 }
 
 // TODO: replace to "body.os-win"

@@ -344,6 +344,16 @@ export default {
       };
 
       const pinFilter = () => {
+        let scrollLeft = filterElm.scrollLeft;
+
+        filterElm.addEventListener(
+          "scroll",
+          throttle(() => {
+            scrollLeft = filterElm.scrollLeft;
+          }, 200),
+          { passive: true }
+        );
+
         ScrollTrigger.create({
           id: "filter-pin",
           trigger: filterContainer,
@@ -357,6 +367,9 @@ export default {
           },
           pin: true,
           pinSpacing: false,
+          onRefresh() {
+            filterElm.scrollLeft = scrollLeft;
+          },
         });
       };
 
