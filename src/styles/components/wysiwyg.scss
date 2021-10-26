@@ -68,7 +68,10 @@
   @apply mb-11 mt-7;
 }
 
-.wysiwyg > figure img,
+.wysiwyg > figure img {
+  max-width: 100%;
+}
+
 .wysiwyg-imgs figure img {
   width: 100%;
 }
