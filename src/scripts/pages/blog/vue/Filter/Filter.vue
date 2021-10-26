@@ -86,6 +86,9 @@ export default {
       type: Boolean,
       default: false,
     },
+    contentList: {
+      required: true,
+    },
   },
 
   methods: {
@@ -251,7 +254,7 @@ export default {
       const filterContainer = this.$refs.pinContainer;
       const filterElm = this.$refs.root;
       const pageHeader = document.querySelector(".page-header-pin");
-      const content = document.querySelector(".blog-list"); //! should be a prop
+      const content = this.contentList;
 
       if (!filterContainer || !pageHeader || !content) {
         return;
@@ -373,13 +376,13 @@ export default {
       setTimeout(() => {
         this.scrollPinMobile();
 
-        const content = document.querySelector(".blog-list"); //! should be a prop
-
-        resizeObserver(content, () => {
-          setTimeout(() => {
-            ScrollTrigger.getById("filter-pin")?.refresh();
-          }, 300);
-        });
+        if (this.contentList) {
+          resizeObserver(this.contentList, () => {
+            setTimeout(() => {
+              ScrollTrigger.getById("filter-pin")?.refresh();
+            }, 300);
+          });
+        }
       }, 500);
     }
   },
