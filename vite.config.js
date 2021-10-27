@@ -31,11 +31,11 @@ export default {
     {...threeMinifier(), enforce: 'pre'},
     posthtmlPlugin({
       plugins: [
-        posthtmlExpressions({
-          removeScriptLocals: 'false'
-        }),
         posthtmlInclude({
           root: "src/templates",
+        }),
+        posthtmlExpressions({
+          removeScriptLocals: 'false'
         }),
         posthtmlImgAutosize({
           root: "public/",
