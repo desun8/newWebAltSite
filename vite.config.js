@@ -3,6 +3,8 @@ import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
+import posthtmlExpressions from "posthtml-expressions";
+
 import posthtmlImgAutosize from "posthtml-img-autosize";
 import { posthtmlExternalLink } from "posthtml-external-link";
 import rollupVisualizer from "rollup-plugin-visualizer";
@@ -29,6 +31,9 @@ export default {
     {...threeMinifier(), enforce: 'pre'},
     posthtmlPlugin({
       plugins: [
+        posthtmlExpressions({
+          removeScriptLocals: 'false'
+        }),
         posthtmlInclude({
           root: "src/templates",
         }),

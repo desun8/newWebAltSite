@@ -1,23 +1,25 @@
 <template>
-  <transition-group
-    name="works-cards-list"
-    tag="ul"
-    class="<md:block grid grid-cols-2 xl:grid-cols-3"
-    @enter="enter"
-    @leave="leave"
-  >
-    <li v-for="card in cardsData" :key="card.id" class="list-item">
-      <card-item
-        :id="`${card.id}`"
-        :title="card.title"
-        :kind="card.kind"
-        :tags="card.tags"
-        :text="card.text"
-        :imgPath="card.imgs"
-        :href="card.href"
-      ></card-item>
-    </li>
-  </transition-group>
+  <div ref="list">
+    <transition-group
+      name="works-cards-list"
+      tag="ul"
+      class="<md:block grid grid-cols-2 xl:grid-cols-3"
+      @enter="enter"
+      @leave="leave"
+    >
+      <li v-for="card in cardsData" :key="card.id" class="list-item">
+        <card-item
+          :id="`${card.id}`"
+          :title="card.title"
+          :kind="card.kind"
+          :tags="card.tags"
+          :text="card.text"
+          :imgPath="card.imgs"
+          :href="card.href"
+        ></card-item>
+      </li>
+    </transition-group>
+  </div>
 </template>
 
 <script lang="ts">
@@ -33,6 +35,10 @@ export default defineComponent({
   props: {
     cardsData: {
       type: Array as PropType<CardResponse[]>,
+      required: true,
+    },
+    setContentListElm: {
+      type: Function as PropType<(a: Element) => void>,
       required: true,
     },
   },
@@ -76,6 +82,10 @@ export default defineComponent({
 
   mounted() {
     this.lazyLoad.observe();
+
+    if (this.$refs.list) {
+      this.setContentListElm(this.$refs.list as Element);
+    }
   },
 
   updated() {

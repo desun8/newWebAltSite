@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:(grid grid-cols-2)">
+  <div class="flex flex-col min-h-full lg:(grid grid-cols-2)">
     <list-item-info
       :kind="itemInfo.kind"
       :tags="itemInfo.tags"
@@ -8,16 +8,18 @@
       :set-info-elm="setInfoElm"
     ></list-item-info>
 
-    <div ref="listElm" class="list">
+    <div ref="listElm" class="list flex-grow">
       <!-- 
         TODO: нужно завернуть в header.
         Так же перенести сюда кнопку закрытия.
       -->
-      <simplebar>
+      <simplebar :set-ref="setSimplebar">
         <filter-element
           :filter-items="filterItems"
           :set-active-filter="setActiveFilter"
           :is-static="true"
+          :static-elms="staticElms"
+          :contentList="contentListElm"
           filter-name="filter-dialog"
         ></filter-element>
       </simplebar>
@@ -25,6 +27,7 @@
       <list-element
         :items="itemsFiltered"
         :set-item-info="setItemInfo"
+        :set-content-list-elm="setContentListElm"
       ></list-element>
     </div>
 
@@ -33,7 +36,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, watch } from "vue";
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  PropType,
+  ref,
+  watch,
+} from "vue";
 import FilterElement from "../../blog/vue/Filter/Filter.vue";
 import ListElement from "./List.vue";
 import ListItemInfo from "./ListItemInfo.vue";
@@ -43,6 +53,7 @@ import useFilters from "../composables/useFilters";
 import useItems from "../composables/useItems";
 import useItemInfo from "../composables/useItemInfo";
 import useListScroll from "../composables/useListScroll";
+import useSimplebarRef from "../composables/useSimplebarRef";
 
 export default defineComponent({
   components: { FilterElement, Simplebar, ListElement, ListItemInfo, BtnToTop },
@@ -55,6 +66,11 @@ export default defineComponent({
   },
 
   setup(props) {
+    const contentListElm = ref<Element>();
+    const setContentListElm = (elm: Element) => {
+      contentListElm.value = elm;
+    };
+
     const { activeFilter, setActiveFilter, filterItems } = useFilters();
     const { itemsFiltered, total } = useItems(activeFilter);
 
@@ -64,9 +80,18 @@ export default defineComponent({
     });
 
     const { setInfoElm, itemInfo, setItemInfo } = useItemInfo();
-    const { listElm } = useListScroll();
+    const { listElm, scrollbar } = useListScroll();
+
+    const { simplebar, setSimplebar } = useSimplebarRef();
+
+    const staticElms = computed(() => ({
+      simplebar: simplebar.value,
+      scrollbar: scrollbar.value,
+    }));
 
     return {
+      contentListElm,
+      setContentListElm,
       activeFilter,
       setActiveFilter,
       filterItems,
@@ -76,6 +101,10 @@ export default defineComponent({
       itemInfo,
       setItemInfo,
       listElm,
+      scrollbar,
+      simplebar,
+      setSimplebar,
+      staticElms,
     };
   },
 });
@@ -95,7 +124,7 @@ export default defineComponent({
 
 .list :deep(.pin-filter-container) {
   padding-top: 25px;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
 
   @media (--lg) {
     padding-top: 22px;

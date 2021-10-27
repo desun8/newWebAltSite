@@ -37,6 +37,7 @@
     "postcss-hover-media-feature": "^0.3.1",
     "postcss-media-minmax": "^4.0.0",
     "postcss-preset-env": "^6.7.0",
+    "posthtml-expressions": "^1.9.0",
     "posthtml-external-link": "^0.1.2",
     "posthtml-img-autosize": "^0.1.6",
     "posthtml-include": "^1.7.1",

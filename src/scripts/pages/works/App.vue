@@ -3,13 +3,17 @@
     <filter-elm
       :filter-items="filterItems"
       :set-active-filter="setActiveFilter"
+      :contentList="contentListElm"
     ></filter-elm>
-    <card-list :cards-data="worksCardsFiltered"></card-list>
+    <card-list
+      :cards-data="worksCardsFiltered"
+      :set-content-list-elm="setContentListElm"
+    ></card-list>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import FilterElm from "@/scripts/pages/blog/vue/Filter/Filter.vue";
 import CardList from "./components/CardList.vue";
 import { FilterTypes } from "./types";
@@ -23,10 +27,22 @@ export default defineComponent({
   },
 
   setup() {
+    const contentListElm = ref<Element>();
+    const setContentListElm = (elm: Element) => {
+      contentListElm.value = elm;
+    };
+
     const { activeFilter, setActiveFilter, filterItems } = useFilters();
     const { worksCardsFiltered } = useWorksCards(activeFilter);
 
-    return { worksCardsFiltered, activeFilter, setActiveFilter, filterItems };
+    return {
+      contentListElm,
+      setContentListElm,
+      worksCardsFiltered,
+      activeFilter,
+      setActiveFilter,
+      filterItems,
+    };
   },
 
   methods: {

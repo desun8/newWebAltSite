@@ -1,12 +1,12 @@
 <template>
-  <div v-if="itemsList.length" class="blog-list-wrap">
+  <div v-if="itemsList.length" ref="list" class="blog-list-wrap">
     <list :item-list="filteredList" />
     <btn-load-more v-show="!isLoadAll" :on-load="loadMore" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 import List from "./List/List.vue";
 import BtnLoadMore from "./BtnLoadMore.vue";
 
@@ -68,6 +68,10 @@ export default defineComponent({
             return false;
         }
       },
+    },
+    setContentListElm: {
+      type: Function as PropType<(a: Element) => void>,
+      required: true,
     },
   },
 
@@ -178,6 +182,14 @@ export default defineComponent({
         error
       )
     );
+  },
+
+  mounted() {
+    setTimeout(() => {
+      if (this.$refs.list) {
+        this.setContentListElm(this.$refs.list as Element);
+      }
+    }, 100);
   },
 });
 </script>

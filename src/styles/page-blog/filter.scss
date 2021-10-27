@@ -14,6 +14,10 @@
   margin-bottom: 30px;
   margin-left: 0;
 
+  @media (--lg-max) {
+    z-index: 10;
+  }
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     margin-bottom: vw(55);
@@ -26,14 +30,6 @@ body.filter-white .pin-filter-container.is-active {
   animation: invert-filter-bg 0s 0.1s forwards;
 }
 
-.page-works .pin-filter-container {
-  @apply <md:(mx-$base-page-gap-negative px-$base-page-gap overflow-x-auto overflow-y-hidden);
-}
-
-.page-works .pin-filter-container::-webkit-scrollbar {
-  display: none;
-}
-
 .filter {
   --padding: 5px;
   --gap-item: calc((25px - var(--padding) * 2) / 2);
@@ -41,6 +37,7 @@ body.filter-white .pin-filter-container.is-active {
   --duration: var(--trans-dur-fast);
   --ease: ease-in;
 
+  @include base-property();
   @include list-unstyled();
 
   width: fit-content;
@@ -54,6 +51,14 @@ body.filter-white .pin-filter-container.is-active {
   transition: background-color var(--duration);
   z-index: 500;
 
+  @media (--lg-max) {
+    width: calc(100% + var(--base-page-gap) * 2);
+    margin: 0 var(--base-page-gap-negative);
+    padding: 15px var(--base-page-gap);
+    background-color: #fff;
+    overflow: auto;
+  }
+
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
     position: relative;
@@ -62,6 +67,29 @@ body.filter-white .pin-filter-container.is-active {
   }
 }
 
+.filter::-webkit-scrollbar {
+  display: none;
+}
+
+.works-dialog .filter {
+  @media (--lg-max) {
+    background-color: var(--c-black);
+  }
+}
+
+.works-dialog .simplebar .filter {
+  overflow: inherit;
+}
+
+.works-dialog .simplebar {
+  background-color: var(--c-black);
+  z-index: 5;
+
+  @media (--lg-max) {
+    position: sticky;
+    top: -25px;
+  }
+}
 // TODO: replace to "body.os-win"
 body:not(.os-mac) .filter {
   @media (--lg) {
