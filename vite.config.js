@@ -3,7 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
-import posthtmlExpressions from "posthtml-expressions";
+// import posthtmlExpressions from "posthtml-expressions";
 
 import posthtmlImgAutosize from "posthtml-img-autosize";
 import { posthtmlExternalLink } from "posthtml-external-link";
@@ -34,9 +34,9 @@ export default {
         posthtmlInclude({
           root: "src/templates",
         }),
-        posthtmlExpressions({
-          removeScriptLocals: 'false'
-        }),
+        // posthtmlExpressions({
+        //   removeScriptLocals: 'false'
+        // }),
         posthtmlImgAutosize({
           root: "public/",
         }),
