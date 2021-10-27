@@ -15,7 +15,6 @@
   margin-left: 0;
 
   @media (--lg-max) {
-    background-color: #fff;
     z-index: 10;
   }
 
@@ -72,6 +71,25 @@ body.filter-white .pin-filter-container.is-active {
   display: none;
 }
 
+.works-dialog .filter {
+  @media (--lg-max) {
+    background-color: var(--c-black);
+  }
+}
+
+.works-dialog .simplebar .filter {
+  overflow: inherit;
+}
+
+.works-dialog .simplebar {
+  background-color: var(--c-black);
+  z-index: 5;
+
+  @media (--lg-max) {
+    position: sticky;
+    top: -25px;
+  }
+}
 // TODO: replace to "body.os-win"
 body:not(.os-mac) .filter {
   @media (--lg) {
