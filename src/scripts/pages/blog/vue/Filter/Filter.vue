@@ -42,32 +42,26 @@
   </div>
 </template>
 
-<script>
-import { gsap } from "gsap";
+<script lang="ts">
+import { computed, defineComponent, onMounted, PropType, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { throttle } from "lodash-es";
 
 import "@/styles/page-blog/filter.scss";
 import FilterItem from "./FilterItem.vue";
 import APP from "../../../../app/APP";
+import { resizeObserver } from "@/scripts/utils/resizeObserver";
+import SmoothScroll from "@/scripts/components/smoothScroll/SmoothScroll";
+import usePinFilter from "./usePinFilter";
+import usePinFilterMobile from "./usePinFilterMobile";
+import usePinFilterStatic from "./usePinFilterStatic";
 
-export default {
+export default defineComponent({
   name: "FilterElm",
+
   components: {
     FilterItem,
   },
-  data() {
-    return {
-      config: {
-        widthShrink: 0,
-        widthExpand: 0,
-        posLeft: 0,
-        duration: 0.3,
-      },
-      isPinned: false,
-      isActive: false,
-    };
-  },
+
   props: {
     filterItems: {
       type: Array,
@@ -85,176 +79,103 @@ export default {
       type: Boolean,
       default: false,
     },
+    staticElms: {
+      type: Object as PropType<{
+        simplebar: HTMLElement;
+        scrollbar: SmoothScroll;
+      }>,
+    },
+    contentList: {
+      type: Object as PropType<HTMLElement>,
+      required: true,
+    },
   },
 
-  methods: {
-    setWidthExpand(isUpdate = false) {
-      if (this.config.widthExpand === 0 || isUpdate) {
-        this.config.widthExpand = this.$refs.root.offsetWidth + 10;
+  setup(props) {
+    const isStatic = props.isStatic;
+
+    const root = ref<HTMLElement>();
+    const pinContainer = ref<HTMLElement>();
+
+    const contentElm = computed(() => props.contentList);
+    const simplebar = computed(() => props.staticElms?.simplebar);
+    const scrollbar = computed(() => {
+      if (props.staticElms?.simplebar) {
+        return props.staticElms?.scrollbar.getInstance();
       }
-    },
 
-    setWidthShrink() {
-      if (this.config.widthShrink === 0) {
-        this.config.widthShrink = getComputedStyle(
-          this.$refs.pinContainer
-        ).getPropertyValue("--width-shrink");
-      }
-    },
+      return undefined;
+    });
 
-    setPosLeft() {
-      this.config.posLeft =
-        this.$refs.pinContainer.getBoundingClientRect().left * -1;
-    },
+    const {
+      btnToggle,
+      isActive,
+      isPinned,
+      scrollPin,
+      handleClickOutside,
+      throttleClick,
+    } = usePinFilter(root, pinContainer);
+    const { scrollPinMobile } = usePinFilterMobile(
+      root,
+      pinContainer,
+      contentElm
+    );
+    const { scrollPinStatic } = usePinFilterStatic();
 
-    expand(isRefresh = false) {
-      if (isRefresh) {
-        gsap.set(this.$refs.pinContainer, {
-          width: this.config.widthExpand,
-        });
-      } else {
-        gsap.set(this.$refs.pinContainer, { clearProps: "width" });
+    const runInterval = (cb: (id: NodeJS.Timeout) => void) => {
+      let count = 0;
+      const idInterval = setInterval(() => {
+        if (count > 10) {
+          clearInterval(idInterval);
+        }
 
-        setTimeout(() => {
-          this.setWidthExpand();
+        cb(idInterval);
 
-          gsap
-            .timeline()
-            .set(this.$refs.pinContainer, {
-              width: this.config.widthExpand,
-            })
-            .to(this.$refs.pinContainer, {
-              background: "#131313",
-              duration: this.config.duration,
-            });
-        }, 100);
-      }
-    },
+        count++;
+      }, 100);
+    };
 
-    shrink() {
-      gsap.to(this.$refs.pinContainer, {
-        background: "transparent",
-        duration: this.config.duration,
-      });
+    onMounted(() => {
+      if (!isStatic) {
+        if (APP.isDesktop) {
+          if (APP.scrollbar) {
+            scrollPin();
+          }
 
-      if (this.isPinned) {
-        setTimeout(() => {
-          this.setWidthShrink();
+          document.addEventListener("pointerup", handleClickOutside);
+        } else {
+          runInterval((id: NodeJS.Timeout) => {
+            if (contentElm.value) {
+              clearInterval(id);
 
-          gsap.set(this.$refs.pinContainer, {
-            width: this.config.widthShrink,
+              scrollPinMobile();
+              resizeObserver(contentElm.value as HTMLElement, () => {
+                ScrollTrigger.getById("filter-pin")?.refresh();
+              });
+            }
           });
-        }, 500);
-      }
-    },
-
-    pin(isRefresh = false) {
-      if (isRefresh) {
-        gsap.set(this.$refs.pinContainer, {
-          x: this.config.posLeft,
-        });
+        }
       } else {
-        gsap.to(this.$refs.pinContainer, {
-          x: this.config.posLeft,
-          duration: this.config.duration,
+        runInterval((id: NodeJS.Timeout) => {
+          if (simplebar.value && scrollbar.value) {
+            clearInterval(id);
+            scrollPinStatic(simplebar.value, scrollbar.value);
+          }
         });
       }
-    },
+    });
 
-    unpin(shouldClearWidth = true) {
-      gsap.to(this.$refs.pinContainer, {
-        x: 0,
-        background: "transparent",
-        duration: this.config.duration,
-        onStart: () => {
-          if (shouldClearWidth) {
-            gsap.set(this.$refs.pinContainer, {
-              clearProps: "width",
-            });
-          }
-        },
-      });
-    },
-
-    handleClick() {
-      this.isActive = !this.isActive;
-
-      if (this.isActive) {
-        this.expand();
-      } else {
-        this.shrink();
-      }
-    },
-
-    throttleClick: throttle(function () {
-      this.handleClick();
-    }, 600),
-
-    handleClickOutside(e) {
-      const isOutside = !e.target.closest("div.filter");
-
-      if (isOutside) {
-        this.isActive = false;
-        this.shrink();
-      }
-    },
-
-    scrollPin() {
-      const pinContainer = this.$refs.pinContainer;
-      if (pinContainer === null) {
-        return;
-      }
-
-      ScrollTrigger.create({
-        trigger: pinContainer,
-        start: "top 90",
-        end: 99999,
-        pin: true,
-        pinSpacing: false,
-        onToggle: ({ isActive }) => {
-          if (isActive) {
-            this.isPinned = true;
-            this.pin();
-            this.shrink();
-          } else {
-            let isWasActive = this.isActive;
-
-            this.$refs.btnToggle.blur();
-            this.isPinned = false;
-            this.isActive = false;
-
-            this.unpin(!isWasActive);
-          }
-        },
-
-        onRefresh: ({ isActive }) => {
-          this.setPosLeft();
-
-          if (isActive) {
-            this.pin(true);
-          }
-
-          if (this.isActive) {
-            this.setWidthExpand(true);
-            this.expand(true);
-          }
-
-          if (isActive && !this.isActive) {
-            this.shrink();
-          }
-        },
-      });
-    },
+    return {
+      root,
+      pinContainer,
+      btnToggle,
+      isActive,
+      isPinned,
+      throttleClick,
+      scrollPin,
+      handleClickOutside,
+      scrollPinMobile,
+    };
   },
-
-  mounted() {
-    if (!this.isStatic && APP.isDesktop) {
-      if (APP.scrollbar) {
-        this.scrollPin();
-      }
-
-      document.addEventListener("pointerup", this.handleClickOutside);
-    }
-  },
-};
+});
 </script>

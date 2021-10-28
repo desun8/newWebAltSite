@@ -20,7 +20,7 @@
 }
 
 .dialog-container {
-  z-index: 2;
+  z-index: 9999;
   display: flex;
 }
 
@@ -37,5 +37,4 @@
   margin: auto;
   z-index: 2;
   animation: fade-in 300ms 150ms both, slide-up 300ms 150ms both;
-
 }

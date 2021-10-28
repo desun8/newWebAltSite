@@ -3,6 +3,8 @@ import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
+
+
 import posthtmlImgAutosize from "posthtml-img-autosize";
 import { posthtmlExternalLink } from "posthtml-external-link";
 import rollupVisualizer from "rollup-plugin-visualizer";
@@ -32,6 +34,7 @@ export default {
         posthtmlInclude({
           root: "src/templates",
         }),
+  
         posthtmlImgAutosize({
           root: "public/",
         }),

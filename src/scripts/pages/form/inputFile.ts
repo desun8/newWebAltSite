@@ -1,13 +1,9 @@
 import A11yDialog from "a11y-dialog";
-import { disablePageScroll, enablePageScroll } from "scroll-lock";
-import APP from "@/scripts/app/APP";
-import {
-  disableScroll,
-  enableScroll,
-} from "@/scripts/components/smoothScroll/plugins/ModalPlugin";
 import { autobind } from "../../decorators/autobind";
 import { fileValidation, validation } from "./validation";
 import { throttle } from "lodash-es";
+import { disableScroll, enableScroll } from "@/scripts/helpers/scrollLock";
+import SmoothScrollbar from "smooth-scrollbar";
 
 class Dialog {
   elm: HTMLElement;
@@ -17,7 +13,7 @@ class Dialog {
   private btnRemove: HTMLButtonElement;
   private title: HTMLElement;
 
-  constructor() {
+  constructor(private scrollbar: SmoothScrollbar | undefined) {
     this.elm = this.getTemplate();
     this.dialogContent = this.elm.querySelector(".dialog-content")!;
     this.title = this.elm.querySelector("#delete-dialog-title")!;
@@ -27,18 +23,10 @@ class Dialog {
     this.dialog = new A11yDialog(this.elm);
 
     this.dialog.on("show", () => {
-      if (APP.scrollbar) {
-        disableScroll(APP.scrollbar);
-      } else {
-        disablePageScroll(this.elm);
-      }
+      disableScroll(this.elm, this.scrollbar);
     });
     this.dialog.on("hide", () => {
-      if (APP.scrollbar) {
-        enableScroll(APP.scrollbar);
-      } else {
-        enablePageScroll(this.elm);
-      }
+      enableScroll(this.elm, this.scrollbar);
     });
 
     this.addHoverEvent();
@@ -114,17 +102,20 @@ export class InputFile {
   private store = new Map();
   private inputElm: HTMLInputElement;
   private listElm: HTMLUListElement;
-  private dialog: Dialog;
+  protected dialog!: Dialog;
   private lastTimeFireChange = 0;
   private readonly maxLengthName = 16;
 
-  constructor(private parentElm: HTMLElement) {
+  constructor(
+    private parentElm: HTMLElement,
+    private scrollbar: SmoothScrollbar | undefined
+  ) {
     this.inputElm = this.parentElm.querySelector("input[type='file']")!;
     this.listElm = this.parentElm.querySelector("ul")!;
 
     this.inputElm.addEventListener("change", this.handleChange);
 
-    this.dialog = new Dialog();
+    this.dialog = new Dialog(this.scrollbar);
     this.dialog.addToDOM();
   }
 

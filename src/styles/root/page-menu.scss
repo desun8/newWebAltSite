@@ -2,7 +2,6 @@
 @use "../_config" as *;
 
 .page-menu {
-  //--width: #{vw(535)};
   --width: 535px;
 
   position: fixed;
@@ -15,6 +14,7 @@
   color: #fff;
   background-color: var(--c-dark-grey) !important;
   transform: translateX(calc(-1 * var(--width)));
+  z-index: 9999;
 
   @media screen and (--tablet-sm) {
     max-width: 100%;
@@ -32,7 +32,6 @@
     display: grid;
 
     @media screen and (--tablet-sm) {
-      //display: block;
       padding-top: 0;
       align-content: start;
       grid-template-rows: auto auto 1fr;
@@ -169,7 +168,6 @@
   }
 
   &__name {
-    //@include font-size($fz-text-sm);
     @include font-size-px(12);
 
     max-width: em(84, 12);
@@ -187,7 +185,6 @@
   }
 
   &__link {
-    //@include font-size(30, 40);
     @include font-size-px(32, 42);
 
     @media screen and (--tablet-sm) {
@@ -198,7 +195,6 @@
 }
 
 .menu-soc {
-  //@include font-size($fz-text-sm, 14);
   @include font-size-px(12, 14);
   @include fix-ios-chrome-font-size(8);
 
@@ -320,10 +316,10 @@
   padding: var(--pd);
   opacity: 0.7;
   outline: 0;
+  text-align: left;
 
   @media screen and (--tablet-sm) {
     --pd: #{em(math.div(30, 2), $fz-text-lg)} 0;
-    text-align: left;
   }
 
   &::before {
@@ -379,7 +375,6 @@
     .icon-arrow svg {
       transform: translate3d(-50%, -50%, 0);
     }
-
     //stylelint-enable
   }
 
