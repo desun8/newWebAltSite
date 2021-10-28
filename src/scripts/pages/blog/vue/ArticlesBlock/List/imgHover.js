@@ -20,7 +20,7 @@ const getMousePos = (e) => {
 
 class ImgHover {
   constructor(el) {
-    this.DOM = { el: el };
+    this.DOM = { el: el, parentLi: el.parentElement?.parentElement };
     this.DOM.reveal = document.createElement("div");
     this.DOM.reveal.className = "hover-reveal";
     this.DOM.reveal.innerHTML = `<div class="hover-reveal__inner"><div class="hover-reveal__img" style="background-image:url(${this.DOM.el.dataset.img})"></div></div>`;
@@ -75,22 +75,28 @@ class ImgHover {
         onStart: () => {
           this.DOM.reveal.style.opacity = 1;
           gsap.set(this.DOM.el, { zIndex: 100 });
+
+          if (this.DOM.parentLi) {
+            gsap.set(this.DOM.parentLi, { position: "relative", zIndex: 10 });
+          }
         },
       })
       .add("begin")
       .add(
-        gsap.to(this.DOM.revealInner, 0.2, {
+        gsap.to(this.DOM.revealInner, {
           ease: "sine.easeOut",
           startAt: { x: "-100%" },
           x: "0%",
+          duration: 0.2,
         }),
         "begin"
       )
       .add(
-        gsap.to(this.DOM.revealImg, 0.2, {
+        gsap.to(this.DOM.revealImg, {
           ease: "sine.easeOut",
           startAt: { x: "100%" },
           x: "0%",
+          duration: 0.2,
         }),
         "begin"
       );
@@ -102,27 +108,30 @@ class ImgHover {
 
     this.tl = gsap
       .timeline({
-        onStart: () => {
-          gsap.set(this.DOM.el, { zIndex: 99 });
-        },
         onComplete: () => {
           gsap.set(this.DOM.el, { zIndex: "" });
           gsap.set(this.DOM.reveal, { opacity: 0 });
+
+          if (this.DOM.parentLi) {
+            gsap.set(this.DOM.parentLi, { position: "", zIndex: "" });
+          }
         },
       })
       .add("begin")
       .add(
-        gsap.to(this.DOM.revealInner, 0.2, {
+        gsap.to(this.DOM.revealInner, {
           ease: "sine.easeOut",
           x: "100%",
+          duration: 0.2,
         }),
         "begin"
       )
 
       .add(
-        gsap.to(this.DOM.revealImg, 0.2, {
+        gsap.to(this.DOM.revealImg, {
           ease: "sine.easeOut",
           x: "-100%",
+          duration: 0.2,
         }),
         "begin"
       );
