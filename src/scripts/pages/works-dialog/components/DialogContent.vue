@@ -9,7 +9,7 @@
     ></list-item-info>
 
     <div ref="listElm" class="list flex-grow">
-      <simplebar>
+      <simplebar :setRef="setSimplebar">
         <filter-element
           :filter-items="filterItems"
           :set-active-filter="setActiveFilter"
@@ -32,14 +32,7 @@
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  PropType,
-  ref,
-  watch,
-} from "vue";
+import { computed, defineComponent, PropType, ref, watch } from "vue";
 import FilterElement from "../../blog/vue/Filter/Filter.vue";
 import ListElement from "./List.vue";
 import ListItemInfo from "./ListItemInfo.vue";
