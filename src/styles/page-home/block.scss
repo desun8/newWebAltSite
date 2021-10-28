@@ -62,7 +62,7 @@
     }
 
     .block__number,
-    .block__text {
+    .block__text p {
       color: #fff;
     }
   }
@@ -101,7 +101,7 @@
 
   &.theme-sun {
     .block__number,
-    .block__text {
+    .block__text p {
       color: inherit;
     }
 
@@ -130,7 +130,7 @@
 
     .block__number,
     .block__number::after,
-    .block__text {
+    .block__text p {
       @include transition-switch-theme(color);
     }
 
@@ -636,7 +636,7 @@
   }
 }
 
-.block__text {
+.block__text p {
   @include font-size($fz-text-16, 26);
   display: inline-block;
   margin-bottom: em(58, $fz-text-16);

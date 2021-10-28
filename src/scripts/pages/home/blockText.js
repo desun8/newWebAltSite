@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 class BlockTextNew {
   constructor(block) {
     this.block = block;
-    this.elm = this.block.querySelector('.block__text');
+    this.elm = this.block.querySelector('.block__text p');
 
     this.chars = undefined;
 
