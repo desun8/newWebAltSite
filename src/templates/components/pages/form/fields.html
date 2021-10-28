@@ -1,23 +1,23 @@
 <div class="grid gap-16 xl:grid-cols-2 2xl:grid-cols-7 2xl:gap-x-$fields-gap">
-  <include src="components/pages/form/input.html">
+  <include src="components/pages/form/input-required.html">
     { "class": "2xl:col-span-3", "id": "name", "type": "text", "name": "Имя",
-    "placeholder": "Имя", "required": "required", "autocomplete": "name",
-    "prefix": "*", "validation": "text" }
+    "placeholder": "Имя", "autocomplete": "name", "prefix": "*", "validation":
+    "text" }
   </include>
-  <include src="components/pages/form/input.html">
+  <include src="components/pages/form/input-required.html">
     { "class": "xl:row-start-2 2xl:col-span-3", "id": "tel", "type": "text",
-    "name": "Телефон", "placeholder": "+7 (999) 999 99 99", "required":
-    "required", "autocomplete": "tel", "prefix": "*", "validation": "tel" }
+    "name": "Телефон", "placeholder": "+7 (999) 999 99 99", "autocomplete":
+    "tel", "prefix": "*", "validation": "tel" }
   </include>
   <include src="components/pages/form/input.html">
     { "class": "2xl:col-start-5 2xl:col-span-3", "id": "company", "type":
-    "text", "name": "Компания", "placeholder": "Компания", "required": "",
-    "autocomplete": "", "prefix": "", "validation": "" }
+    "text", "name": "Компания", "placeholder": "Компания", "autocomplete": "",
+    "prefix": "", "validation": "" }
   </include>
   <include src="components/pages/form/input.html">
     { "class": "2xl:col-start-5 2xl:col-span-3", "id": "email", "type": "email",
-    "name": "Email", "placeholder": "Email", "required": "", "autocomplete":
-    "email", "prefix": "", "validation": "email" }
+    "name": "Email", "placeholder": "Email", "autocomplete": "email", "prefix":
+    "", "validation": "email" }
   </include>
 
   <div class="form__textarea relative flex xl:col-span-full">
