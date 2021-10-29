@@ -5,9 +5,9 @@ import APP from "../APP";
 import { initDialogForm } from "./dialogForm";
 import { initFooter } from "./initFooter";
 import { initMenu } from "./initMenu";
-import { addNoise } from "./noise";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
+// import { addNoise } from "./noise";
 
 const defaultInit = () => {
   const smScreen = () => {
@@ -35,9 +35,10 @@ export const initCore = () => {
   initProgressBar();
   initDialogForm();
 
-  if (APP.scrollbar && APP.isDesktop) {
-    addNoise();
-  }
+  // if (APP.scrollbar && APP.isDesktop) {
+  // Шум
+  //   addNoise();
+  // }
 
   if (APP.isDesktop) {
     import("./invertTheme").then(({ invertTheme }) => {
