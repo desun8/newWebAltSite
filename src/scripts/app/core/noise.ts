@@ -16,9 +16,7 @@ export const addNoise = () => {
     document.querySelector(".page-menu"),
     document.querySelector(".page-footer"),
     document.querySelector(".footer-redirect"),
-    document.querySelector("main.project .review"),
-    document.querySelector("main.page-about .founder"),
-    document.querySelector("#dialog-form .dialog-overlay"),
+    ...Array.from(document.querySelectorAll(".js-noise")),
   ];
 
   elms.forEach((elm) => {
