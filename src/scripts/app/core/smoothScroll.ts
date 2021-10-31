@@ -17,7 +17,7 @@ export const initSmoothScroll = () => {
 
   if (scrollInstance) {
     const pageHeader = document.querySelector(
-      ".page-header"
+      ".page-header:not(.page-header--preloader)"
     ) as HTMLHeadingElement;
     const btnToTop = document.querySelector("#go-to-top") as HTMLAnchorElement;
     const isBlogPage = document.querySelector(".page-blog");

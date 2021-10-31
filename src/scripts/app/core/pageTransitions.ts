@@ -1,9 +1,8 @@
-// import barba from "@barba/core";
 import gsap from "gsap";
 
 export const pageTransitions = () => {
-  const body = document.querySelector("#scroll-container");
-  const preloader = document.querySelector(".preloader");
+  // const body = document.querySelector("#scroll-container") as HTMLElement;
+  const preloader = document.querySelector(".page-preloader");
   let linkElms = Array.from(document.querySelectorAll("a"));
   linkElms = linkElms.filter((link) => {
     const href = link.getAttribute("href")!;
@@ -22,14 +21,15 @@ export const pageTransitions = () => {
     return true;
   });
 
-  gsap.timeline().to(preloader, { y: "100%", delay: 1 }).from(
-    body,
-    {
-      y: "10%",
-      alpha: 0,
-    },
-    "-=0.1"
-  );
+  gsap.timeline().to(preloader, { y: "100%", delay: 2 });
+  // .from(
+  //   body,
+  //   {
+  //     y: "10%",
+  //     alpha: 0,
+  //   },
+  //   "-=0.1"
+  // );
 
   const navigate = (href: string) => {
     window.location.replace(href);
@@ -40,22 +40,28 @@ export const pageTransitions = () => {
       link.onclick = (event) => {
         event.preventDefault();
 
-        gsap.set(preloader, { y: "-100%" });
+        gsap.set(preloader, { y: "100%" });
 
         gsap
-          .timeline()
-          .to(preloader, { y: 0 }, "0")
-          .to(
-            body,
-            {
-              y: "-10%",
-              alpha: 0,
-              onComplete() {
+          .timeline({
+            onComplete() {
+              setTimeout(() => {
                 navigate(link.href);
-              },
+              }, 1000);
             },
-            "0"
-          );
+          })
+          .to(preloader, { y: 0 }, "0");
+        // .to(
+        //   body,
+        //   {
+        //     y: "-10%",
+        //     alpha: 0,
+        //     onComplete() {
+        //       navigate(link.href);
+        //     },
+        //   },
+        //   "0"
+        // );
       };
     }
   });
