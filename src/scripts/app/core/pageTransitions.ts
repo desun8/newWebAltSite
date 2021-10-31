@@ -66,7 +66,7 @@ export const pageTransitions = () => {
     }
   });
 
-  window.addEventListener("popstate", () => {
-    gsap.set(preloader, { y: "-100%" });
-  });
+  // window.addEventListener("popstate", () => {
+  //   gsap.set(preloader, { y: "-100%" });
+  // });
 };

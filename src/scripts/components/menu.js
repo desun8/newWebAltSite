@@ -23,8 +23,8 @@ export default class Menu {
     this.appConfig = appConfig;
 
     this.pageMain = document.querySelector("main");
-    this.pageHeader = document.querySelector("header");
-    this.pageFooter = document.querySelector("footer");
+    this.pageHeader = document.querySelector(".page-header:not(.page-header--preloader)");
+    this.pageFooter = document.querySelector(".page-footer");
     this.progressBar = document.querySelector(".progress-bar");
     this.footerRedirect = document.querySelector(".footer-redirect"); // только на главной
     this.blogTopElm = document.querySelector(".blog-deco-top");
