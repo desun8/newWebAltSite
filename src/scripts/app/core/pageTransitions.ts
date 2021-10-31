@@ -21,7 +21,7 @@ export const pageTransitions = () => {
     return true;
   });
 
-  gsap.timeline().to(preloader, { y: "100%", delay: 2 });
+  gsap.timeline().to(preloader, { y: "120%", delay: 2 });
   // .from(
   //   body,
   //   {
@@ -40,7 +40,7 @@ export const pageTransitions = () => {
       link.onclick = (event) => {
         event.preventDefault();
 
-        gsap.set(preloader, { y: "100%" });
+        gsap.set(preloader, { y: "120%" });
 
         gsap
           .timeline({
