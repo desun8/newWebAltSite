@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакты</title>
-  <script type="module" crossorigin="" src="/assets/contacts.4823fc7d.js"></script>
-  <link rel="modulepreload" href="/assets/root.63ef0620.js">
+  <script type="module" crossorigin="" src="/assets/contacts.77af1ed1.js"></script>
+  <link rel="modulepreload" href="/assets/root.bbe6f001.js">
   <link rel="modulepreload" href="/assets/vendor.5d6f67ed.js">
   <link rel="modulepreload" href="/assets/redirectFooter.d36d1a61.js">
-  <link rel="stylesheet" href="/assets/root.41f60a30.css">
+  <link rel="stylesheet" href="/assets/root.eb7bfa75.css">
   <link rel="stylesheet" href="/assets/contacts.3e9916c8.css">
 </head>
   <body class="page-contacts">
@@ -91,7 +91,7 @@
   </div>
 </header>
 
-<header class="page-header-fixed">
+<header class="page-header-fixed" aria-hidden="true">
   <div class="page-header__wrap">
     <a href="tel:+74212529102" class="page-header-fixed__tel">
       <svg width="28" height="28" aria-hidden="true">
@@ -611,7 +611,7 @@
     <a href="#" class="scroll-to-top" aria-label="Вернуться в начало страницы."></a>
 
     <div ref="dialogElm" id="dialog-form" class="dialog-container dialog-form" aria-labelledby="dialog-form-title" aria-hidden="true">
-  <div class="dialog-overlay" data-a11y-dialog-hide=""></div>
+  <div class="dialog-overlay js-noise" data-a11y-dialog-hide=""></div>
   <div class="dialog-content" role="document">
     <div class="page-header">
       <div class="page-header__wrap">
@@ -624,7 +624,7 @@
         <div class="
             dialog-close
             page-header__feedback-btn
-            header-feedback
+            header-feedback header-feedback--dialog
             relative
             text-white
           ">
@@ -893,7 +893,7 @@
       focus:outline-none focus:border-sun
       hover:border-sun
       lg:font-medium lg:text-2xl
-    " type="text" name="Компания" placeholder="Компания" autocomplete="" data-validation="" =""="">
+    " type="text" name="Компания" placeholder="Компания" autocomplete="" data-validation="">
   <label for="company" class="
       absolute
       w-full
@@ -931,7 +931,7 @@
       focus:outline-none focus:border-sun
       hover:border-sun
       lg:font-medium lg:text-2xl
-    " type="email" name="Email" placeholder="Email" autocomplete="email" data-validation="email" =""="">
+    " type="email" name="Email" placeholder="Email" autocomplete="email" data-validation="email">
   <label for="email" class="
       absolute
       w-full
