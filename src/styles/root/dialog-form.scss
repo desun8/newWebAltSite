@@ -16,6 +16,10 @@
   }
 }
 
+.dialog-form {
+  color: var(--c-dark-grey);
+}
+
 .dialog-form.dialog-container,
 .dialog-form > .dialog-overlay {
   position: fixed;
