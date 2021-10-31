@@ -2,6 +2,7 @@ import { fixedHeader } from "@/scripts/components/fixedHeader";
 import { ANDROID, MAC_OS } from "@/scripts/utils/getOS";
 import { mediaQueryEvent } from "@/scripts/utils/mediaQueryEvent";
 import APP from "../APP";
+import { initDialogForm } from "./dialogForm";
 import { initFooter } from "./initFooter";
 import { initMenu } from "./initMenu";
 import { addNoise } from "./noise";
@@ -26,6 +27,7 @@ const defaultInit = () => {
 };
 
 export const initCore = () => {
+  pageTransitions();
   defaultInit();
   initMenu();
   fixedHeader();
@@ -33,7 +35,7 @@ export const initCore = () => {
 
   initSmoothScroll();
   initProgressBar();
-  pageTransitions();
+  initDialogForm();
 
   if (APP.scrollbar && APP.isDesktop) {
     addNoise();

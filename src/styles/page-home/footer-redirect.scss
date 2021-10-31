@@ -2,7 +2,7 @@
 
 body {
   --redirect-color: var(--c-dark-grey);
-  
+
   @media screen and (--tablet-sm) {
     --redirect-color: #c4c4c4;
   }
@@ -10,14 +10,15 @@ body {
 
 .footer-redirect {
   @include font-size-vw(150);
-  
+
   position: relative;
   padding: em(155, 150) 0;
   background-color: #1d1d1d;
   color: #fff;
   text-align: center;
   font-weight: 700;
-  
+  user-select: none;
+
   @media screen and (--tablet-sm) {
     padding: 64px 20px;
     font-size: vw(84, $mobile-viewport);
@@ -41,7 +42,7 @@ body {
   align-items: flex-end;
   width: fit-content;
   margin: 0 auto;
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     display: block;
@@ -50,9 +51,6 @@ body {
 
 .footer-redirect__title,
 .footer-redirect__link-name {
-  //display: inline-flex;
-  //flex-direction: column;
-  //align-items: flex-end;
   display: inline;
   background: var(--redirect-color);
   -webkit-background-clip: text; //stylelint-disable-line
@@ -69,14 +67,14 @@ body {
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     @include hide-text();
-    
+
     display: none;
   }
 }
 
 .footer-redirect__name-svg {
   display: none;
-  
+
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
     display: unset;
@@ -86,10 +84,10 @@ body {
 
 .footer-redirect__link-name {
   @include font-size-vw(24, 24);
-  
+
   font-weight: 500;
   transform: translateY(-10px);
-  
+
   @media screen and (--tablet-sm) {
     display: none;
   }
@@ -97,12 +95,12 @@ body {
   &::after {
     content: none;
   }
-  
+
   .link {
     position: static;
     display: inline;
   }
-  
+
   .link__arrow {
     fill: var(--c-dark-grey);
   }
@@ -110,7 +108,7 @@ body {
 
 .footer-redirect__counter {
   @include font-size-vw(194);
-  
+
   position: absolute;
   top: 50%;
   right: vw(180);
@@ -118,7 +116,7 @@ body {
   width: vw(130);
   height: vw(180);
   overflow: hidden;
-  
+
   @media screen and (--tablet-sm) {
     display: none;
   }
@@ -129,17 +127,13 @@ body {
   top: 0;
   left: 0;
   color: var(--c-dark-grey);
-  //-webkit-text-fill-color: transparent;
-  //-webkit-text-stroke: 1px var(--c-dark-grey);
-  
+
   div {
     display: flex;
     height: vw(180);
   }
-  
+
   svg {
     width: 100%;
-    //width: auto;
-    //max-height: vw(180);
   }
 }

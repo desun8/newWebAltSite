@@ -1,6 +1,5 @@
-
-body.theme-dark .header-feedback,
-body.header-feedback-white .header-feedback {
+body.theme-dark .header-feedback:not(.header-feedback--dialog),
+body.header-feedback-white .header-feedback:not(.header-feedback--dialog) {
   @apply text-black;
 }
 
@@ -10,7 +9,9 @@ body.header-feedback-white .header-feedback {
   transition: transform 0.5s, background var(--trans-dur-fast);
 }
 
-body.theme-dark .header-feedback__bg,
-body.header-feedback-white .header-feedback__bg {
+body.theme-dark
+  .header-feedback__bg:not(.header-feedback--dialog .header-feedback__bg),
+body.header-feedback-white
+  .header-feedback__bg:not(.header-feedback--dialog .header-feedback__bg) {
   @apply bg-white;
 }

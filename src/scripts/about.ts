@@ -8,6 +8,7 @@ import { clientsAnimation } from "./pages/about/clientsAnimation";
 import { reviews } from "./pages/about/reviews";
 import { teamVideoAutoplay } from "./pages/about/teamVideoAutoplay";
 import { teamAnimations } from "./pages/about/teamAnimations";
+import { wysiwygReviewVideo } from "./components/wysiwygReviewVideo";
 
 const isMdScreen = !window.matchMedia("(max-width: 47.99em)").matches;
 
@@ -43,19 +44,7 @@ teamVideoAutoplay();
 founderAnimations();
 reviews();
 clientsAnimation();
-
-// Открытие видео во весь экран или в модалке
-(() => {
-  const btns = document.querySelectorAll<HTMLButtonElement>(".btn-play");
-
-  if (btns.length) {
-    import("./pages/works-project/reviewVideo").then(({ reviewVideo }) => {
-      btns.forEach((btn) => {
-        reviewVideo(btn);
-      });
-    });
-  }
-})();
+wysiwygReviewVideo();
 
 // Анимация текста блока митапов
 (() => {

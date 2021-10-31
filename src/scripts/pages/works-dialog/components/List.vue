@@ -1,24 +1,26 @@
 <template>
-  <transition-group
-    name="works-list"
-    tag="ul"
-    class="pb-5"
-    @enter="enter"
-    @leave="leave"
-  >
-    <list-item
-      v-for="item in items"
-      :key="item.id"
-      :id="`${item.id}`"
-      :title="item.title"
-      :kind="item.kind"
-      :tags="item.tags"
-      :text="item.text"
-      :imgPath="item.imgPath"
-      :href="item.href"
-      :set-item-info="setItemInfo"
-    ></list-item>
-  </transition-group>
+  <div ref="list">
+    <transition-group
+      name="works-list"
+      tag="ul"
+      class="pb-5"
+      @enter="enter"
+      @leave="leave"
+    >
+      <list-item
+        v-for="item in items"
+        :key="item.id"
+        :id="`${item.id}`"
+        :title="item.title"
+        :kind="item.kind"
+        :tags="item.tags"
+        :text="item.text"
+        :imgPath="item.img"
+        :href="item.href"
+        :set-item-info="setItemInfo"
+      ></list-item>
+    </transition-group>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
@@ -37,6 +39,10 @@ export default defineComponent({
       type: Function as PropType<
         (a: string, b: string, c: string, d: string) => void
       >,
+      required: true,
+    },
+    setContentListElm: {
+      type: Function as PropType<(a: Element) => void>,
       required: true,
     },
   },
@@ -75,6 +81,12 @@ export default defineComponent({
         },
       });
     },
+  },
+
+  mounted() {
+    if (this.$refs.list) {
+      this.setContentListElm(this.$refs.list as Element);
+    }
   },
 });
 </script>

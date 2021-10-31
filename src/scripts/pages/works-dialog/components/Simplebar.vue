@@ -5,18 +5,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from "vue";
+import { defineComponent, onMounted, PropType, ref } from "vue";
 import SimpleBar from "simplebar";
 import "simplebar/dist/simplebar.css";
 
 export default defineComponent({
-  setup() {
+  props: {
+    setRef: {
+      type: Function as PropType<(a: HTMLElement) => void>,
+      required: true,
+    },
+  },
+
+  setup(props) {
+    const setRef = props.setRef;
+
     const simplebar = ref();
     onMounted(() => {
       if (simplebar.value) {
         new SimpleBar(simplebar.value, {
           autoHide: false,
         });
+
+        setRef(simplebar.value);
       }
     });
 
@@ -27,15 +38,19 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .simplebar {
-  @apply <md:(mx-$base-page-gap-negative px-$base-page-gap) lg:(mr-10);
+  @apply <md:(mx-$base-page-gap-negative px-$base-page-gap);
 }
 
 .simplebar :deep(.simplebar-track.simplebar-horizontal) {
   @apply <md:(left-$base-page-gap right-$base-page-gap);
 
-  bottom: 35px;
+  bottom: 20px;
   height: 3px;
   background-color: #0f0f0f;
+
+  @media (--lg) {
+    bottom: 15px;
+  }
 }
 
 .simplebar

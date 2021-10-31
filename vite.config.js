@@ -3,9 +3,13 @@ import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
 import { posthtmlPlugin } from "vite-plugin-posthtml";
 import posthtmlInclude from "posthtml-include";
+
+
 import posthtmlImgAutosize from "posthtml-img-autosize";
 import { posthtmlExternalLink } from "posthtml-external-link";
 import rollupVisualizer from "rollup-plugin-visualizer";
+import { threeMinifier } from "@yushijinhun/three-minifier-rollup";
+
 
 const reload = {
   name: "reload",
@@ -24,11 +28,13 @@ const reload = {
 
 export default {
   plugins: [
+    {...threeMinifier(), enforce: 'pre'},
     posthtmlPlugin({
       plugins: [
         posthtmlInclude({
           root: "src/templates",
         }),
+  
         posthtmlImgAutosize({
           root: "public/",
         }),

@@ -32,62 +32,8 @@ main {
   }
 }
 
-.project h6 {
-  margin-bottom: 18px;
-  font-size: 18px;
-  font-weight: 700;
-
-  @media (--lg) {
-    font-size: 22px;
-  }
-}
-
-.project p {
-  margin-bottom: revert;
-}
-
-.project ol,
-.project ul {
-  margin-bottom: revert;
-  padding-left: calc(var(--base-page-gap) + 10px);
-  list-style: revert;
-
-  @media (--lg) {
-    padding-left: 26px;
-    font-size: 18px;
-  }
-}
-
-.project p,
-.project ol,
-.project ul {
-  @media (--lg) {
-    font-weight: 300;
-  }
-}
-
 .project__link-site {
   font-size: 32px;
   line-height: 2;
   font-weight: 500;
-}
-
-.custom_block_50 {
-  @apply lg:w-1/2 lg:text-lg;
-}
-
-.custom_block_important_text {
-  @apply mt-3 px-2.5 py-1 text-lg text-white leading-normal text-justify bg-dark-grey uppercase lg:max-w-3/4 lg:text-3xl;
-
-  font-weight: 700 !important;
-
-  @media (--lg) {
-    font-weight: 600 !important;
-  }
-}
-
-.custom_block_important_text > strong {
-  @apply text-sun;
-
-  font-weight: inherit;
 }

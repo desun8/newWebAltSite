@@ -97,10 +97,18 @@
   color: var(--c-dark-grey);
 
   .page-header--short & {
-    display: none;
+    @media (--lg) {
+      grid-column-start: 4;
+    }
+
+    transform: scaleX(0);
+    visibility: hidden;
+    opacity: 0;
 
     @media screen and (--tablet-sm) {
-      display: flex;
+      transform: scaleX(1);
+      visibility: visible;
+      opacity: 1;
     }
   }
 
@@ -165,7 +173,9 @@
   }
 
   @media screen and (--tablet-sm) {
-    display: none !important;
+    &:not(.dialog-close) {
+      display: none !important;
+    }
   }
 }
 
@@ -197,6 +207,13 @@
 
       grid-column: 4/6;
       justify-self: end;
+    }
+  }
+
+  .page-header--short & {
+    @media (--lg) {
+      grid-column-start: 1;
+      grid-row-start: 1;
     }
   }
 

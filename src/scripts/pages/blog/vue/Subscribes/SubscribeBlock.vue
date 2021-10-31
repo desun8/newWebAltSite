@@ -88,6 +88,7 @@
         font-medium
         uppercase
         opacity-5
+        select-none
       "
     >
       <span class="whitespace-nowrap">SIGN UP</span>
@@ -117,6 +118,10 @@ export default {
   --gap: #{vw(20)};
   --right: #{vw(100)};
   --pos-x: #{vw(50)};
+}
+
+.subscribe-block * ::selection {
+  background-color: var(--c-dark-grey);
 }
 
 .title-size {

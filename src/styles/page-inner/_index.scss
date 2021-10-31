@@ -1,8 +1,8 @@
 @use "../_config/utilities/_custom-media";
 @use "../components/subscribe-block";
 @use "../components/subscribe-banner";
+@use "../components/wysiwyg-extended.scss";
 @use "page-inner";
-@use "inner-body";
 
 // Фиксы инлайн стилей приехавшие после парсинга старого сайта
 // Фикс ifram'а видео с ютуба

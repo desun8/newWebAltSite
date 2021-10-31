@@ -1,4 +1,4 @@
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 import gsap from "gsap";
 import APP from "../app/APP";
 
@@ -9,9 +9,9 @@ enum ScrollDirection {
 
 export const fixedHeader = () => {
   const isSmallScreen = !(APP.isDesktop && APP.scrollbar);
+  const fixedHeaderElm = document.querySelector(".page-header-fixed");
 
-  if (isSmallScreen) {
-    const fixedHeaderElm = document.querySelector(".page-header-fixed");
+  if (isSmallScreen && fixedHeaderElm) {
     let clientHeight = document.documentElement.clientHeight + 200;
 
     let prevScrollTop = 0;
@@ -20,7 +20,7 @@ export const fixedHeader = () => {
     let isHeaderPinned = false;
     const defaultPosY = -100;
 
-    fixedHeaderElm?.setAttribute("aria-hidden", "true");
+    fixedHeaderElm.setAttribute("aria-hidden", "true");
     gsap.set(fixedHeaderElm, {
       y: defaultPosY,
       display: "block",

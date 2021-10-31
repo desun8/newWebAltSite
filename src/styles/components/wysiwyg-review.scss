@@ -1,0 +1,41 @@
+@use "../_config/functions/convert.scss" as *;
+@use "../_config/mixins/grid.scss" as *;
+@use "wysiwyg-review-avatar.scss";
+@use "wysiwyg-review-content.scss";
+
+.wysiwyg-review {
+  margin: 0 var(--base-page-gap-negative);
+  padding: 54px var(--base-page-gap) 38px;
+  color: #fff;
+  background-color: var(--c-dark-grey);
+
+  @media (--lg) {
+    padding-top: 130px;
+    padding-bottom: 185px;
+  }
+}
+
+.wysiwyg-review__title {
+  --width: #{vw(190, $mobile-viewport)};
+  --mb: 30px;
+
+  width: var(--width);
+  margin-bottom: var(--mb);
+
+  @media (--lg) {
+    --width: #{vw(510)};
+
+    margin-left: vw(145);
+    margin-bottom: 70px;
+  }
+}
+
+.wysiwyg-review__body {
+  position: relative;
+
+  @media (--lg) {
+    @include grid(10);
+
+    margin: 0 vw(145);
+  }
+}

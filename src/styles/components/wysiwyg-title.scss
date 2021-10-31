@@ -1,0 +1,16 @@
+@use "../_config/mixins/typographic.scss" as *;
+
+.wysiwyg-title {
+  margin-bottom: 100px;
+  color: var(--c-sun);
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media (--lg) {
+    @include font-size(36);
+
+    margin-bottom: 30px;
+  }
+}

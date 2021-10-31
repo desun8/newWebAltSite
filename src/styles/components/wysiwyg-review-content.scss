@@ -1,0 +1,54 @@
+@use "../_config/functions/convert.scss" as *;
+@use "wysiwyg-review-socials.scss";
+
+.wysiwyg-review-content {
+  @media (--lg) {
+    grid-row: 1;
+    grid-column: 3 / -2;
+    margin-left: vw(65);
+    padding: vw(50) vw(90);
+    background-color: rgba(#f9f9f9, 0.01);
+  }
+}
+
+.wysiwyg-review-content__header {
+  margin-bottom: 25px;
+}
+
+.wysiwyg-review-content__name {
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 400;
+
+  @media (--lg) {
+    font-size: 28px;
+  }
+}
+
+.wysiwyg-review-content__name br {
+  @media (--lg) {
+    display: none;
+  }
+}
+
+.wysiwyg-review-content__text {
+  line-height: 1.6;
+
+  @media (--lg) {
+    font-size: 14px;
+  }
+}
+
+.wysiwyg-review-content__text p {
+  @media (--lg) {
+    font-weight: 400;
+  }
+}
+
+.wysiwyg-review-content__hashtag {
+  opacity: 0.5;
+
+  @media (--lg) {
+    font-size: 16px;
+  }
+}

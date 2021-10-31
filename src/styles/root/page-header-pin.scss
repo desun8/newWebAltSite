@@ -1,0 +1,18 @@
+.page-header-pin {
+  position: fixed;
+  top: 0;
+  left: 2px;
+  right: 0;
+  background-color: #fff;
+  transform: translateY(-100px);
+  z-index: 100;
+
+  @media (--lg) {
+    display: none;
+  }
+}
+
+.page-header-pin .page-header__wrap {
+  width: calc(100% + 2px);
+  transform: translateX(-2px);
+}

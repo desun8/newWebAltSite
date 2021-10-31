@@ -196,7 +196,7 @@ export default class Menu {
 
   addEvents() {
     this.btnsOpen.forEach((btn) => {
-      btn.addEventListener("click", this.handleClick);
+      btn?.addEventListener("click", this.handleClick);
     });
     this.btnClose.addEventListener("click", this.handleClick);
     APP.isDesktop &&

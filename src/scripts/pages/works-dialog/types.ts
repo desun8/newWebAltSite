@@ -5,7 +5,7 @@ export type Item = {
   kind: string;
   tags: string[];
   text: string;
-  imgPath: string;
+  img: string;
   href: string;
 };
 

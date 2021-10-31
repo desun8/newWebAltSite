@@ -1,9 +1,6 @@
-@use "../_config/functions/convert.scss" as *;
-
 .project-list {
   --mb: 80px;
 
-  position: relative;
   margin-bottom: var(--mb);
   font-weight: 300;
   list-style: upper-roman;
@@ -18,36 +15,7 @@
   }
 }
 
-.project-list::after {
-  @media (--lg) {
-    --width: #{vw(438)};
 
-    content: "";
-    position: absolute;
-    bottom: calc(var(--mb) * -1);
-    left: calc(100% - var(--width) + var(--base-page-gap));
-
-    display: block;
-    width: var(--width);
-    height: 3px;
-
-    background-color: var(--c-sun);
-    transform-origin: 100% 0;
-    transform: scaleX(0);
-    transition: transform 0.5s;
-  }
-
-  @media (--xxl) {
-    left: auto;
-    right: calc((100vw - 1280px) / -2);
-  }
-}
-
-.project-list.is-completed::after {
-  @media (--lg) {
-    transform: scaleX(1);
-  }
-}
 
 .project-list__item:not(:last-child) {
   margin-bottom: 20px;

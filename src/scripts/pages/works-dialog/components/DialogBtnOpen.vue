@@ -75,3 +75,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.link--btn * ::selection {
+  background-color: var(--c-dark-grey);
+}
+</style>

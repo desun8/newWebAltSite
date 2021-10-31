@@ -6,6 +6,9 @@ import { listAnimation } from "./pages/works-project/listAnimation";
 import { checkFlexGap } from "./utils/checkFlexGap";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
 import { initApp as initWorksDialog } from "@/scripts/pages/works-dialog/index";
+import { lightboxInit } from "./components/lightbox";
+import { wysiwygGalleryCarousel } from "./components/wysiwygGalleryCarousel";
+import { wysiwygReviewVideo } from "./components/wysiwygReviewVideo";
 
 const isMdScreen = window.matchMedia("(min-width: 48em)").matches;
 
@@ -15,9 +18,9 @@ checkFlexGap();
 if (APP.isDesktop) {
   import("./components/subscribe-banner/index");
 
-  import("./pages/works-project/resultsIntroAnimation").then(
-    ({ resultsIntroAnimation }) => {
-      resultsIntroAnimation();
+  import("./components/wysiwygCurtainBlockAnimation").then(
+    ({ wysiwygCurtainBlockAnimation }) => {
+      wysiwygCurtainBlockAnimation();
     }
   );
 } else {
@@ -60,18 +63,9 @@ if (isMdScreen) {
 sectionHeaderAnimation();
 listAnimation();
 
-// Lightbox
-(() => {
-  const lightboxElms = Array.from(
-    document.querySelectorAll<HTMLElement>(".js-lightbox")
-  );
-
-  if (lightboxElms.length) {
-    import("./pages/works-project/lightbox").then(({ lightbox }) => {
-      lightbox(lightboxElms);
-    });
-  }
-})();
+lightboxInit();
+wysiwygGalleryCarousel();
+wysiwygReviewVideo();
 
 // Анимация блока статистики
 (() => {
@@ -83,30 +77,6 @@ listAnimation();
         statisticAnimations();
       }
     );
-  }
-})();
-
-// Карусель
-(() => {
-  const elm = document.querySelector(".carousel .swiper") as HTMLElement;
-
-  if (elm) {
-    import("./pages/works-project/swiperCarousel").then(
-      ({ swiperCarousel }) => {
-        swiperCarousel(elm);
-      }
-    );
-  }
-})();
-
-// Открытие видео во весь экран или в модалке
-(() => {
-  const btn = document.querySelector<HTMLButtonElement>(".review-avatar__play");
-
-  if (btn) {
-    import("./pages/works-project/reviewVideo").then(({ reviewVideo }) => {
-      reviewVideo(btn);
-    });
   }
 })();
 

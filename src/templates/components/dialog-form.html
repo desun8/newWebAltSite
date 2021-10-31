@@ -1,0 +1,63 @@
+<div
+  ref="dialogElm"
+  id="dialog-form"
+  class="dialog-container dialog-form"
+  aria-labelledby="dialog-form-title"
+  aria-hidden="true"
+>
+  <div class="dialog-overlay js-noise" data-a11y-dialog-hide></div>
+  <div class="dialog-content" role="document">
+    <div class="page-header">
+      <div class="page-header__wrap">
+        <div class="page-header__logo">
+          <svg width="38" height="21" aria-hidden="true">
+            <use xlink:href="#logo"></use>
+          </svg>
+        </div>
+
+        <div
+          class="
+            dialog-close
+            page-header__feedback-btn
+            header-feedback header-feedback--dialog
+            relative
+            text-white
+          "
+        >
+          <button
+            class="link link--no-icon relative z-10"
+            type="button"
+            aria-label="Закрыть форму обратной связи."
+            data-a11y-dialog-hide
+          >
+            <span class="link__text <lg:hidden">Закрыть</span>
+            <span class="icon-cross <lg:text-black"></span>
+          </button>
+          <div
+            class="
+              header-feedback__bg
+              absolute
+              top-1/2
+              -left-1.5
+              transform
+              -translate-y-1/2
+              bg-black
+              <lg:hidden
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="dialog-form-title" class="sr-only">Форма обратной связи</h2>
+
+    <div id="dialog-form-scroll-container">
+      <div class="page-form py-7 lg:py-44 lg:overflow-hidden">
+        <div class="wrapper lg:grid lg:grid-cols-12 lg:gap-$base-gap">
+          <include src="components/pages/form/form.html"></include>
+          <include src="components/pages/form/decorative-header.html"></include>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

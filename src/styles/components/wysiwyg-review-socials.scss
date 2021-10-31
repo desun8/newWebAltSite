@@ -1,0 +1,41 @@
+@use "../_config/utilities/list-unstyled.scss" as *;
+
+.wysiwyg-review-socials {
+  --gap-x: 20px;
+  --gap-y: 10px;
+  --mt: 30px;
+
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: var(--mt) calc(var(--gap-y) / -2) 0;
+
+  font-size: 14px !important;
+  text-transform: uppercase;
+
+  @media (--lg) {
+    --mt: 10px;
+
+    font-weight: 500;
+  }
+}
+
+.wysiwyg-review-socials__item {
+  padding: calc(var(--gap-y) / 2) calc(var(--gap-x) / 2);
+}
+
+.flexbox-gap .wysiwyg-review-socials {
+  margin-left: 0;
+  margin-right: 0;
+
+  column-gap: var(--gap-x);
+  row-gap: var(--gap-y);
+}
+
+.flexbox-gap .wysiwyg-review-socials__item {
+  padding: 0;
+}

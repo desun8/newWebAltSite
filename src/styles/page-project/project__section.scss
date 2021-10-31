@@ -1,0 +1,21 @@
+@use "../_config/mixins/grid.scss" as *;
+
+@custom-selector :--full-col .project-section-header, .layouts, .wysiwyg-curtain-block, .statistic, .wysiwyg-gallery-carousel, .wysiwyg-text-logo, .wysiwyg-review, .wysiwyg-title;
+
+.project__section {
+  @media (--xl) {
+    @include grid(12);
+  }
+}
+
+.project__section > * {
+  @media (--xl) {
+    grid-column: 2/-1;
+  }
+}
+
+.project__section > :--full-col {
+  @media (--xl) {
+    grid-column: 1/-1;
+  }
+}

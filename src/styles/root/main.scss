@@ -9,6 +9,19 @@
   box-sizing: inherit;
 }
 
+*::selection {
+  color: #fff;
+  background-color: var(--c-sun);
+}
+
+.theme-sun *::selection {
+  background-color: var(--c-dark-grey);
+}
+
+img {
+  user-select: none;
+}
+
 html * {
   -webkit-text-size-adjust: none;
 }
@@ -70,6 +83,7 @@ p {
 .ticker {
   overflow: hidden;
   white-space: nowrap;
+  user-select: none;
 
   &__wrap {
     display: flex;

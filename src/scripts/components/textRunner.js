@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-es';
 
 export default class TextRunner {
   constructor(elm, duration = 2) {

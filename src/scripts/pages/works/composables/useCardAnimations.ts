@@ -1,7 +1,7 @@
 import { onUnmounted } from "vue";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 
 type Pos = { x: number; y: number };
 

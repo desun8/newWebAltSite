@@ -43,7 +43,45 @@
     </svg>
 
     <include src="progress-bar.html"></include>
-    <include src="page-header/index.html">{ "class": "" }</include>
+
+    <!-- <include src="page-header/index.html">{ "class": ""}</include> -->
+    <header class="page-header">
+      <div class="page-header__wrap">
+        <a href="/" class="page-header__logo" aria-label="На главную.">
+          <svg width="38" height="21" aria-hidden="true">
+            <use xlink:href="#logo"></use>
+          </svg>
+          <span class="hover-text">на главную</span>
+        </a>
+        <button class="menu-btn js-menu-btn-open" aria-label="Открыть меню.">
+          <svg class="menu-btn__icon" width="16" height="13" aria-hidden="true">
+            <use xlink:href="#icon-dash-cursor"></use>
+          </svg>
+          menu
+        </button>
+
+        <include src="page-header/feedback-btn.html"></include>
+      </div>
+    </header>
+    <header class="page-header page-header-pin" aria-hidden="true">
+      <div class="page-header__wrap">
+        <a href="/" class="page-header__logo" aria-label="На главную.">
+          <svg width="38" height="21" aria-hidden="true">
+            <use xlink:href="#logo"></use>
+          </svg>
+          <span class="hover-text">на главную</span>
+        </a>
+        <button class="menu-btn js-menu-btn-open" aria-label="Открыть меню.">
+          <svg class="menu-btn__icon" width="16" height="13" aria-hidden="true">
+            <use xlink:href="#icon-dash-cursor"></use>
+          </svg>
+          menu
+        </button>
+
+        <include src="page-header/feedback-btn.html"></include>
+      </div>
+    </header>
+
     <include src="page-menu.html"></include>
 
     <div class="blog-deco-top">
@@ -81,6 +119,7 @@
     </div>
 
     <include src="components/scroll-to-top.html"></include>
+    <include src="components/dialog-form.html"></include>
 
     <!-- TODO: удалить перед сборкой -->
     <include src="utils/grid-helper.html"></include>
