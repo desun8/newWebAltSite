@@ -1,0 +1,84 @@
+@keyframes progress-step {
+  from {
+    transform: scaleX(1);
+  }
+
+  50%,
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.page-preloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  background: #262626;
+  z-index: 99999;
+}
+
+.page-preloader__arrow {
+  --size: 86px;
+
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: auto 0;
+  transform: translateX(calc(50vw - (var(--size) / 2)));
+
+  @media (min-width: 1024px) {
+    --size: 120px;
+  }
+}
+
+.page-preloader__arrow svg {
+  width: 100%;
+  height: 100%;
+  fill: #fff;
+}
+
+.page-preloader__arrow svg use {
+  animation-name: arrow;
+  animation-duration: 2s;
+  animation-delay: var(--trans-dur-fast, 0.3s);
+  animation-iteration-count: infinite;
+}
+
+.page-preloader .page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+
+.page-preloader .page-header__logo {
+  color: #fff;
+}
+
+.page-preloader .menu-btn {
+  align-items: baseline;
+}
+
+.page-preloader .menu-btn__progress {
+  position: relative;
+  font-size: 14px;
+  line-height: 72.5%;
+  letter-spacing: 0.26em;
+  font-weight: 600;
+}
+
+.page-preloader .menu-btn__progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-dark-grey);
+  transform-origin: 100% 50%;
+  animation: progress-step 3s steps(4) infinite forwards;
+}

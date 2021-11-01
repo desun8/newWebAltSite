@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Услуги</title>
   </head>
-  <body>
+  <body data-barba="wrapper">
     <svg style="display: none">
       <symbol id="grid" viewBox="0 0 653 36">
         <path
@@ -65,12 +65,18 @@
       </symbol>
     </svg>
 
+    <include src="components/preloader.html"></include>
+
     <include src="progress-bar.html"></include>
     <include src="page-header/index.html"></include>
     <include src="page-menu.html"></include>
 
     <div id="scroll-container">
-      <main class="page-services">
+      <main
+        class="page-services"
+        data-barba="container"
+        data-barba-namespace="services"
+      >
         <div class="page-services__wrap">
           <include src="breadcrumbs.html"></include>
 
