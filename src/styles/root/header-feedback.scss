@@ -10,8 +10,10 @@ body.header-feedback-white .header-feedback:not(.header-feedback--dialog) {
 }
 
 body.theme-dark
-  .header-feedback__bg:not(.header-feedback--dialog .header-feedback__bg),
+  .header-feedback:not(.header-feedback--dialog)
+  .header-feedback__bg,
 body.header-feedback-white
-  .header-feedback__bg:not(.header-feedback--dialog .header-feedback__bg) {
+  .header-feedback:not(.header-feedback--dialog)
+  .header-feedback__bg {
   @apply bg-white;
 }
