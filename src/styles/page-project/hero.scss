@@ -40,7 +40,7 @@
     height: 200%;
 
     background-size: 80%;
-    background-position: 95% 40%;
+    background-position: 95% 37%;
   }
 
   @media (--md) {
@@ -145,6 +145,8 @@
 }
 
 .hero__describe {
+  margin-top: 30px;
+
   @media (--md) {
     margin-top: 100px;
     padding-right: vw(125);
