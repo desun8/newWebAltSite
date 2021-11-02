@@ -78,9 +78,9 @@ export default class Footer {
         const { isIntersecting } = entry;
 
         if (isIntersecting) {
-          document.body.classList.add('btn-to-top-white');
+          document.body.classList.add('scroll-to-top-white');
         } else {
-          document.body.classList.remove('btn-to-top-white');
+          document.body.classList.remove('scroll-to-top-white');
         }
       });
     };

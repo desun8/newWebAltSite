@@ -1,6 +1,7 @@
 import { fixedHeader } from "@/scripts/components/fixedHeader";
 import { ANDROID, MAC_OS } from "@/scripts/utils/getOS";
 import { mediaQueryEvent } from "@/scripts/utils/mediaQueryEvent";
+import { scrollToTop } from "./scrollToTop";
 import APP from "../APP";
 import { initDialogForm } from "./dialogForm";
 import { initFooter } from "./initFooter";
@@ -36,6 +37,7 @@ export const initCore = () => {
   initSmoothScroll();
   initProgressBar();
   initDialogForm();
+  scrollToTop();
 
   if (APP.scrollbar && APP.isDesktop) {
     addNoise();
@@ -44,10 +46,6 @@ export const initCore = () => {
   if (APP.isDesktop) {
     import("./invertTheme").then(({ invertTheme }) => {
       invertTheme();
-    });
-  } else {
-    import("../../components/scrollToTop").then(({ scrollToTop }) => {
-      scrollToTop();
     });
   }
 };
