@@ -3,6 +3,7 @@ import { resizeObserver } from "@/scripts/utils/resizeObserver";
 import { throttle } from "lodash-es";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { log } from "@/scripts/utils/log";
 
 export default function usePinFilterMobile(
   root: Ref,
@@ -13,6 +14,7 @@ export default function usePinFilterMobile(
 
   const scrollPinMobile = () => {
     if (!pinContainer.value || !pageHeader || !content.value) {
+      log("scrollPinMobile -> missed required elms", "error");
       return;
     }
 

@@ -93,10 +93,6 @@
     .block-symbols svg {
       fill: var(--main-color);
     }
-
-    //.block__bg svg {
-    //  //stroke: var(--main-color);
-    //}
   }
 
   &.theme-sun {
@@ -218,6 +214,7 @@
   .block--design & {
     @media screen and (--tablet-sm) {
       bottom: vw(80, $mobile-viewport);
+      opacity: 0.3;
     }
   }
 

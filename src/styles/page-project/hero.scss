@@ -78,10 +78,18 @@
 
 .no-webp .hero__img {
   background-image: var(--png);
+
+  @media (--lg) {
+    background-image: var(--png-lg);
+  }
 }
 
 .webp .hero__img {
   background-image: var(--webp, var(--png));
+
+  @media (--lg) {
+    background-image: var(--webp-lg, var(--png-lg));
+  }
 }
 
 .hero-title {

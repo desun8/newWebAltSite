@@ -54,6 +54,7 @@ import SmoothScroll from "@/scripts/components/smoothScroll/SmoothScroll";
 import usePinFilter from "./usePinFilter";
 import usePinFilterMobile from "./usePinFilterMobile";
 import usePinFilterStatic from "./usePinFilterStatic";
+import { log } from "@/scripts/utils/log";
 
 export default defineComponent({
   name: "FilterElm",
@@ -126,6 +127,7 @@ export default defineComponent({
       let count = 0;
       const idInterval = setInterval(() => {
         if (count > 10) {
+          log("clear interval...", "warn");
           clearInterval(idInterval);
         }
 
@@ -148,6 +150,7 @@ export default defineComponent({
             if (contentElm.value) {
               clearInterval(id);
 
+              log("run filter pin mobile");
               scrollPinMobile();
               resizeObserver(contentElm.value as HTMLElement, () => {
                 ScrollTrigger.getById("filter-pin")?.refresh();
