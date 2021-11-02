@@ -397,6 +397,10 @@
   transform: rotate(-90deg);
 }
 
+.hero__scroll .ticker {
+  min-width: 70px;
+}
+
 .hero__scroll .ticker__item {
   margin-right: em(10, 14);
 }
