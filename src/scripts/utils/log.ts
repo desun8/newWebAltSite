@@ -33,8 +33,17 @@ const logMaker = (msg: string, style: string) => {
   console.log("%c%s", style, msg);
 };
 
-export const log = (msg: string, theme = "default") => {
+export const log = (
+  msg: string,
+  theme: "default" | "error" | "warn" = "default"
+) => {
   switch (theme) {
+    case "error":
+      logMaker(msg, styleConstructor({ background: "indianred" }));
+      break;
+    case "warn":
+      logMaker(msg, styleConstructor({ background: "chocolate" }));
+      break;
     default:
       logMaker(msg, styleConstructor({ background: "cornflowerblue" }));
   }

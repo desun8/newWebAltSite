@@ -1,5 +1,6 @@
 @use "_config/utilities/custom-media";
 @use "_config/functions/convert.scss" as *;
+@use "fonts/suisseIntl-thin";
 @use "page-home/footer-redirect.scss";
 
 .page-title {
@@ -9,7 +10,7 @@
 
   //noinspection CssInvalidMediaFeature
   @media screen and (--tablet-sm) {
-    width: vw(373, $mobile-viewport);
+    width: vw(354, $mobile-viewport);
     margin-bottom: 42px;
   }
 }
