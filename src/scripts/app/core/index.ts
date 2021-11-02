@@ -5,9 +5,10 @@ import APP from "../APP";
 import { initDialogForm } from "./dialogForm";
 import { initFooter } from "./initFooter";
 import { initMenu } from "./initMenu";
+// import { addNoise } from "./noise";
+import { pageTransitions } from "./pageTransitions";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
-// import { addNoise } from "./noise";
 
 const defaultInit = () => {
   const smScreen = () => {
@@ -26,6 +27,7 @@ const defaultInit = () => {
 };
 
 export const initCore = () => {
+  pageTransitions();
   defaultInit();
   initMenu();
   fixedHeader();

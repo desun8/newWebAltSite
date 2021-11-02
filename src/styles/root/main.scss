@@ -86,10 +86,16 @@ p {
   user-select: none;
 
   &__wrap {
+    position: relative;
     display: flex;
+    min-height: 1em;
   }
 
-  //&__item {}
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .visually-hidden {

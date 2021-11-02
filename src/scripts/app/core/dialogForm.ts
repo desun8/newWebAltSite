@@ -10,6 +10,14 @@ import { Status } from "./smoothScroll";
 
 export const initDialogForm = () => {
   const dialogElm = document.querySelector("#dialog-form") as HTMLElement;
+
+  if (!dialogElm) {
+    console.warn(
+      "Диалог формы не инициализировался. Отсутствует элемент #dialog-form"
+    );
+    return;
+  }
+
   const formElm = dialogElm.querySelector("form.form") as HTMLFormElement;
   let smoothScroll: SmoothScroll | undefined;
 

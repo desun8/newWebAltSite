@@ -1,12 +1,11 @@
-import { gsap } from 'gsap';
-import { throttle } from 'lodash-es';
+import { gsap } from "gsap";
+import { throttle } from "lodash-es";
 
 export default class TextRunner {
   constructor(elm, duration = 2) {
     this.elm = elm;
-    this.wrap = this.elm.querySelector('.ticker__wrap');
-    this.text = this.wrap.querySelector('.ticker__item');
-    this.textCount = this.wrap.childElementCount;
+    this.wrap = this.elm.querySelector(".ticker__wrap");
+    this.items = this.wrap.querySelectorAll(".ticker__item");
 
     this.duration = duration;
     this.movePos = this.getTextSize();
@@ -18,21 +17,29 @@ export default class TextRunner {
   }
 
   getTextSize() {
-    const width = this.text.offsetWidth;
-    const marginRight = parseInt(window.getComputedStyle(this.text).getPropertyValue('margin-right'));
-    const totalWidth = width + marginRight;
+    if (this.items.length === 0) {
+      return 0;
+    }
 
-    return totalWidth * (this.textCount - 1);
+    const item = this.items[0];
+    const marginRight = parseInt(
+      window.getComputedStyle(item).getPropertyValue("margin-right")
+    );
+    return item.offsetWidth + marginRight;
   }
 
   ticker() {
+    gsap.set(this.items, {
+      left: (index) => index * this.movePos,
+    });
+
     return gsap.fromTo(
-      this.wrap,
+      this.items,
       { x: 0 },
       {
         x: -this.movePos,
         duration: this.duration,
-        ease: 'none',
+        ease: "none",
         repeat: -1,
       }
     );
@@ -49,18 +56,16 @@ export default class TextRunner {
 
   intersectionObserver() {
     const isVisible = (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         const { isIntersecting } = entry;
 
         if (isIntersecting) {
           this.tween.play();
-          // console.log('play');
         } else {
           this.tween.pause();
-          // console.log('pause');
         }
       });
-    }
+    };
 
     return new IntersectionObserver(isVisible, { threshold: 0.5 });
   }
@@ -70,6 +75,6 @@ export default class TextRunner {
     this.observer.observe(this.elm);
 
     const throttleOnResize = throttle(this.update, 200);
-    window.addEventListener('resize', throttleOnResize.bind(this));
+    window.addEventListener("resize", throttleOnResize.bind(this));
   }
 }
