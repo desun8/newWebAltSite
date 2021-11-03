@@ -2,7 +2,7 @@ import gsap from "gsap";
 
 const preloader = document.querySelector(".page-preloader");
 const navigate = (href: string) => {
-  window.location.replace(href);
+  window.location.href = href;
 };
 
 const hide = () => {
