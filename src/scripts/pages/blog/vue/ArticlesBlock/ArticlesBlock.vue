@@ -9,6 +9,7 @@
 import { defineComponent, PropType } from "vue";
 import List from "./List/List.vue";
 import BtnLoadMore from "./BtnLoadMore.vue";
+import { pageTransitions } from "@/scripts/app/core/pageTransitions";
 
 type Article = {
   id: number;
@@ -190,6 +191,10 @@ export default defineComponent({
         this.setContentListElm(this.$refs.list as Element);
       }
     }, 100);
+  },
+
+  updated() {
+    pageTransitions();
   },
 });
 </script>

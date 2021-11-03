@@ -39,7 +39,7 @@
 import {
   computed,
   defineComponent,
-  onMounted,
+  onUpdated,
   PropType,
   ref,
   watch,
@@ -54,6 +54,7 @@ import useItems from "../composables/useItems";
 import useItemInfo from "../composables/useItemInfo";
 import useListScroll from "../composables/useListScroll";
 import useSimplebarRef from "../composables/useSimplebarRef";
+import { pageTransitions } from "@/scripts/app/core/pageTransitions";
 
 export default defineComponent({
   components: { FilterElement, Simplebar, ListElement, ListItemInfo, BtnToTop },
@@ -77,6 +78,10 @@ export default defineComponent({
     const setTotal = props.setTotal;
     watch(total, (newValue) => {
       setTotal(newValue);
+    });
+
+    onUpdated(() => {
+      pageTransitions();
     });
 
     const { setInfoElm, itemInfo, setItemInfo } = useItemInfo();
