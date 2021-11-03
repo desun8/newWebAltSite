@@ -1,6 +1,8 @@
 <template>
   <li class="insta-list__item">
-    <a :href="href">посмотреть пост</a>
+    <a :href="href" target="_blank" rel="noopener noreferrer"
+      >посмотреть пост</a
+    >
     <video v-if="isVideo" :src="`${src}#t=0.01`"></video>
     <img v-else :src="src" :alt="describe" />
   </li>
