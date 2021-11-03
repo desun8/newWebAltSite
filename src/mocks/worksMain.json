@@ -9,7 +9,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
       "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"], 
       "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"], 
       "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
       "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"], 
       "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 6,
@@ -69,7 +69,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"], 
       "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 1,
@@ -81,7 +81,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
       "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 2,
@@ -93,7 +93,7 @@
     "imgs": {
       "large": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"], 
       "small": ["/images/works/main/v2/tranzit27-v2.png", "/images/works/main/v2/tranzit27-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   },
   {
     "id": 3,
@@ -105,6 +105,6 @@
     "imgs": {
       "large": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"], 
       "small": ["/images/works/main/v2/brosko-market-v2.png", "/images/works/main/v2/brosko-market-v2.png"]},
-    "href": "/nested/works-inner.html"
+    "href": "/nested/project-page.html"
   }
 ]
