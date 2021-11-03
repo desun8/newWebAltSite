@@ -95,8 +95,10 @@ p {
   display: block;
   width: 100%;
   height: 100%;
-  opacity: 0.1;
+  opacity: 0.04;
+  background-color: #fff;
   background-image: url("/images/noise-gif-square-anim.gif");
+  background-blend-mode: hard-light;
   overflow: hidden;
   position: fixed;
   position: absolute;
