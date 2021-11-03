@@ -175,6 +175,7 @@
 
     @include font-size-px(24, 20);
 
+    width: calc(100% + var(--page-gap) * 2);
     margin: 0 calc(var(--page-gap) * -1);
     padding: em(65, 24) em(35, 24);
   }
