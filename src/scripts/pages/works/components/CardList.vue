@@ -29,6 +29,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import lozad, { Observer } from "lozad";
 import { CardResponse } from "../types";
 import CardItem from "./CardItem.vue";
+import { pageTransitions } from "@/scripts/app/core/pageTransitions";
 
 export default defineComponent({
   components: { CardItem },
@@ -93,6 +94,8 @@ export default defineComponent({
       ScrollTrigger.refresh();
       this.lazyLoad.observe();
     }, this.duration * 1000);
+
+    pageTransitions();
   },
 });
 </script>

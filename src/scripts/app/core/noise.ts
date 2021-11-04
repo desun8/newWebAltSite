@@ -1,27 +1,21 @@
-import Grained from "@/scripts/_lib/Grained";
-
-const options = {
-  animate: true,
-  patternWidth: 145,
-  patternHeight: 118,
-  grainOpacity: 0.04,
-  grainDensity: 1,
-  grainWidth: 1,
-  grainHeight: 1,
-};
+import getCssProp from "@/scripts/utils/getCssProp";
 
 export const addNoise = () => {
   const elms = [
     document.body,
-    document.querySelector(".page-menu"),
-    document.querySelector(".page-footer"),
-    document.querySelector(".footer-redirect"),
-    ...Array.from(document.querySelectorAll(".js-noise")),
+    document.querySelector<HTMLElement>(".page-menu"),
+    document.querySelector<HTMLElement>(".page-footer"),
+    document.querySelector<HTMLElement>(".footer-redirect"),
+    ...Array.from(document.querySelectorAll<HTMLElement>(".js-noise")),
   ];
 
   elms.forEach((elm) => {
     if (elm) {
-      new Grained(elm, options);
+      if (getCssProp("position", elm) === "static") {
+        elm.style.position = "relative";
+      }
+
+      elm.classList.add("js-bg-noise");
     }
   });
 };

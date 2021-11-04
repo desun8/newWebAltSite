@@ -126,7 +126,7 @@ export default defineComponent({
     const runInterval = (cb: (id: NodeJS.Timeout) => void) => {
       let count = 0;
       const idInterval = setInterval(() => {
-        if (count > 10) {
+        if (count > 30) {
           log("clear interval...", "warn");
           clearInterval(idInterval);
         }
