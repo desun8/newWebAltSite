@@ -120,6 +120,10 @@
   }
 }
 
+.service-card__item .link__text::after {
+  transform: scaleX(0);
+}
+
 .service-card__features {
   display: grid;
   grid-auto-flow: column;
