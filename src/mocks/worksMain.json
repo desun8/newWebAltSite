@@ -6,6 +6,12 @@
     "kind": "Развлечения",
     "tags": ["дизайн", "контекст"],
     "text": "один<br> большой<br> дизайн!",
+    "marketing": {
+      "дизайн": "заголовок дизайна",
+      "разработка": null,
+      "smm": null,
+      "контекст": "заголовок контекста"
+    },
     "imgs": {
       "large": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"], 
       "small": ["/images/works/main/v2/paintball-park-v2.png", "/images/works/main/v2/paintball-park-v2.png"]},
