@@ -1,31 +1,46 @@
 @use "../_config/functions/convert.scss" as *;
 
 .wysiwyg-layouts {
-  --gap-x: #{vw(60, $mobile-viewport)};
-  --gap-y: #{vw(40, $mobile-viewport)};
-  --px: #{vw(28, $mobile-viewport)};
+  @media (--lg) {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
 
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: var(--gap-x);
-  row-gap: var(--gap-y);
+.wysiwyg-layouts__wrapper {
+  --gap: 20px;
 
-  padding: 0 var(--px);
+  columns: 2;
+  column-gap: var(--gap);
+  margin-bottom: calc(var(--gap) * -1);
 
   @media (--lg) {
-    --gap-x: #{vw(220)};
-    --gap-y: #{vw(115)};
-    --px: #{vw(360)};
+    --gap: #{vw(165)};
+
+    grid-column: 1/-1;
+  }
+
+  @media (--xl) {
+    grid-column: 2/11;
+  }
+}
+
+.wysiwyg-layouts--horizontal .wysiwyg-layouts__wrapper {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  column-gap: var(--base-gap);
+  row-gap: var(--gap);
+  margin-bottom: 0;
+
+  @media (--xl) {
+    grid-column: 2/12;
   }
 }
 
 .wysiwyg-layouts__img-wrapper {
-  --ratio: calc(580 / 390 * 100%);
-
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: var(--ratio);
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: var(--gap);
   background-color: #efefef;
   box-shadow: 4px 8px 13px rgba(0, 0, 0, 0.03), 2px 4px 5px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s;
@@ -35,22 +50,18 @@
   box-shadow: 6px 10px 15px rgba(0, 0, 0, 0.03), 4px 6px 7px rgba(0, 0, 0, 0.15);
 }
 
-.wysiwyg-layouts__img-wrapper:nth-child(2n) {
-  --pos-y: #{vw(60, $mobile-viewport)};
+.wysiwyg-layouts--horizontal .wysiwyg-layouts__img-wrapper {
+  grid-column: 1/-1;
+  margin-bottom: 0;
 
-  transform: translateY(var(--pos-y));
+  @media (--md) {
+    grid-column: 1 / span 6;
+  }
 }
 
-.wysiwyg-layouts__img-wrapper:nth-child(2n):last-child {
-  margin-bottom: var(--pos-y);
-}
-
-.wysiwyg-layouts__img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.wysiwyg-layouts--horizontal .wysiwyg-layouts__img-wrapper:nth-child(2n) {
+  @media (--md) {
+    grid-column-start: 5;
+    justify-self: end;
+  }
 }
