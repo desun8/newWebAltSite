@@ -3,6 +3,13 @@ export type CardImage = {
   small: [string, string];
 };
 
+export type CardMarketing = string | null;
+export type CardMarketingKeys =
+  | FilterTypes.DEVELOPMENT
+  | FilterTypes.DESIGN
+  | FilterTypes.CONTEXT
+  | FilterTypes.SMM;
+
 export type CardResponse = {
   id: number;
   types: string[];
@@ -12,6 +19,12 @@ export type CardResponse = {
   text: string;
   imgs: CardImage;
   href: string;
+  marketing: {
+    [FilterTypes.DEVELOPMENT]: CardMarketing;
+    [FilterTypes.DESIGN]: CardMarketing;
+    [FilterTypes.CONTEXT]: CardMarketing;
+    [FilterTypes.SMM]: CardMarketing;
+  };
 };
 
 export type Card = {
@@ -23,6 +36,12 @@ export type Card = {
   text: string;
   imgPath: CardImage;
   href: string;
+  marketing: {
+    [FilterTypes.DEVELOPMENT]: CardMarketing;
+    [FilterTypes.DESIGN]: CardMarketing;
+    [FilterTypes.CONTEXT]: CardMarketing;
+    [FilterTypes.SMM]: CardMarketing;
+  };
 };
 
 export enum FilterTypes {
