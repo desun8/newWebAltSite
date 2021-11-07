@@ -8,6 +8,7 @@
 @custom-media --xxl (width >= 90em); // 1440px
 @custom-media --xxl-only (width >= 90em) and (width < 96em); // 1440px
 @custom-media --xxxl (width >= 96em); // 1536px
+@custom-media --xxxl-max (width < 96em); // 1536px
 @custom-media --xxxxl (width >= 116em); // 1856px
 
 /* desktop first */

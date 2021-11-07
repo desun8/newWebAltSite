@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404</title>
+
+    <link rel="preload" as="image" href="/images/noise-gif-square-anim.gif" />
+
+    <script>
+      window.RECAPTCHA_KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
+    </script>
+  </head>
+  <body>
+    <svg style="display: none">
+      <!-- базовые иконки -->
+      <symbol id="icon-dash-cursor" viewBox="0 0 16 13">
+        <path d="M.92 0l6.456 6.457-.919.92L0 .918z" />
+        <path d="M0 12.021l6.467-6.467.92.919L.919 12.94z" />
+        <path stroke="currentColor" stroke-width="1.3" d="M8 12.35h8" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 12 12">
+        <path
+          d="M1.588 1l9.398.014.014 9.398H9.353l-.03-6.589L2.148 11 1 9.853l7.177-7.177-6.59-.03V1z"
+          fill-rule="nonzero"
+        />
+      </symbol>
+      <symbol id="logo" viewBox="0 0 38 21">
+        <path
+          fill="currentColor"
+          fill-rule="evenodd"
+          d="M12.35 21h4.227l2.388-2.566L21.354 21h4.21l-6.607-7.097L12.35 21zM0 5.707l7.12 14.766 4.309-4.405-5.152-8.624L0 5.707zm38-.002L30.88 20.47l-4.309-4.405 5.152-8.624L38 5.705zM18.96 0l-7.103 10.294 1.895 3.375 5.208-5.424 5.207 5.424 1.895-3.375L18.96 0z"
+          clip-rule="evenodd"
+        />
+      </symbol>
+      <symbol id="icon-tel" viewBox="0 0 28 28">
+        <path
+          fill="#000"
+          d="M9.153 20.214L7.916 21.45l1.237 1.238 1.238-1.238-1.238-1.237zM6.679 17.74L5.44 18.976l1.238 1.237 1.237-1.237-1.237-1.238z"
+        />
+        <path
+          fill="#000"
+          d="M16.223 18.911L9.09 11.776l4.186-4.185-7.47-7.47L0 5.096v8.438l4.204 4.205L5.442 16.5 1.75 12.81V5.9l3.962-3.396L10.8 7.591l-4.186 4.186 9.61 9.609 4.184-4.186 5.088 5.087-3.397 3.963H15.19l-3.561-3.561-1.237 1.237L14.466 28h8.438l4.975-5.804-7.47-7.47-4.186 4.185zM26.25 14H28C27.99 6.272 21.728.01 14 0v1.75c6.762.007 12.243 5.488 12.25 12.25z"
+        />
+        <path
+          fill="#000"
+          d="M21.875 14h1.75A9.636 9.636 0 0014 4.375v1.75A7.884 7.884 0 0121.875 14zM17.5 10.5h-1.75v1.75h1.75V10.5z"
+        />
+      </symbol>
+    </svg>
+
+    <include src="components/preloader.html"></include>
+
+    <include src="progress-bar.html"></include>
+    <include src="page-header/index.html">{ "class": "" }</include>
+    <include src="page-menu.html"></include>
+
+    <div id="scroll-container">
+      <main class="page-container wrapper">
+        <picture class="image-404">
+          <source
+            media="(min-width: 768px)"
+            srcset="/images/404-lg.webp"
+            type="image/webp"
+          />
+          <source media="(min-width: 768px)" srcset="/images/404-lg.png" />
+          <source
+            srcset="/images/404.webp, /images/404-lg.webp 2x"
+            type="image/webp"
+          />
+          <img
+            src="/images/404.png"
+            alt="404 ошибка."
+            srcset="/images/404.png, /images/404-lg.png 2x"
+            width="auto"
+            height="auto"
+            role="presentation"
+          />
+        </picture>
+
+        <div>
+          <div
+            class="
+              flex
+              items-center
+              mx-$base-page-gap-negative
+              mb-9
+              bg-sun
+              md:hidden
+            "
+          >
+            <div class="px-4 py-5 bg-black">
+              <div class="icon-triangle"></div>
+            </div>
+            <p class="px-5 text-2xl leading-22px font-bold uppercase">
+              такой<br />
+              страницы<br />
+              <span class="text-white">не существует</span>
+            </p>
+          </div>
+
+          <div class="hidden md:block">
+            <div class="flex mb-3 transform -translate-x-11">
+              <div class="icon-triangle"></div>
+              <div class="icon-triangle"></div>
+              <div class="icon-triangle"></div>
+            </div>
+            <p class="text-5xl leading-none font-bold mb-3 uppercase">
+              такой страницы нет.
+            </p>
+          </div>
+
+          <span
+            class="
+              inline-block
+              w-full
+              mb-9
+              text-2xl
+              leading-none
+              font-bold
+              text-sun
+              <md:text-center
+              md:text-28px md:mb-10
+            "
+            >Но можно зайти сюда:</span
+          >
+          <nav class="nav-404">
+            <ul class="nav-404__list">
+              <li class="nav-404__list-item">
+                <a href="/" class="link link--uppercase link--no-icon"
+                  ><span class="link__text">Главная</span></a
+                >
+              </li>
+              <li class="nav-404__list-item">
+                <a href="/" class="link link--uppercase link--no-icon"
+                  ><span class="link__text">Услуги</span></a
+                >
+              </li>
+              <li class="nav-404__list-item">
+                <a href="/" class="link link--uppercase link--no-icon"
+                  ><span class="link__text">О нас</span></a
+                >
+              </li>
+              <li class="nav-404__list-item">
+                <a href="/" class="link link--uppercase link--no-icon"
+                  ><span class="link__text">Блог</span></a
+                >
+              </li>
+              <li class="nav-404__list-item">
+                <a href="/" class="link link--uppercase link--no-icon"
+                  ><span class="link__text">Кейсы</span></a
+                >
+              </li>
+              <li class="nav-404__list-item">
+                <a href="/" class="link link--uppercase link--no-icon"
+                  ><span class="link__text">Контакты</span></a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </main>
+
+      <footer>
+        <div class="page-footer page-footer--404 !lg:hidden">
+          <div class="page-footer__wrap">
+            <div class="page-footer__contacts">
+              <div class="page-footer__block page-footer__block--feedback">
+                <div class="footer-feedback">
+                  <div class="footer-feedback__name">
+                    <div class="ticker">
+                      <div class="ticker__wrap">
+                        <span class="ticker__item">задай вопрос</span>
+                        <span class="ticker__item">задай вопрос</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="footer-feedback__actions">
+                    <button
+                      class="footer-feedback__link link js-dialog-form-open"
+                    >
+                      <span class="link__text">написать нам</span>
+                      <span class="link__icon">
+                        <svg class="link__arrow" width="12" height="12">
+                          <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="footer-feedback">
+                  <div class="footer-feedback__name">
+                    <div class="ticker">
+                      <div class="ticker__wrap">
+                        <span class="ticker__item">скажи привет</span>
+                        <span class="ticker__item">скажи привет</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="footer-feedback__actions">
+                    <a
+                      href="tel:+74212529102"
+                      class="footer-feedback__link link link--uppercase"
+                    >
+                      <span class="link__text">+7 (4212) 52-91-02</span>
+                      <span class="link__icon">
+                        <svg class="link__arrow" width="12" height="12">
+                          <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="page-footer__block page-footer__block--socials">
+                <div class="footer-social">
+                  <a
+                    href="https://www.facebook.com/webalt/"
+                    class="
+                      footer-social__link
+                      link link--no-icon link--underline
+                    "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><span class="link__text">facebook</span></a
+                  >
+                  <a
+                    href="https://www.instagram.com/web_alternative/"
+                    class="
+                      footer-social__link
+                      link link--no-icon link--underline
+                    "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><span class="link__text">instagram</span></a
+                  >
+                  <a
+                    href="https://vk.com/webaltru"
+                    class="
+                      footer-social__link
+                      link link--no-icon link--underline
+                    "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><span class="link__text">vkontakte</span></a
+                  >
+                  <a
+                    href="https://www.youtube.com/channel/UCyJY892MgzP8OkqvIHtI0BA"
+                    class="
+                      footer-social__link
+                      link link--no-icon link--underline
+                    "
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><span class="link__text">youtube</span></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="
+            wrapper
+            hidden
+            mt-19
+            pb-6
+            lg:grid lg:grid-cols-12 lg:gap-x-$base-gap lg:pb-22
+          "
+        >
+          <div
+            class="
+              grid
+              justify-end
+              lg:col-span-11 lg:grid-flow-col lg:justify-between
+            "
+          >
+            <div class="footer-social contacts">
+              <a
+                href="tel:+74212529102"
+                class="
+                  footer-social__link
+                  link link--no-icon link-bold link--underline
+                "
+                ><span class="link__text">+7 (4212) 52-91-02</span></a
+              >
+              <a
+                href="mailto:info@web-alt.ru"
+                class="
+                  footer-social__link
+                  link link--no-icon link--underline link-bold
+                "
+                ><span class="link__text">info@web-alt.ru</span></a
+              >
+            </div>
+
+            <div class="footer-social">
+              <a
+                href="https://www.facebook.com/webalt/"
+                class="
+                  footer-social__link
+                  link link--no-icon link--underline link-bold
+                "
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span class="link__text">facebook</span></a
+              >
+              <a
+                href="https://www.instagram.com/web_alternative/"
+                class="
+                  footer-social__link
+                  link link--no-icon link--underline link-bold
+                "
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span class="link__text">instagram</span></a
+              >
+              <a
+                href="https://vk.com/webaltru"
+                class="
+                  footer-social__link
+                  link link--no-icon link--underline link-bold
+                "
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span class="link__text">vkontakte</span></a
+              >
+              <a
+                href="https://www.youtube.com/channel/UCyJY892MgzP8OkqvIHtI0BA"
+                class="
+                  footer-social__link
+                  link link--no-icon link--underline link-bold
+                "
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span class="link__text">youtube</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <include src="components/scroll-to-top.html"></include>
+    <include src="components/dialog-form.html"></include>
+
+    <!-- TODO: удалить перед сборкой -->
+    <include src="utils/grid-helper.html"></include>
+
+    <script type="module" src="./404.ts"></script>
+  </body>
+</html>
