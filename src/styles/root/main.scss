@@ -52,6 +52,15 @@ p {
   margin: 0;
 }
 
+#scroll-container,
+.scroll-content {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  align-content: end;
+  align-items: start;
+  min-height: 100vh;
+}
+
 .page-container {
   @apply lg:pt-32;
 }
