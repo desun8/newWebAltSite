@@ -4,6 +4,7 @@
   top: -1px;
   height: calc(100% + var(--safe-area-inset-top) + 1px) !important;
   overflow: auto;
+  z-index: 150;
 }
 
 .basicLightbox .scroll-content {
