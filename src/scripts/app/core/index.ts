@@ -10,6 +10,7 @@ import { addNoise } from "./noise";
 import { pageTransitions } from "./pageTransitions";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
+import { cookieGdrp } from "./cookieGdpr";
 
 const defaultInit = () => {
   const smScreen = () => {
@@ -29,6 +30,7 @@ const defaultInit = () => {
 
 export const initCore = () => {
   pageTransitions();
+  cookieGdrp();
   defaultInit();
   initMenu();
   fixedHeader();
