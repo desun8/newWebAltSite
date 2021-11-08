@@ -146,7 +146,13 @@ export default defineComponent({
 
           document.addEventListener("pointerup", handleClickOutside);
         } else {
+          log("Запуск интервала закрепления фильтра");
+
           runInterval((id: NodeJS.Timeout) => {
+            console.log(
+              "🚀 ~ file: Filter.vue ~ line 154 ~ runInterval ~ contentElm.value",
+              contentElm.value
+            );
             if (contentElm.value) {
               clearInterval(id);
 
