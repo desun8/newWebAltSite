@@ -1,0 +1,1 @@
+import{_ as e}from"./root.314d2a99.js";const o=()=>{const o=document.querySelectorAll(".btn-play");o.length&&e((()=>import("./reviewVideo.6c63e98e.js")),["/assets/reviewVideo.6c63e98e.js","/assets/reviewVideo.0fc3c25c.css","/assets/vendor.5e96a560.js","/assets/root.314d2a99.js","/assets/root.b4a3362f.css"]).then((({reviewVideo:e})=>{o.forEach((o=>{e(o)}))}))};export{o as w};
