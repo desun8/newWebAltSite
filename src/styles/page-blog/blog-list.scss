@@ -2,8 +2,6 @@
 
 .blog-list-wrap {
   @include grid(8);
-
-  grid-column: 1/8;
 }
 
 .blog-list,
