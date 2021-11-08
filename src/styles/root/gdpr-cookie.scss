@@ -1,0 +1,105 @@
+@use "../_config/mixins/base-property.scss" as *;
+
+.gdpr-cookie {
+  @include base-property;
+
+  --x: -50%;
+  --y: calc(100% + 20px);
+
+  display: none;
+  opacity: 0;
+  transform: translate3d(var(--x), var(--y), 0);
+  transition-property: opacity, transform;
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+
+  max-width: min(850px, calc(100% - var(--base-page-gap) * 2));
+  width: 100%;
+  padding: 22px 25px;
+
+  color: #fff;
+  letter-spacing: var(--letter-spacing);
+
+  background-color: #490202;
+  background-image: url("/images/gdpr-cookie-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 30%;
+
+  z-index: 200;
+
+  @media (--md) {
+    padding: 30px 50px;
+    background-image: url("/images/gdpr-cookie-bg-lg.jpg");
+    background-position: 0 30%;
+  }
+}
+
+.gdpr-cookie::before {
+  --p: 8px;
+
+  content: "";
+  position: absolute;
+  top: var(--p);
+  right: var(--p);
+  bottom: var(--p);
+  left: var(--p);
+
+  background-color: var(--c-black);
+  opacity: 0.85;
+  backdrop-filter: blur(21px);
+  z-index: -1;
+}
+
+.gdpr-cookie.is-active {
+  display: block;
+}
+
+.gdpr-cookie.is-show {
+  --y: -20px;
+
+  opacity: 1;
+}
+
+.gdpr-cookie__accept {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding: 11px 21px;
+  color: var(--c-sun);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  transition: all 0.3s;
+
+  @media (--md-max) {
+    margin: 0 auto;
+  }
+
+  @media (--lg) {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+}
+
+.gdpr-cookie__accept:hover {
+  color: #fff;
+}
+
+.gdpr-cookie__accept svg {
+  width: 11px;
+  height: 10px;
+
+  @media (--lg) {
+    width: 18px;
+    height: 16px;
+  }
+}

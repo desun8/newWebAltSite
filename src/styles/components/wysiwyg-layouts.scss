@@ -10,9 +10,8 @@
 .wysiwyg-layouts__wrapper {
   --gap: 20px;
 
-  columns: 2;
+  column-count: 2;
   column-gap: var(--gap);
-  margin-bottom: calc(var(--gap) * -1);
 
   @media (--lg) {
     --gap: #{vw(165)};
@@ -23,6 +22,11 @@
   @media (--xl) {
     grid-column: 2/11;
   }
+}
+
+.wysiwyg-layouts__wrapper > .wysiwyg-layouts__img-wrapper {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .wysiwyg-layouts--horizontal .wysiwyg-layouts__wrapper {
@@ -38,7 +42,7 @@
 }
 
 .wysiwyg-layouts__img-wrapper {
-  display: inline-block;
+  display: block;
   width: fit-content;
   margin-bottom: var(--gap);
   background-color: #efefef;

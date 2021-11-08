@@ -1,0 +1,123 @@
+@use "_config/functions/convert.scss" as *;
+
+.page-container {
+  padding-top: 96px;
+
+  @media (--lg) {
+    align-self: center;
+
+    display: grid;
+    grid-template-columns: vw(850) 1fr;
+    column-gap: vw(165);
+  }
+
+  @media (--xxxl-max) {
+    align-items: center;
+  }
+}
+
+.icon-triangle {
+  width: 63px;
+  height: 55px;
+  background-color: var(--c-black);
+  mask: url("/images/home/triangle.svg") no-repeat center/contain;
+
+  @media (--lg) {
+    width: 44px;
+    height: 39px;
+  }
+}
+
+.icon-triangle:first-child {
+  background-color: var(--c-red);
+}
+
+.image-404 {
+  @media (--lg-max) {
+    @apply flex justify-center mx-$base-page-gap-negative mb-24;
+  }
+
+  @media (--xxxl) {
+    transform: translateY(-20px);
+  }
+}
+
+.image-404 img {
+  @apply lg:w-full;
+}
+
+.nav-404 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 38px;
+
+  @media (--md) {
+    justify-content: start;
+    width: fit-content;
+  }
+}
+
+.nav-404::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  background-color: var(--c-dark-grey);
+  transform: translateX(-50%);
+}
+
+.nav-404__list {
+  --pt: 8px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 80px;
+  row-gap: 50px;
+  padding: var(--pt) 0;
+
+  @media (--md) {
+    --pt: 10px;
+
+    column-gap: 200px;
+    row-gap: 44px;
+  }
+}
+
+.nav-404__list-item {
+  font-size: 14px;
+  letter-spacing: var(--letter-spacing);
+
+  @media (--md-max) {
+    padding: 0 28px;
+    font-weight: 600;
+  }
+}
+
+.nav-404__list-item .link__text::after {
+  @media (--lg-max) {
+    content: none;
+  }
+}
+
+.page-footer--404 .page-footer__block--feedback {
+  margin-bottom: 55px;
+}
+
+.page-footer--404 .footer-feedback {
+  margin-bottom: 32px;
+}
+
+.page-footer--404 .footer-feedback:last-child {
+  margin-bottom: 0;
+}
+
+.page-footer--404 .footer-feedback__name {
+  font-size: 12px;
+}
+
+.page-footer--404 .footer-feedback__actions {
+  font-size: 32px;
+}

@@ -24,10 +24,12 @@ export default class Footer {
   }
 
   toggleImageVisible() {
-    if (this.showImage) {
-      this.imageBg.style.opacity = '1';
-    } else {
-      this.imageBg.style.opacity = '0';
+    if (this.imageBg) {
+      if (this.showImage) {
+        this.imageBg.style.opacity = '1';
+      } else {
+        this.imageBg.style.opacity = '0';
+      }
     }
   }
 
