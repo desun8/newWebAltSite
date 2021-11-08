@@ -11,8 +11,17 @@
   height: 100%;
 }
 
+.basicLightbox .basicLightbox__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .basicLightbox .basicLightbox__placeholder > * {
   position: static !important;
-  max-width: 1024px !important;
   max-height: none !important;
+
+  @media (--xl) {
+    max-width: 1024px !important;
+  }
 }
