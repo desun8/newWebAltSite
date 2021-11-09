@@ -6,7 +6,11 @@ import "@/styles/components/lightbox.scss";
 
 export const lightbox = (elms: HTMLElement[]) => {
   elms.forEach((elm) => {
-    const instance = basicLightbox.create(elm.children[0].outerHTML, {
+    const img = elm.classList.contains("js-lightbox")
+      ? elm.children[0].outerHTML
+      : elm.outerHTML;
+
+    const instance = basicLightbox.create(img, {
       onShow: (instance) => {
         document.onkeydown = (event) => {
           if (event.key === "Escape") {
