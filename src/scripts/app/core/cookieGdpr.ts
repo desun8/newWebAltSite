@@ -1,17 +1,18 @@
 const COOKIE_NAME = "gdpr_accept";
 
 const addCookie = () => {
-  const getExpiresDate = () => {
+  const getExpires = () => {
     const date = new Date();
     const validDay = 30;
     const dateExpires = new Date(date.setDate(date.getDate() + validDay));
 
-    return dateExpires.toUTCString();
+    return `;expires=${dateExpires.toUTCString()}`;
   };
 
   const name = COOKIE_NAME;
+  const domain = `;domain=${window.location.hostname}`;
 
-  document.cookie = `${name} ;expires=${getExpiresDate()}`;
+  document.cookie = `${name}${getExpires()}${domain}`;
 };
 
 export const cookieGdrp = () => {
@@ -24,7 +25,7 @@ export const cookieGdrp = () => {
 
     const isAccept = document.cookie
       .split(";")
-      .some((raw) => raw === COOKIE_NAME);
+      .some((raw) => raw.trim() === COOKIE_NAME);
 
     const toggleBannerVisibility = (a: "show" | "hide") => {
       switch (a) {
