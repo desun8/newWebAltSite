@@ -20,7 +20,7 @@
 }
 
 .page-inner__header {
-  @apply mb-7 lg:mb-12 xl:mb-16 2xl:col-span-9;
+  @apply 2xl:col-span-9;
 
   @media (--xxxl) {
     @include grid(9);
@@ -31,6 +31,10 @@
   @media (--lg) {
     @include font-size-new(68);
   }
+}
+
+.page-inner__header-img {
+  @apply w-full mb-7 lg:mb-12 xl:mb-16;
 }
 
 .page-inner__body {

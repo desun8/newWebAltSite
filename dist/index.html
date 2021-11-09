@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Alt - базовый шаблон</title>
 
+    <link rel="preload" as="image" href="/images/noise-gif-square-anim.gif">
+
     <script>
       window.RECAPTCHA_KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
     </script>
@@ -57,6 +59,31 @@
       <use xlink:href="#icon-arrow"></use>
     </svg>
   </span>
+</div>
+
+    <div class="gdpr-cookie">
+  <div class="grid gap-4 md:grid-cols-fillAuto md:items-center md:gap-14">
+    <div>
+      <h2 class="mb-2 text-sm uppercase lg:text-base">
+        Политика обработки cookie файлов
+      </h2>
+      <p class="text-xs lg:text-sm">
+        Наш сайт использует cookie-файлы. Это помогает нам быть лучше и полезнее
+        для вас. Узнать о том, как работают эти файлы
+        <a href="" class="link link--orange link--underline-md link--no-icon"><span class="link__text font-medium">можно здесь</span></a>! После того, как вы нажмёте кнопку
+        <span class="text-sun font-medium">«принять»</span> это окно не будет
+        вас беспокоить.
+      </p>
+    </div>
+
+    <button class="gdpr-cookie__accept" type="button">
+      <svg fill="none" viewBox="0 0 11 10" aria-hidden="true">
+        <path fill="currentColor" d="M9.706 10H0V0h7.441v1H.971v8h8.088V5.333h.97V10h-.323Z"></path>
+        <path fill="currentColor" d="m1.81 5.027.731-.753 2.193 2.26 5.533-5.7.732.75L4.734 8.04 1.811 5.027Z"></path>
+      </svg>
+      Принять
+    </button>
+  </div>
 </div>
 
 
@@ -154,33 +181,33 @@
           </button>
           <ul class="page-nav__sub-list">
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">История</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">История</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">О Свете</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">О Свете</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">Отзывы</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">Отзывы</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">История</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">История</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">История</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">История</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">О Свете</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">О Свете</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">Отзывы</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">Отзывы</a>
             </li>
             <li class="page-nav__sub-elm">
-              <a class="page-nav__sub-link" href="#">История</a>
+              <a class="page-nav__sub-link" href="/nested/about.html">История</a>
             </li>
           </ul>
         </li>
         <li class="page-nav__elm">
-          <a class="page-nav__link" href="#">Портфолио
+          <a class="page-nav__link" href="/nested/works.html">Портфолио
             <i class="icon-arrow">
               <svg width="12" height="12">
                 <use xlink:href="#icon-arrow"></use>
@@ -189,7 +216,7 @@
           </a>
         </li>
         <li class="page-nav__elm">
-          <a class="page-nav__link" href="nested/services.html">Услуги
+          <a class="page-nav__link" href="/nested/services.html">Услуги
             <i class="icon-arrow">
               <svg width="12" height="12">
                 <use xlink:href="#icon-arrow"></use>
@@ -198,7 +225,7 @@
           </a>
         </li>
         <li class="page-nav__elm">
-          <a class="page-nav__link" href="nested/blog.html">Блог
+          <a class="page-nav__link" href="/nested/blog.html">Блог
             <i class="icon-arrow">
               <svg width="12" height="12">
                 <use xlink:href="#icon-arrow"></use>
@@ -207,7 +234,7 @@
           </a>
         </li>
         <li class="page-nav__elm">
-          <a class="page-nav__link" href="#">Контакты
+          <a class="page-nav__link" href="/nested/contacts.html">Контакты
             <i class="icon-arrow">
               <svg width="12" height="12">
                 <use xlink:href="#icon-arrow"></use>
@@ -295,7 +322,7 @@
       <!-- <include src="page-footer.html"></include> -->
     </div>
 
-    <a href="#" class="scroll-to-top" aria-label="Вернуться в начало страницы."></a>
+    <a href="#top" class="scroll-to-top" aria-label="Вернуться в начало страницы."><span class="scroll-to-top__text">вверх</span></a>
 
     <div ref="dialogElm" id="dialog-form" class="dialog-container dialog-form" aria-labelledby="dialog-form-title" aria-hidden="true">
   <div class="dialog-overlay js-noise" data-a11y-dialog-hide=""></div>

@@ -2,6 +2,7 @@
 @use "reset";
 @use "main";
 @use "page-preloader";
+@use "gdpr-cookie";
 @use "page-header";
 @use "page-header-fixed";
 // @use "page-header-pin";
@@ -17,5 +18,4 @@
 @use "page-menu";
 @use "scrollbar";
 @use "progress-bar";
-@use "btn-to-top";
 @use "dialog-form";

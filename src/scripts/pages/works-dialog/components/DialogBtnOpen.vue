@@ -26,7 +26,7 @@
     :data-a11y-dialog-show="dialogId"
   >
     <span class="link__text">
-      <span class="inline-block mb-2">все проекты</span><br />
+      <span class="inline-block mb-2">все кейсы</span><br />
       <span :class="{ 'opacity-0': !totalItems }"
         >{{ `(${totalItems})` }}
       </span>

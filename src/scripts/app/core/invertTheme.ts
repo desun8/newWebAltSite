@@ -1,7 +1,9 @@
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export const invertTheme = () => {
-  const darkElms = Array.from(document.querySelectorAll(".js-dark-block"));
+  const darkElms = Array.from(
+    document.querySelectorAll<HTMLElement>(".js-dark-block")
+  );
   const orangeElms = Array.from(document.querySelectorAll(".js-orange-block"));
 
   if (darkElms.length) {
@@ -19,6 +21,19 @@ export const invertTheme = () => {
             document.body.classList.remove("menu-btn-white");
             document.body.classList.remove("header-feedback-white");
             document.body.classList.remove("filter-white");
+          }
+        },
+      });
+
+      ScrollTrigger.create({
+        trigger: elm,
+        start: () => "top 90%",
+        end: () => "bottom 90%",
+        onToggle({ isActive }) {
+          if (isActive) {
+            document.body.classList.add("scroll-to-top-white");
+          } else {
+            document.body.classList.remove("scroll-to-top-white");
           }
         },
       });

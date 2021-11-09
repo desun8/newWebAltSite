@@ -19,7 +19,14 @@ export default function usePinFilterMobile(
     }
 
     const pinHeader = () => {
+      log("Закрепление хедера");
+      console.log(
+        "🚀 ~ file: usePinFilterMobile.ts ~ line 24 ~ pinHeader ~ root.value",
+        root.value
+      );
+
       if (root.value) {
+        console.log("условие root.value == true", !!root.value);
         const headerDefaultTopPos = -pageHeader.offsetHeight;
         gsap.set(pageHeader, { y: headerDefaultTopPos });
 
@@ -100,7 +107,10 @@ export default function usePinFilterMobile(
             }
           },
         });
+      } else {
+        console.log("условие root.value == true", !!root.value);
       }
+      log("Закрепление хедера КОНЕЦ");
     };
 
     const pinFilter = () => {

@@ -1,7 +1,9 @@
 <template>
-  <div v-if="itemsList.length" ref="list" class="blog-list-wrap">
-    <list :item-list="filteredList" />
-    <btn-load-more v-show="!isLoadAll" :on-load="loadMore" />
+  <div ref="list" class="col-span-8">
+    <div v-if="itemsList.length" class="blog-list-wrap">
+      <list :item-list="filteredList" />
+      <btn-load-more v-show="!isLoadAll" :on-load="loadMore" />
+    </div>
   </div>
 </template>
 
@@ -9,6 +11,7 @@
 import { defineComponent, PropType } from "vue";
 import List from "./List/List.vue";
 import BtnLoadMore from "./BtnLoadMore.vue";
+import { pageTransitions } from "@/scripts/app/core/pageTransitions";
 
 type Article = {
   id: number;
@@ -185,11 +188,13 @@ export default defineComponent({
   },
 
   mounted() {
-    setTimeout(() => {
-      if (this.$refs.list) {
-        this.setContentListElm(this.$refs.list as Element);
-      }
-    }, 100);
+    if (this.$refs.list) {
+      this.setContentListElm(this.$refs.list as Element);
+    }
+  },
+
+  updated() {
+    pageTransitions();
   },
 });
 </script>

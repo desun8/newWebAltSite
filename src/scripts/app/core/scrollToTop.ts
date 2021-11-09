@@ -1,5 +1,6 @@
 import { throttle } from "lodash-es";
-import { resizeObserver } from "../utils/resizeObserver";
+import APP from "../APP";
+import { resizeObserver } from "../../utils/resizeObserver";
 
 export const scrollToTop = () => {
   const btn = document.querySelector(".scroll-to-top");
@@ -34,5 +35,11 @@ export const scrollToTop = () => {
     200
   );
 
-  document.addEventListener("scroll", onScroll, { passive: true });
+  if (APP.isDesktop && APP.scrollbar) {
+    APP.scrollbar.addListener((status: { offset: { y: number } }) => {
+      handleScroll(status.offset.y);
+    });
+  } else {
+    document.addEventListener("scroll", onScroll, { passive: true });
+  }
 };

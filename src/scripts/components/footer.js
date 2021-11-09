@@ -24,10 +24,12 @@ export default class Footer {
   }
 
   toggleImageVisible() {
-    if (this.showImage) {
-      this.imageBg.style.opacity = '1';
-    } else {
-      this.imageBg.style.opacity = '0';
+    if (this.imageBg) {
+      if (this.showImage) {
+        this.imageBg.style.opacity = '1';
+      } else {
+        this.imageBg.style.opacity = '0';
+      }
     }
   }
 
@@ -78,9 +80,9 @@ export default class Footer {
         const { isIntersecting } = entry;
 
         if (isIntersecting) {
-          document.body.classList.add('btn-to-top-white');
+          document.body.classList.add('scroll-to-top-white');
         } else {
-          document.body.classList.remove('btn-to-top-white');
+          document.body.classList.remove('scroll-to-top-white');
         }
       });
     };

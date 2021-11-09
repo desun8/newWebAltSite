@@ -1,6 +1,6 @@
-.scroll-to-top {
-  @apply lg:hidden;
+@use "../_config/functions/convert.scss" as *;
 
+.scroll-to-top {
   position: fixed;
   right: 20px;
   bottom: 40px;
@@ -13,11 +13,38 @@
   transition-property: transform, opacity;
   transition-duration: var(--trans-dur-fast);
   z-index: 100;
+
+  @media (--lg) {
+    bottom: 0;
+    left: vw(30);
+
+    padding: 10px 10px 10px 30px;
+    background: transparent;
+    color: var(--c-dark-grey);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+    text-transform: lowercase;
+    text-decoration: none;
+
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translateX(-100px);
+  }
 }
 
 .scroll-to-top.is-show {
   opacity: 1;
   transform: translateY(0) scaleY(-1);
+
+  @media (--lg) {
+    transform: rotate(-90deg) translateX(0);
+  }
+}
+
+.scroll-to-top:hover {
+  @media (--lg) {
+    transform: rotate(-90deg) translateX(10px);
+  }
 }
 
 .scroll-to-top::after {
@@ -26,4 +53,26 @@
   height: 100%;
   background: url("/images/i-arrow-down-white.svg") center/contain;
   background-repeat: space no-repeat;
+
+  @media (--lg) {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 0.9em;
+    height: 1.4em;
+    background: currentColor;
+    mask-image: url("/images/i-arrow-down.svg");
+    mask-repeat: space no-repeat;
+    mask-size: 0.4em;
+    transform: rotate(-90deg);
+  }
+}
+
+.scroll-to-top__text {
+  @apply <lg:hidden;
+}
+
+body.theme-dark .scroll-to-top,
+body.scroll-to-top-white .scroll-to-top {
+  color: #fff;
 }

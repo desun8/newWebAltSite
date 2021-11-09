@@ -1,0 +1,92 @@
+@use "../_config/functions/convert.scss" as *;
+@use "../components/marquee.scss";
+
+.wysiwyg-feedback-block {
+  position: relative;
+  margin-bottom: 100px;
+  color: var(--c-dark-grey);
+
+  @media (--md) {
+    max-width: 995px;
+    margin-bottom: 0;
+  }
+}
+
+.wysiwyg-feedback-block__title {
+  margin-bottom: 10px;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @media (--md) {
+    margin-bottom: 5px;
+    font-size: 48px;
+  }
+
+  @media (--lg) {
+    line-height: 0.85;
+  }
+}
+
+.wysiwyg-feedback-block__text {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+
+  @media (--md) {
+    margin-bottom: 38px;
+    font-size: 22px;
+    line-height: 1.4;
+  }
+}
+
+.wysiwyg-feedback-block__text .link__text::after {
+  transform: scaleX(0);
+}
+
+.wysiwyg-feedback-block__bg {
+  @media (--lg) {
+    position: absolute;
+    top: -30px;
+    left: var(--base-page-gap-negative);
+    display: block;
+    width: 120px;
+    height: 370px;
+
+    background: url("/images/components/wysiwyg-feedback-block-bg.png")
+      no-repeat left top/contain;
+    opacity: 0.2;
+  }
+}
+
+.wysiwyg-feedback-block-contacts {
+  @media (--md) {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 128px;
+  }
+}
+
+.wysiwyg-feedback-block-contacts .menu-contact {
+  margin-bottom: 0;
+}
+
+.wysiwyg-feedback-block-contacts .menu-contact__name {
+  font-size: 12px;
+}
+
+.wysiwyg-feedback-block-contacts .menu-contact__link {
+  @media (--md-max) {
+    color: var(--c-sun);
+    font-size: 24px;
+  }
+}
+
+.wysiwyg-feedback-block-contacts .menu-contact__link .link__icon {
+  @media (--md-max) {
+    display: none;
+  }
+}

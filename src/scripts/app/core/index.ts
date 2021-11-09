@@ -1,6 +1,7 @@
 import { fixedHeader } from "@/scripts/components/fixedHeader";
 import { ANDROID, MAC_OS } from "@/scripts/utils/getOS";
 import { mediaQueryEvent } from "@/scripts/utils/mediaQueryEvent";
+import { scrollToTop } from "./scrollToTop";
 import APP from "../APP";
 import { initDialogForm } from "./dialogForm";
 import { initFooter } from "./initFooter";
@@ -9,6 +10,7 @@ import { initMenu } from "./initMenu";
 import { pageTransitions } from "./pageTransitions";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
+import { cookieGdrp } from "./cookieGdpr";
 
 const defaultInit = () => {
   const smScreen = () => {
@@ -28,6 +30,7 @@ const defaultInit = () => {
 
 export const initCore = () => {
   pageTransitions();
+  cookieGdrp();
   defaultInit();
   initMenu();
   fixedHeader();
@@ -36,6 +39,7 @@ export const initCore = () => {
   initSmoothScroll();
   initProgressBar();
   initDialogForm();
+  scrollToTop();
 
   // if (APP.scrollbar && APP.isDesktop) {
   // Шум
@@ -45,10 +49,6 @@ export const initCore = () => {
   if (APP.isDesktop) {
     import("./invertTheme").then(({ invertTheme }) => {
       invertTheme();
-    });
-  } else {
-    import("../../components/scrollToTop").then(({ scrollToTop }) => {
-      scrollToTop();
     });
   }
 };
