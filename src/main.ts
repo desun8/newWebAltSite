@@ -1,10 +1,4 @@
 import initRoot from "./scripts/root";
-import "@/styles/landing.scss";
-// import APP from "./scripts/app/APP";
-import "./landings/1/app/scripts/script.js";
-// import "./landings/1/app/scripts/";
-// import "./landings/1/app/scripts/";
-// import "./landings/1/app/scripts/";
 
 initRoot();
 
