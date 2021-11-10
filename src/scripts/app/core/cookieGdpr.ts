@@ -1,4 +1,4 @@
-const COOKIE_NAME = "gdpr_accept";
+const COOKIE_NAME = "gdpr_accept=accept";
 
 const addCookie = () => {
   const getExpires = () => {
