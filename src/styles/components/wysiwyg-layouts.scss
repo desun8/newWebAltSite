@@ -43,7 +43,6 @@
 
 .wysiwyg-layouts__img-wrapper {
   display: block;
-  width: fit-content;
   margin-bottom: var(--gap);
   background-color: #efefef;
   box-shadow: 4px 8px 13px rgba(0, 0, 0, 0.03), 2px 4px 5px rgba(0, 0, 0, 0.08);
@@ -68,4 +67,8 @@
     grid-column-start: 5;
     justify-self: end;
   }
+}
+
+.wysiwyg-layouts__img {
+  width: 100%;
 }
