@@ -1,5 +1,21 @@
 @use "_config/functions/convert.scss" as *;
 
+#scroll-container[data-scrollbar] {
+  display: grid;
+}
+
+#scroll-container:not([data-scrollbar]) {
+  @media (--lg-max) {
+    min-height: calc(100vh - 70px);
+  }
+}
+
+#scroll-container:not([data-scrollbar]),
+.scroll-content {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 .page-container {
   padding-top: 96px;
 
