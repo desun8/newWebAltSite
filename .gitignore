@@ -8,3 +8,4 @@ src/landings/*/node_modules/
 .DS_Store
 SuisseInt'lFont
 src/mocks
+state.json
