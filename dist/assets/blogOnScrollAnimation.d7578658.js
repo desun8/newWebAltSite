@@ -1,1 +1,0 @@
-import{e,g as o}from"./vendor.5dfbe451.js";const t=e(Array.from(document.querySelectorAll(".blog-deco-top__item"))),r=document.querySelector(".blog-deco-top__cross");export default e=>{t&&t.length>0&&r&&(e=>{o.to([t,r],{y:(o,t)=>t===r?-1*e:e/(.55*(o+1))*-1,duration:.2,ease:"none"})})(e)};
