@@ -29,11 +29,14 @@ export const pageTransitions = () => {
     const href = link.getAttribute("href")!;
 
     const rel = link.rel;
+    const target = link.target;
+    const forbiddenTarget = target && target !== "_self";
 
     if (
       href.charAt(0) === "#" ||
       href.search("mailto:") !== -1 ||
       href.search("tel:") !== -1 ||
+      forbiddenTarget ||
       rel
     ) {
       return false;
