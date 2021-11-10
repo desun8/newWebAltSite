@@ -141,18 +141,21 @@
 }
 
 .review-item__text {
+  font-weight: 300;
+}
+
+.review-item__text,
+.review-item__text p {
   @media (--md-max) {
     display: inline;
   }
-
-  font-weight: 300;
 }
 
 .review-item__text-container.is-active .review-item__text {
   display: block;
 }
 
-.review-item__text:not(:last-child) {
+.review-item__text p:not(:last-child) {
   margin-bottom: 1.6em;
 }
 
