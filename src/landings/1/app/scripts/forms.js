@@ -34,16 +34,6 @@ function ibg() {
 }
 ibgWebP();
 
-//Адаптивное меню///////////////////////////////////////////////////////////////////////////////////////////////
-$('.menu__btn, .menu__body').on('click', function () {
-	$('.menu__btn, .menu__body').toggleClass('open');
-});
-$(document).on('click', function (e) {
-	if (!$('.menu__btn').is(e.target) && $('.menu__btn').has(e.target).length === 0 &&
-		!$('.menu__body').is(e.target) && $('.menu__body').has(e.target).length === 0) {
-		$('.menu__body, .menu__btn').removeClass('open');
-	}
-});
 
 //Отмена перехода по ссылкам и слайдтоггл дропдаунов и слайдап дропдаунов не этой ссылки///////////////////////////////////////////////////////////////////////////////////////////////
 $(document).on('click', '.drop', function (event) {
@@ -153,7 +143,7 @@ $.fn.setCursorPosition = function (pos) {
 		range.select();
 	}
 };
-$('input[type="tel"]').on('click', function () {
+$('main input[type="tel"]').on('click', function () {
 	$(this).setCursorPosition(3);
 });
 
@@ -181,26 +171,7 @@ $(window).on('resize', function () {
 	}
 });
 
-//Скролл к якорям ссылок///////////////////////////////////////////////////////////////////////////////////////////////
-$('.link, .link_2').on('click', function (event) {
-	event.preventDefault();
-	let id = $(this).attr('href'),
-		top = $(id).offset().top;
-	$('body,html').animate({
-		scrollTop: top
-	}, 800);
-});
 
-//Добавление класса блоку при прокрутке///////////////////////////////////////////////////////////////////////////////////////////////
-$(window).on('scroll', function () {
-	if ($(this).scrollTop() > 20) {
-		(!$('block').hasClass('class'))
-		$('block').addClass('class');
-	}
-	else {
-		$('block').removeClass('class');
-	}
-});
 
 //Скрытие элемента по клику вне его///////////////////////////////////////////////////////////////////////////////////////////////
 $(document).on('click', function (e) {
@@ -216,7 +187,7 @@ $('body').on('click', '.added__link', function () {
 });
 
 //Скрываем блок при установке флажка в чекбоксе и показываем при отключении///////////////////////////////////////////////////////////////////////////////////////////////
-$('body').on('change', 'input#formCheckbox', function () {
+$('body main').on('change', 'input#formCheckbox', function () {
 	if (!$('.files__item').hasClass('openDone')) {
 		$('.files__item').addClass('openDone');
 		$('.files__item').fadeOut(300).show();
@@ -230,13 +201,13 @@ $('body').on('change', 'input#formCheckbox', function () {
 });
 
 //Добавление всех имен загруженных файлов в input multiple через запятую в span///////////////////////////////////////////////////////////////////////////////////////////////
-$('body').on('change', '.files__input', function () {
-	let name_file = [];
-	for (let i = 0; i < $(this).get(0).files.length; ++i) {
-		name_file.push($(this).get(0).files[i].name);
-	}
-	$(this).next().next('span').text(name_file.join(", "));
-});
+// $('body').on('change', '.files__input', function () {
+// 	let name_file = [];
+// 	for (let i = 0; i < $(this).get(0).files.length; ++i) {
+// 		name_file.push($(this).get(0).files[i].name);
+// 	}
+// 	$(this).next().next('span').text(name_file.join(", "));
+// });
 
 //Форма обратной связи (без файлов)///////////////////////////////////////////////////////////////////////////////////////////////
 $(".fancybox-form").on('submit', function () {
