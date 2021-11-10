@@ -44,7 +44,7 @@
     }
 
     .title--big {
-      @media (--md-max) {
+      @media (max-width: 767px) {
         line-height: 1;
       }
     }

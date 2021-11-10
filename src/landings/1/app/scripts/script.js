@@ -1,7 +1,10 @@
 import "../../node_modules/imask/dist/imask.js";
 import "../../node_modules/just-validate/dist/js/just-validate.js";
-import "../../node_modules/swiper/swiper-bundle.js";
+import Swiper, {Navigation, Pagination} from "swiper";
 import "../../node_modules/swiper/swiper-bundle.css";
+
+Swiper.use([Navigation, Pagination]);
+
 
 function testWebP(callback) {
   var webP = new Image();

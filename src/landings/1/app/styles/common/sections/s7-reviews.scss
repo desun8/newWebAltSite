@@ -180,6 +180,12 @@
     align-items: center;
     margin-bottom: 30px;
 
+    // $md2
+    @media (min-width: 992px) {
+      width: fit-content;
+      margin-left: auto;
+    }
+
     @media (max-width: $md2 + px) {
       position: absolute;
       bottom: 0;

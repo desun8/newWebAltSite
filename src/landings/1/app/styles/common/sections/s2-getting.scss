@@ -119,6 +119,9 @@
       @include adaptive(width, 96, 76, 1);
       @include adaptive(height, 96, 76, 1);
       @include adaptive(margin-bottom, 22, 18, 1);
+
+      margin-right: auto;
+      margin-left: auto;
     }
   }
   // .getting__text
