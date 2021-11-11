@@ -71,6 +71,8 @@ export default {
         project: resolve(__dirname, "nested/project-page.html"),
         about: resolve(__dirname, "nested/about.html"),
         404: resolve(__dirname, "nested/404.html"),
+        landingEcommerce: resolve(__dirname, "nested/landing-ecommerce.html"),
+        landingEcommerceScript: 'src/landings/1/app/scripts/script.js'
       },
     },
   },
