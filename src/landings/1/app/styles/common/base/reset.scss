@@ -1,0 +1,87 @@
+//Сброс стилей///////////////////////////////////////////////////////////////////////////////////////////////
+// html {
+// 	box-sizing: border-box;
+// }
+
+// *,
+// *::before,
+// *::after {
+// 	box-sizing: inherit;
+// }
+
+// body {
+// 	margin: 0;
+// }
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6,
+main p {
+  font: inherit;
+  margin: 0;
+}
+
+main input,
+main button,
+main textarea {
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+main input:not([type="checkbox"]):not([type="radio"]),
+main textarea,
+main select,
+main button {
+  appearance: none;
+}
+
+main button {
+  cursor: pointer;
+}
+
+main textarea {
+  resize: vertical;
+}
+
+// main a {
+// 	text-decoration: none;
+// 	color: inherit;
+// }
+
+// img {
+// 	max-width: 100%;
+// 	display: block;
+// }
+
+main ul,
+main li {
+  list-style: none;
+}
+
+main ul,
+main ol {
+  padding: 0;
+  margin: 0;
+}
+
+main blockquote {
+  margin: 0;
+}
+
+main cite {
+  display: block;
+  font-style: normal;
+}
+
+main dl,
+main dd {
+  margin: 0;
+}

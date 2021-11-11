@@ -1,0 +1,19 @@
+{
+	"name": "start",
+	"version": "1.0.0",
+	"description": "Стартовая сборка Gulp",
+	"main": "index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "https://vk.com/splattt",
+	"license": "ISC",
+	"devDependencies": {
+		"imask": "^6.2.2",
+		"just-validate": "^1.5.0",
+		"swiper": "^7.0.9"
+	},
+	"dependencies": {
+		"webp-converter": "2.2.3"
+	}
+}

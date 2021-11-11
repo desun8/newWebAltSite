@@ -1,0 +1,13 @@
+//Подключаем миксины//
+@import "../landings/1/app/styles/common/base/mixins.scss";
+
+//Общие стили//
+@import "../landings/1/app/styles/common/core.scss";
+
+//Компоненты
+@import "../landings/1/app/styles/common/components/prosressing-work.scss";
+
+//Индивидуальные секции//
+@import "../landings/1/app/styles/home/s1-prices.scss";
+@import "../landings/1/app/styles/home/s2-our-help.scss";
+@import "../landings/1/app/styles/home/s3-progress-work.scss";
