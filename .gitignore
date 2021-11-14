@@ -8,3 +8,5 @@
 SuisseInt'lFont
 src/mocks
 state.json
+# Local Netlify folder
+.netlify
