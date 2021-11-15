@@ -298,12 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
           type: "fraction",
         },
       },
-    },
-		on: {
-			init() {
-				console.log('HELLO MOTHEFICKA');
-			}
-		}
+    }
   });
 
   //Функция для следования стрелки за курсором мыши в секции our-help
