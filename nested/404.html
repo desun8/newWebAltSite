@@ -56,6 +56,16 @@
     <include src="page-header/index.html">{ "class": "" }</include>
     <include src="page-menu.html"></include>
 
+    <div class="deco" aria-hidden="true">
+      <div class="deco__item"></div>
+      <div class="deco__item"></div>
+    </div>
+    <div class="deco deco--right" aria-hidden="true">
+      <div class="deco__item"></div>
+      <div class="deco__item"></div>
+      <div class="deco__item"></div>
+    </div>
+
     <div id="scroll-container">
       <main class="page-container wrapper">
         <picture class="image-404">
@@ -82,6 +92,7 @@
         <div>
           <div
             class="
+              relative
               flex
               items-center
               mx-$base-page-gap-negative
@@ -98,6 +109,10 @@
               страницы<br />
               <span class="text-white">не существует</span>
             </p>
+
+            <div class="deco deco--inner" aria-hidden="true">
+              <div class="deco__item"></div>
+            </div>
           </div>
 
           <div class="hidden md:block">
