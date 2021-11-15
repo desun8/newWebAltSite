@@ -50,7 +50,11 @@
 
 .image-404 {
   @media (--lg-max) {
-    @apply flex justify-center mx-$base-page-gap-negative mb-24;
+    display: flex;
+    place-items: center;
+    margin-right: var(--base-page-gap-negative);
+    margin-left: var(--base-page-gap-negative);
+    margin-bottom: 96px;
   }
 
   @media (--xxxl) {
