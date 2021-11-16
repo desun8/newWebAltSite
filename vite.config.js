@@ -73,6 +73,11 @@ export default {
         404: resolve(__dirname, "nested/404.html"),
         landingEcommerce: resolve(__dirname, "nested/landing-ecommerce.html"),
       },
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
     },
   },
 };
