@@ -1,0 +1,1 @@
+import{_ as e}from"./root.js";const o=()=>{const o=document.querySelectorAll(".btn-play");o.length&&e((()=>import("./reviewVideo.js")),["/assets/reviewVideo.js","/assets/reviewVideo.css","/assets/vendor.js","/assets/root.js","/assets/root.css"]).then((({reviewVideo:e})=>{o.forEach((o=>{e(o)}))}))};export{o as w};
