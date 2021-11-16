@@ -8,7 +8,7 @@
   display: grid;
   margin: 0 var(--base-page-gap-negative);
   padding: var(--pt) var(--base-page-gap);
-  background-color: var(--c-dark-grey);
+  background-color: #1d1d1d;
 
   @media (--md) {
     --pt: #{vw(170)};
