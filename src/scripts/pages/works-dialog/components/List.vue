@@ -3,7 +3,7 @@
     <transition-group
       name="works-list"
       tag="ul"
-      class="pb-5"
+      class="pb-5 lg:mt-1"
       @enter="enter"
       @leave="leave"
     >
