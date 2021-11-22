@@ -47,7 +47,7 @@
       <span class="link__text">подробнее</span>
       <span class="link__icon">
         <svg class="link__arrow" width="12" height="12">
-          <use xlink:href="#icon-arrow"></use>
+          <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
         </svg>
       </span>
     </span>

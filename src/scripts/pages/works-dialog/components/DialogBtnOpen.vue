@@ -53,7 +53,7 @@
         height="12"
         aria-hidden="true"
       >
-        <use xlink:href="#icon-arrow"></use>
+        <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
       </svg>
     </span>
   </button>

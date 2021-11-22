@@ -1,0 +1,8 @@
+<svg id="icon-dash-cursor-bold" fill="none" viewBox="0 0 16 12">
+  <path fill="#262626" d="M1.92 0l6.456 6.457-1.328 1.328L.591 1.328z" />
+  <path
+          fill="#262626"
+          d="M.536 11.557l6.468-6.468 1.383 1.383-6.468 6.468-1.383-1.383z"
+        />
+  <path stroke="#262626" stroke-width="2" d="M9 12h8" />
+</svg>
