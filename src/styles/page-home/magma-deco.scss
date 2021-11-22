@@ -2,14 +2,14 @@
 
 .magma-deco {
   @apply absolute top-0 bottom-0 overflow-hidden lg:relative lg:left-auto lg:right-auto lg:col-start-1 lg:col-end-9 lg:row-start-2 lg:row-end-3;
-  
+
   right: calc(var(--page-gap) * -1);
   left: calc(var(--page-gap) * -1);
-  
+
   //noinspection CssInvalidMediaFeature
   @media (--lg) {
     @include grid(7, 1, 1fr, auto);
-  
+
     align-items: center;
     margin-left: calc(var(--page-gap) * -1);
     padding-left: var(--page-gap);
@@ -19,34 +19,37 @@
 .magma-deco__img,
 .magma-deco__pattern {
   @apply absolute top-0 left-0 w-full;
-  
 }
 
 .magma-deco__img {
   @apply h-3/2 bg-no-repeat bg-right-top;
 
   background-size: auto 100%;
-  
-  background-image: image-set(url("/images/home/magma.jpg") 1x, url("/images/home/magma@2x.jpg") 2x);
-  
+
+  background-image: image-set(
+    url("/images/home/magma.jpg") 1x,
+    url("/images/home/magma@2x.jpg") 2x
+  );
+
   //noinspection CssInvalidMediaFeature
   @media (--md) {
-    background-image: image-set(url("/images/home/magma-md.jpg") 1x,
-            url("/images/home/magma-md@2x.jpg") 2x);
+    background-image: url("/images/home/magma-md@2x.jpg");
   }
-  
+
   //noinspection CssInvalidMediaFeature
   @media (--lg) {
-    background-image: image-set(url("/images/home/magma-lg.jpg") 1x,
-            url("/images/home/magma-lg@2x.jpg") 2x);
+    background-image: image-set(
+      url("/images/home/magma-lg.jpg") 1x,
+      url("/images/home/magma-lg@2x.jpg") 2x
+    );
   }
 }
 
 .magma-deco__pattern {
   @apply h-full bg-center opacity-30 lg:opacity-70;
-  
+
   background-size: 128px;
-  
+
   //noinspection CssInvalidMediaFeature
   @media (--lg) {
     background-size: 256px;
