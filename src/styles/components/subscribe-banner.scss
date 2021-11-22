@@ -9,9 +9,7 @@
 }
 
 .subscribe-banner-btn__img {
-  @apply absolute top-0 left-0 w-9 h-14 bg-sun;
-
-  mask: url("/images/home/bg-design-mobile.svg") no-repeat center/contain;
+  @apply absolute top-0 left-0 w-9 h-14 fill-sun;
 }
 
 .subscribe-banner-block {
@@ -49,18 +47,13 @@
 
 body.theme-sun .subscribe-banner-btn__img,
 body.subscribe-banner-white .subscribe-banner-btn__img {
-  background-color: #fff;
+  fill: #fff;
 }
 
 body.theme-sun .subscribe-banner-block,
 body.subscribe-banner-white .subscribe-banner-block {
   background-color: #fff;
 }
-
-/* body.theme-sun .subscribe-banner-block__input:hover,
-body.theme-sun .subscribe-banner-block__input:focus {
-  border-color: var(--c-red);
-} */
 
 body.theme-sun .subscribe-banner-block__input + span,
 body.theme-sun .subscribe-banner-block__success,
