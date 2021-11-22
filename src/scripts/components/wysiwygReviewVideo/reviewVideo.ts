@@ -51,7 +51,6 @@ class VideoElement {
     video.id = "video-review";
     video.controls = true;
     video.preload = "none";
-    video.style.width = "100%";
 
     [webm, mp4].forEach((src) => {
       if (src) {
@@ -216,7 +215,7 @@ class Dialog {
       <!-- 2. The dialog overlay -->
       <div class="dialog-overlay  bg-true-black bg-opacity-50" data-a11y-dialog-hide></div>
       <!-- 3. The actual dialog -->
-      <div class="dialog-content  relative w-4/5 mx-auto" role="document">
+      <div class="dialog-content  relative w-4/5 mx-auto grid place-items-center" role="document">
         <!-- 5. The dialog title -->
         <h1 id="video-dialog-title" class="sr-only">Диалог просмотра видео отзыва.</h1>
         <!-- 6. Dialog content -->
