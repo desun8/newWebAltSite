@@ -22,11 +22,21 @@ export const swiperCarouselNavigationHover = () => {
   );
 
   if (btnNext && btnPrev) {
-    let mousePos = { x: 0, y: 0 };
-    let rect = elm.getBoundingClientRect();
+    const getElmRect = (elm: HTMLElement) => {
+      let rect = elm.getBoundingClientRect();
 
-    resizeObserver(elm, () => {
-      rect = elm.getBoundingClientRect();
+      if (APP.scrollbar) {
+        rect.y += APP.scrollbar.scrollTop;
+      }
+
+      return rect;
+    };
+
+    let mousePos = { x: 0, y: 0 };
+    let rect = getElmRect(elm);
+
+    resizeObserver(document.documentElement, () => {
+      rect = getElmRect(elm);
     });
 
     const renderedStyles: {
@@ -37,21 +47,21 @@ export const swiperCarouselNavigationHover = () => {
     };
 
     const move = (prevPosX: number, x: number, y: number) => {
-      let elm: HTMLElement | undefined = undefined;
+      let btnElm: HTMLElement | undefined = undefined;
 
       if (prevPosX > 0) {
-        elm = btnNext;
+        btnElm = btnNext;
       }
 
       if (prevPosX < 0) {
-        elm = btnPrev;
+        btnElm = btnPrev;
       }
 
-      if (elm) {
+      if (btnElm) {
         const duration = 0.8;
 
-        gsap.killTweensOf(elm);
-        gsap.to(elm, {
+        gsap.killTweensOf(btnElm);
+        gsap.to(btnElm, {
           x,
           y,
           duration,
@@ -64,35 +74,42 @@ export const swiperCarouselNavigationHover = () => {
       (event) => {
         mousePos = getMousePos(event as MouseEvent);
 
-        const scrollTop = APP.scrollbar!.scrollTop;
+        if (APP.scrollbar) {
+          const scrollTop = APP.scrollbar.scrollTop;
 
-        let x = 0;
-        let y = 0;
+          let x = 0;
+          let y = 0;
 
-        if (mousePos.y + scrollTop >= rect.top + rect.height / 2) {
-          x =
-            (mousePos.x + window.scrollX - (rect.left + rect.width / 2)) * 0.3;
-          y = (mousePos.y + scrollTop - (rect.top + rect.height / 2)) * 0.3;
+          const mousePosY = mousePos.y + scrollTop;
+          const elmPosMiddle = rect.y + rect.height / 2;
+          const isAllowMousePos = mousePosY >= elmPosMiddle;
 
-          const rectLeft = rect.left * 1.5;
+          if (isAllowMousePos) {
+            x =
+              (mousePos.x + window.scrollX - (rect.left + rect.width / 2)) *
+              0.3;
+            y = (mousePos.y + scrollTop - (rect.y + rect.height / 2)) * 0.3;
 
-          renderedStyles["tx"].current =
-            Math.abs(x) > rectLeft ? rectLeft * (x / Math.abs(x)) : x;
-          renderedStyles["ty"].current = y;
+            const rectLeft = rect.left * 1.5;
 
-          for (const key in renderedStyles) {
-            renderedStyles[key].previous = lerp(
-              renderedStyles[key].previous,
-              renderedStyles[key].current,
-              renderedStyles[key].amt
+            renderedStyles["tx"].current =
+              Math.abs(x) > rectLeft ? rectLeft * (x / Math.abs(x)) : x;
+            renderedStyles["ty"].current = y;
+
+            for (const key in renderedStyles) {
+              renderedStyles[key].previous = lerp(
+                renderedStyles[key].previous,
+                renderedStyles[key].current,
+                renderedStyles[key].amt
+              );
+            }
+
+            move(
+              renderedStyles["tx"].previous,
+              renderedStyles["tx"].previous * -1,
+              renderedStyles["ty"].previous * -1
             );
           }
-
-          move(
-            renderedStyles["tx"].previous,
-            renderedStyles["tx"].previous * -1,
-            renderedStyles["ty"].previous * -1
-          );
         }
       },
       { passive: true }
