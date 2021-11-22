@@ -25,7 +25,9 @@
   @apply h-3/2 bg-no-repeat bg-right-top;
 
   background-size: auto 100%;
+}
 
+html.no-webp .magma-deco__img {
   background-image: image-set(
     url("/images/home/magma.jpg") 1x,
     url("/images/home/magma@2x.jpg") 2x
@@ -41,6 +43,26 @@
     background-image: image-set(
       url("/images/home/magma-lg.jpg") 1x,
       url("/images/home/magma-lg@2x.jpg") 2x
+    );
+  }
+}
+
+html.webp .magma-deco__img {
+  background-image: image-set(
+    url("/images/home/magma.webp") 1x,
+    url("/images/home/magma@2x.webp") 2x
+  );
+
+  //noinspection CssInvalidMediaFeature
+  @media (--md) {
+    background-image: url("/images/home/magma-md@2x.webp");
+  }
+
+  //noinspection CssInvalidMediaFeature
+  @media (--lg) {
+    background-image: image-set(
+      url("/images/home/magma-lg.webp") 1x,
+      url("/images/home/magma-lg@2x.webp") 2x
     );
   }
 }
