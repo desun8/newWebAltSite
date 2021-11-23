@@ -131,9 +131,9 @@ class HomeApp extends Index {
     this.changeTheme.init();
     this.awardsList.init();
 
-    import("../pages/home/canvasSphere").then(({ default: CanvasSphere }) => {
-      new CanvasSphere();
-    });
+    // import("../pages/home/canvasSphere").then(({ default: CanvasSphere }) => {
+    //   new CanvasSphere();
+    // });
 
     if (this.$elms.blockMarketing) {
       marketingTriangleAnimation();
