@@ -118,6 +118,11 @@ body:not(.os-mac) .filter {
   transform: scaleX(1);
 }
 
+.filter.is-pinned.is-active .filter__collapse {
+  transform-origin: 0 50%;
+  transform: scaleX(0.4);
+}
+
 .filter__collapse:focus,
 .filter__collapse:hover {
   outline: 0;

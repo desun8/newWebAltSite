@@ -9,6 +9,7 @@
   padding-bottom: 210px;
   color: #fff;
   background-color: var(--c-dark-grey);
+  overflow: hidden;
 
   @media (--lg) {
     margin-bottom: 190px;
@@ -27,6 +28,7 @@
   line-height: 1;
   font-weight: 700;
   text-transform: uppercase;
+  user-select: none;
 
   @media (--md) {
     --fz: 200px;

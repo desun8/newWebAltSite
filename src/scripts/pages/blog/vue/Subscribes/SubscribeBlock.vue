@@ -63,7 +63,7 @@
             <button class="subscribe-block__submit w-min" type="submit">
               <span class="sr-only">Отправить</span>
               <svg class="w-7 h-7" width="66" height="66">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </button>
           </div>
