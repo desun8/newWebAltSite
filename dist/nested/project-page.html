@@ -13,45 +13,26 @@
   <link rel="modulepreload" href="/assets/root.js">
   <link rel="modulepreload" href="/assets/vendor.js">
   <link rel="modulepreload" href="/assets/index3.js">
-  <link rel="modulepreload" href="/assets/Filter.js">
+  <link rel="modulepreload" href="/assets/sprite.symbol.js">
   <link rel="modulepreload" href="/assets/index.js">
   <link rel="modulepreload" href="/assets/index2.js">
   <link rel="stylesheet" href="/assets/root.css">
   <link rel="stylesheet" href="/assets/index.css">
-  <link rel="stylesheet" href="/assets/Filter.css">
+  <link rel="stylesheet" href="/assets/sprite.symbol.css">
   <link rel="stylesheet" href="/assets/project.css">
 </head>
   <body>
-    <svg style="display: none">
-      <symbol id="icon-dash-cursor" viewBox="0 0 16 13">
-        <path d="M.92 0l6.456 6.457-.919.92L0 .918z"></path>
-        <path d="M0 12.021l6.467-6.467.92.919L.919 12.94z"></path>
-        <path stroke="currentColor" stroke-width="1.3" d="M8 12.35h8"></path>
-      </symbol>
-      <symbol id="icon-arrow" viewBox="0 0 12 12">
-        <path d="M1.588 1l9.398.014.014 9.398H9.353l-.03-6.589L2.148 11 1 9.853l7.177-7.177-6.59-.03V1z" fill-rule="nonzero"></path>
-      </symbol>
-      <symbol id="logo" viewBox="0 0 38 21">
-        <path fill="currentColor" fill-rule="evenodd" d="M12.35 21h4.227l2.388-2.566L21.354 21h4.21l-6.607-7.097L12.35 21zM0 5.707l7.12 14.766 4.309-4.405-5.152-8.624L0 5.707zm38-.002L30.88 20.47l-4.309-4.405 5.152-8.624L38 5.705zM18.96 0l-7.103 10.294 1.895 3.375 5.208-5.424 5.207 5.424 1.895-3.375L18.96 0z" clip-rule="evenodd"></path>
-      </symbol>
-      <symbol id="icon-tel" viewBox="0 0 28 28">
-        <path fill="#000" d="M9.153 20.214L7.916 21.45l1.237 1.238 1.238-1.238-1.238-1.237zM6.679 17.74L5.44 18.976l1.238 1.237 1.237-1.237-1.237-1.238z"></path>
-        <path fill="#000" d="M16.223 18.911L9.09 11.776l4.186-4.185-7.47-7.47L0 5.096v8.438l4.204 4.205L5.442 16.5 1.75 12.81V5.9l3.962-3.396L10.8 7.591l-4.186 4.186 9.61 9.609 4.184-4.186 5.088 5.087-3.397 3.963H15.19l-3.561-3.561-1.237 1.237L14.466 28h8.438l4.975-5.804-7.47-7.47-4.186 4.185zM26.25 14H28C27.99 6.272 21.728.01 14 0v1.75c6.762.007 12.243 5.488 12.25 12.25z"></path>
-        <path fill="#000" d="M21.875 14h1.75A9.636 9.636 0 0014 4.375v1.75A7.884 7.884 0 0121.875 14zM17.5 10.5h-1.75v1.75h1.75V10.5z"></path>
-      </symbol>
-    </svg>
-
     <div class="page-preloader" aria-hidden="true">
   <header class="page-header page-header--preloader">
     <div class="page-header__wrap">
       <span class="page-header__logo">
         <svg width="38" height="21" aria-hidden="true">
-          <use xlink:href="#logo"></use>
+          <use xlink:href="/images/sprite.symbol.svg#logo"></use>
         </svg>
       </span>
       <button class="menu-btn">
         <svg class="menu-btn__icon" width="16" height="13" aria-hidden="true">
-          <use xlink:href="#icon-dash-cursor"></use>
+          <use xlink:href="/images/sprite.symbol.svg#icon-dash-cursor"></use>
         </svg>
         <span class="menu-btn__progress">
           <span>.</span><span>.</span><span>.</span><span>.</span>
@@ -62,7 +43,7 @@
 
   <span class="page-preloader__arrow">
     <svg width="12" height="12">
-      <use xlink:href="#icon-arrow"></use>
+      <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
     </svg>
   </span>
 </div>
@@ -98,13 +79,13 @@
   <div class="page-header__wrap">
     <a href="/" class="page-header__logo" aria-label="На главную.">
       <svg width="38" height="21" aria-hidden="true">
-        <use xlink:href="#logo"></use>
+        <use xlink:href="/images/sprite.symbol.svg#logo"></use>
       </svg>
       <span class="hover-text">на главную</span>
     </a>
     <button class="menu-btn js-menu-btn-open" aria-label="Открыть меню.">
       <svg class="menu-btn__icon" width="16" height="13" aria-hidden="true">
-        <use xlink:href="#icon-dash-cursor"></use>
+        <use xlink:href="/images/sprite.symbol.svg#icon-dash-cursor"></use>
       </svg>
       menu
     </button>
@@ -121,7 +102,7 @@
     <span class="link__text">Заказать консультацию</span>
     <span class="link__icon">
       <svg class="link__arrow" width="12" height="12">
-        <use xlink:href="#icon-arrow"></use>
+        <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
       </svg>
     </span>
   </button>
@@ -143,13 +124,13 @@
   <div class="page-header__wrap">
     <a href="tel:+74212529102" class="page-header-fixed__tel site-tel">
       <svg width="28" height="28" aria-hidden="true">
-        <use xlink:href="#icon-tel"></use>
+        <use xlink:href="/images/sprite.symbol.svg#icon-tel"></use>
       </svg>
       Звони
     </a>
     <button class="menu-btn js-menu-btn-open" aria-label="Открыть меню.">
       <svg class="menu-btn__icon" width="16" height="13">
-        <use xlink:href="#icon-dash-cursor"></use>
+        <use xlink:href="/images/sprite.symbol.svg#icon-dash-cursor"></use>
       </svg>
       menu
     </button>
@@ -160,7 +141,7 @@
   <div class="page-menu__wrap">
     <div class="page-menu__header">
       <svg class="page-menu__logo" width="38" height="21">
-        <use xlink:href="#logo"></use>
+        <use xlink:href="/images/sprite.symbol.svg#logo"></use>
       </svg>
       <button class="page-menu__close"><i class="icon-cross"></i>close</button>
     </div>
@@ -171,7 +152,7 @@
           <a class="page-nav__link" href="/">Главная
             <i class="icon-arrow">
               <svg width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </i>
           </a>
@@ -181,7 +162,7 @@
             О компании
             <i class="icon-arrow">
               <svg width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </i>
           </button>
@@ -216,7 +197,7 @@
           <a class="page-nav__link" href="/nested/works.html">Портфолио
             <i class="icon-arrow">
               <svg width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </i>
           </a>
@@ -225,7 +206,7 @@
           <a class="page-nav__link" href="/nested/services.html">Услуги
             <i class="icon-arrow">
               <svg width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </i>
           </a>
@@ -234,7 +215,7 @@
           <a class="page-nav__link" href="/nested/blog.html">Блог
             <i class="icon-arrow">
               <svg width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </i>
           </a>
@@ -243,7 +224,7 @@
           <a class="page-nav__link" href="/nested/contacts.html">Контакты
             <i class="icon-arrow">
               <svg width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </i>
           </a>
@@ -265,7 +246,7 @@
           <button class="link link--uppercase link--bold js-dialog-form-open" type="button">
             <span class="link__text">напиши нам</span><span class="link__icon">
               <svg class="link__arrow" width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </span>
           </button>
@@ -284,7 +265,7 @@
         <div class="menu-contact__link">
           <a class="link link--bold link--uppercase site-tel" href="tel:++74212529102"><span class="link__text">+7 (4212) 52-91-02</span><span class="link__icon">
               <svg class="link__arrow" width="12" height="12">
-                <use xlink:href="#icon-arrow"></use>
+                <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
               </svg>
             </span>
           </a>
@@ -311,8 +292,12 @@
 
     <div class="hidden lg:block subscribe-banner fixed bottom-8 right-8 z-20">
   <button class="subscribe-banner-btn w-11 h-16">
-    <span class="subscribe-banner-btn__img opacity-70"></span>
-    <span class="subscribe-banner-btn__img"></span>
+    <svg class="subscribe-banner-btn__img opacity-70">
+      <use xlink:href="/images/sprite.symbol.svg#icon-fire"></use>
+    </svg>
+    <svg class="subscribe-banner-btn__img">
+      <use xlink:href="/images/sprite.symbol.svg#icon-fire"></use>
+    </svg>
   </button>
 
   <div class="subscribe-banner-block" style="transform: translateX(200%)">
@@ -358,7 +343,7 @@
         <button class="subscribe-banner-block__submit w-min" type="submit">
           <span class="sr-only">Отправить</span>
           <svg class="w-7 h-7" width="66" height="66">
-            <use xlink:href="#icon-arrow"></use>
+            <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
           </svg>
         </button>
       </div>
@@ -1083,7 +1068,7 @@
 
     <a href="#" class="project__link-site link link--orange link--bold"><span class="link__text">ссылка на сайт</span><i class="link__icon">
         <svg class="link__arrow" width="12" height="12">
-          <use xlink:href="#icon-arrow"></use>
+          <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
         </svg> </i></a>
   </div>
 
@@ -1204,7 +1189,7 @@
       <span class="link__text">Legenda</span>
       <span class="link__icon">
         <svg class="link__arrow" width="12" height="12">
-          <use xlink:href="#icon-arrow"></use>
+          <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
         </svg>
       </span>
     </a>
@@ -1274,7 +1259,7 @@
             !2xl:w-216px !2xl:h-216px
           ">
           <svg class="link__arrow !w-full !h-full" width="12" height="12" aria-hidden="true">
-            <use xlink:href="#icon-arrow"></use>
+            <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
           </svg>
         </span>
       </button>
@@ -1303,7 +1288,7 @@
               <span class="link__text">Напиши нам</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </button>
@@ -1311,7 +1296,7 @@
               <span class="link__text">info@web-alt.ru</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </a>
@@ -1355,21 +1340,21 @@
         <a href="" class="footer-menu__link link link--bold link--uppercase"><span class="link__text">Разработка</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
         <a href="" class="footer-menu__link link link--bold link--uppercase"><span class="link__text">PROДВИЖЕНИЕ</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
         <a href="" class="footer-menu__link link link--bold link--uppercase"><span class="link__text">design</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
@@ -1378,8 +1363,8 @@
 
     <div class="page-footer__bg">
       <picture>
-        <source media="(min-width: 64em)" srcset="../../images/footer-grid.svg">
-        <img src="../../images/empty.svg" alt="">
+        <source media="(min-width: 64em)" srcset="/images/footer-grid.svg">
+        <img src="/images/empty.svg" alt="" width="1" height="1">
       </picture>
     </div>
   </div>
@@ -1409,7 +1394,7 @@
           <div class="footer-redirect__link-name">
             <span class="link">перейти<span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg> </span></span>
           </div>
         </div>
@@ -1445,7 +1430,7 @@
       <div class="page-header__wrap">
         <div class="page-header__logo">
           <svg width="38" height="21" aria-hidden="true">
-            <use xlink:href="#logo"></use>
+            <use xlink:href="/images/sprite.symbol.svg#logo"></use>
           </svg>
         </div>
 
@@ -2047,7 +2032,7 @@
     <span class="link__text">отправить</span>
     <span class="link__icon">
       <svg class="link__arrow" width="12" height="12" aria-hidden="true">
-        <use xlink:href="#icon-arrow"></use>
+        <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
       </svg>
     </span>
   </button>
