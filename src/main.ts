@@ -1,2 +1,2 @@
-import "./landings/corporate-sites/app/styles/corporate-sites.scss";
-import "./landings/corporate-sites/app/scripts/script.js";
+import "./landings/smm/app/styles/smm.scss";
+import "./landings/smm/app/scripts/script.js";
