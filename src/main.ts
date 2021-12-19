@@ -1,2 +1,2 @@
-import "./landings/smm/app/styles/smm.scss";
-import "./landings/smm/app/scripts/script.js";
+import "./landings/style/app/styles/style.scss";
+import "./landings/style/app/scripts/script.js";
