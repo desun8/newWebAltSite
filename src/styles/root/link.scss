@@ -96,6 +96,11 @@
     color: var(--hover-color);
   }
 
+  &--white {
+    --hover-color: #fff;
+    color: #fff;
+  }
+
   &--underline {
     .link__text::after {
       transform: scaleX(1);

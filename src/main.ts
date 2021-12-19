@@ -1,2 +1,2 @@
-import "./landings/contextual/app/styles/contextual.scss";
-import "./landings/contextual/app/scripts/script.js";
+import "./landings/corporate-sites/app/styles/corporate-sites.scss";
+import "./landings/corporate-sites/app/scripts/script.js";

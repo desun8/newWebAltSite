@@ -99,51 +99,6 @@ class Form {
   }
 }
 
-const submitForm = (formElm) => {
-  const KEY = RECAPTCHA_KEY;
-  const url = formElm.action;
-  const formData = new FormData(formElm);
-  const params = {
-    method: "POST",
-    body: formData,
-  };
-
-  const handleErrors = (response) => {
-    if (!response.ok) {
-      throw Error(response.statusText);
-    }
-
-    return response.json();
-  };
-
-  const handleSuccess = (response) => {
-    if (response.status.toLowerCase() !== "ok") {
-      throw Error(response.message);
-    }
-
-    return response;
-  };
-
-  return new Promise(function (resolve, _) {
-    window.grecaptcha.ready(() => {
-      window.grecaptcha
-        .execute(KEY, { action: "form" })
-        .then((token) => {
-          // добавляем в отправляемые данные токен рекаптчи
-          formData.append("recaptcha_response", token);
-
-          return fetch(url, params)
-            .then(handleErrors)
-            .then(handleSuccess)
-            .catch((error) => console.error("Форма не отправилась", error));
-        })
-        .then(() => {
-          resolve("success");
-        });
-    });
-  });
-};
-
 function testWebP(callback) {
   var webP = new Image();
   webP.onload = webP.onerror = function () {
@@ -511,8 +466,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     ]);
   }
+
   const pricesIm = document.querySelector(".prices-im__form");
-  console.log("🚀 ~ file: script.js ~ line 515 ~ document.addEventListener ~ pricesIm", pricesIm)
   if (pricesIm) {
     new Form(pricesIm, [
       {
