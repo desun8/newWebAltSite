@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Alt - базовый шаблон</title>
+
+    <link rel="preload" as="image" href="/images/noise-gif-square-anim.gif" />
+
+    <script>
+      window.RECAPTCHA_KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
+    </script>
+  </head>
+  <body id="body">
+    <include src="components/preloader.html"></include>
+    <include src="components/gdpr-cookie.html"></include>
+
+    <include src="progress-bar.html"></include>
+    <include src="page-header/index.html"> { "class": "" } </include>
+    <include src="page-menu.html"></include>
+
+    <div id="scroll-container">
+      <div class="page-container wrapper">
+        <include src="breadcrumbs.html"></include>
+
+        <include src="../landings/contextual/main.html"></include>
+      </div>
+    </div>
+
+    <include src="components/scroll-to-top.html"></include>
+    <include src="components/dialog-form.html"></include>
+
+    <!-- <script type="module" src="./src/scripts/landingEcommerceRoot.ts"></script> -->
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

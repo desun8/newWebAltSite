@@ -45,6 +45,10 @@
   transition-duration: 0.3s;
   transition-timing-function: ease-in;
 
+  .js-orange-block & {
+    --hover-color: var(--c-dark-grey);
+  }
+
   &--uppercase {
     --icon-size: 0.85em;
     text-transform: uppercase;

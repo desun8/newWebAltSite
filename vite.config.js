@@ -57,6 +57,11 @@ export default {
       input: {
         main: resolve(__dirname, "index.html"),
       },
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
     },
   },
 };
