@@ -1,15 +1,8 @@
-<<<<<<< HEAD:src/landings/ecommerce/app/scripts/script.js
-import "imask/dist/imask.js";
-import "just-validate/dist/js/just-validate.js";
-import Swiper, {Navigation, Pagination} from "swiper";
-import "swiper/swiper-bundle.css";
-=======
 import IMask from "imask";
 import JustValidate from "just-validate";
 import Swiper, { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import { RECAPTCHA_KEY } from "@/scripts/app/core/api";
->>>>>>> landings-all:src/landings/1/app/scripts/script.js
 
 Swiper.use([Navigation, Pagination]);
 
