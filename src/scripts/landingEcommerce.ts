@@ -1,2 +1,2 @@
 import "@/styles/landing.scss";
-import "../landings/1/app/scripts/script.js";
+import "../landings/ecommerce/app/scripts/script.js";
