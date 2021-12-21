@@ -1,13 +1,13 @@
 <main class="main">
   <section class="top top--style mx-$base-page-gap-negative">
-    <div class="top__container container mt-1 lg:mt-0">
+    <div class="top__container container">
       <div class="top__body">
         <div class="top__info">
-          <h1 class="top__title"> <span class="title title--big">Разработка</span> <span
-              class="title-mini">Фирменного стиля</span> </h1>
+          <h1 class="top__title mt-1 lg:mt-0"> <span class="title title--big">Разработка</span> <span class="title-mini">Фирменного
+              стиля</span> </h1>
           <div class="top__descr top__descr--corp">
             <p><span>Яркая</span> упаковка для вашего бизнеса: от логотипа до оформленного бренд-бука</p> <button
-              class="top__btn link link--uppercase link--bold link--orange link--underline" type="button"> <span
+              class="top__btn link link--uppercase link--bold link--orange link--underline <xl:text-sm" type="button"> <span
                 class="link__text">Заказать консультацию</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </button>
@@ -78,7 +78,8 @@
     <div class="composition-dev__container container">
       <h2 class="composition-dev__title title-mini">Этапы разработки </h2>
       <ul class="composition-dev__inner">
-        <li class="composition-dev__item" style="background-image: url('/images/landings/style/composition-dev/marketing.png');">
+        <li class="composition-dev__item"
+          style="background-image: url('/images/landings/style/composition-dev/marketing.png');">
           <div class="composition-dev__info">
             <h3 class="composition-dev__name">Проведем маркетинговые <span>исследования</span></h3>
             <ul class="composition-dev__list">
@@ -90,7 +91,8 @@
             <p class="composition-dev__text">Подготовим обоснование для позиционирования Вашего бренда.</p>
           </div>
         </li>
-        <li class="composition-dev__item" style="background-image: url('/images/landings/style/composition-dev/logotypes.png');">
+        <li class="composition-dev__item"
+          style="background-image: url('/images/landings/style/composition-dev/logotypes.png');">
           <div class="composition-dev__info">
             <h3 class="composition-dev__name">Разработаем до <span>3х</span> вариантов логотипа </h3>
             <p class="composition-dev__text">На основании выбранного позиционирования <span>3 разные
@@ -120,10 +122,12 @@
               правилам вашего нового стиля.</p>
           </div>
         </li>
-        <li class="composition-dev__item" style="background-image: url('/images/landings/style/composition-dev/carriers.png');">
+        <li class="composition-dev__item"
+          style="background-image: url('/images/landings/style/composition-dev/carriers.png');">
           <div class=" composition-dev__info">
             <h3 class="composition-dev__name">Масштабируем фирменный стиль на <span>печатные</span> и
-              <span>цифровые</span> носители </h3>
+              <span>цифровые</span> носители
+            </h3>
             <ul class="composition-dev__list">
               <li class="composition-dev__row">Фирменная документация</li>
               <li class="composition-dev__row">Рекламная и имиджевая полиграфия</li>
@@ -140,11 +144,12 @@
         <form class="form-box__form form-application" action="#">
           <div class="form-application__column">
             <div class="form-application__item"> <input class="form-application__input" id="smmName" type="text"
-                name="Имя соискателя" data-validate-field="smmName" required> <label
-                class="form-application__label" for="smmName">имя*</label> </div>
+                name="Имя соискателя" data-validate-field="smmName" required> <label class="form-application__label"
+                for="smmName">имя*</label> </div>
             <div class="form-application__item"> <input class="form-application__input" id="smmPhone" type="tel"
-                name="Телефон соискателя" placeholder="+7 (999) 999 99 99" data-validate-field="smmPhone"
-                required> <label class="form-application__label" for="smmPhone">Телефон*</label> </div>
+                name="Телефон соискателя" placeholder="+7 (999) 999 99 99" data-validate-field="smmPhone" required>
+              <label class="form-application__label" for="smmPhone">Телефон*</label>
+            </div>
             <div class="form-application__bottom">
               <div class="form-application__button"> <button
                   class="form-application__btn link link--uppercase link--bold link--underline" type="submit">
@@ -152,8 +157,8 @@
                       <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                     </svg> </span> </button> </div>
               <p class="form-application__text">Нажимая на кнопку, Вы даете согласие с <a
-                  href="https://web-alt.ru/page/politika-obrabotki-cookie-failov-na-saite"
-                  target="_blank">политикой обработки персональных данных</a> </p>
+                  href="https://web-alt.ru/page/politika-obrabotki-cookie-failov-na-saite" target="_blank">политикой
+                  обработки персональных данных</a> </p>
             </div>
           </div>
         </form>
@@ -165,45 +170,50 @@
       <h2 class="examples-style__title title-mini">Примеры выполненных фирменных стилей в <span>WEB
           ALTERNATIVE</span></h2>
       <ul class="examples-style__inner">
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item">
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-iceberg.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-iceberg.jpg" alt="Иллюстрация сайта iceberg">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/iceberg.webp" type="image/webp"><img
-                class="examples-style__img" src="/images/landings/style/examples-style/iceberg.jpg" alt="Фирменный стиль iceberg">
+                class="examples-style__img" src="/images/landings/style/examples-style/iceberg.jpg"
+                alt="Фирменный стиль iceberg">
             </picture>
             <p class="examples-style__text">фирменный стиль стоматологии Iceberg</p> <span
               class="examples-style__btn link link--uppercase link--white link--underline"> <span
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-iceberg.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-iceberg.jpg"
-                alt="Иллюстрация сайта iceberg">
-            </picture>
-          </div>
+              </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-antera.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-antera.jpg"
+              alt="Иллюстрация сайта antera">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/antera.webp" type="image/webp"><img
-                class="examples-style__img" src="/images/landings/style/examples-style/antera.jpg" alt="Фирменный стиль antera">
+                class="examples-style__img" src="/images/landings/style/examples-style/antera.jpg"
+                alt="Фирменный стиль antera">
             </picture>
             <p class="examples-style__text">Лого и фирменный стиль ANTERA</p> <span
               class="examples-style__btn link link--uppercase link--white link--underline"> <span
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-antera.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-antera.jpg"
-                alt="Иллюстрация сайта antera">
-            </picture>
           </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-goszakaz.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-goszakaz.jpg"
+              alt="Иллюстрация сайта goszakaz">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/goszakaz.webp" type="image/webp"><img
                 class="examples-style__img" src="/images/landings/style/examples-style/goszakaz.jpg"
@@ -214,16 +224,15 @@
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-goszakaz.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-goszakaz.jpg"
-                alt="Иллюстрация сайта goszakaz">
-            </picture>
           </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-coffee.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-coffee.jpg"
+              alt="Иллюстрация сайта coffee">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/coffee.webp" type="image/webp"><img
                 class="examples-style__img" src="/images/landings/style/examples-style/coffee.jpg"
@@ -234,73 +243,72 @@
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-coffee.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-coffee.jpg"
-                alt="Иллюстрация сайта coffee-center">
-            </picture>
           </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-sakha.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-sakha.jpg"
+              alt="Иллюстрация сайта sakha">
+            </a>
+
             <picture>
-              <source srcset="/images/landings/style/examples-style/sakha.webp" type="image/webp"><img class="examples-style__img"
-                src="/images/landings/style/examples-style/sakha.jpg" alt="Фирменный стиль sakha-trade">
+              <source srcset="/images/landings/style/examples-style/sakha.webp" type="image/webp"><img
+                class="examples-style__img" src="/images/landings/style/examples-style/sakha.jpg"
+                alt="Фирменный стиль sakha-trade">
             </picture>
             <p class="examples-style__text">фирменный стиль для sakha trade</p> <span
               class="examples-style__btn link link--uppercase link--white link--underline"> <span
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-sakha.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-sakha.jpg"
-                alt="Иллюстрация сайта sakha-trade">
-            </picture>
           </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-gorilla.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-gorilla.jpg"
+              alt="Иллюстрация сайта gorilla">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/gorilla.webp" type="image/webp"><img
-                class="examples-style__img" src="/images/landings/style/examples-style/gorilla.jpg" alt="Фирменный стиль gorilla">
+                class="examples-style__img" src="/images/landings/style/examples-style/gorilla.jpg"
+                alt="Фирменный стиль gorilla">
             </picture>
             <p class="examples-style__text">Ветеринария горилла</p> <span
               class="examples-style__btn link link--uppercase link--white link--underline"> <span
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-gorilla.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-gorilla.jpg"
-                alt="Иллюстрация сайта gorilla">
-            </picture>
           </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-notime.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-notime.jpg"
+              alt="Иллюстрация сайта notime">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/notime.webp" type="image/webp"><img
-                class="examples-style__img" src="/images/landings/style/examples-style/notime.jpg" alt="Фирменный стиль notime">
+                class="examples-style__img" src="/images/landings/style/examples-style/notime.jpg"
+                alt="Фирменный стиль notime">
             </picture>
             <p class="examples-style__text">notime - экспресс доставка продуктов</p> <span
               class="examples-style__btn link link--uppercase link--white link--underline"> <span
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-notime.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-notime.jpg"
-                alt="Иллюстрация сайта notime">
-            </picture>
           </div>
         </li>
-        <li class="examples-style__item"> <button class="examples-style__image" type="button">
+        <li class="examples-style__item"> 
+          <div class="examples-style__image relative inline-flex">
+            <a href="/images/landings/style/examples-style/lb-stroykor.jpg" class="js-lightbox absolute top-0 left-0 w-full h-full children:hidden">
+              <img src="/images/landings/style/examples-style/lb-stroykor.jpg"
+              alt="Иллюстрация сайта stroykor">
+            </a>
+
             <picture>
               <source srcset="/images/landings/style/examples-style/stroykor.webp" type="image/webp"><img
                 class="examples-style__img" src="/images/landings/style/examples-style/stroykor.jpg"
@@ -311,13 +319,6 @@
                 class="link__text">смотреть</span> <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </span>
-          </button>
-          <div class="examples-style__lightbox">
-            <picture>
-              <source srcset="/images/landings/style/examples-style/lb-stroykor.webp" type="image/webp"><img
-                class="examples-style__lightbox-img" src="/images/landings/style/examples-style/lb-stroykor.jpg"
-                alt="Иллюстрация сайта stroykor">
-            </picture>
           </div>
         </li>
       </ul> <button class="examples-style__button link link--uppercase link--orange link--underline btn-examples"
@@ -348,20 +349,20 @@
         <ul class="raiting__list">
           <div class="raiting__badge">
             <picture>
-              <source srcset="/images/landings/style/logo-white.svg" type="image/webp"><img src="/images/landings/style/logo-white.svg"
-                alt="Логотип">
+              <source srcset="/images/landings/style/logo-white.svg" type="image/webp"><img
+                src="/images/landings/style/logo-white.svg" alt="Логотип">
             </picture>
           </div>
-          <li class="raiting__row"> <span class="raiting__quantity">14</span> <span
-              class="raiting__definition">Лет на рынке</span> </li>
+          <li class="raiting__row"> <span class="raiting__quantity">14</span> <span class="raiting__definition">Лет на
+              рынке</span> </li>
           <li class="raiting__row"> <span class="raiting__quantity">500+</span> <span
               class="raiting__definition">Выполненных проектов</span> </li>
           <li class="raiting__row"> <span class="raiting__quantity">70+</span> <span
               class="raiting__definition">проектов на ежемесячном продвижении</span> </li>
           <li class="raiting__row"> <span class="raiting__quantity">160+</span> <span
               class="raiting__definition">настроенных рекламных кампаний</span> </li>
-          <li class="raiting__row"> <span class="raiting__quantity">25+</span> <span
-              class="raiting__definition">штатных специалистов</span> </li>
+          <li class="raiting__row"> <span class="raiting__quantity">25+</span> <span class="raiting__definition">штатных
+              специалистов</span> </li>
         </ul>
       </div>
     </div>
@@ -384,8 +385,8 @@
             </ul>
             <p class="case__descr">ВЫХОД НА МИРОВУЮ АРЕНУ</p> <a
               class="case__link link link--uppercase link--underline link--bold link--orange"
-              href="https://web-alt.ru/works/sakha-trade" target="_blank"> <span
-                class="link__text">подробнее</span> <span class="link__icon"> <svg class="link__arrow">
+              href="https://web-alt.ru/works/sakha-trade" target="_blank"> <span class="link__text">подробнее</span>
+              <span class="link__icon"> <svg class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </a>
           </article>
@@ -454,8 +455,9 @@
               </div>
               <div class="reviews__image">
                 <picture>
-                  <source srcset="/images/landings/style/reviews/photo.webp" type="image/webp"><img src="/images/landings/style/reviews/photo.jpg"
-                    alt="Фото директора по развитию Невада Груп" width="320" height="423">
+                  <source srcset="/images/landings/style/reviews/photo.webp" type="image/webp"><img
+                    src="/images/landings/style/reviews/photo.jpg" alt="Фото директора по развитию Невада Груп"
+                    width="320" height="423">
                 </picture> <a class="reviews__btn btn btn--video" href="https://youtu.be/HkVg8NZyQUI"
                   target="_blank">video</a>
               </div>
@@ -492,10 +494,10 @@
               <div class="reviews__image">
                 <picture>
                   <source srcset="/images/landings/style/reviews/photo-1.webp" type="image/webp"><img
-                    src="/images/landings/style/reviews/photo-1.jpg" alt="Фото руководителя компании ГосЗаказ" width="320"
-                    height="423">
-                </picture> <a class="reviews__btn btn btn--instagram"
-                  href="https://www.instagram.com/p/COIAKYhgS8x/" target="_blank">instagram</a>
+                    src="/images/landings/style/reviews/photo-1.jpg" alt="Фото руководителя компании ГосЗаказ"
+                    width="320" height="423">
+                </picture> <a class="reviews__btn btn btn--instagram" href="https://www.instagram.com/p/COIAKYhgS8x/"
+                  target="_blank">instagram</a>
               </div>
               <div class="reviews__info">
                 <div class="reviews__name"> <span>Ольга, </span> <span class="reviews__org">Руководитель. Компания
@@ -519,14 +521,15 @@
             <div class="reviews__wrapper">
               <div class="reviews__icon">
                 <picture>
-                  <source srcset="/images/landings/style/reviews/dv.webp" type="image/webp"><img src="/images/landings/style/reviews/dv.png"
-                    alt="Иконка ДВ Камень">
+                  <source srcset="/images/landings/style/reviews/dv.webp" type="image/webp"><img
+                    src="/images/landings/style/reviews/dv.png" alt="Иконка ДВ Камень">
                 </picture>
               </div>
               <div class="reviews__image">
                 <picture>
                   <source srcset="/images/landings/style/reviews/photo-2.webp" type="image/webp"><img
-                    src="/images/landings/style/reviews/photo-2.jpg" alt="Фото тех. директора ДВ Камень" width="320" height="423">
+                    src="/images/landings/style/reviews/photo-2.jpg" alt="Фото тех. директора ДВ Камень" width="320"
+                    height="423">
                 </picture> <a class="reviews__btn btn btn--video" href="https://youtu.be/MUlSnvcIMJ4"
                   target="_blank">video</a>
               </div>
@@ -546,9 +549,9 @@
                 </div> <button class="reviews__btn-rest btn-rest" type="button"
                   aria-label="Показать скрытый текст">остальное</button>
               </div>
-            </div> <a class="reviews__link link link--orange link--uppercase link--underline"
-              href="https://dvstone.ru" target="_blank"> <span class="link__text">ссылка на сайт</span> <span
-                class="link__icon"> <svg class="link__arrow">
+            </div> <a class="reviews__link link link--orange link--uppercase link--underline" href="https://dvstone.ru"
+              target="_blank"> <span class="link__text">ссылка на сайт</span> <span class="link__icon"> <svg
+                  class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </a>
           </li>
@@ -651,7 +654,8 @@
           <li class="clients__item">
             <picture>
               <source srcset="/images/landings/style/clients/clients-6.webp" type="image/webp"><img
-                src="/images/landings/style/clients/clients-6.png" alt="Краевое Агенство Содействия Предпринимательству">
+                src="/images/landings/style/clients/clients-6.png"
+                alt="Краевое Агенство Содействия Предпринимательству">
             </picture>
           </li>
           <li class="clients__item">
@@ -716,8 +720,8 @@
     <div class="founder__container container">
       <div class="founder__image">
         <picture>
-          <source srcset="/images/landings/style/founder.webp" type="image/webp"><img src="/images/landings/style/founder.jpg"
-            alt="Фото основателя Web-Alternative">
+          <source srcset="/images/landings/style/founder.webp" type="image/webp"><img
+            src="/images/landings/style/founder.jpg" alt="Фото основателя Web-Alternative">
         </picture> <a class="founder__btn btn btn--video" href="https://youtu.be/Ix39SwerofI" target="_blank"
           aria-label="Смотреть видеообращение основателя Web-Alternative">Video</a> <a
           class="founder__btn btn btn--instagram" href="https://www.instagram.com/svazhnina" target="_blank"
@@ -740,8 +744,8 @@
           </blockquote>
           <ul class="founder__social social-founder">
             <li class="social-founder__item"> <a class="social-founder__link link"
-                href="https://www.instagram.com/svazhnina" target="_blank"> <span
-                  class="link__text">instagram</span> <span class="link__icon"> <svg class="link__arrow">
+                href="https://www.instagram.com/svazhnina" target="_blank"> <span class="link__text">instagram</span>
+                <span class="link__icon"> <svg class="link__arrow">
                     <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                   </svg> </span> </a> </li>
             <li class="social-founder__item"> <a class="social-founder__link link"
@@ -750,8 +754,8 @@
                     <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                   </svg> </span> </a> </li>
             <li class="social-founder__item"> <a class="social-founder__link link"
-                href="https://ru-ru.facebook.com/Lapylka" target="_blank"> <span
-                  class="link__text">facebook</span> <span class="link__icon"> <svg class="link__arrow">
+                href="https://ru-ru.facebook.com/Lapylka" target="_blank"> <span class="link__text">facebook</span>
+                <span class="link__icon"> <svg class="link__arrow">
                     <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                   </svg> </span> </a> </li>
           </ul>
@@ -766,21 +770,21 @@
         свяжутся с вами в ближайшее время.</p>
       <form class="applicants__form form-application" action="">
         <div class="form-application__column">
-          <div class="form-application__item"> <input class="form-application__input" id="applicantsName"
-              type="text" name="Имя соискателя" data-validate-field="applicantsName" required> <label
+          <div class="form-application__item"> <input class="form-application__input" id="applicantsName" type="text"
+              name="Имя соискателя" data-validate-field="applicantsName" required> <label
               class="form-application__label" for="applicantsName">имя*</label> </div>
-          <div class="form-application__item"> <input class="form-application__input" id="applicantsPhone"
-              type="tel" name="Телефон соискателя" placeholder="+7 (999) 999 99 99"
-              data-validate-field="applicantsPhone" required> <label class="form-application__label"
-              for="applicantsPhone">Телефон*</label> </div>
+          <div class="form-application__item"> <input class="form-application__input" id="applicantsPhone" type="tel"
+              name="Телефон соискателя" placeholder="+7 (999) 999 99 99" data-validate-field="applicantsPhone" required>
+            <label class="form-application__label" for="applicantsPhone">Телефон*</label>
+          </div>
         </div>
         <div class="form-application__column">
-          <div class="form-application__item"> <input class="form-application__input" id="applicantsCompany"
-              type="text" name="Компания соискателя"> <label class="form-application__label"
+          <div class="form-application__item"> <input class="form-application__input" id="applicantsCompany" type="text"
+              name="Компания соискателя"> <label class="form-application__label"
               for="applicantsCompany">Компания</label> </div>
-          <div class="form-application__item"> <input class="form-application__input" id="applicantsEmail"
-              type="email" name="Email соискателя" data-validate-field="applicantsEmail"> <label
-              class="form-application__label" for="applicantsEmail">email</label> </div>
+          <div class="form-application__item"> <input class="form-application__input" id="applicantsEmail" type="email"
+              name="Email соискателя" data-validate-field="applicantsEmail"> <label class="form-application__label"
+              for="applicantsEmail">email</label> </div>
         </div>
         <div class="form-application__bottom">
           <div class="form-application__button"> <button
@@ -792,8 +796,8 @@
             <div class="form-application__ticker ticker"> <span class="ticker__text">скажи привет</span> <span
                 class="ticker__text">скажи привет</span> </div> <a
               class="form-application__btn link--underline link link--uppercase link--bold link--black"
-              href="tel:+74212529102"> <span class="link__text">+7 (4212) 52-91-02</span> <span
-                class="link__icon"> <svg class="link__arrow">
+              href="tel:+74212529102"> <span class="link__text">+7 (4212) 52-91-02</span> <span class="link__icon"> <svg
+                  class="link__arrow">
                   <use xlink:href="/images/landings/style/sprite.svg#arrow-symbol"></use>
                 </svg> </span> </a>
           </div>
