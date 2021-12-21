@@ -1,9 +1,109 @@
+<<<<<<< HEAD:src/landings/ecommerce/app/scripts/script.js
 import "imask/dist/imask.js";
 import "just-validate/dist/js/just-validate.js";
 import Swiper, {Navigation, Pagination} from "swiper";
 import "swiper/swiper-bundle.css";
+=======
+import IMask from "imask";
+import JustValidate from "just-validate";
+import Swiper, { Navigation, Pagination } from "swiper";
+import "swiper/css";
+import { RECAPTCHA_KEY } from "@/scripts/app/core/api";
+>>>>>>> landings-all:src/landings/1/app/scripts/script.js
 
 Swiper.use([Navigation, Pagination]);
+
+class Form {
+  /**
+   *
+   * @param {HTMLFormElement} formEl
+   * @param {Array<{field: String, rules: [{key: String | Number}]}>} validationRules
+   * @param {String} recaptchaKey
+   */
+  constructor(formEl, validationRules, recaptchaKey = RECAPTCHA_KEY) {
+    this.formEl = formEl;
+    this.validationRules = validationRules;
+    this.recaptchaKey = recaptchaKey;
+
+    if (this.formEl && this.validationRules && this.recaptchaKey) {
+      this.init();
+    } else {
+      console.error(`Не верный селектор: ${formEl}.`);
+    }
+  }
+
+  addValidation() {
+    this.validation = new JustValidate(this.formEl);
+    this.validationRules.forEach((validationRule) => {
+      this.validation.addField(validationRule.field, validationRule.rules);
+    });
+  }
+
+  addSubmitEvent() {
+    this.formEl.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const isValid = this.validation.isValid;
+
+      if (isValid) {
+        console.log("Form is valid!");
+        this.handleSubmit();
+      } else {
+        console.log("Form is not valid!");
+      }
+    });
+  }
+
+  handleSubmit() {
+    console.log("SUBMIT");
+    const KEY = this.recaptchaKey;
+    const url = this.formEl.action;
+    const formData = new FormData(this.formEl);
+    const params = {
+      method: "POST",
+      body: formData,
+    };
+
+    const handleErrors = (response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      return response.json();
+    };
+
+    const handleSuccess = (response) => {
+      if (response.status.toLowerCase() !== "ok") {
+        throw Error(response.message);
+      }
+
+      return response;
+    };
+
+    return new Promise(function (resolve, _) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(KEY, { action: "form" })
+          .then((token) => {
+            // добавляем в отправляемые данные токен рекаптчи
+            formData.append("recaptcha_response", token);
+
+            return fetch(url, params)
+              .then(handleErrors)
+              .then(handleSuccess)
+              .catch((error) => console.error("Форма не отправилась", error));
+          })
+          .then(() => {
+            resolve("success");
+          });
+      });
+    });
+  }
+
+  init() {
+    this.addValidation();
+    this.addSubmitEvent();
+  }
+}
 
 
 function testWebP(callback) {
@@ -210,68 +310,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   //Функция валидации формы секции aplicants
-  const validateApplicantsForms = function (selector, rules, messages) {
-    new JustValidate(".applicants__form", {
-      rules: rules,
-      messages: messages,
-      submitHundler: function (form) {},
-    });
-  };
-  validateApplicantsForms(
-    ".applicants__form",
-    {
-      applicantsName: {
-        required: true,
-        minLength: 3,
+  const applicantsForm = document.querySelector(".applicants__form");
+  if (applicantsForm) {
+    new Form(applicantsForm, [
+      {
+        field: "#applicantsName",
+        rules: [
+          {
+            rule: "minLength",
+            value: 3,
+            errorMessage: "*это поле необходимо заполнить",
+          },
+        ],
       },
-      applicantsPhone: {
-        required: true,
-        minLength: 17,
+      {
+        field: "#applicantsPhone",
+        rules: [
+          {
+            rule: "minLength",
+            value: 17,
+            errorMessage: "*это поле необходимо заполнить",
+          },
+        ],
       },
-    },
-    {
-      applicantsName: {
-        required: "*это поле необходимо заполнить",
-        minLength: "Минимум 3 символа",
-      },
-      applicantsPhone: {
-        required: "*это поле необходимо заполнить",
-        minLength: "*заполните телефон в формате +7(xxx) xxx xx xx",
-      },
-    }
-  );
+    ]);
+  }
 
   //Функция валидации формы секции prices
-  const validatePricesForms = function (selector, rules, messages) {
-    new JustValidate(".prices__form", {
-      rules: rules,
-      messages: messages,
-      submitHundler: function (form) {},
-    });
-  };
-  validatePricesForms(
-    ".prices__form",
-    {
-      pricesName: {
-        required: true,
-        minLength: 3,
+  const pricesForm = document.querySelector(".prices__form");
+  if (pricesForm) {
+    new Form(pricesForm, [
+      {
+        field: "#pricesName",
+        rules: [
+          {
+            rule: "minLength",
+            value: 3,
+            errorMessage: "*это поле необходимо заполнить",
+          },
+        ],
       },
-      pricesPhone: {
-        required: true,
-        minLength: 17,
+      {
+        field: "#pricesPhone",
+        rules: [
+          {
+            rule: "minLength",
+            value: 17,
+            errorMessage: "*это поле необходимо заполнить",
+          },
+        ],
       },
-    },
-    {
-      pricesName: {
-        required: "*это поле необходимо заполнить",
-        minLength: "Минимум 3 символа",
-      },
-      pricesPhone: {
-        required: "*это поле необходимо заполнить",
-        minLength: "*заполните телефон в формате +7(xxx) xxx xx xx",
-      },
-    }
-  );
+    ]);
+  }
 
   //Подключение слайдера в секции reviews
   const reviewsSwiper = new Swiper(".reviews__body", {

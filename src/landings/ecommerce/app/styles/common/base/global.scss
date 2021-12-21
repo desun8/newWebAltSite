@@ -224,7 +224,7 @@
   }
 }
 
-.js-validate-error-field {
+.just-validate-error-field {
   border-top: none !important;
   border-right: none !important;
   border-left: none !important;
@@ -233,7 +233,7 @@
 
   ~ .form-application__label {
     transform: translate(0, 0);
-    color: var(--black) !important;
+    color: var(--orange) !important;
     &::before {
       opacity: 1;
       background-color: var(--darken) !important;
@@ -241,13 +241,17 @@
   }
 }
 
-.js-validate-error-label {
+.just-validate-error-label {
   position: absolute;
   bottom: -30%;
   left: 0;
   color: var(--orange) !important;
   font-size: 12px;
   text-transform: lowercase;
+
+  .js-orange-block & {
+    color: #fff !important;
+  }
 }
 
 .btn {

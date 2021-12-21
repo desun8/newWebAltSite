@@ -61,6 +61,7 @@
     "focus-visible": "^5.2.0",
     "gsap": "^3.6.0",
     "imask": "^6.1.0",
+    "just-validate": "^2.0.0",
     "lodash-es": "^4.17.21",
     "lozad": "^1.16.0",
     "postcss-viewport-height-correction": "^2.0.2",

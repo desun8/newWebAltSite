@@ -8,6 +8,7 @@ export default defineConfig({
       "index.html",
       "nested/**/*.html",
       "src/templates/**/*.html",
+      "src/landings/**/*.html",
       "src/scripts/**/*.{ts,vue}",
     ],
   },
