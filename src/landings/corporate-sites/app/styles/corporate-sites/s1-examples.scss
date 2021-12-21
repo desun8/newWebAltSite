@@ -87,14 +87,6 @@
     width: 100%;
     height: 100%;
 
-    @media (any-hover: hover) {
-      &:hover {
-        .examples__badge {
-          transform: translate(0, 0);
-        }
-      }
-    }
-
     @media (any-hover: none) {
       position: static;
       display: flex;
@@ -116,6 +108,12 @@
     transform: translate(105%, 0);
     background-color: var(--orange);
     transition: transform 0.3s;
+
+    @media (any-hover: hover) {
+      .examples__wrapper:hover & {
+        transform: translate(0, 0);
+      }
+    }
 
     @media (any-hover: none) {
       position: static;
