@@ -72,6 +72,10 @@ export default {
         about: resolve(__dirname, "nested/about.html"),
         404: resolve(__dirname, "nested/404.html"),
         landingEcommerce: resolve(__dirname, "nested/landing-ecommerce.html"),
+        landingContextual: resolve(__dirname, "nested/landing-contextual.html"),
+        landingCorporateSites: resolve(__dirname, "nested/landing-corporate-sites.html"),
+        landingSmm: resolve(__dirname, "nested/landing-smm.html"),
+        landingStyle: resolve(__dirname, "nested/landing-style.html"),
       },
       output: {
         entryFileNames: `assets/[name].js`,
