@@ -1,0 +1,33 @@
+//Подключаем миксины//
+@import "./base/mixins.scss";
+
+//Подключаем шрифты//
+@import "./base/fonts.scss";
+
+//Подключаем сброс стилей//
+@import "./base/reset.scss";
+
+//Подключаем глобальные стили//
+@import "./base/global.scss";
+@import "./base/animate.scss";
+
+//Подключаем компоненты//
+@import "./components/prosressing-work.scss";
+// @import "./components/menu.scss";
+// @import "./components/link.scss";
+// @import "./components/braedcrumps.scss";
+@import "./components/form-application.scss";
+@import "./components/case.scss";
+
+//Стили общих секций//
+// @import "./header.scss";
+@import "./footer.scss";
+@import "./sections/s1-top.scss";
+@import "./sections/s2-getting.scss";
+@import "./sections/s3-technology.scss";
+@import "./sections/s4-clients.scss";
+@import "./sections/s5-founder.scss";
+@import "./sections/s6-applicants.scss";
+@import "./sections/s7-reviews.scss";
+@import "./sections/s8-raiting.scss";
+@import "./sections/s9-cases.scss";

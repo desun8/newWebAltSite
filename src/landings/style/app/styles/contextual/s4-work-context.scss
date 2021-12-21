@@ -1,0 +1,213 @@
+.work-context {
+  // .work-context__title-img
+  &__title-img {
+    @include adaptive(max-width, 818, 450, 1);
+    width: 100%;
+    margin-bottom: 36px;
+
+    &.title-img--mobile {
+      max-width: 305px;
+      height: auto;
+    }
+  }
+  // .work-context__container
+  &__container {
+    @media (max-width: $md1 + px) {
+      padding: 0;
+    }
+
+    @media (max-width: $md3 + px) {
+      padding: 0;
+    }
+  }
+  // .work-context__wrapper
+  &__wrapper {
+    background-color: var(--black);
+    width: 100%;
+    overflow: hidden;
+
+    @media (max-width: $md3 + px) {
+      padding: 0 15px;
+    }
+
+    @media (any-hover: none) {
+      overflow-x: auto;
+    }
+  }
+  // .work-context__buttons
+  &__buttons {
+    width: 1720px;
+    padding: 0 76px;
+    display: flex;
+    justify-content: space-between;
+    cursor: grab;
+
+    @media (max-width: $md3 + px) {
+      padding: 0 20px;
+      width: 1450px;
+    }
+  }
+  // .work-context__button
+  &__button {
+    position: relative;
+    height: auto;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 23px;
+    }
+
+    &:not(:first-child) {
+      @include adaptive(padding-left, 135, 106, 1);
+
+      &::before {
+        content: "";
+        mask: url("/images/landings/corporate-sites/sprite.svg#arrow-long")
+          center / cover no-repeat;
+        background-color: var(--orange);
+        width: 66px;
+        height: 5px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+    }
+  }
+  // .work-context__btn
+  &__btn {
+    font-size: 18px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--white);
+    text-align: left;
+    border-bottom: 8px solid transparent;
+    height: 100%;
+    padding: 23px 0 7px;
+    @include adaptive(max-width, 200, 160, 1);
+    width: 100%;
+
+    &.active {
+      border-color: var(--orange);
+    }
+  }
+  // .work-context__bottom
+  &__bottom {
+    background-color: rgba(#dfdddf, 0.2);
+  }
+  // .work-context__content
+  &__content {
+  }
+  // .work-context__item
+  &__item {
+    @include adaptive(padding-top, 110, 35, 1);
+    @include adaptive(padding-bottom, 110, 60, 1);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    @media (max-width: $md3 + px) {
+      flex-direction: column;
+    }
+  }
+  // .work-context__image
+  &__image {
+    width: calc(100% - 15px);
+    margin-right: 15px;
+
+    @media (max-width: $md3 + px) {
+      margin-right: 0;
+      margin-bottom: 33px;
+      width: 100%;
+      max-width: 450px;
+    }
+  }
+  // .work-context__img
+  &__img {
+    margin: 0 auto;
+  }
+  // .work-context__text
+  &__text {
+    max-width: 705px;
+    width: 100%;
+  }
+  // .work-context__name
+  &__name {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--orange);
+    @include adaptive(margin-bottom, 22, 8, 1);
+
+    @media (max-width: $md3 + px) {
+      font-size: 22px;
+    }
+  }
+  // .work-context__descr
+  &__descr {
+    @media (max-width: $md3 + px) {
+      @include line-clamp(16, 1.6, 6);
+    }
+
+    &.active {
+      @include line-clamp(16, 1.6, 100);
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 26px;
+      }
+    }
+
+    ul {
+      padding-left: 25px;
+    }
+
+    li {
+      list-style: outside;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  // .work-context__pagination
+  .work-context__pagination {
+    bottom: 2px;
+    width: 100%;
+    height: 2px;
+    display: flex;
+    justify-content: space-between;
+
+    @media (min-width: $md3 + px) {
+      display: none;
+    }
+
+    span {
+      height: 100%;
+      width: 100%;
+      background-color: var(--darken);
+      border-radius: 0;
+      opacity: 1;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: var(--orange);
+    }
+  }
+
+  //.work-context__btn-rest
+  &__btn-rest {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+
+    &.hide {
+      display: none;
+    }
+  }
+}
