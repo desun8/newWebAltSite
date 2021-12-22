@@ -23,7 +23,9 @@ export default class Menu {
     this.appConfig = appConfig;
 
     this.pageMain = document.querySelector("main");
-    this.pageHeader = document.querySelector(".page-header:not(.page-header--preloader)");
+    this.pageHeader = document.querySelector(
+      ".page-header:not(.page-header--preloader)"
+    );
     this.pageFooter = document.querySelector(".page-footer");
     this.progressBar = document.querySelector(".progress-bar");
     this.footerRedirect = document.querySelector(".footer-redirect"); // только на главной
@@ -201,6 +203,19 @@ export default class Menu {
     this.btnClose.addEventListener("click", this.handleClick);
     APP.isDesktop &&
       document.body.addEventListener("click", this.handleClickOutside);
+
+    // Закрытие меню, если страница восстановлена из кеша (при клике на кнопку "назад")
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        if (this.isVisible) {
+          this.handleClick();
+        }
+      } else {
+        if (this.isVisible) {
+          this.handleClick();
+        }
+      }
+    });
   }
 
   update() {
