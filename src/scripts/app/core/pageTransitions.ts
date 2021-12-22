@@ -6,8 +6,12 @@ const navigate = (href: string) => {
 };
 
 const hide = () => {
-  gsap.to(preloader, { y: "120%", delay: 2 });
+  gsap.to(preloader, {
+    y: "120%",
+    delay: 2,
+  });
 };
+
 const show = (href: string) => {
   gsap.set(preloader, { y: "120%" });
 
@@ -21,9 +25,17 @@ const show = (href: string) => {
   });
 };
 
-hide();
-
 export const pageTransitions = () => {
+  hide();
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      hide();
+    } else {
+      hide();
+    }
+  });
+
   let linkElms = Array.from(document.querySelectorAll("a"));
   linkElms = linkElms.filter((link) => {
     const href = link.getAttribute("href")!;
