@@ -28,7 +28,7 @@ const defaultInit = () => {
   mediaQueryEvent(smScreen, lgScreen);
 };
 
-export const initCore = () => {
+export const initCore = (hasNoiseBg = true) => {
   pageTransitions();
   cookieGdrp();
   defaultInit();
@@ -41,7 +41,7 @@ export const initCore = () => {
   initDialogForm();
   scrollToTop();
 
-  if (APP.scrollbar && APP.isDesktop) {
+  if (hasNoiseBg && APP.scrollbar && APP.isDesktop) {
     addNoise();
   }
 

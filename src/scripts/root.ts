@@ -9,8 +9,8 @@ import "focus-visible";
 import { initCore } from "./app/core";
 import { WINDOWS } from "./utils/getOS";
 
-export default function initRoot() {
-  initCore();
+export default function initRoot(hasNoiseBg = true) {
+  initCore(hasNoiseBg);
 
   // CORE CANDIDATE
   checkWebpFeature(Features.lossy, (_: Features, result: boolean) => {
