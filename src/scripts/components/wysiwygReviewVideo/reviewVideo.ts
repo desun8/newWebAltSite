@@ -4,6 +4,7 @@ import "@/styles/page-form/dialog.scss";
 import APP from "@/scripts/app/APP";
 import { disableScroll, enableScroll } from "@/scripts/helpers/scrollLock";
 import { resizeObserver } from "@/scripts/utils/resizeObserver";
+import { autobind } from "@/scripts/decorators/autobind";
 
 interface MyHTMLVideoElement extends HTMLVideoElement {
   webkitRequestFullscreen: any;
@@ -18,7 +19,11 @@ interface MyHTMLElement extends HTMLElement {
   webkitRequestFullscreen: any;
 }
 
+type VideoElm = MyHTMLVideoElement | HTMLIFrameElement;
+
 type VideoSrc = string | undefined;
+
+const isVideoTag = (elm: HTMLElement) => elm.tagName.toLowerCase() === "video";
 
 const setZIndex = (element: HTMLElement, value: string) => {
   element.style.zIndex = value;
@@ -40,13 +45,15 @@ class StyleIOSFix {
 }
 
 class VideoElement {
-  elm: MyHTMLVideoElement;
+  elm: VideoElm;
 
-  constructor(mp4: VideoSrc, webm: VideoSrc) {
-    this.elm = this.create(mp4, webm);
+  constructor(mp4: VideoSrc, webm: VideoSrc, youtube: VideoSrc) {
+    this.elm = youtube
+      ? this.createYoutube(youtube)
+      : this.createVideo(mp4, webm);
   }
 
-  private create(mp4: VideoSrc, webm: VideoSrc) {
+  private createVideo(mp4: VideoSrc, webm: VideoSrc) {
     const video = document.createElement("video") as MyHTMLVideoElement;
     video.id = "video-review";
     video.controls = true;
@@ -66,13 +73,33 @@ class VideoElement {
 
     return video;
   }
+
+  private createYoutube(youtube: string) {
+    const iframe = document.createElement("iframe") as HTMLIFrameElement;
+    iframe.id = "youtube-video-review";
+    iframe.src = youtube;
+    iframe.style.cssText = `
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+    `;
+    iframe.title = "YouTube video player";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope";
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("allowfullscreen", "");
+
+    return iframe;
+  }
 }
 
 class MobileVideoElement extends VideoElement {
   private isInit = false;
 
-  constructor(mp4: VideoSrc, webm: VideoSrc) {
-    super(mp4, webm);
+  constructor(mp4: VideoSrc, webm: VideoSrc, youtube: VideoSrc) {
+    super(mp4, webm, youtube);
 
     this.elm.style.position = "absolute";
   }
@@ -106,24 +133,32 @@ class MobileVideoElement extends VideoElement {
 
 class Fullscreen {
   private video: MobileVideoElement;
+  private src: string = "";
 
-  constructor(mp4: VideoSrc, webm: VideoSrc) {
-    this.video = new MobileVideoElement(mp4, webm);
+  constructor(mp4: VideoSrc, webm: VideoSrc, youtube: VideoSrc) {
+    this.video = new MobileVideoElement(mp4, webm, youtube);
     this.video.init();
     this.addEvents();
   }
 
-  private handleFullscreenchange(e: Event) {
+  @autobind
+  private handleFullscreenchange() {
     if (
       document.fullscreenElement === null ||
       (document as MyDocument).webkitFullscreenElement === null
     ) {
-      const ct = e.currentTarget as MyHTMLVideoElement;
+      const elm = this.video.elm;
 
-      ct.pause();
-      ct.src = "";
-      ct.style.display = "none";
-      setZIndex(ct, "");
+      if (isVideoTag(elm)) {
+        (elm as MyHTMLVideoElement).pause();
+      } else {
+        // сохраняем iframe src, если он пустой
+        this.src = !this.src ? elm.src : this.src;
+        elm.src = "";
+      }
+
+      elm.style.display = "none";
+      setZIndex(elm, "");
     }
   }
 
@@ -151,7 +186,14 @@ class Fullscreen {
 
   show() {
     this.video.elm.style.display = "";
-    this.video.elm.play();
+
+    if (isVideoTag(this.video.elm)) {
+      (this.video.elm as MyHTMLVideoElement).play();
+    } else {
+      if (this.src) {
+        this.video.elm.src = this.src;
+      }
+    }
 
     if (document.documentElement.requestFullscreen !== undefined) {
       this.video.elm.requestFullscreen();
@@ -175,37 +217,43 @@ class Dialog {
   elm: HTMLElement;
   dialog: A11yDialog;
   private dialogContent: Element;
-  private video: MyHTMLVideoElement;
+  private video: VideoElm;
 
-  constructor(mp4: VideoSrc, webm: VideoSrc) {
-    this.video = new VideoElement(mp4, webm).elm;
-    this.elm = this.getTemplate();
-    this.dialogContent = this.elm.querySelector(".dialog-content")!;
+  constructor(mp4: VideoSrc, webm: VideoSrc, youtube: VideoSrc) {
+    this.video = new VideoElement(mp4, webm, youtube).elm;
+    this.elm = this.getTemplate(youtube || mp4 || "");
+    this.dialogContent = this.elm.querySelector(".dialog-content-wrapper")!;
 
     this.dialog = new A11yDialog(this.elm);
 
     this.dialog.on("show", () => {
-      const playPromise = this.video.play();
+      if (isVideoTag(this.video)) {
+        const playPromise = (this.video as MyHTMLVideoElement).play();
 
-      if (playPromise !== undefined) {
-        playPromise.then((_) => {
-          this.video.pause();
-        });
+        if (playPromise !== undefined) {
+          playPromise.then((_) => {
+            (this.video as MyHTMLVideoElement).pause();
+          });
+        }
       }
 
       disableScroll(this.elm, APP.scrollbar);
     });
     this.dialog.on("hide", () => {
-      this.video.pause();
+      if (isVideoTag(this.video)) {
+        (this.video as MyHTMLVideoElement).pause();
+      }
       enableScroll(this.elm, APP.scrollbar);
     });
 
     this.addToDOM();
   }
 
-  private getTemplate() {
+  private getTemplate(id: string) {
+    id = id.slice(id.lastIndexOf("/"));
+
     const div = document.createElement("div");
-    div.id = "video-dialog";
+    div.id = `video-dialog-${id}`;
     div.classList.add("dialog-container", "!z-100");
     div.setAttribute("aria-labelledby", "video-dialog-title");
     div.setAttribute("aria-hidden", "true");
@@ -219,6 +267,7 @@ class Dialog {
         <!-- 5. The dialog title -->
         <h1 id="video-dialog-title" class="sr-only">Диалог просмотра видео отзыва.</h1>
         <!-- 6. Dialog content -->
+        <div class="dialog-content-wrapper" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden;"></div>
   </div>
 `;
 
@@ -243,7 +292,12 @@ class Dialog {
 }
 
 export const reviewVideo = (btn: HTMLButtonElement) => {
-  const videoSrc = { mp4: btn.dataset.mp4, webm: btn.dataset.webm };
+  const videoSrc = {
+    mp4: btn.dataset.mp4,
+    webm: btn.dataset.webm,
+    youtube: btn.dataset.youtube,
+  };
+
   let isDesktop = APP.isDesktop;
 
   let fullscreen: Fullscreen | undefined;
@@ -252,13 +306,17 @@ export const reviewVideo = (btn: HTMLButtonElement) => {
   btn.addEventListener("click", () => {
     if (isDesktop) {
       if (!dialog) {
-        dialog = new Dialog(videoSrc.mp4, videoSrc.webm);
+        dialog = new Dialog(videoSrc.mp4, videoSrc.webm, videoSrc.youtube);
       }
 
       dialog.show();
     } else {
       if (!fullscreen) {
-        fullscreen = new Fullscreen(videoSrc.mp4, videoSrc.webm);
+        fullscreen = new Fullscreen(
+          videoSrc.mp4,
+          videoSrc.webm,
+          videoSrc.youtube
+        );
       }
 
       fullscreen.show();
