@@ -1,7 +1,6 @@
 import initRoot from "./root";
 import "../styles/form.scss";
 import APP from "./app/APP";
-import { loadRecaptcha } from "./utils/loadRecaptcha";
 import { alertBeforeUnload } from "./alertBeforeUnload";
 import { initForm } from "./pages/form/initForm";
 
@@ -22,5 +21,3 @@ if (APP.isDesktop) {
     initSubscribeBlock();
   });
 }
-
-loadRecaptcha();

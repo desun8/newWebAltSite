@@ -11,6 +11,7 @@ import { pageTransitions } from "./pageTransitions";
 import { initProgressBar } from "./progressBar";
 import { initSmoothScroll } from "./smoothScroll";
 import { cookieGdrp } from "./cookieGdpr";
+import { loadRecaptcha } from "@/scripts/utils/loadRecaptcha";
 
 const defaultInit = () => {
   const smScreen = () => {
@@ -40,6 +41,7 @@ export const initCore = (hasNoiseBg = true) => {
   initProgressBar();
   initDialogForm();
   scrollToTop();
+  loadRecaptcha();
 
   if (hasNoiseBg && APP.scrollbar && APP.isDesktop) {
     addNoise();

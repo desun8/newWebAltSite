@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { submit } from "./form/submit";
 import { validateEmail } from "./form/validation";
-import { loadRecaptcha } from "../utils/loadRecaptcha";
 
 export const initSubscribeBlock = (subscribeBlock?: HTMLElement) => {
   if (!subscribeBlock) {
@@ -46,10 +45,6 @@ export const initSubscribeBlock = (subscribeBlock?: HTMLElement) => {
       "input[type=email]"
     ) as HTMLInputElement;
     const msgElm = formElm.querySelector(".js-text") as HTMLElement;
-
-    formElm.addEventListener("focusin", () => {
-      loadRecaptcha();
-    });
 
     formElm.onsubmit = (event) => {
       event.preventDefault();

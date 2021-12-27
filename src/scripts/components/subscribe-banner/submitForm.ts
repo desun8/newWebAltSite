@@ -1,10 +1,6 @@
 import gsap from "gsap";
 import { submit } from "../form/submit";
-import {
-  handleClearValidation,
-  validateEmail,
-} from "../form/validation";
-import { loadRecaptcha } from "../../utils/loadRecaptcha";
+import { handleClearValidation, validateEmail } from "../form/validation";
 
 export default (formElm: HTMLFormElement) => {
   let isFetching = false;
@@ -56,10 +52,6 @@ export default (formElm: HTMLFormElement) => {
   const submitBtn = formElm.querySelector(
     "button[type=submit]"
   ) as HTMLButtonElement;
-
-  formElm.addEventListener("focusin", () => {
-    loadRecaptcha();
-  });
 
   formElm.onsubmit = (event) => {
     event.preventDefault();

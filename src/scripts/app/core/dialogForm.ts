@@ -1,7 +1,6 @@
 import SmoothScroll from "@/scripts/components/smoothScroll/SmoothScroll";
 import { disableScroll, enableScroll } from "@/scripts/helpers/scrollLock";
 import { initForm } from "@/scripts/pages/form/initForm";
-import { loadRecaptcha } from "@/scripts/utils/loadRecaptcha";
 import { mediaQueryEvent } from "@/scripts/utils/mediaQueryEvent";
 import { resizeObserver } from "@/scripts/utils/resizeObserver";
 import A11yDialog from "a11y-dialog";
@@ -72,14 +71,8 @@ export const initDialogForm = () => {
 
     const dialog = new A11yDialog(dialogElm);
     initSmoothScroll();
-    let isStartRecaptchaLoad = false;
 
     dialog.on("show", () => {
-      if (!isStartRecaptchaLoad) {
-        isStartRecaptchaLoad = true;
-        loadRecaptcha();
-      }
-
       disableScroll(dialogElm, APP.scrollbar);
     });
     dialog.on("hide", () => {
