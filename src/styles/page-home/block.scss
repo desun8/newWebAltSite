@@ -753,7 +753,7 @@
     @include list-unstyled();
     display: grid;
     grid-template-columns: repeat(3, minmax(10px, auto));
-    row-gap: em(20, $fz-text-sm);
+    gap: em(20, $fz-text-sm);
     margin-bottom: vw(50);
     font-size: vw($fz-text-sm);
     text-transform: uppercase;
