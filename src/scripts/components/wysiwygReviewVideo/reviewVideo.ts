@@ -202,7 +202,7 @@ class Fullscreen {
       (document.documentElement as MyHTMLElement).webkitRequestFullscreen !==
       undefined
     ) {
-      this.video.elm.webkitRequestFullscreen();
+      (this.video.elm as MyHTMLVideoElement).webkitRequestFullscreen();
       setZIndex(this.video.elm, "10");
     }
   }
