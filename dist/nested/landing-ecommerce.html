@@ -11,6 +11,7 @@
     <script>
       window.RECAPTCHA_KEY = "6Lf4h2IbAAAAAEUP39XfYoMe17xWsxuai_kNP5vf";
     </script>
+
   <script type="module" crossorigin="" src="/assets/landingEcommerce.js"></script>
   <link rel="modulepreload" href="/assets/landingRoot.js">
   <link rel="modulepreload" href="/assets/index.js">
@@ -18,13 +19,9 @@
   <link rel="modulepreload" href="/assets/vendor.js">
   <link rel="stylesheet" href="/assets/root.css">
 
-  <script
-  type="module"
-  crossorigin=""
-  src="/assets/landings/ecommercemain.js"
-></script>
-<link rel="modulepreload" href="/assets/landings/ecommercevendor.js" />
-<link rel="stylesheet" href="/assets/landings/ecommercemain.css" />
+  <script type="module" crossorigin="" src="/assets/landings/ecommerce/main.js"></script>
+  <link rel="modulepreload" href="/assets/landings/ecommerce/vendor.js">
+  <link rel="stylesheet" href="/assets/landings/ecommerce/main.css">
 </head>
   <body id="body">
     <div class="page-preloader" aria-hidden="true">
@@ -318,7 +315,7 @@
 
         <main class="main">
   <section class="top mx-$base-page-gap-negative">
-    <div class="top__container container">
+    <div class="top__container container-landing">
       <div class="top__body">
         <div class="top__info">
           <h1 class="top__title">
@@ -343,7 +340,7 @@
               <span class="link__text">Заказать консультацию</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </button>
@@ -378,7 +375,7 @@
   </section>
 
   <section class="getting mx-$base-page-gap-negative">
-    <div class="getting__container container">
+    <div class="getting__container container-landing">
       <h2 class="sr-only">Вы получаете</h2>
       <svg class="getting__title-img title-img">
         <use xlink:href="/images/landings/ecommerce/sprite.svg#title-getting"></use>
@@ -462,7 +459,7 @@
   </section>
 
   <section class="technology mx-$base-page-gap-negative">
-    <div class="technology__container container">
+    <div class="technology__container container-landing">
       <h2 class="sr-only">принципы и технологии</h2>
       <h2 class="technology__title title title--mobile">о нас</h2>
       <svg class="technology__title-img title-img title-img--desctop">
@@ -538,7 +535,7 @@
   </section>
 
   <section class="our-help mx-$base-page-gap-negative">
-    <div class="our-help__container container">
+    <div class="our-help__container container-landing">
       <h2 class="our-help__title">
         Мы <span class="text-hidden">действительно</span>
         <span class="text-orange">помогаем пройти</span> через такую сложную
@@ -591,7 +588,7 @@
   </section>
 
   <section class="progress-work js-dark-block mx-$base-page-gap-negative">
-    <div class="progress-work__container container">
+    <div class="progress-work__container container-landing">
       <div class="progress-work__top">
         <h2 class="sr-only">ход работ</h2>
         <svg class="progress-work__title-img title-img title-img--black">
@@ -703,7 +700,7 @@
         <span class="link__text">я хочу начать работу</span>
         <span class="link__icon">
           <svg class="link__arrow" width="12" height="12">
-            <use xlink:href="#icon-arrow"></use>
+            <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
           </svg>
         </span>
       </button>
@@ -711,7 +708,7 @@
   </section>
 
   <section class="raiting mx-$base-page-gap-negative">
-    <div class="raiting__container container">
+    <div class="raiting__container container-landing">
       <div class="raiting__body">
         <ul class="raiting__list">
           <div class="raiting__badge">
@@ -794,7 +791,7 @@
   </section>
 
   <section class="cases mx-$base-page-gap-negative">
-    <div class="cases__container container">
+    <div class="cases__container container-landing">
       <h2 class="sr-only">Наши кейсы</h2>
       <svg class="cases__title-img title-img">
         <use xlink:href="/images/landings/ecommerce/sprite.svg#title-cases"></use>
@@ -837,7 +834,7 @@
               <span class="link__text">подробнее</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </a>
@@ -870,7 +867,7 @@
               <span class="link__text">подробнее</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </a>
@@ -903,7 +900,7 @@
               <span class="link__text">подробнее</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </a>
@@ -946,7 +943,7 @@
               <span class="link__text">подробнее</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </a>
@@ -961,7 +958,7 @@
         <span class="link__text">показать еще</span>
         <span class="link__icon">
           <svg class="link__arrow" width="12" height="12">
-            <use xlink:href="#icon-arrow"></use>
+            <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
           </svg>
         </span>
       </a>
@@ -969,9 +966,8 @@
   </section>
 
   <section class="reviews mx-$base-page-gap-negative">
-    <div class="reviews__container container">
+    <div class="reviews__container container-landing">
       <h2 class="reviews__title title">отзывы</h2>
-
       <div class="reviews__body swiper">
         <div class="reviews__navigation">
           <button class="reviews__prev" type="button" aria-label="Предыдущий слайд"></button>
@@ -981,94 +977,91 @@
         <ul class="reviews__carousel swiper-wrapper">
           <li class="reviews__slide swiper-slide">
             <div class="reviews__wrapper">
+              <div class="reviews__icon">
+                <picture>
+                  <source srcset="/images/landings/contextual/reviews/nevada.svg" type="image/webp">
+                  <img src="/images/landings/contextual/reviews/nevada.svg" alt="Иконка Невада Груп">
+                </picture>
+              </div>
               <div class="reviews__image">
                 <picture>
-                  <source srcset="/images/landings/ecommerce/reviews/photo.webp" type="image/webp">
-                  <img src="/images/landings/ecommerce/reviews/photo.jpg" alt="Фото представителя СЕО Броско Маркет" width="320" height="423">
+                  <source srcset="/images/landings/contextual/reviews/photo.webp" type="image/webp">
+                  <img src="/images/landings/contextual/reviews/photo.jpg" alt="Фото директора по развитию Невада Груп" width="320" height="423">
                 </picture>
-                <button class="reviews__btn btn btn--video" type="button">
-                  video
-                </button>
+                <a class="reviews__btn btn btn--video" href="https://youtu.be/HkVg8NZyQUI" target="_blank" rel="noreferrer noopener nofollow external">video</a>
               </div>
               <div class="reviews__info">
                 <div class="reviews__name">
-                  <span>Елена Петровна,</span>
-                  <span class="reviews__org">CEO <span>Броско Маркет</span></span>
+                  <span>Анастасия,</span>
+                  <span class="reviews__org">директор по развитию <span>«Невада Групп»</span></span>
                 </div>
                 <div class="reviews__text">
                   <p>
-                    На протяжении всей работы со студией создания веб-сайтов,
-                    команда разработчиков показала свою способность с полной
-                    ответственностью подходить к поставленным задачам, выполнять
-                    задачи качественно и в срок.
+                    С Анастасией, директором по развитию стратегических проектов
+                    «Невада Групп», нам посчастливилось работать над проектом
+                    Броско Маркет. Мы были приятно удивлены, что команда со
+                    стороны заказчика была благосклонна к ярким и современным
+                    решениям. Заручившись доверием, мы работали днями и ночами,
+                    чтобы успеть к установленным срокам. Это был интересный,
+                    эмоциональный и БРОСКИЙ проект! Спасибо!
                   </p>
                   <p>
-                    Высокий профессионализм и заинтересованность в выполняемой
-                    работе, является отличительной чертой сотрудников компании
-                    WEB ALTERNATIVE. Можно не сомневаться, что специалисты
-                    подробно объяснят, расскажут и предложат наилучший вариант
-                    из всех возможный.
+                    Встретившись с Анастасией утром за чашечкой кофе, мы
+                    поговорили о том, какие у команды были ожидания на сайт и
+                    удалось ли нам их оправдать. А также о работе с командой Web
+                    Alternative и о некоторых нюансах создания сайта.
                   </p>
-                  <p>
-                    Сотрудники компании держат руку на пульсе и всегда в курсе
-                    новостей в области нововведений по разработке, дизайну и
-                    юзабилити. Рекомендуем ИП Важнину, как надежного и
-                    стабильного партнёра в разработке сайтов.
-                  </p>
+                  <p>Уделите нам 3 минуты вашего внимания!</p>
                 </div>
                 <button class="reviews__btn-rest btn-rest" type="button" aria-label="Показать скрытый текст">
                   остальное
                 </button>
               </div>
             </div>
-            <a href="" class="
+            <a class="
                 reviews__link
                 link link--orange link--uppercase link--underline
-              ">
+              " href="https://broskomarket.com" target="_blank" rel="noreferrer noopener nofollow external">
               <span class="link__text">ссылка на сайт</span>
               <span class="link__icon">
-                <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                <svg class="link__arrow">
+                  <use xlink:href="/images/landings/contextual/sprite.svg#arrow-symbol"></use>
                 </svg>
               </span>
             </a>
           </li>
-
           <li class="reviews__slide swiper-slide">
             <div class="reviews__wrapper">
+              <div class="reviews__icon">
+                <picture>
+                  <source srcset="/images/landings/contextual/reviews/goszakaz.svg" type="image/webp">
+                  <img src="/images/landings/contextual/reviews/goszakaz.svg" alt="Иконка ГосЗаказ">
+                </picture>
+              </div>
               <div class="reviews__image">
                 <picture>
-                  <source srcset="/images/landings/ecommerce/reviews/photo.webp" type="image/webp">
-                  <img src="/images/landings/ecommerce/reviews/photo.jpg" alt="Фото представителя СЕО Броско Маркет" width="320" height="423">
+                  <source srcset="/images/landings/contextual/reviews/photo-1.webp" type="image/webp">
+                  <img src="/images/landings/contextual/reviews/photo-1.jpg" alt="Фото руководителя компании ГосЗаказ" width="320" height="423">
                 </picture>
-                <button class="reviews__btn btn btn--video" type="button">
-                  video
-                </button>
+                <a class="reviews__btn btn btn--video" href="https://www.instagram.com/p/COIAKYhgS8x/" target="_blank" rel="noreferrer noopener nofollow external">video</a>
               </div>
               <div class="reviews__info">
                 <div class="reviews__name">
-                  <span>Елена Петровна,</span>
-                  <span class="reviews__org">CEO <span>Броско Маркет</span></span>
+                  <span>Ольга, </span>
+                  <span class="reviews__org">Руководитель. Компания <span>“Госзаказ”</span></span>
                 </div>
                 <div class="reviews__text">
                   <p>
-                    На протяжении всей работы со студией создания веб-сайтов,
-                    команда разработчиков показала свою способность с полной
-                    ответственностью подходить к поставленным задачам, выполнять
-                    задачи качественно и в срок.
+                    Ольга, руководитель компании ГОСЗАКАЗ, рассказывает о нашей
+                    совместной работе и делится мыслями: о том, почему и для
+                    кого всё же нужно обновлять фирменный стиль компании как
+                    сайт стал полезным ресурсом, когда казалось, что он вовсе и
+                    не нужен об отзывах о новом сайте, которых и не ждали, а их
+                    так много, и они такие приятные!
                   </p>
                   <p>
-                    Высокий профессионализм и заинтересованность в выполняемой
-                    работе, является отличительной чертой сотрудников компании
-                    WEB ALTERNATIVE. Можно не сомневаться, что специалисты
-                    подробно объяснят, расскажут и предложат наилучший вариант
-                    из всех возможный.
-                  </p>
-                  <p>
-                    Сотрудники компании держат руку на пульсе и всегда в курсе
-                    новостей в области нововведений по разработке, дизайну и
-                    юзабилити. Рекомендуем ИП Важнину, как надежного и
-                    стабильного партнёра в разработке сайтов.
+                    Вы только послушайте! Может быть, и вы узнаете себя в словах
+                    Ольги!
                   </p>
                 </div>
                 <button class="reviews__btn-rest btn-rest" type="button" aria-label="Показать скрытый текст">
@@ -1076,54 +1069,56 @@
                 </button>
               </div>
             </div>
-            <a href="" class="
+            <a class="
                 reviews__link
                 link link--orange link--uppercase link--underline
-              ">
+              " href="https://www.goszakaz27.com" target="_blank" rel="noreferrer noopener nofollow external">
               <span class="link__text">ссылка на сайт</span>
               <span class="link__icon">
-                <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                <svg class="link__arrow">
+                  <use xlink:href="/images/landings/contextual/sprite.svg#arrow-symbol"></use>
                 </svg>
               </span>
             </a>
           </li>
-
           <li class="reviews__slide swiper-slide">
             <div class="reviews__wrapper">
+              <div class="reviews__icon">
+                <picture>
+                  <source srcset="/images/landings/contextual/reviews/dv.webp" type="image/webp">
+                  <img src="/images/landings/contextual/reviews/dv.png" alt="Иконка ДВ Камень">
+                </picture>
+              </div>
               <div class="reviews__image">
                 <picture>
-                  <source srcset="/images/landings/ecommerce/reviews/photo.webp" type="image/webp">
-                  <img src="/images/landings/ecommerce/reviews/photo.jpg" alt="Фото представителя СЕО Броско Маркет" width="320" height="423">
+                  <source srcset="/images/landings/contextual/reviews/photo-2.webp" type="image/webp">
+                  <img src="/images/landings/contextual/reviews/photo-2.jpg" alt="Фото тех. директора ДВ Камень" width="320" height="423">
                 </picture>
-                <button class="reviews__btn btn btn--video" type="button">
-                  video
-                </button>
+                <a class="reviews__btn btn btn--video" href="https://youtu.be/MUlSnvcIMJ4" target="_blank" rel="noreferrer noopener nofollow external">video</a>
               </div>
               <div class="reviews__info">
                 <div class="reviews__name">
-                  <span>Елена Петровна,</span>
-                  <span class="reviews__org">CEO <span>Броско Маркет</span></span>
+                  <span>Глеб, </span>
+                  <span class="reviews__org">технический директор <span>“ДВ Камень”</span></span>
                 </div>
                 <div class="reviews__text">
                   <p>
-                    На протяжении всей работы со студией создания веб-сайтов,
-                    команда разработчиков показала свою способность с полной
-                    ответственностью подходить к поставленным задачам, выполнять
-                    задачи качественно и в срок.
+                    Компания «ДВ Камень» занимается продажей щебня и бутового
+                    камня и раньше, чтобы объяснить заказчику, где находится их
+                    карьер приходилось выдумывать: «Проезжаешь поваленное
+                    дерево, за ним направо, 300 метров прямо и когда увидишь дым
+                    из трубы, значит ты на месте». Примерно так. :)
                   </p>
                   <p>
-                    Высокий профессионализм и заинтересованность в выполняемой
-                    работе, является отличительной чертой сотрудников компании
-                    WEB ALTERNATIVE. Можно не сомневаться, что специалисты
-                    подробно объяснят, расскажут и предложат наилучший вариант
-                    из всех возможный.
+                    Сейчас мы сделали на сайте кнопку «проложить маршрут», и
+                    маршрут прокладывается автоматически в Google-картах. Всё
+                    гениальное просто!
                   </p>
                   <p>
-                    Сотрудники компании держат руку на пульсе и всегда в курсе
-                    новостей в области нововведений по разработке, дизайну и
-                    юзабилити. Рекомендуем ИП Важнину, как надежного и
-                    стабильного партнёра в разработке сайтов.
+                    Знакомьтесь, это Супер-Глеб, технический директор компании
+                    «ДВ Камень»! Смотрите новое интервью у нас на канале, где
+                    Глеб делится своими впечатлениями о работе над проектом и о
+                    том, какой классный сайт у нас получился!
                   </p>
                 </div>
                 <button class="reviews__btn-rest btn-rest" type="button" aria-label="Показать скрытый текст">
@@ -1131,14 +1126,14 @@
                 </button>
               </div>
             </div>
-            <a href="" class="
+            <a class="
                 reviews__link
                 link link--orange link--uppercase link--underline
-              ">
+              " href="https://dvstone.ru" target="_blank" rel="noreferrer noopener nofollow external">
               <span class="link__text">ссылка на сайт</span>
               <span class="link__icon">
-                <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                <svg class="link__arrow">
+                  <use xlink:href="/images/landings/contextual/sprite.svg#arrow-symbol"></use>
                 </svg>
               </span>
             </a>
@@ -1149,7 +1144,7 @@
   </section>
 
   <section class="prices js-dark-block mx-$base-page-gap-negative">
-    <div class="prices__container container">
+    <div class="prices__container container-landing">
       <h2 class="prices__title title title--orange">цены и сроки</h2>
 
       <dl class="prices__list">
@@ -1167,7 +1162,6 @@
         <dd class="prices__param">
           <ul class="prices__names">
             <li class="prices__name">1с Битрикс</li>
-            <li class="prices__name">Тильда</li>
           </ul>
           <span class="prices__price">от <span>120</span> тыс. руб.</span>
           <span class="prices__time">от <span>15</span> рабочих дней.</span>
@@ -1216,7 +1210,7 @@
               <span class="link__text">заказать</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </button>
@@ -1232,7 +1226,7 @@
   </section>
 
   <section class="clients mx-$base-page-gap-negative">
-    <div class="clients__container container">
+    <div class="clients__container container-landing">
       <h2 class="sr-only">клиенты и партнёры</h2>
       <svg class="clients__title-img title-img">
         <use xlink:href="/images/landings/ecommerce/sprite.svg#title-clients"></use>
@@ -1296,7 +1290,7 @@
             </picture>
           </li>
 
-          <li class="clients__item">
+          <li class="clients__item filter saturate-0">
             <picture>
               <source srcset="/images/landings/ecommerce/clients/clients-9.webp" type="image/webp">
               <img src="/images/landings/ecommerce/clients/clients-9.png" alt="Intek DV">
@@ -1350,7 +1344,7 @@
   </section>
 
   <section class="founder js-dark-block mx-$base-page-gap-negative">
-    <div class="founder__container container">
+    <div class="founder__container container-landing">
       <div class="founder__image">
         <picture>
           <source srcset="/images/landings/ecommerce/founder.webp" type="image/webp">
@@ -1390,7 +1384,7 @@
                 <span class="link__text">instagram</span>
                 <span class="link__icon">
                   <svg class="link__arrow" width="12" height="12">
-                    <use xlink:href="#icon-arrow"></use>
+                    <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                   </svg>
                 </span>
               </a>
@@ -1400,7 +1394,7 @@
                 <span class="link__text">zen.yandex</span>
                 <span class="link__icon">
                   <svg class="link__arrow" width="12" height="12">
-                    <use xlink:href="#icon-arrow"></use>
+                    <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                   </svg>
                 </span>
               </a>
@@ -1410,7 +1404,7 @@
                 <span class="link__text">facebook</span>
                 <span class="link__icon">
                   <svg class="link__arrow" width="12" height="12">
-                    <use xlink:href="#icon-arrow"></use>
+                    <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                   </svg>
                 </span>
               </a>
@@ -1423,7 +1417,7 @@
   </section>
 
   <section class="applicants mx-$base-page-gap-negative">
-    <div class="applicants__container container">
+    <div class="applicants__container container-landing">
       <h2 class="applicants__title title-mini">
         Готовы поработать с нами? Давайте начнём <span>сейчас!</span>
       </h2>
@@ -1466,7 +1460,7 @@
               <span class="link__text">отправить</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </button>
@@ -1484,7 +1478,7 @@
               <span class="link__text">+7 (4212) 52-91-02</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="#icon-arrow"></use>
+                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
                 </svg>
               </span>
             </a>
@@ -1501,16 +1495,16 @@
 </main>
 
 <footer class="footer mx-$base-page-gap-negative">
-  <div class="footer__container container">
+  <div class="footer__container container-landing">
     <h2 class="footer__title title-mini">Другие услуги</h2>
 
     <ul class="footer__list">
       <li class="footer__item">
-        <a href="" class="footer__link link link--black">
-          <span class="link__text">Лендинг с маркетинг проработкой</span>
+        <a href="https://new.web-alt.ru/style" class="footer__link link link--black" rel="noreferrer noopener nofollow external" target="_blank">
+          <span class="link__text">Фирменный стиль</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
@@ -1521,7 +1515,7 @@
           <span class="link__text">Корпоративный сайт</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
@@ -1532,7 +1526,7 @@
           <span class="link__text">Контекстная реклама</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
@@ -1543,7 +1537,7 @@
           <span class="link__text">SMM продвижение</span>
           <span class="link__icon">
             <svg class="link__arrow" width="12" height="12">
-              <use xlink:href="#icon-arrow"></use>
+              <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
             </svg>
           </span>
         </a>
