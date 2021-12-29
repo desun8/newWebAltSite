@@ -16,11 +16,11 @@
             uppercase
           "
         >
-          Подпишитесь на нашу рассылку
+          Подпишитесь на рассылку
         </h2>
-        <span
-          class="text-size pr-9 text-sm font-light text-justify tracking-wide"
-          >Получи доступ к нашей видео базе знаний с семинаров!</span
+        <span class="text-size pr-9 text-sm text-justify tracking-wide"
+          >И получите доступ к видео-лекции для владельцев бизнеса, о маркетинге
+          и продвижении в сети.</span
         >
         <div class="grid grid-cols-fillAuto gap-2.5 items-start">
           <div class="form-field grid gap-2">
@@ -44,7 +44,7 @@
               name="email"
               :id="inputId"
               autocomplete="email"
-              placeholder="Сюда имейлик позязя"
+              placeholder="Email"
               required
             />
             <span

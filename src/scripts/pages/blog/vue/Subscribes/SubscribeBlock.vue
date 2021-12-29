@@ -12,13 +12,13 @@
           action="/subscribe"
           novalidate
         >
-          <h2 class="title-size font-semibold text-black">
-            Подпишись на нашу рассылку
+          <h2 class="title-size font-semibold text-white">
+            Подпишитесь на рассылку
           </h2>
-          <span class="text-size mb-6 font-light text-justify tracking-wide"
-            >Мы отправим доступ к нашим секретным
-            <span class="font-medium">“ЭДЮКЕЙШЕН” видео лекциям!</span></span
-          >
+          <span class="text-size mb-6 text-justify tracking-wide">
+            И получите доступ к видео-лекции для владельцев бизнеса, о
+            маркетинге и продвижении в сети.
+          </span>
           <div class="grid grid-cols-fillAuto gap-4 items-start pr-9">
             <div class="form-field grid gap-2">
               <label class="sr-only" for="subscribe-email-block"
@@ -43,7 +43,7 @@
                 name="email"
                 id="subscribe-email-block"
                 autocomplete="email"
-                placeholder="Сюда имейлик позязя"
+                placeholder="Email"
                 required
               />
               <span
