@@ -45,7 +45,7 @@
   transition-duration: 0.3s;
   transition-timing-function: ease-in;
 
-  .js-orange-block & {
+  .js-orange-block:not(#app-works-dialog) & {
     --hover-color: var(--c-dark-grey);
   }
 
