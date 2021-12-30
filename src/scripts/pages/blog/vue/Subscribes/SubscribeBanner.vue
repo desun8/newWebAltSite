@@ -156,7 +156,7 @@ export default {
 .text-size {
   // noinspection CssInvalidMediaFeature
   @media (--lg) {
-    @include font-size-new(16, 18);
+    @include font-size-new(14, 18);
   }
 }
 
