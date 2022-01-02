@@ -67,6 +67,11 @@
     transform: translate3d(#{vw(-372)}, var(--top, 0), 0);
   }
 
+  .page-header__open-hours {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
   &.page-header--short .menu-btn {
     transform: translate3d(#{vw(-82)}, var(--top, 0), 0);
   }
@@ -240,6 +245,27 @@
       height: auto;
       margin-right: em(6, 18);
     }
+  }
+}
+
+.page-header__open-hours {
+  grid-column: 9/11;
+  justify-self: end;
+  transform: translateY(calc(var(--top) + 1px));
+  transition: var(--trans-dur-fast) ease-out;
+  transition-property: transform, opacity;
+
+  @media (--lg-max) {
+    display: none;
+  }
+
+  @media (--xxl-max) {
+    margin-right: 50px;
+    white-space: nowrap;
+  }
+
+  @media (--xxxxl) {
+    margin-right: -50px;
   }
 }
 

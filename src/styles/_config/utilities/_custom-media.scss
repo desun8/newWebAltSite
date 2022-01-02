@@ -5,6 +5,7 @@
 @custom-media --lg-max (width < 64em); // 1024px
 @custom-media --xl-max (width < 80em); // 1280px
 @custom-media --xl (width >= 80em); // 1280px
+@custom-media --xxl-max (width < 90em); // 1440px
 @custom-media --xxl (width >= 90em); // 1440px
 @custom-media --xxl-only (width >= 90em) and (width < 96em); // 1440px
 @custom-media --xxxl (width >= 96em); // 1536px
