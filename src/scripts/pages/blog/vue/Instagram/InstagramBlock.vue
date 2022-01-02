@@ -56,6 +56,7 @@ import Instagram from "@/scripts/pages/blog/vue/Instagram/Instagram.vue";
 import SubscribeBanner from "@/scripts/pages/blog/vue/Subscribes/SubscribeBanner.vue";
 import SubscribeBlock from "@/scripts/pages/blog/vue/Subscribes/SubscribeBlock.vue";
 import APP from "@/scripts/app/APP";
+import { resizeObserver } from "@/scripts/utils/resizeObserver";
 
 export default defineComponent({
   name: "InstagramBlock",
@@ -92,6 +93,23 @@ export default defineComponent({
       let isVisibleSubscribeBlock = true;
       let isFooterHidden = true;
       let prevScrollPos = 0;
+      let instagramPos = 300;
+      let subscribePos = () => instagramPos - 50;
+
+      setTimeout(() => {
+        resizeObserver(document.documentElement, () => {
+          const wrapperHeight = wrapper.offsetHeight;
+          const screenHeight = window.screen.height;
+
+          if (screenHeight - wrapperHeight > 100) {
+            instagramPos = 300;
+          } else {
+            instagramPos = 450;
+          }
+
+          moveInstagram;
+        });
+      }, 100);
 
       const hideSubscribeBlock = () => {
         const duration = 0.4;
@@ -128,8 +146,12 @@ export default defineComponent({
             isShow = true;
           },
         })
-        .to(instagram, { y: `-=300`, duration: 0.6 })
-        .to(subscribeBanner, { y: -250, autoAlpha: 1, duration: 0.4 }, "-=0.4");
+        .to(instagram, { y: () => `-=${instagramPos}`, duration: 0.6 })
+        .to(
+          subscribeBanner,
+          { y: () => -subscribePos(), autoAlpha: 1, duration: 0.4 },
+          "-=0.4"
+        );
 
       observeFooterVisible();
 
