@@ -1,0 +1,52 @@
+.team-photo {
+}
+
+.team-photo__wrapper {
+  position: relative;
+  max-width: 95%;
+  margin: 0 auto;
+  transform: rotate(1.7deg);
+}
+
+.team-photo__wrapper::before,
+.team-photo__wrapper::after {
+  --size: 20px;
+  --pos: -6px;
+
+  content: "";
+  display: block;
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: url("/images/about/team-border.png") no-repeat center/contain;
+
+  @media (--md) {
+    --size: 40px;
+    --pos: -10px;
+  }
+
+  @media (--xl) {
+    --size: 96px;
+    --pos: -25px;
+  }
+}
+
+.team-photo__wrapper::before {
+  top: var(--pos);
+  left: var(--pos);
+}
+
+.team-photo__wrapper::after {
+  right: var(--pos);
+  bottom: var(--pos);
+}
+
+.team-photo__lightbox {
+  border-radius: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+}
+
+.team-photo__img {
+  width: 100%;
+}

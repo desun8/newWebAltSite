@@ -9,6 +9,7 @@ import { reviews } from "./pages/about/reviews";
 import { teamVideoAutoplay } from "./pages/about/teamVideoAutoplay";
 import { teamAnimations } from "./pages/about/teamAnimations";
 import { wysiwygReviewVideo } from "./components/wysiwygReviewVideo";
+import { lightboxInit } from "./components/lightbox";
 
 const isMdScreen = !window.matchMedia("(max-width: 47.99em)").matches;
 
@@ -45,6 +46,7 @@ founderAnimations();
 reviews();
 clientsAnimation();
 wysiwygReviewVideo();
+lightboxInit();
 
 // Анимация текста блока митапов
 (() => {

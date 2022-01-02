@@ -1,14 +1,18 @@
 .team {
   position: relative;
   z-index: 1;
-  margin-bottom: 250px;
+  margin-bottom: 100px;
 
   @media (--md) {
     margin-bottom: 350px;
   }
 
+  @media (--xl) {
+    margin-bottom: 200px;
+  }
+
   @media (--xxxl) {
-    margin-bottom: 505px;
+    margin-bottom: 260px;
   }
 }
 

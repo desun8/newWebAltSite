@@ -2,14 +2,14 @@
 
 .team-unnamed {
   position: relative;
-  margin-bottom: 105px;
+  margin-bottom: 190px;
 
   @media (--md) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     justify-items: start;
     align-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 230px;
   }
 
   @media (--lg) {
