@@ -171,9 +171,6 @@ export default defineComponent({
 
   watch: {
     activeFilter(prev, curr) {
-      console.log("filter change");
-      console.log(prev);
-      console.log(curr);
       this.currSize = this.initSize;
     },
   },

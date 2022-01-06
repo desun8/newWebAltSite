@@ -40,7 +40,6 @@ export default class Footer {
 
         this.showImage = !!isIntersecting;
         this.toggleImageVisible();
-        // console.log('this.showImage ->', this.showImage);
       });
     };
 

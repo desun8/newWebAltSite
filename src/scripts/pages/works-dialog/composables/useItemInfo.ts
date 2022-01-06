@@ -24,7 +24,6 @@ export default function useItemInfo() {
           alpha: 0,
           duration: 0.1,
           onComplete() {
-            console.log("text", text);
             itemInfo.value = {
               img,
               kind,

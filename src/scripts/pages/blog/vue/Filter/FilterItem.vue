@@ -47,7 +47,6 @@ export default {
     onChange(e) {
       const { currentTarget: ct } = e;
       if (ct.checked) {
-        console.log(ct.value, ct.checked);
         this.handleChange(ct.value);
       }
     },

@@ -75,8 +75,6 @@ export default {
       const { duration } = this;
       const delay = duration;
 
-      console.log(el.classList.contains("item-move"));
-
       gsap.from(el, {
         x: APP.isDesktop ? -100 : 0,
         y: APP.isDesktop ? 0 : 50,

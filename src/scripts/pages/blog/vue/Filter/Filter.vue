@@ -54,7 +54,6 @@ import SmoothScroll from "@/scripts/components/smoothScroll/SmoothScroll";
 import usePinFilter from "./usePinFilter";
 import usePinFilterMobile from "./usePinFilterMobile";
 import usePinFilterStatic from "./usePinFilterStatic";
-import { log } from "@/scripts/utils/log";
 
 export default defineComponent({
   name: "FilterElm",
@@ -127,7 +126,6 @@ export default defineComponent({
       let count = 0;
       const idInterval = setInterval(() => {
         if (count > 30) {
-          log("clear interval...", "warn");
           clearInterval(idInterval);
         }
 
@@ -146,17 +144,10 @@ export default defineComponent({
 
           document.addEventListener("pointerup", handleClickOutside);
         } else {
-          log("Запуск интервала закрепления фильтра");
-
           runInterval((id: NodeJS.Timeout) => {
-            console.log(
-              "🚀 ~ file: Filter.vue ~ line 154 ~ runInterval ~ contentElm.value",
-              contentElm.value
-            );
             if (contentElm.value) {
               clearInterval(id);
 
-              log("run filter pin mobile");
               scrollPinMobile();
               resizeObserver(contentElm.value as HTMLElement, () => {
                 ScrollTrigger.getById("filter-pin")?.refresh();

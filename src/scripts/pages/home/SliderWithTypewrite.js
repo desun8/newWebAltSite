@@ -35,7 +35,6 @@ export default class SliderWithTypewrite extends TimerSlider {
 
     this.intervalId = setInterval(() => {
       if (currInstance.isComplete) {
-        // console.log('is instance completed');
         clearInterval(this.intervalId);
         currInstance.isComplete = false;
         setTimeout(() => this.autoplay(), this.speed);
@@ -52,10 +51,8 @@ export default class SliderWithTypewrite extends TimerSlider {
         if (isIntersecting) {
           clearInterval(this.intervalId);
           this.autoplay();
-          // console.log('start slider');
         } else {
           clearInterval(this.intervalId);
-          // console.log('pause slider');
         }
       });
     };

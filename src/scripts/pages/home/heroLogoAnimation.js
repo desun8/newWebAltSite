@@ -50,12 +50,10 @@ class HeroLogoAnimation {
 
     {
       const { top, bottom, left, right } = this.wrapPos;
-      // console.log(this.wrapPos);
 
       isInside = x > left && x < right && y > top && y < bottom;
     }
 
-    console.log('is inside: ', isInside);
 
     if (this.isInside === isInside) return;
 

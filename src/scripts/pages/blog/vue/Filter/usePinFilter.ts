@@ -120,7 +120,6 @@ export default function usePinFilter(root: Ref, pinContainer: Ref) {
   };
 
   const handleClick = () => {
-    console.log("click btn");
     isActive.value = !isActive.value;
 
     if (isActive.value) {

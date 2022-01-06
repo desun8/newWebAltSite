@@ -10,8 +10,6 @@ class FilterRect {
   handleResize() {
     if (!this.ticking) {
       requestAnimationFrame(() => {
-        console.log('%c blogFilterTopPos.js -> resize event -> getBoundingClientRect()', 'padding: 0.5em; color: #fff; background: red; font-weight: bold;');
-
         this.rect = this.root.getBoundingClientRect();
         this.ticking = false;
       });

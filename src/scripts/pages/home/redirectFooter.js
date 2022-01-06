@@ -136,7 +136,6 @@ export default class RedirectFooter {
       entries.forEach((entry) => {
         const { intersectionRatio } = entry;
 
-        console.log(intersectionRatio);
 
         let progress =
           (intersectionRatio > 0.7

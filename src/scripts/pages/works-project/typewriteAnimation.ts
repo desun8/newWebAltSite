@@ -7,10 +7,6 @@ const split = (elm: HTMLElement) => {
 
 const getChars = (elm: HTMLElement) => {
   const children = Array.from(elm.children) as HTMLElement[];
-  console.log(
-    "🚀 ~ file: typewriteAnimation.ts ~ line 10 ~ getChars ~ children",
-    children
-  );
   const size = Math.floor(children.length * 0.3); // берем ~30% элементов (слова | пробелы)
   const elms = children.slice(-size);
 

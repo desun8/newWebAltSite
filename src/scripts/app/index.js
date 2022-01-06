@@ -9,19 +9,15 @@ class Index {
       ticking: false,
     };
 
-    // this.init();
   }
 
   resizeDesktop() {
-    console.log('resize desktop', 'color: red;');
   }
 
   resizeMobile() {
-    console.log('resize mobile');
   }
 
   update() {
-    console.log('update');
   }
 
   handleResize() {

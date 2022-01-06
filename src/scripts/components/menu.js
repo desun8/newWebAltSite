@@ -227,8 +227,7 @@ export default class Menu {
   }
 
   desktop() {
-    console.log("Menu - init desktop");
-    // this.initScrollbar();
+
   }
 
   mobile() {

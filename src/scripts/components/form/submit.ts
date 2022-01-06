@@ -24,13 +24,9 @@ export const submit = (formElm: HTMLFormElement) => {
 
   // TODO: можно удалить. Либо закомментировать и оставить для тестов
   const handleSuccess = (response: ResponseJson) => {
-    if (response.status.toLowerCase() === "ok") {
-      console.log("форма отправилась");
-    } else {
+    if (response.status.toLowerCase() !== "ok") {
       throw Error(response.message);
     }
-
-    console.log(response);
   };
 
   return new Promise(function (resolve, _) {

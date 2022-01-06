@@ -13,7 +13,6 @@ export const addMap = () => {
     script.src = url;
     script.onload = () => {
       initMap();
-      console.log("onload init");
     };
     document.head.appendChild(script);
   };

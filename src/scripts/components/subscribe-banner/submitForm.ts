@@ -62,8 +62,7 @@ export default (formElm: HTMLFormElement) => {
       isFetching = true;
 
       (async () => {
-        const a = await submit(formElm);
-        console.log(a);
+        await submit(formElm);
 
         showSuccessMessage();
       })();

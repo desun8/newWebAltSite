@@ -353,7 +353,6 @@ class CanvasSphere {
     this.renderer.setSize(this._width, this._height);
     this.camera.aspect = this._width / this._height;
     this.camera.updateProjectionMatrix();
-    console.log('- resize -');
   }
 
   createMesh() {

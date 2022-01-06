@@ -8,11 +8,6 @@ export default function useWorksCards(activeFilter: Ref) {
 
   const getWorksCards = async () => {
     const cards = await getWorksMain();
-    // TODO: remove
-    console.log(
-      "🚀 ~ file: useWorksCards.ts ~ line 11 ~ getWorksCards ~ cards",
-      cards
-    );
     await worksCards.value.push(...cards);
   };
 
