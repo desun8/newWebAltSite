@@ -1,0 +1,1 @@
+import{g as e}from"./vendor.js";const r=()=>{const r=document.querySelector(".prices-section--smm"),o=document.querySelector(".page-prices__img--smm");o&&r?e.to(o,{y:()=>"-="+.1*window.screen.height,scrollTrigger:{trigger:r,scrub:!0}}):console.warn("Ошибка инициализации параллакса для изображения в smm блоке. Проверьте наличие элементов.")};export{r as smmParallax};
