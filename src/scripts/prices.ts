@@ -9,7 +9,7 @@ const themeChange = new PricesChangeTheme();
 themeChange.init();
 
 if (APP.isDesktop) {
-  import("./pages/prices/smmParallax.ts").then(({ smmParallax }) => {
+  import("./pages/prices/smmParallax.js").then(({ smmParallax }) => {
     smmParallax();
   });
 } else {

@@ -1,6 +1,6 @@
 export const resizeObserver = (elm: Element, cb: () => void) => {
   const ro = new ResizeObserver((entries) => {
-    for (let entry of entries) {
+    for (let _entry of entries) {
       cb();
     }
   });
