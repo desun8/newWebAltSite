@@ -1,0 +1,99 @@
+@use "../_config/mixins/list.scss" as *;
+
+.context-section {
+  @media (--lg) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 30px;
+    justify-content: start;
+  }
+
+  @media (--xl) {
+    grid-template-columns: minmax(100px, 415px) minmax(760px, 1fr);
+  }
+
+  @media (--xxl) {
+    gap: 60px;
+  }
+
+  @media (--xxxl) {
+    gap: 165px;
+  }
+}
+
+.context-audit {
+  @media (--lg-max) {
+    padding: 32px 14px 46px;
+    background: rgba(0, 0, 0, 0.4) url("/images/prices/context-bg.svg")
+      no-repeat center/cover;
+    border: 1px dashed rgba(255, 80, 0, 0.5);
+  }
+
+  @media (--lg) {
+    width: fit-content;
+  }
+
+  @media (--xl) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.context-title {
+  margin-bottom: 30px;
+  color: var(--c-sun);
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (--xxl) {
+    font-size: 40px;
+  }
+}
+
+.context-card {
+  --gap-x: 24px;
+
+  padding: 40px var(--gap-x) 0;
+
+  @media (--xxl) {
+    --gap-x: 30px;
+
+    padding-top: 36px;
+  }
+}
+
+.context-card--small {
+  --gap-x: 60px;
+
+  padding-top: 50px;
+
+  @media (--xxl) {
+    --gap-x: 70px;
+  }
+}
+
+.context-card__title {
+  margin-bottom: 38px;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: var(--letter-spacing);
+}
+
+.context-card__title--lg {
+  color: var(--c-sun);
+  margin-bottom: 32px;
+  font-size: 28px;
+  text-transform: uppercase;
+  text-align: left;
+
+  @media (--xxl) {
+    margin-bottom: 58px;
+    font-size: 40px;
+  }
+}

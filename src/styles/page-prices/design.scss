@@ -1,0 +1,51 @@
+@use "../_config/mixins/list.scss" as *;
+
+.design-card {
+  --gap-x: 24px;
+
+  padding: 20px var(--gap-x) 0;
+
+  @media (--xl) {
+    --gap-x: 50px;
+
+    padding-top: 40px;
+  }
+
+  @media (--xxxxl) {
+    --gap-x: 70px;
+  }
+}
+
+.design-card__header {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 15px;
+
+  @media (--xl) {
+    margin-bottom: 18px;
+  }
+}
+
+.design-card__icon {
+  width: 75px;
+  height: 65px;
+
+  @media (--xxl) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.design-card__title {
+  color: var(--c-sun);
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+
+  @media (--xl) {
+    font-size: 24px;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,69 @@
+@use "../_config/functions/convert.scss" as *;
+
+.page-prices__img {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.3;
+  z-index: -1;
+
+  @media (--xl-max) {
+    display: none;
+  }
+}
+
+.page-prices__img--1 {
+  --pos-x: #{vw(100)};
+
+  top: 0;
+  right: calc((var(--pos-x) + var(--page-gap)) * -1);
+  width: vw(645);
+  height: vw(615);
+  background-image: url("/images/home/bg-dev.svg");
+}
+
+.page-prices__img--2 {
+  --pos-x: #{vw(132)};
+
+  top: vw(-50);
+  right: calc((var(--pos-x) + var(--page-gap)) * -1);
+  width: vw(664);
+  height: vw(684);
+  background-image: url("/images/home-bg-seo.svg");
+}
+
+.page-prices__img--3 {
+  --pos-x: #{vw(6)};
+
+  top: vw(-85);
+  right: calc((var(--pos-x) + var(--page-gap)) * -1);
+  width: vw(502);
+  height: vw(752);
+  background-image: url("/images/home-bg-design.svg");
+  opacity: 0.6;
+}
+
+.page-prices__img--smm {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  width: vw(2038);
+  height: vw(688);
+  background-image: url("/images/prices/smm-grid.png");
+  opacity: 0.2;
+}
+
+.page-prices__img--design {
+  bottom: -10%;
+  right: calc(var(--page-gap) * -1);
+  width: vw(824);
+  height: vw(520);
+  background-image: url("/images/prices/design-bg.png");
+  background-size: cover;
+  opacity: 1;
+
+  @media (--xxxl) {
+    bottom: 0;
+  }
+}

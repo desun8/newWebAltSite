@@ -70,6 +70,7 @@ export default {
         works: resolve(__dirname, "nested/works.html"),
         project: resolve(__dirname, "nested/project-page.html"),
         about: resolve(__dirname, "nested/about.html"),
+        prices: resolve(__dirname, "nested/prices.html"),
         404: resolve(__dirname, "nested/404.html"),
         landingEcommerce: resolve(__dirname, "nested/landing-ecommerce.html"),
         landingContextual: resolve(__dirname, "nested/landing-contextual.html"),
