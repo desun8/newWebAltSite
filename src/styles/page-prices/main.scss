@@ -189,10 +189,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  align-items: center;
 }
 
 .prices-card__price-item span:last-child {
   font-size: 14px;
+
+  @media (--lg) {
+    font-size: 18px;
+  }
 }
 
 .prices-card-list {
@@ -330,6 +335,10 @@
   transition-timing-function: ease-in;
 }
 
+.prices-card-btn__text:hover::after {
+  transform: scaleX(1);
+}
+
 .prices-card-btn__icon {
   --size: 52px;
   --gap: 85px;
@@ -397,10 +406,6 @@
 
 .theme-sun .prices-card:hover .prices-card-btn {
   --bg-color: #fff;
-}
-
-.prices-card:hover .prices-card-btn__text::after {
-  transform: scaleX(1);
 }
 
 .prices-card:hover .prices-card-btn__icon {
