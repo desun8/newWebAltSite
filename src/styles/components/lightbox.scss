@@ -26,3 +26,9 @@
     max-width: 1024px !important;
   }
 }
+
+body.lightbox-wide .basicLightbox .basicLightbox__placeholder > * {
+  @media (--xl) {
+    max-width: 80% !important;
+  }
+}
