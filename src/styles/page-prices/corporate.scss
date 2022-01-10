@@ -7,9 +7,10 @@
 
   @media (--xl) {
     --gap-x: 50px;
+    --gap-r: 30px;
 
     padding-top: 34px;
-    padding-right: 30px;
+    padding-right: var(--gap-r);
   }
 
   @media (--xxxxl) {

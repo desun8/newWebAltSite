@@ -34,6 +34,10 @@
   }
 }
 
+.prices-section__header--lg-mb-80 {
+  margin-bottom: 80px;
+}
+
 .prices-section__title {
   position: relative;
   font-size: 36px;
@@ -57,6 +61,10 @@
 
 .theme-dark:not(.theme-sun) .prices-section__title {
   color: #fff;
+}
+
+.theme-sun .prices-section__title {
+  color: var(--c-black);
 }
 
 .prices-section__title::before {
@@ -161,6 +169,10 @@
   line-height: 1;
   font-weight: 600;
 
+  @media (--xl) {
+    font-weight: 700;
+  }
+
   @media (--xxl) {
     margin-bottom: 64px;
     font-size: 24px;
@@ -219,7 +231,7 @@
   position: relative;
   padding-left: 36px;
   font-size: 14px;
-  line-height: 1.1;
+  line-height: 1.4;
   font-weight: 300;
   letter-spacing: var(--letter-spacing);
 
@@ -249,18 +261,19 @@
 
 .prices-card-list__item--no-include::before {
   background-image: url("/images/prices/cross.svg");
-  background-size: 8px;
+  background-size: 9px 8px;
   border-color: #bb6bd9;
 }
 
 .prices-card-btn {
   --bg-color: var(--c-red);
   --mx: var(--gap-x);
+  --px: 26px;
 
   position: relative;
   width: calc(100% + (var(--mx) * 2));
   margin: 0 calc(var(--mx) * -1);
-  padding: 42px 60px;
+  padding: 42px var(--px) 42px 60px;
   background-color: var(--bg-color);
   color: var(--c-black);
   font-size: 20px;
@@ -283,7 +296,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 50px 30px;
+    padding: 50px var(--px);
     line-height: 1.5;
     transform: none;
   }
@@ -292,8 +305,26 @@
     --bg-color: #fff;
   }
 
+  @media (--xl) {
+    --px: 40px;
+  }
+
   @media (--xxl) {
     font-size: 24px;
+  }
+}
+
+.corporate-card .prices-card-btn {
+  @media (--xl) {
+    width: calc(100% + (var(--mx) + var(--gap-r)));
+    margin-left: calc(var(--mx) * -1);
+    margin-right: calc(var(--gap-r) * -1);
+  }
+}
+
+.prices-card-btn--narrow {
+  @media (--xl) {
+    --px: 30px;
   }
 }
 
@@ -335,10 +366,6 @@
   transition-timing-function: ease-in;
 }
 
-.prices-card-btn__text:hover::after {
-  transform: scaleX(1);
-}
-
 .prices-card-btn__icon {
   --size: 52px;
   --gap: 85px;
@@ -364,15 +391,18 @@
   transition-timing-function: ease-in;
 
   @media (--lg) {
-    --size: 80px;
     --gap: 50px;
   }
 
   @media (--lg) and (hover: hover) {
-    --pos-x: var(--gap);
+    --pos-x: var(--px);
 
     justify-content: flex-start;
     background-color: var(--bg-color);
+  }
+
+  @media (--xl) {
+    --size: 80px;
   }
 }
 
@@ -409,10 +439,10 @@
 }
 
 .prices-card:hover .prices-card-btn__icon {
-  --pos-x: calc(100% - (var(--gap) + var(--size)));
+  --pos-x: calc(100% - (var(--px) + var(--size)));
 }
 
 .prices-card:hover .prices-card-btn__icon svg {
   opacity: 1;
-  fill: var(--c-dark-grey);
+  fill: currentColor;
 }
