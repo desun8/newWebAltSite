@@ -45,9 +45,11 @@ class StyleIOSFix {
 }
 
 class VideoElement {
+  type: "youtube" | "video";
   elm: VideoElm;
 
   constructor(mp4: VideoSrc, webm: VideoSrc, youtube: VideoSrc) {
+    this.type = youtube ? "youtube" : "video";
     this.elm = youtube
       ? this.createYoutube(youtube)
       : this.createVideo(mp4, webm);
@@ -218,9 +220,11 @@ class Dialog {
   dialog: A11yDialog;
   private dialogContent: Element;
   private video: VideoElm;
+  private videoInstance: VideoElement;
 
   constructor(mp4: VideoSrc, webm: VideoSrc, youtube: VideoSrc) {
-    this.video = new VideoElement(mp4, webm, youtube).elm;
+    this.videoInstance = new VideoElement(mp4, webm, youtube);
+    this.video = this.videoInstance.elm;
     this.elm = this.getTemplate(youtube || mp4 || "");
     this.dialogContent = this.elm.querySelector(".dialog-content-wrapper")!;
 
@@ -242,7 +246,12 @@ class Dialog {
     this.dialog.on("hide", () => {
       if (isVideoTag(this.video)) {
         (this.video as MyHTMLVideoElement).pause();
+      } else if (this.videoInstance.type === "youtube") {
+        // Останавливаем воспроизведения youtube видео
+        // путем изменения src ifram'а
+        this.video.src = this.video.src;
       }
+
       enableScroll(this.elm, APP.scrollbar);
     });
 
