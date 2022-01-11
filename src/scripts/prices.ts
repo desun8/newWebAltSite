@@ -2,11 +2,10 @@ import APP from "./app/APP";
 import initRoot from "./root";
 import "@/styles/prices.scss";
 import { mediaQueryEvent } from "./utils/mediaQueryEvent";
-import PricesChangeTheme from "./pages/prices/pricesChangeTheme";
+import { priceChangeTheme } from "./pages/prices/pricesChangeTheme";
 
 initRoot();
-const themeChange = new PricesChangeTheme();
-themeChange.init();
+priceChangeTheme();
 
 if (APP.isDesktop) {
   import("./pages/prices/smmParallax.js").then(({ smmParallax }) => {
