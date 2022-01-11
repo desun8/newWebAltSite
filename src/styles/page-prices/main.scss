@@ -35,7 +35,9 @@
 }
 
 .prices-section__header--lg-mb-80 {
-  margin-bottom: 80px;
+  @media (--xxl) {
+    margin-bottom: 80px;
+  }
 }
 
 .prices-section__title {
