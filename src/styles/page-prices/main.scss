@@ -81,6 +81,12 @@
   }
 }
 
+.theme-sun .prices-section__title::before {
+  @media (--lg-max) {
+    background-color: #fff;
+  }
+}
+
 .prices-section__link {
   @media (--xl) {
     font-size: 18px;
