@@ -315,9 +315,8 @@
       </svg>
     </div>
 
-    <span class="tracking-wide">Подпишитесь на нашу рассылку и получите в первом письме доступ к
-      видео-лекции для владельцев бизнеса, о маркетинге и продвижении в
-      сети.</span>
+    <span>Подпишитесь на рассылку и получите доступ к видео-лекции для владельцев
+      бизнеса, о маркетинге и продвижении в сети.</span>
 
     <form class="grid gap-5 w-64 justify-self-end" action="/subscribe" novalidate="">
       <div class="relative grid grid-cols-fillAuto gap-2.5 items-start">
@@ -327,14 +326,13 @@
               subscribe-banner-block__input
               pb-2.5
               text-sm
-              font-light
               tracking-wide
               bg-transparent
               border-b border-black
               placeholder-black
               focus:outline-none
               transition-colors
-            " type="email" name="email" id="subscribe-banner-email" autocomplete="email" placeholder="Ваш email" required="">
+            " type="email" name="email" id="subscribe-banner-email" autocomplete="email" placeholder="Email" required="">
           <span class="
               form-field__error
               absolute
@@ -849,7 +847,7 @@
 
   <section class="team-photo">
     <div class="team-photo__wrapper">
-      <a href="/images/about/team-photo.jpg" class="team-photo__lightbox js-lightbox" aria-label="Увеличить изображение.">
+      <a href="/images/about/team-photo.jpg" class="team-photo__lightbox js-lightbox js-lightbox--wide" aria-label="Увеличить изображение.">
         <img class="team-photo__img" alt="" srcset="
             /images/about/team-photo.jpg    320w,
             /images/about/team-photo-md.jpg 600w,
@@ -1549,7 +1547,13 @@
             <img class="review-item__logo" src="/images/about/__dev-client-6.png" alt="" role="presentation">
 
             <div class="review-item__img-container">
-              <img class="review-item__img" src="https://media.istockphoto.com/photos/financial-analyst-using-spreadsheet-software-picture-id1252944802?b=1&k=20&m=1252944802&s=170667a&w=0&h=whFE43wki_ZcvLXvZxFizgQzFl7TONfwGuTohE0MjiI=" alt="Описание изображения." width="509" height="339">
+              <!-- <img
+                class="review-item__img"
+                src="https://media.istockphoto.com/photos/financial-analyst-using-spreadsheet-software-picture-id1252944802?b=1&k=20&m=1252944802&s=170667a&w=0&h=whFE43wki_ZcvLXvZxFizgQzFl7TONfwGuTohE0MjiI="
+                alt="Описание изображения."
+                width="auto"
+                height="auto"
+              /> -->
             </div>
 
             <button class="review-item__video btn-play" type="button" aria-label="Открыть и воспроизвести видео." data-mp4="/video/video.mp4" data-webm="/video/video.webm">

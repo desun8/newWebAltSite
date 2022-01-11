@@ -14,7 +14,6 @@
   <script type="module" crossorigin="" src="/assets/main.js"></script>
   <link rel="modulepreload" href="/assets/root.js">
   <link rel="modulepreload" href="/assets/vendor.js">
-  <link rel="modulepreload" href="/assets/changeTheme.js">
   <link rel="modulepreload" href="/assets/redirectFooter.js">
   <link rel="stylesheet" href="/assets/root.css">
   <link rel="stylesheet" href="/assets/main.css">
@@ -307,9 +306,8 @@
       </svg>
     </div>
 
-    <span class="tracking-wide">Подпишитесь на нашу рассылку и получите в первом письме доступ к
-      видео-лекции для владельцев бизнеса, о маркетинге и продвижении в
-      сети.</span>
+    <span>Подпишитесь на рассылку и получите доступ к видео-лекции для владельцев
+      бизнеса, о маркетинге и продвижении в сети.</span>
 
     <form class="grid gap-5 w-64 justify-self-end" action="/subscribe" novalidate="">
       <div class="relative grid grid-cols-fillAuto gap-2.5 items-start">
@@ -319,14 +317,13 @@
               subscribe-banner-block__input
               pb-2.5
               text-sm
-              font-light
               tracking-wide
               bg-transparent
               border-b border-black
               placeholder-black
               focus:outline-none
               transition-colors
-            " type="email" name="email" id="subscribe-banner-email" autocomplete="email" placeholder="Ваш email" required="">
+            " type="email" name="email" id="subscribe-banner-email" autocomplete="email" placeholder="Email" required="">
           <span class="
               form-field__error
               absolute
