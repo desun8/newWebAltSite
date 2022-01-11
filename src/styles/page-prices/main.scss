@@ -227,6 +227,12 @@
   }
 }
 
+.context-card .prices-card-list {
+  @media (--xxl) {
+    margin-right: -10px;
+  }
+}
+
 .prices-card-list__item {
   position: relative;
   padding-left: 36px;
@@ -245,6 +251,12 @@
 
   @media (--xxl) {
     margin-bottom: 32px;
+  }
+}
+
+.context-card .prices-card-list__item:not(:last-child) {
+  @media (--xxl) {
+    margin-bottom: 28px;
   }
 }
 
