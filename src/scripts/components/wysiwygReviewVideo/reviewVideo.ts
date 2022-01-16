@@ -275,8 +275,9 @@ class Dialog {
       <div class="dialog-content  relative w-4/5 mx-auto grid place-items-center" role="document">
         <!-- 5. The dialog title -->
         <h1 id="video-dialog-title" class="sr-only">Диалог просмотра видео отзыва.</h1>
+        <button class="absolute -top-12 right-0 w-7 h-7 md:hidden" type="button" data-a11y-dialog-hide aria-label="Закрыть видео."><svg fill="none" viewBox="0 0 28 28" aria-hidden="true"><path fill="#fff" d="M27.965 3.217 24.748 0 0 24.747l3.214 3.218 24.75-24.748Z"/><path fill="#fff" d="m24.748 27.966 3.217-3.217L3.218.002 0 3.216l24.748 24.75Z"/></svg></button
         <!-- 6. Dialog content -->
-        <div class="dialog-content-wrapper" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden;"></div>
+        <div class="dialog-content-wrapper h-65vh md:h-0 md:pb-[56.25%]" style="position: relative; width: 100%; overflow: hidden;"></div>
   </div>
 `;
 
@@ -308,12 +309,13 @@ export const reviewVideo = (btn: HTMLButtonElement) => {
   };
 
   let isDesktop = APP.isDesktop;
+  const isVideoYoutube = !!videoSrc.youtube;
 
   let fullscreen: Fullscreen | undefined;
   let dialog: Dialog | undefined;
 
   btn.addEventListener("click", () => {
-    if (isDesktop) {
+    if (isDesktop || isVideoYoutube) {
       if (!dialog) {
         dialog = new Dialog(videoSrc.mp4, videoSrc.webm, videoSrc.youtube);
       }
