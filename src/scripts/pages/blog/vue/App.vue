@@ -11,19 +11,19 @@
     />
   </div>
 
-  <InstagramBlock />
+  <MarketingBlock />
 </template>
 
 <script>
 import FilterElm from "./Filter/Filter.vue";
 import ArticlesBlock from "./ArticlesBlock/ArticlesBlock.vue";
-import InstagramBlock from "@/scripts/pages/blog/vue/Instagram/InstagramBlock.vue";
+import MarketingBlock from "./MarketingCrisis/MarketingBlock.vue";
 
 export default {
   components: {
-    InstagramBlock,
     FilterElm,
     ArticlesBlock,
+    MarketingBlock,
   },
   data() {
     return {

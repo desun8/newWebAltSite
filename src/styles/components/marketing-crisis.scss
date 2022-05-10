@@ -103,7 +103,7 @@
 }
 
 .webp .marketing-crisis__header::before {
-  background-image: url("/images/components/marketing-crisis-vazhnina.png");
+  background-image: url("/images/components/marketing-crisis-vazhnina.webp");
 
   @media (--lg) {
     background-image: url("/images/about/recruit-bg-lg.webp");
@@ -118,6 +118,10 @@
   line-height: 0.7;
   font-weight: 700;
   text-transform: uppercase;
+
+  @media (--mobile-sm) {
+    font-size: 36px;
+  }
 
   @media (--lg-max) {
     background-color: var(--c-black);
