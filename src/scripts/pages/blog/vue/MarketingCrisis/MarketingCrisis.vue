@@ -32,8 +32,10 @@
         <div class="marketing-crisis-dl__item">
           <dt class="marketing-crisis-dl__title">
             <a
-              href="#"
+              href="https://t.me/svazhnina_o_vazhnom"
               class="link link--uppercase link--orange link--semibold"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span class="link__text">svetlanavazhnina</span>
               <span class="link__icon">
@@ -51,8 +53,10 @@
         <div class="marketing-crisis-dl__item">
           <dt class="marketing-crisis-dl__title">
             <a
-              href="#"
+              href="https://t.me/web_alternative"
               class="link link--uppercase link--orange link--semibold"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span class="link__text">web_alternative</span>
               <span class="link__icon">
