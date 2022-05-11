@@ -124,7 +124,7 @@ export default {
 }
 
 .marketing-crisis__header {
-  --left-gap: #{vw(20)};
+  --left-gap: #{vw(15)};
 
   position: relative;
   margin-bottom: min(#{vh(25)}, 25px);
@@ -148,6 +148,7 @@ export default {
   position: relative;
   display: inline;
   color: #fff;
+  padding: 10px 20px 5px 0;
   margin-bottom: em(20, 96);
   font-weight: 700;
   text-transform: uppercase;
