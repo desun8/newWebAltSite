@@ -35,8 +35,9 @@
               <span class="link__text">svetlanavazhnina</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
-                </svg> </span
+                  <use
+                    xlink:href="/images/sprite.symbol.svg#icon-arrow"
+                  ></use></svg></span
             ></a>
           </dt>
           <dd class="marketing-crisis-dl__desc">
@@ -56,8 +57,9 @@
               <span class="link__text">web_alternative</span>
               <span class="link__icon">
                 <svg class="link__arrow" width="12" height="12">
-                  <use xlink:href="/images/sprite.symbol.svg#icon-arrow"></use>
-                </svg> </span
+                  <use
+                    :xlink:href="'/images/sprite.symbol.svg#icon-arrow'"
+                  ></use></svg></span
             ></a>
           </dt>
           <dd class="marketing-crisis-dl__desc">
