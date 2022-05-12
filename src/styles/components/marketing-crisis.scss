@@ -166,31 +166,22 @@
   @media (--lg) {
     @include font-size-new(48, 45);
 
-    position: relative;
-    display: inline;
-    padding: 10px 20px 5px 0;
+    line-height: 1.3;
+    max-width: em(700, 48);
+    margin: 20px 0;
+  }
+}
+
+.marketing-crisis__subtitle span {
+  @media (--lg) {
+    background-color: var(--c-black);
     color: #fff;
-    background-color: var(--c-black);
-  }
-}
+    display: inline;
+    padding: em(8, 48) em(20, 48);
 
-.marketing-crisis__subtitle > span {
-  @media (--lg) {
-    padding: 10px 20px 5px 0;
-  }
-}
-
-.marketing-crisis__subtitle::before {
-  @media (--lg) {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -20px;
-    display: block;
-    width: 20px;
-    height: 100%;
-    background-color: var(--c-black);
-    z-index: -1;
+    /* Needs prefixing */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 }
 

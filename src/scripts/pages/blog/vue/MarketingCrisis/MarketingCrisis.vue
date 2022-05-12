@@ -9,8 +9,9 @@
     <div class="marketing-crisis__content">
       <div class="marketing-crisis__header">
         <h2 class="marketing-crisis__title" data-text="Маркетинг в кризис">
-          <span class="relative z-1">Маркетинг</span><br />
-          <span class="text-sun">в кризис</span>
+          <span class="marketing-crisis__title-wrap"
+            >Маркетинг <span class="text-sun">в кризис</span></span
+          >
         </h2>
         <p class="marketing-crisis__subtitle">
           как развивать бизнес под санкциями
@@ -87,8 +88,6 @@ export default {
 @use "@/styles/_config/mixins/grid" as *;
 @use "@/styles/_config/functions/convert.scss" as *;
 
-// @use "@/styles/components/marketing-crisis.scss";
-
 .marketing-crisis {
   @include grid(5);
 
@@ -145,34 +144,28 @@ export default {
 .marketing-crisis__title {
   @include font-size-new(48, 36);
 
-  position: relative;
-  display: inline;
-  color: #fff;
-  padding: 10px 20px 5px 0;
+  max-width: em(350, 48);
+  margin: 20px 0;
   margin-bottom: em(20, 96);
+  margin-left: calc(var(--left-gap) * -1);
   font-weight: 700;
   text-transform: uppercase;
-  background-color: var(--c-black);
+  line-height: 1.2 !important;
 
   @media (--xxxl) {
     @include font-size-new(64, 52);
   }
 }
 
-.marketing-crisis__title > span {
-  padding-right: 10px;
-}
-
-.marketing-crisis__title::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: calc(var(--left-gap) * -1);
-  display: block;
-  width: var(--page-gap);
-  height: 100%;
+.marketing-crisis__title-wrap {
   background-color: var(--c-black);
-  z-index: -1;
+  color: #fff;
+  display: inline;
+  padding: em(7, 64) em(15, 64);
+
+  /* Needs prefixing */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .marketing-crisis__subtitle {
@@ -240,7 +233,7 @@ $duration: 4s;
 }
 
 .marketing-crisis-dl__item {
-  padding: min(#{vh(26)}, 26px) vw(20);
+  padding: min(#{vh(20)}, 20px) vw(20);
   border: 1px solid #dfdddf;
 }
 
@@ -252,8 +245,8 @@ $duration: 4s;
   @include font-size-new(20);
 
   position: relative;
-  margin-bottom: min(#{vh(28)}, 28px);
-  padding-bottom: min(#{vh(28)}, 28px);
+  margin-bottom: min(#{vh(20)}, 20px);
+  padding-bottom: min(#{vh(20)}, 20px);
 
   @media (--xxxl) {
     @include font-size-new(24);
@@ -272,7 +265,7 @@ $duration: 4s;
 }
 
 .marketing-crisis-dl__desc {
-  @include font-size-new(14, 24);
+  @include font-size-new(14, 22);
   text-align: justify;
   text-transform: uppercase;
 
